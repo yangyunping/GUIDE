@@ -22,40 +22,48 @@ namespace UI
         }
         private void DgvColumns()
         {
-            if (_OperateType.Equals("区域"))
+            switch (_OperateType)
             {
-                dgvContent.Columns.AddRange(
-                new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 60 },
-                new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 }
-                );
-            }
-            else if (_OperateType.Equals("配置"))
-            {
-                dgvContent.Columns.AddRange(
+                case "区域":
+                    dgvContent.Columns.AddRange(
+               new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 60 },
+               new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 }
+               );
+                    break;
+                case "配置":
+                    dgvContent.Columns.AddRange(
                 new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 120 },
                 new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组", DataPropertyName = @"ConfigNum", Width = 90 }
               );
-                btnAddShow.Visible = true;
+                    btnAddShow.Visible = true;
+                    break;
+                case "显示":
+                    dgvContent.Columns.AddRange(
+             new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
+             new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 110 },
+             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 110 }
+              );
+                    btnAdd.Visible = false;
+                    break;
             }
-            else if (_OperateType.Equals("显示"))
-            {
-                dgvContent.Columns.AddRange(
-               new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
-               new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
-               new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 100 },
-               new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
-               new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
-               new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 110 },
-               new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 110 }
-                );
-                btnAdd.Visible = false;
-            }
-
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
+                switch (_OperateType)
+                {
+                    case "区域":
+                        break;
+                    case "配置":
+                        break;
+                    case "显示":
+                        break;
+                }
                 if (_OperateType.Equals("区域"))
                 {
                     DataTable dtArea = bllAreaInfo.GetAreaInfo(txtKey.Text);
@@ -87,41 +95,41 @@ namespace UI
             {
                 if (dgvContent.CurrentRow != null)
                 {
-                    if (_OperateType.Equals("区域"))
+                    switch (_OperateType)
                     {
-                        if (bllAreaInfo.DeleteArea(dgvContent.CurrentRow.Cells["AreaName"].Value.ToString()))
-                        {
-                            MessageBox.Show("删除成功！");
-                            dgvContent.Rows.Remove(dgvContent.CurrentRow);
-                        }
-                        else
-                        {
-                            MessageBox.Show("删除失败！");
-                        }
-                    }
-                    else if (_OperateType.Equals("配置"))
-                    {
-                        if (BlllConfiguration.DeleteConfig(dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString()))
-                        {
-                            MessageBox.Show("删除成功！");
-                            dgvContent.Rows.Remove(dgvContent.CurrentRow);
-                        }
-                        else
-                        {
-                            MessageBox.Show("删除失败！");
-                        }
-                    }
-                    else if (_OperateType.Equals("显示"))
-                    {
-                        if (bllShowInfo.DeleteShow(dgvContent.CurrentRow.Cells["Id"].Value.ToString()))
-                        {
-                            MessageBox.Show("删除成功！");
-                            dgvContent.Rows.Remove(dgvContent.CurrentRow);
-                        }
-                        else
-                        {
-                            MessageBox.Show("删除失败！");
-                        }
+                        case "区域":
+                            if (bllAreaInfo.DeleteArea(dgvContent.CurrentRow.Cells["AreaName"].Value.ToString()))
+                            {
+                                MessageBox.Show("删除成功！");
+                                dgvContent.Rows.Remove(dgvContent.CurrentRow);
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败！");
+                            }
+                            break;
+                        case "配置":
+                            if (BlllConfiguration.DeleteConfig(dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString()))
+                            {
+                                MessageBox.Show("删除成功！");
+                                dgvContent.Rows.Remove(dgvContent.CurrentRow);
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败！");
+                            }
+                            break;
+                        case "显示":
+                            if (bllShowInfo.DeleteShow(dgvContent.CurrentRow.Cells["Id"].Value.ToString()))
+                            {
+                                MessageBox.Show("删除成功！");
+                                dgvContent.Rows.Remove(dgvContent.CurrentRow);
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败！");
+                            }
+                            break;
                     }
                 }
             }
