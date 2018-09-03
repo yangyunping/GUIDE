@@ -16,6 +16,10 @@ namespace MODEL
         /// </summary>
         public string ConfigName { set; get; }
         /// <summary>
+        /// 状态
+        /// </summary>
+        public int State{ set; get; }
+        /// <summary>
         /// 区域名
         /// </summary>
         public string AreaName { set; get; }

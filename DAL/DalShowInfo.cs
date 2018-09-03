@@ -13,10 +13,10 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetShowInfo(string key)
         {
-            string sSql = $@"Select case ByOrder when 0 then '正序' when 1 then '倒序' end as ByOrders, * from  View_Config  where 1=1 ";
+            string sSql = $@"Select case ByOrder when 0 then '正序' when 1 then '倒序' end as ByOrders,case State when 0 then '等待' when 1 then '进行中' when 2 then '结束' end as States, * from  View_Config  where 1=1 ";
             if (!string.IsNullOrEmpty(key))
             {
-                sSql += $@"  and AreaName like '%{key}%'";
+                sSql += $@"  {key}";
             }
             return server.ExecuteQuery(sSql).Tables[0];
         }
@@ -48,6 +48,17 @@ BEGIN
 Update ShowInfo set ConfigName = '{showInfo.ConfigName}',AreaName = '{showInfo.AreaName}',BeginTime = '{showInfo.BeginTime}',EndTime = '{showInfo.EndTime}',ByOrder= '{showInfo.ByOrder}' where Id = '{showInfo.ID}'
 END
 ";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
+        /// <summary>
+        /// 删除临时设置显示数据
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool UpdateShowState(string id)
+        {
+            string sSql = $@"
+  Update ShowInfo  set state = 1  where Id = '{id}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
     }

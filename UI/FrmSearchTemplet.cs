@@ -40,8 +40,9 @@ namespace UI
                 case "显示":
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
-             new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
              new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"States", HeaderText = @"状态", DataPropertyName = @"States", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
              new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 110 },
@@ -58,29 +59,20 @@ namespace UI
                 switch (_OperateType)
                 {
                     case "区域":
+                        DataTable dtArea = bllAreaInfo.GetAreaInfo(txtKey.Text);
+                        dgvContent.AutoGenerateColumns = false;
+                        dgvContent.DataSource = dtArea;
                         break;
                     case "配置":
+                        DataTable dtConfig = BlllConfiguration.GetConfigInfo(txtKey.Text);
+                        dgvContent.AutoGenerateColumns = false;
+                        dgvContent.DataSource = dtConfig;
                         break;
                     case "显示":
+                        DataTable dtShow = bllShowInfo.GetShowInfo(txtKey.Text.Trim());
+                        dgvContent.AutoGenerateColumns = false;
+                        dgvContent.DataSource = dtShow;
                         break;
-                }
-                if (_OperateType.Equals("区域"))
-                {
-                    DataTable dtArea = bllAreaInfo.GetAreaInfo(txtKey.Text);
-                    dgvContent.AutoGenerateColumns = false;
-                    dgvContent.DataSource = dtArea;
-                }
-                else if (_OperateType.Equals("配置"))
-                {
-                    DataTable dtConfig = BlllConfiguration.GetConfigInfo(txtKey.Text);
-                    dgvContent.AutoGenerateColumns = false;
-                    dgvContent.DataSource = dtConfig;
-                }
-                else if (_OperateType.Equals("显示"))
-                {
-                    DataTable dtShow = bllShowInfo.GetShowInfo(txtKey.Text.Trim());
-                    dgvContent.AutoGenerateColumns = false;
-                    dgvContent.DataSource = dtShow;
                 }
             }
             catch (Exception ex)

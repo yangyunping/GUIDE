@@ -38,5 +38,11 @@ namespace UI
             FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("配置") { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmShowSearch);
         }
+
+        private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmShow frmShow = new FrmShow();
+            frmShow.ShowDialog();
+        }
     }
 }
