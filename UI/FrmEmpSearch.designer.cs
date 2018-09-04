@@ -64,10 +64,10 @@
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnDelete.Location = new System.Drawing.Point(483, 21);
+            this.btnDelete.Location = new System.Drawing.Point(489, 17);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(79, 31);
+            this.btnDelete.Size = new System.Drawing.Size(79, 41);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "删除员工";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -77,10 +77,10 @@
             // 
             this.btnChange.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnChange.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnChange.Location = new System.Drawing.Point(401, 21);
+            this.btnChange.Location = new System.Drawing.Point(407, 17);
             this.btnChange.Margin = new System.Windows.Forms.Padding(0);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(72, 31);
+            this.btnChange.Size = new System.Drawing.Size(72, 41);
             this.btnChange.TabIndex = 4;
             this.btnChange.Text = "修改员工";
             this.btnChange.UseVisualStyleBackColor = false;
@@ -90,10 +90,10 @@
             // 
             this.btnCreate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnCreate.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnCreate.Location = new System.Drawing.Point(317, 21);
+            this.btnCreate.Location = new System.Drawing.Point(323, 17);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(0);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 31);
+            this.btnCreate.Size = new System.Drawing.Size(75, 41);
             this.btnCreate.TabIndex = 3;
             this.btnCreate.Text = "创建员工";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -103,10 +103,10 @@
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnSearch.Location = new System.Drawing.Point(235, 21);
+            this.btnSearch.Location = new System.Drawing.Point(241, 17);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(73, 31);
+            this.btnSearch.Size = new System.Drawing.Size(73, 41);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "查  询";
             this.btnSearch.UseVisualStyleBackColor = false;

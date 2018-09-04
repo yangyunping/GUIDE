@@ -3,48 +3,48 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using BLL;
+using MODEL;
 
 namespace UI
 {
     public partial class FrmEmployee : Form
     {
-        private readonly string EmpId;
-        public FrmEmployee(string empId)
+        BllEmployee bllEmployee = new BllEmployee();
+        BllEmpPowers bllEmpPowers = new BllEmpPowers();
+        BllConfig bllConfig = new BllConfig();
+        private readonly Employee _employee;
+        public FrmEmployee(Employee employee)
         {
             InitializeComponent();
-            EmpId = empId;
+            _employee = employee;
             IniteData();
         }
 
         private void IniteData()
         {
-            DataTable dtPower = null;// BllConfig.GetConfigInfo(Config.ConfigStyle.用户权限.ToString()).Tables[0];
+            DataTable dtPower = bllConfig.GetConfigInfo(bllConfig.GetConfigInfo(CommonInfo.Types.权限.ToString(), 0).Rows[0]["ConfigNO"].ToString(),1);
             for (int i = 0; i < dtPower.Rows.Count; i++)
             {
-                twPower.Nodes.Add(dtPower.Rows[i]["SignID"].ToString(), dtPower.Rows[i]["Name"].ToString());
+                twPower.Nodes.Add(dtPower.Rows[i]["ConfigNO"].ToString(), dtPower.Rows[i]["ConfigValue"].ToString());
             }
             dtPower.Dispose();
 
-
-            //DataTable dtTable = null;//  ErpServer.GetEmployeeInfo($@"and DocID ='{EmpId}'").Tables[0];
-            //if (dtTable.Rows.Count > 0)
-            //{
-            //    cmbDuty.SelectedValue = dtTable.Rows[0]["DocDutyID"].ToString();
-            //    txtID.Text = dtTable.Rows[0]["DocID"].ToString();
-            //    txtName.Text = dtTable.Rows[0]["DocName"].ToString();
-            //    txtPassword.Text = dtTable.Rows[0]["DocPassword"].ToString();
-            //    txtPhoneNum.Text = dtTable.Rows[0]["DocTel"].ToString();
-            //    cmbGender.Text = dtTable.Rows[0]["DocSex"].ToString();
-            //    txtAge.Text = dtTable.Rows[0]["DocAge"].ToString();
-            //}
-            //dtTable.Dispose();
-
-            DataRow[] dtEmpPower = null;// ErpServer.GetEmpPower(EmpId).Tables[0].Select();
-            foreach (DataRow t in dtEmpPower)
+            if (_employee != null)
+            {
+                txtID.Text = _employee.EmployeeNo;
+                txtID.ReadOnly = true;
+                txtName.Text = _employee.EmployeeName;
+                txtPhoneNum.Text = _employee.MoblePhone;
+                cmbGender.Text = _employee.Gender;
+                txtAge.Text = _employee.Age;
+            }
+            DataTable dtEmpPower = bllEmpPowers.GetEmpPowers(CurrentInfo.currentEmp.EmployeeNo);
+            foreach (DataRow t in dtEmpPower.Rows)
             {
                 foreach (TreeNode treeNode in twPower.Nodes)
                 {
-                    if (treeNode.Name == t["PowerID"].ToString())
+                    if (treeNode.Name == t["PowerName"].ToString())
                     {
                         treeNode.Checked = true;
                     }

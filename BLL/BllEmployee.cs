@@ -17,10 +17,13 @@ namespace BLL
             switch (type)
             {
                 case 0:
-                    sSql = $@"  and  EmployeeName = '{sKey}'";
+                    sSql = $@"  and  EmployeeNo = '{sKey}'";
                     break;
                 case 1:
-                    sSql = $@"  and  EmployeeName like '%{sKey}%'";
+                    if (!string.IsNullOrEmpty(sKey))
+                    {
+                        sSql = $@"  and  (EmployeeName like '{sKey}%' or  EmployeeNo like '{sKey}%')";
+                    }
                     break;
             }
             return DalEmployee.GetEmployeeInfo(sSql);

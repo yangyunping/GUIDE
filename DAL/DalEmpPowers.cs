@@ -13,7 +13,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetEmpPowers(string sKey)
         {
-            string sSql = $@"Select * from EmpPowers where 1=1  {sKey}";
+            string sSql = $@"Select * from View_EmpPowers where 1=1  {sKey}";
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>

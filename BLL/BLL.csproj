@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BllConfig.cs" />
     <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEmpPowers.cs" />
     <Compile Include="BlllConfiguration.cs" />

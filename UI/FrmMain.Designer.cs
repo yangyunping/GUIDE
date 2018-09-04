@@ -39,7 +39,7 @@
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbBegin = new System.Windows.Forms.ToolStripButton();
-            this.tsbSystem = new System.Windows.Forms.ToolStripButton();
+            this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.pnlShow = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
             this.tsbBegin,
-            this.tsbSystem,
+            this.tsbEmployee,
             this.tsbConfig,
             this.tsbClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -142,13 +142,14 @@
             this.tsbBegin.Text = "启动";
             this.tsbBegin.Click += new System.EventHandler(this.tsbBegin_Click);
             // 
-            // tsbSystem
+            // tsbEmployee
             // 
-            this.tsbSystem.Image = global::UI.Properties.Resources.Users;
-            this.tsbSystem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSystem.Name = "tsbSystem";
-            this.tsbSystem.Size = new System.Drawing.Size(108, 39);
-            this.tsbSystem.Text = "员工管理";
+            this.tsbEmployee.Image = global::UI.Properties.Resources.Users;
+            this.tsbEmployee.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEmployee.Name = "tsbEmployee";
+            this.tsbEmployee.Size = new System.Drawing.Size(108, 39);
+            this.tsbEmployee.Text = "员工管理";
+            this.tsbEmployee.Click += new System.EventHandler(this.tsbEmployee_Click);
             // 
             // tsbConfig
             // 
@@ -210,7 +211,7 @@
         private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 停止ToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton tsbBegin;
-        private System.Windows.Forms.ToolStripButton tsbSystem;
+        private System.Windows.Forms.ToolStripButton tsbEmployee;
         private System.Windows.Forms.ToolStripButton tsbConfig;
     }
 }

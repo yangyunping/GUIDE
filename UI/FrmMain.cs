@@ -69,5 +69,12 @@ namespace UI
             GC.Collect();
             Application.Exit();
         }
+
+        private void tsbEmployee_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmEmpSearch frmEmpSearch = new FrmEmpSearch() { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmEmpSearch);
+        }
     }
 }

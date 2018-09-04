@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DalAreaInfo.cs" />
+    <Compile Include="DalConfig.cs" />
     <Compile Include="DalConfiguration.cs" />
     <Compile Include="DalEmployee.cs" />
     <Compile Include="DalShowInfo.cs" />

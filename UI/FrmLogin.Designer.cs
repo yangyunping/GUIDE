@@ -71,7 +71,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(89, 122);
+            this.label3.Location = new System.Drawing.Point(89, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 19);
             this.label3.TabIndex = 2;
@@ -80,7 +80,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.txtPassword.Location = new System.Drawing.Point(140, 119);
+            this.txtPassword.Location = new System.Drawing.Point(140, 124);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(144, 25);

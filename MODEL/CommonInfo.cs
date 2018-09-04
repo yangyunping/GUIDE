@@ -5,13 +5,11 @@ using System.Text;
 
 namespace MODEL
 {
-    public class SelectOrder
+    public class CommonInfo
     {
         public enum Types
         {
-            开始时间,
-            结束时间,
-            配置编号
+           权限,
         }
     }
 }

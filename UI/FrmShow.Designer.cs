@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmShow));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tsMenue = new System.Windows.Forms.ToolStrip();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.tsbBegin = new System.Windows.Forms.ToolStripButton();
             this.tsbEnd = new System.Windows.Forms.ToolStripButton();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.tsMenue.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,43 +45,41 @@
             // tsMenue
             // 
             this.tsMenue.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.tsMenue.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.tsMenue.ImageScalingSize = new System.Drawing.Size(35, 35);
             this.tsMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbBegin,
             this.tsbEnd});
             this.tsMenue.Location = new System.Drawing.Point(0, 0);
             this.tsMenue.Name = "tsMenue";
-            this.tsMenue.Size = new System.Drawing.Size(994, 27);
+            this.tsMenue.Size = new System.Drawing.Size(994, 37);
             this.tsMenue.TabIndex = 1;
             this.tsMenue.Text = "toolStrip1";
             // 
+            // pnlContent
+            // 
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 37);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(994, 618);
+            this.pnlContent.TabIndex = 2;
+            // 
             // tsbBegin
             // 
-            this.tsbBegin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbBegin.Image = ((System.Drawing.Image)(resources.GetObject("tsbBegin.Image")));
+            this.tsbBegin.Image = global::UI.Properties.Resources.player_play;
             this.tsbBegin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBegin.Name = "tsbBegin";
-            this.tsbBegin.Size = new System.Drawing.Size(43, 24);
+            this.tsbBegin.Size = new System.Drawing.Size(73, 34);
             this.tsbBegin.Text = "开始";
             this.tsbBegin.Click += new System.EventHandler(this.tsbBegin_Click);
             // 
             // tsbEnd
             // 
-            this.tsbEnd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbEnd.Image = ((System.Drawing.Image)(resources.GetObject("tsbEnd.Image")));
+            this.tsbEnd.Image = global::UI.Properties.Resources.Pause;
             this.tsbEnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEnd.Name = "tsbEnd";
-            this.tsbEnd.Size = new System.Drawing.Size(43, 24);
+            this.tsbEnd.Size = new System.Drawing.Size(73, 34);
             this.tsbEnd.Text = "停止";
             this.tsbEnd.Click += new System.EventHandler(this.tsbEnd_Click);
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 27);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(994, 628);
-            this.pnlContent.TabIndex = 2;
             // 
             // FrmShow
             // 
@@ -95,7 +92,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmShow";
-            this.Text = "FrmShow";
+            this.Text = "显示";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tsMenue.ResumeLayout(false);
             this.tsMenue.PerformLayout();
