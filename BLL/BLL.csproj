@@ -39,7 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BllEmployee.cs" />
+    <Compile Include="BllEmpPowers.cs" />
     <Compile Include="BlllConfiguration.cs" />
+    <Compile Include="BllServer.cs" />
     <Compile Include="BllShowInfo.cs" />
     <Compile Include="BllAreaInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

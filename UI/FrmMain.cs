@@ -1,6 +1,7 @@
 ﻿using BLL;
 using MODEL;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace UI
@@ -39,10 +40,34 @@ namespace UI
             pnlShow.Controls.Add(frmShowSearch);
         }
 
+        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmSelectShow frmSelectShow = new FrmSelectShow() { Dock = DockStyle.Top};
+            pnlShow.Controls.Add(frmSelectShow);
+        }
+
+        private void 停止ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
         private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmShow frmShow = new FrmShow();
             frmShow.ShowDialog();
+        }
+
+        private void tsbBegin_Click(object sender, EventArgs e)
+        {
+            FrmShow frmShow = new FrmShow();
+            frmShow.ShowDialog();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GC.Collect();
+            Application.Exit();
         }
     }
 }

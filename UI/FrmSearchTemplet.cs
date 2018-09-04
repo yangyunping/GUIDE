@@ -26,27 +26,27 @@ namespace UI
             {
                 case "区域":
                     dgvContent.Columns.AddRange(
-               new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 60 },
-               new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 }
+               new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 100 },
+               new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 150 }
                );
                     break;
                 case "配置":
                     dgvContent.Columns.AddRange(
-                new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 120 },
-                new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组", DataPropertyName = @"ConfigNum", Width = 90 }
+                new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 150 },
+                new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组", DataPropertyName = @"ConfigNum", Width = 100 }
               );
                     btnAddShow.Visible = true;
                     break;
                 case "显示":
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
-             new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 120 },
              new DataGridViewTextBoxColumn { Name = @"States", HeaderText = @"状态", DataPropertyName = @"States", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
              new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
-             new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 110 },
-             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 110 }
+             new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 120 },
+             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 120 }
               );
                     btnAdd.Visible = false;
                     break;

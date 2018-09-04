@@ -63,11 +63,29 @@
     <Compile Include="FrmConfigAdd.Designer.cs">
       <DependentUpon>FrmConfigAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployee.designer.cs">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmEmpSearch.designer.cs">
+      <DependentUpon>FrmEmpSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmExample.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmExample.Designer.cs">
       <DependentUpon>FrmExample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSearchTemplet.cs">
       <SubType>UserControl</SubType>
@@ -107,8 +125,17 @@
     <EmbeddedResource Include="FrmConfigAdd.resx">
       <DependentUpon>FrmConfigAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpSearch.resx">
+      <DependentUpon>FrmEmpSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmExample.resx">
       <DependentUpon>FrmExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchTemplet.resx">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
@@ -136,6 +163,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,6 +187,27 @@
       <Project>{9ae7d44b-946b-49a7-b819-8838032421bd}</Project>
       <Name>MODEL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\universalsearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homescreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Recicle bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Win10.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

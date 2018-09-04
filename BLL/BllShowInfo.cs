@@ -11,9 +11,22 @@ namespace BLL
         {
             return dalShowInfo.GetShowInfo($"  and AreaName like '%{areaName}%'");
         }
-        public DataTable GetShowStateInfo(int state)
+        public DataTable GetShowStateInfo(int state,string order)
         {
-            return dalShowInfo.GetShowInfo($"  and  State = {state} ");
+            string byOrder = string.Empty;
+            switch (order)
+            {
+                case "开始时间":
+                    byOrder = "  order by BeginTime desc";
+                    break;
+                case "结束时间":
+                    byOrder = "  order by EndTime desc";
+                    break;
+                case "配置编号":
+                    byOrder = "  order by ConfigName desc";
+                    break;
+            }
+            return dalShowInfo.GetShowInfo($"  and  State = {state}  {byOrder}");
         }
         public  bool DeleteShow(string id)
         {
