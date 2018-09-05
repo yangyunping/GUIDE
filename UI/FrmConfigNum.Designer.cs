@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FrmConfigAdd
+    partial class FrmConfigNum
     {
         /// <summary> 
         /// 必需的设计器变量。

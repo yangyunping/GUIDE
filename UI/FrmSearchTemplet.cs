@@ -159,7 +159,7 @@ namespace UI
                         Configuration configuration = new Configuration();
                         configuration.ConfigName = dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString();
                         configuration.ConfigNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["ConfigNum"].Value);
-                        FrmConfigAdd frmConfigNumAdd = new FrmConfigAdd(configuration);
+                        FrmConfigNum frmConfigNumAdd = new FrmConfigNum(configuration);
                         FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmConfigNumAdd.Size.Width, frmConfigNumAdd.Size.Height) };
                         frmExample.Controls.Add(frmConfigNumAdd);
                         frmExample.ShowDialog();
@@ -205,7 +205,7 @@ namespace UI
                 }
                 else if (_OperateType.Equals("配置"))
                 {
-                    FrmConfigAdd frmConfigNumAdd = new FrmConfigAdd();
+                    FrmConfigNum frmConfigNumAdd = new FrmConfigNum();
                     FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmConfigNumAdd.Size.Width, frmConfigNumAdd.Size.Height) };
                     frmExample.Controls.Add(frmConfigNumAdd);
                     frmExample.ShowDialog();

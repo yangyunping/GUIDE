@@ -7,9 +7,9 @@ namespace MODEL
 {
     public class Config
     {
-        public string ConfigNO { set; get; }
+        public int ConfigNO { set; get; }
         public string ConfigValue { set; get; }
-        public string ParConfigNO { set; get; }
-        public string Tag { set; get; }
+        public int ParConfigNO { set; get; }
+        public int Tag { set; get; }
     }
 }

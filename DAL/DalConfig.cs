@@ -13,7 +13,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetConfigInfo(string sKey)
         {
-            string sSql = $@"Select * from Config where 1=1 {sKey}";
+            string sSql = $@"Select * from View_Config where 1=1 {sKey}";
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>
@@ -30,7 +30,7 @@ BEGIN
 END
 ELSE
 BEGIN
- Insert Into Config(ConfigNO,ConfigValue,ParConfigNO,Tag) values('{config.ConfigNO}','{config.ConfigValue}','{config.ParConfigNO}','{config.Tag}')
+ Insert Into Config(ConfigValue,ParConfigNO,Tag) values('{config.ConfigValue}','{config.ParConfigNO}','{config.Tag}')
 END";
             return server.ExecuteNonQuery(sSql) > 0;
         }

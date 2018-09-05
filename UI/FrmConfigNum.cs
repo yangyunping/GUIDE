@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FrmConfigAdd : UserControl
+    public partial class FrmConfigNum : UserControl
     {
         BlllConfiguration blllConfiguration = new BlllConfiguration();
-        public FrmConfigAdd()
+        public FrmConfigNum()
         {
             InitializeComponent();
         }
-        public FrmConfigAdd(Configuration configuration)
+        public FrmConfigNum(Configuration configuration)
         {
             InitializeComponent();
             txtConfigNo.Text = configuration.ConfigName;

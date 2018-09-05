@@ -1,4 +1,5 @@
 ﻿using MODEL;
+using System.Collections.Generic;
 using System.Data;
 
 namespace DAL
@@ -21,10 +22,14 @@ namespace DAL
         /// </summary>
         /// <param name="employee"></param>
         /// <returns></returns>
-        public bool InserEmpPower(EmpPowers empPowers)
+        public bool InserEmpPower(List<EmpPowers> empPowers)
         {
-            string sSql = $@"
-Insert into EmpPowers(EmployeeNo,PowerNo) values('{empPowers.EmployeeNo}','{empPowers.PowerNo}'";
+            string sSql = string.Empty;
+            foreach (EmpPowers power in empPowers)
+            {
+                sSql += $@"
+Insert into EmpPowers(EmployeeNo,PowerNo) values('{power.EmployeeNo}','{power.PowerNo}')";
+            }
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>

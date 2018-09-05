@@ -1,5 +1,6 @@
 ﻿using DAL;
 using MODEL;
+using System.Collections.Generic;
 using System.Data;
 
 namespace BLL
@@ -12,7 +13,7 @@ namespace BLL
             string sSql = $@" and EmployeeNo = '{empNo}'";
             return DalEmpPowers.GetEmpPowers(sSql);
         }
-        public bool InserEmpPower(EmpPowers empPowers)
+        public bool InserEmpPower(List<EmpPowers> empPowers)
         {
             return DalEmpPowers.InserEmpPower(empPowers);
         }

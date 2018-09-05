@@ -60,29 +60,30 @@
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 277);
+            this.panel1.Location = new System.Drawing.Point(0, 313);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(456, 62);
+            this.panel1.Size = new System.Drawing.Size(523, 80);
             this.panel1.TabIndex = 1;
             // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnClose.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnClose.Location = new System.Drawing.Point(101, 16);
+            this.btnClose.Location = new System.Drawing.Point(109, 23);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(87, 34);
+            this.btnClose.Size = new System.Drawing.Size(87, 40);
             this.btnClose.TabIndex = 33;
             this.btnClose.Text = "取   消";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnSave.Location = new System.Drawing.Point(257, 16);
+            this.btnSave.Location = new System.Drawing.Point(296, 23);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 34);
+            this.btnSave.Size = new System.Drawing.Size(88, 40);
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "保    存";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -96,7 +97,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(456, 277);
+            this.tabControl1.Size = new System.Drawing.Size(523, 313);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -118,42 +119,42 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(448, 245);
+            this.tabPage1.Size = new System.Drawing.Size(515, 281);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "员工基本信息";
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(63, 184);
+            this.txtAge.Location = new System.Drawing.Point(91, 217);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(121, 24);
+            this.txtAge.Size = new System.Drawing.Size(121, 25);
             this.txtAge.TabIndex = 31;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 187);
+            this.label6.Location = new System.Drawing.Point(50, 220);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 19);
+            this.label6.Size = new System.Drawing.Size(37, 20);
             this.label6.TabIndex = 30;
             this.label6.Text = "年龄";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(287, 104);
+            this.txtPassword.Location = new System.Drawing.Point(315, 122);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.ReadOnly = true;
-            this.txtPassword.Size = new System.Drawing.Size(138, 24);
+            this.txtPassword.Size = new System.Drawing.Size(138, 25);
             this.txtPassword.TabIndex = 27;
             this.txtPassword.Text = "********";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(216, 106);
+            this.label5.Location = new System.Drawing.Point(244, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 26;
             this.label5.Text = "登录密码";
             // 
@@ -165,7 +166,7 @@
             this.cmbGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cmbGender.Location = new System.Drawing.Point(63, 103);
+            this.cmbGender.Location = new System.Drawing.Point(91, 121);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
             this.cmbGender.TabIndex = 25;
@@ -173,57 +174,57 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 106);
+            this.label4.Location = new System.Drawing.Point(50, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 19);
+            this.label4.Size = new System.Drawing.Size(37, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "性别";
             // 
             // txtPhoneNum
             // 
-            this.txtPhoneNum.Location = new System.Drawing.Point(287, 181);
+            this.txtPhoneNum.Location = new System.Drawing.Point(315, 214);
             this.txtPhoneNum.Name = "txtPhoneNum";
-            this.txtPhoneNum.Size = new System.Drawing.Size(138, 24);
+            this.txtPhoneNum.Size = new System.Drawing.Size(138, 25);
             this.txtPhoneNum.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 184);
+            this.label2.Location = new System.Drawing.Point(244, 217);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 19);
+            this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 20;
             this.label2.Text = "手机号码";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(287, 32);
+            this.txtID.Location = new System.Drawing.Point(315, 36);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(138, 24);
+            this.txtID.Size = new System.Drawing.Size(138, 25);
             this.txtID.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 35);
+            this.label1.Location = new System.Drawing.Point(244, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 19);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "登录工号";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(63, 32);
+            this.txtName.Location = new System.Drawing.Point(91, 36);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(121, 24);
+            this.txtName.Size = new System.Drawing.Size(121, 25);
             this.txtName.TabIndex = 17;
             // 
             // lnl
             // 
             this.lnl.AutoSize = true;
-            this.lnl.Location = new System.Drawing.Point(22, 35);
+            this.lnl.Location = new System.Drawing.Point(50, 39);
             this.lnl.Name = "lnl";
-            this.lnl.Size = new System.Drawing.Size(35, 19);
+            this.lnl.Size = new System.Drawing.Size(37, 20);
             this.lnl.TabIndex = 16;
             this.lnl.Text = "姓名";
             // 
@@ -234,7 +235,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(448, 245);
+            this.tabPage2.Size = new System.Drawing.Size(515, 281);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "员工权限";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -247,17 +248,19 @@
             this.twPower.Indent = 21;
             this.twPower.Location = new System.Drawing.Point(3, 3);
             this.twPower.Name = "twPower";
-            this.twPower.Size = new System.Drawing.Size(442, 239);
+            this.twPower.Size = new System.Drawing.Size(509, 275);
             this.twPower.TabIndex = 0;
+            this.twPower.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.twPower_AfterCheck);
+            this.twPower.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.twPower_AfterSelect);
             // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 339);
+            this.ClientSize = new System.Drawing.Size(523, 393);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmEmployee";

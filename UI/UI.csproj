@@ -57,11 +57,17 @@
     <Compile Include="FrmAddArea.Designer.cs">
       <DependentUpon>FrmAddArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConfigAdd.cs">
+    <Compile Include="FrmConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmConfigAdd.Designer.cs">
-      <DependentUpon>FrmConfigAdd.cs</DependentUpon>
+    <Compile Include="FrmConfig.designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfigNum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmConfigNum.Designer.cs">
+      <DependentUpon>FrmConfigNum.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmployee.cs">
       <SubType>Form</SubType>
@@ -122,8 +128,11 @@
     <EmbeddedResource Include="FrmAddArea.resx">
       <DependentUpon>FrmAddArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfigAdd.resx">
-      <DependentUpon>FrmConfigAdd.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigNum.resx">
+      <DependentUpon>FrmConfigNum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>

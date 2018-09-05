@@ -13,7 +13,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetShowInfo(string key)
         {
-            string sSql = $@"Select case ByOrder when 0 then '正序' when 1 then '倒序' end as ByOrders,case State when 0 then '等待' when 1 then '进行中' when 2 then '结束' end as States, * from  View_Config  where 1=1 ";
+            string sSql = $@"Select case ByOrder when 0 then '正序' when 1 then '倒序' end as ByOrders,case State when 0 then '等待' when 1 then '进行中' when 2 then '结束' end as States, * from  View_ConfigNum  where 1=1 ";
             if (!string.IsNullOrEmpty(key))
             {
                 sSql += $@"  {key}";

@@ -76,81 +76,87 @@ namespace UI
             BllServer bllServer = new BllServer();
             BllEmployee bllEmployee = new BllEmployee();
             BllEmpPowers bllEmpPowers = new BllEmpPowers();
-          
-            if (bllServer.TestConnection())
+            try
             {
-                using (DataTable dtUser = bllEmployee.GetEmployeeInfo(cmbEmpID.Text,0))
+                if (bllServer.TestConnection())
                 {
-                    if (dtUser == null)
+                    using (DataTable dtUser = bllEmployee.GetEmployeeInfo(cmbEmpID.Text, 0))
                     {
-                        MessageBox.Show(@"工号输入错误或不存在该人员工号！");
-                        cmbEmpID.Text = string.Empty;
-                        txtPassword.Text = string.Empty;
-                        cmbEmpID.Focus();
-                        return;
-                    }
-                    if (dtUser.Rows.Count == 0)
-                    {
-                        MessageBox.Show(@"没有创建该工号！");
-                        cmbEmpID.Text = string.Empty;
-                        txtPassword.Text = string.Empty;
-                        cmbEmpID.Focus();
-                        return;
-                    }
-                    if (!dtUser.Rows[0]["Password"].ToString().Equals(txtPassword.Text))
-                    {
-                        MessageBox.Show(@"密码错误，请重新输入！");
-                        txtPassword.Text = string.Empty;
-                        txtPassword.Focus();
-                        return;
-                    }
-                    if (chkRemember.Checked)
-                    {
-                        //记住用户名
-                        string strLoginName = cmbEmpID.Text;
-                        List<string> lstLoginName = new List<string>
+                        if (dtUser == null)
+                        {
+                            MessageBox.Show(@"工号输入错误或不存在该人员工号！");
+                            cmbEmpID.Text = string.Empty;
+                            txtPassword.Text = string.Empty;
+                            cmbEmpID.Focus();
+                            return;
+                        }
+                        if (dtUser.Rows.Count == 0)
+                        {
+                            MessageBox.Show(@"没有创建该工号！");
+                            cmbEmpID.Text = string.Empty;
+                            txtPassword.Text = string.Empty;
+                            cmbEmpID.Focus();
+                            return;
+                        }
+                        if (!dtUser.Rows[0]["Password"].ToString().Equals(txtPassword.Text))
+                        {
+                            MessageBox.Show(@"密码错误，请重新输入！");
+                            txtPassword.Text = string.Empty;
+                            txtPassword.Focus();
+                            return;
+                        }
+                        if (chkRemember.Checked)
+                        {
+                            //记住用户名
+                            string strLoginName = cmbEmpID.Text;
+                            List<string> lstLoginName = new List<string>
                                             {
                                                     strLoginName
                                             };
-                        string[] registry = ResistryKey.GetRegistry(RegisterValueName);
-                        if (null != registry)
-                        {
-                            foreach (string name in registry.TakeWhile(name => lstLoginName.Count < MaxLoginNameSaveCount).Where(name => 0 != StringComparer.CurrentCulture.Compare(strLoginName.ToUpper(), name.ToUpper())))
-                                lstLoginName.Add(name);
+                            string[] registry = ResistryKey.GetRegistry(RegisterValueName);
+                            if (null != registry)
+                            {
+                                foreach (string name in registry.TakeWhile(name => lstLoginName.Count < MaxLoginNameSaveCount).Where(name => 0 != StringComparer.CurrentCulture.Compare(strLoginName.ToUpper(), name.ToUpper())))
+                                    lstLoginName.Add(name);
+                            }
+                            ResistryKey.SetRegistry(RegisterValueName, lstLoginName.ToArray());
                         }
-                        ResistryKey.SetRegistry(RegisterValueName, lstLoginName.ToArray());
-                    }
-                    //保存用户信息
-                    Employee employee = new Employee();
-                    employee.EmployeeNo = dtUser.Rows[0]["EmployeeNo"].ToString();
-                    employee.EmployeeName = dtUser.Rows[0]["EmployeeName"].ToString();
-                    employee.Age = dtUser.Rows[0]["Age"].ToString();
-                    employee.Gender = dtUser.Rows[0]["Gender"].ToString();
-                    employee.MoblePhone = dtUser.Rows[0]["MoblePhone"].ToString();
-                    employee.PassWord = dtUser.Rows[0]["PassWord"].ToString();
-                    CurrentInfo.currentEmp = employee;
-                    dtUser.Dispose();
+                        //保存用户信息
+                        Employee employee = new Employee();
+                        employee.EmployeeNo = dtUser.Rows[0]["EmployeeNo"].ToString();
+                        employee.EmployeeName = dtUser.Rows[0]["EmployeeName"].ToString();
+                        employee.Age = Convert.ToInt32(dtUser.Rows[0]["Age"]);
+                        employee.Gender = dtUser.Rows[0]["Gender"].ToString();
+                        employee.MoblePhone = dtUser.Rows[0]["MoblePhone"].ToString();
+                        employee.PassWord = dtUser.Rows[0]["PassWord"].ToString();
+                        CurrentInfo.currentEmp = employee;
+                        dtUser.Dispose();
 
-                    //用户权限
-                    List<EmpPowers> empPowersLst = new List<EmpPowers>();
-                    DataTable dtPower = bllEmpPowers.GetEmpPowers(cmbEmpID.Text);
-                    for (int i = 0; i < dtPower.Rows.Count; i++)
-                    {
-                        EmpPowers empPowers = new EmpPowers();
-                        empPowers.EmployeeNo = dtPower.Rows[0]["EmployeeNo"].ToString();
-                        empPowers.PowerNo = dtPower.Rows[0]["PowerNo"].ToString();
-                        empPowersLst.Add(empPowers);
+                        //用户权限
+                        List<EmpPowers> empPowersLst = new List<EmpPowers>();
+                        DataTable dtPower = bllEmpPowers.GetEmpPowers(cmbEmpID.Text);
+                        for (int i = 0; i < dtPower.Rows.Count; i++)
+                        {
+                            EmpPowers empPowers = new EmpPowers();
+                            empPowers.EmployeeNo = dtPower.Rows[0]["EmployeeNo"].ToString();
+                            empPowers.PowerNo = dtPower.Rows[0]["PowerNo"].ToString();
+                            empPowersLst.Add(empPowers);
+                        }
+                        CurrentInfo.currentPowers = empPowersLst;
+                        dtPower.Dispose();
+                        FrmMain frmMain = new FrmMain();
+                        this.Hide();
+                        frmMain.ShowDialog();
                     }
-                    CurrentInfo.currentPowers = empPowersLst;
-                    dtPower.Dispose();
-                    FrmMain frmMain = new FrmMain();
-                    this.Hide();
-                    frmMain.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(@"网络连接失败，检查网络后重试！");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(@"网络连接失败，检查网络后重试！");
+                MessageBox.Show(ex.ToString());
             }
         }
 

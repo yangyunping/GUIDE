@@ -158,6 +158,7 @@
             this.tsbConfig.Name = "tsbConfig";
             this.tsbConfig.Size = new System.Drawing.Size(108, 39);
             this.tsbConfig.Text = "配置信息";
+            this.tsbConfig.Click += new System.EventHandler(this.tsbConfig_Click);
             // 
             // tsbClear
             // 

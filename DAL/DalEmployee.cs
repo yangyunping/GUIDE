@@ -25,7 +25,7 @@ namespace DAL
         /// </summary>
         /// <param name="employee"></param>
         /// <returns></returns>
-        public bool AddOrUpdateEmpp(Employee employee)
+        public bool AddOrUpdateEmp(Employee employee)
         {
             string sSql = $@"
 IF EXISTS(Select * from Employee where EmployeeNo = '{employee.EmployeeNo}')

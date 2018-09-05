@@ -28,9 +28,9 @@ namespace BLL
             }
             return DalEmployee.GetEmployeeInfo(sSql);
         }
-        public bool AddOrUpdateEmpp(Employee employee)
+        public bool AddOrUpdateEmp(Employee employee)
         {
-            return DalEmployee.AddOrUpdateEmpp(employee);
+            return DalEmployee.AddOrUpdateEmp(employee);
         }
         public bool DeleteEmployee(string empNo)
         {

@@ -76,5 +76,12 @@ namespace UI
             FrmEmpSearch frmEmpSearch = new FrmEmpSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmEmpSearch);
         }
+
+        private void tsbConfig_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmConfig frmConfig = new FrmConfig() { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmConfig);
+        }
     }
 }

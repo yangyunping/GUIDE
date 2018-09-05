@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using BLL;
+using MODEL;
 
 namespace UI
 {
@@ -35,7 +36,7 @@ namespace UI
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            FrmEmployee frmEmployee = new FrmEmployee(string.Empty);
+            FrmEmployee frmEmployee = new FrmEmployee(null);
             frmEmployee.ShowDialog();
             btnSearch_Click(null, null);
         }
@@ -49,8 +50,13 @@ namespace UI
         {
             if (dgvEmployee.CurrentRow != null)
             {
-               
-                FrmEmployee frmEmployee = new FrmEmployee(dgvEmployee.CurrentRow.Cells["DocID"].Value.ToString());
+                Employee employee = new Employee();
+                employee.EmployeeNo = dgvEmployee.CurrentRow.Cells["EmployeeNo"].Value.ToString();
+                employee.EmployeeName = dgvEmployee.CurrentRow.Cells["EmployeeName"].Value.ToString();
+                employee.Gender = dgvEmployee.CurrentRow.Cells["Gender"].Value.ToString();
+                employee.Age = Convert.ToInt32(dgvEmployee.CurrentRow.Cells["Age"].Value);
+                employee.MoblePhone = dgvEmployee.CurrentRow.Cells["MoblePhone"].Value.ToString();
+                FrmEmployee frmEmployee = new FrmEmployee(employee);
                 frmEmployee.ShowDialog();
                 btnSearch_Click(null,null);
             }
@@ -69,15 +75,15 @@ namespace UI
         {
             if (dgvEmployee.CurrentRow != null)
             {
-                //if (ErpServer.DeleteEmp(dgvEmployee.CurrentRow.Cells["DocID"].Value.ToString().Trim()))
-                //{
-                //    MessageBox.Show(@"删除成功！");
-                //    dgvEmployee.Rows.Remove(dgvEmployee.CurrentRow);
-                //}
-                //else
-                //{
-                //    MessageBox.Show(@"删除失败，检查后重试！");
-                //}
+                if (bllEmployee.DeleteEmployee(dgvEmployee.CurrentRow.Cells["EmployeeNo"].Value.ToString()))
+                {
+                    MessageBox.Show(@"删除成功！");
+                    dgvEmployee.Rows.Remove(dgvEmployee.CurrentRow);
+                }
+                else
+                {
+                    MessageBox.Show(@"删除失败，检查后重试！");
+                }
             }
             else
             {
