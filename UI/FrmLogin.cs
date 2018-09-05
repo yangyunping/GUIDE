@@ -133,17 +133,28 @@ namespace UI
                         dtUser.Dispose();
 
                         //用户权限
-                        List<EmpPowers> empPowersLst = new List<EmpPowers>();
+                        Dictionary<int, string> empPowersLst = new Dictionary<int, string>();
                         DataTable dtPower = bllEmpPowers.GetEmpPowers(cmbEmpID.Text);
                         for (int i = 0; i < dtPower.Rows.Count; i++)
                         {
-                            EmpPowers empPowers = new EmpPowers();
-                            empPowers.EmployeeNo = dtPower.Rows[0]["EmployeeNo"].ToString();
-                            empPowers.PowerNo = dtPower.Rows[0]["PowerNo"].ToString();
-                            empPowersLst.Add(empPowers);
+                            if (!empPowersLst.ContainsKey(Convert.ToInt32(dtPower.Rows[i]["PowerNo"])))
+                            {
+                                empPowersLst.Add(Convert.ToInt32(dtPower.Rows[i]["PowerNo"]), dtPower.Rows[i]["EmployeeNo"].ToString());
+                            }
                         }
                         CurrentInfo.currentPowers = empPowersLst;
                         dtPower.Dispose();
+                        //List<EmpPowers> empPowersLst = new List<EmpPowers>();
+                        //DataTable dtPower = bllEmpPowers.GetEmpPowers(cmbEmpID.Text);
+                        //for (int i = 0; i < dtPower.Rows.Count; i++)
+                        //{
+                        //    EmpPowers empPowers = new EmpPowers();
+                        //    empPowers.EmployeeNo = dtPower.Rows[0]["EmployeeNo"].ToString();
+                        //    empPowers.PowerNo = dtPower.Rows[0]["PowerNo"].ToString();
+                        //    empPowersLst.Add(empPowers);
+                        //}
+                      
+
                         FrmMain frmMain = new FrmMain();
                         this.Hide();
                         frmMain.ShowDialog();

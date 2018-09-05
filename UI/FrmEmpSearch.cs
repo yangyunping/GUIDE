@@ -13,8 +13,14 @@ namespace UI
         {
             InitializeComponent();
             DgvColumns();
+            PowerInite();
         }
-
+        private void PowerInite()
+        {
+            btnCreate.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员新增);
+            btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员删除);
+            btnChange.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员修改);
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgvEmployee.DataSource = null;

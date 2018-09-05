@@ -12,8 +12,19 @@ namespace UI
         public FrmMain()
         {
             InitializeComponent();
+            PowersInite();
         }
-
+        private void PowersInite()
+        {
+            tdbShow.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示管理);
+            AreaShowSearch.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域设置);
+            tsmConfigNum.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号设置);
+            ShowSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示设置);
+            tsmSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.基础设置);
+            tsbBegin.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.启动);
+            tsbEmployee.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员管理);
+            tsbConfig.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置管理);
+        }
         private void AreaShowSearch_Click(object sender, EventArgs e)
         {
             pnlShow.Controls.Clear();

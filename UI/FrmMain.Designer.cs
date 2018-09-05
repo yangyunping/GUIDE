@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tdbShow = new System.Windows.Forms.ToolStripDropDownButton();
             this.AreaShowSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.配置查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConfigInfoSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmConfigNum = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.停止ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,7 @@
             this.toolStrip1.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(35, 35);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
+            this.tdbShow,
             this.toolStripDropDownButton2,
             this.tsbBegin,
             this.tsbEmployee,
@@ -63,48 +63,50 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDropDownButton1
+            // tdbShow
             // 
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tdbShow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AreaShowSearch,
-            this.配置查询ToolStripMenuItem,
-            this.ConfigInfoSearch,
-            this.设置ToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::UI.Properties.Resources.homescreen;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(117, 39);
-            this.toolStripDropDownButton1.Text = "显示管理";
+            this.tsmConfigNum,
+            this.ShowSetting,
+            this.tsmSetting});
+            this.tdbShow.Image = global::UI.Properties.Resources.homescreen;
+            this.tdbShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tdbShow.Name = "tdbShow";
+            this.tdbShow.Size = new System.Drawing.Size(117, 39);
+            this.tdbShow.Text = "显示管理";
             // 
             // AreaShowSearch
             // 
             this.AreaShowSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.AreaShowSearch.Name = "AreaShowSearch";
-            this.AreaShowSearch.Size = new System.Drawing.Size(138, 24);
-            this.AreaShowSearch.Text = "区域查询";
+            this.AreaShowSearch.Size = new System.Drawing.Size(180, 24);
+            this.AreaShowSearch.Text = "区域设置";
             this.AreaShowSearch.Click += new System.EventHandler(this.AreaShowSearch_Click);
             // 
-            // 配置查询ToolStripMenuItem
+            // tsmConfigNum
             // 
-            this.配置查询ToolStripMenuItem.Name = "配置查询ToolStripMenuItem";
-            this.配置查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
-            this.配置查询ToolStripMenuItem.Text = "配置查询";
-            this.配置查询ToolStripMenuItem.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
+            this.tsmConfigNum.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.tsmConfigNum.Name = "tsmConfigNum";
+            this.tsmConfigNum.Size = new System.Drawing.Size(180, 24);
+            this.tsmConfigNum.Text = "编号设置";
+            this.tsmConfigNum.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
             // 
-            // ConfigInfoSearch
+            // ShowSetting
             // 
-            this.ConfigInfoSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.ConfigInfoSearch.Name = "ConfigInfoSearch";
-            this.ConfigInfoSearch.Size = new System.Drawing.Size(138, 24);
-            this.ConfigInfoSearch.Text = "显示设置";
-            this.ConfigInfoSearch.Click += new System.EventHandler(this.ConfigInfoISearch_Click);
+            this.ShowSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.ShowSetting.Name = "ShowSetting";
+            this.ShowSetting.Size = new System.Drawing.Size(180, 24);
+            this.ShowSetting.Text = "显示设置";
+            this.ShowSetting.Click += new System.EventHandler(this.ConfigInfoISearch_Click);
             // 
-            // 设置ToolStripMenuItem
+            // tsmSetting
             // 
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
-            this.设置ToolStripMenuItem.Text = "基础设置";
-            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
+            this.tsmSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.tsmSetting.Name = "tsmSetting";
+            this.tsmSetting.Size = new System.Drawing.Size(180, 24);
+            this.tsmSetting.Text = "基础设置";
+            this.tsmSetting.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -201,12 +203,12 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton tdbShow;
         private System.Windows.Forms.ToolStripMenuItem AreaShowSearch;
-        private System.Windows.Forms.ToolStripMenuItem ConfigInfoSearch;
-        private System.Windows.Forms.ToolStripMenuItem 配置查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowSetting;
+        private System.Windows.Forms.ToolStripMenuItem tsmConfigNum;
         private System.Windows.Forms.Panel pnlShow;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmSetting;
         private System.Windows.Forms.ToolStripButton tsbClear;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;

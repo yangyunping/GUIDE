@@ -20,6 +20,7 @@ namespace UI
             _OperateType = OperateType;
             DgvColumns();
         }
+  
         private void DgvColumns()
         {
             switch (_OperateType)

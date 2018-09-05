@@ -60,9 +60,9 @@
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 313);
+            this.panel1.Location = new System.Drawing.Point(0, 486);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 80);
+            this.panel1.Size = new System.Drawing.Size(558, 80);
             this.panel1.TabIndex = 1;
             // 
             // btnClose
@@ -97,7 +97,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(523, 313);
+            this.tabControl1.Size = new System.Drawing.Size(558, 486);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -119,13 +119,13 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(515, 281);
+            this.tabPage1.Size = new System.Drawing.Size(550, 454);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "员工基本信息";
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(91, 217);
+            this.txtAge.Location = new System.Drawing.Point(95, 299);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(121, 25);
             this.txtAge.TabIndex = 31;
@@ -133,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 220);
+            this.label6.Location = new System.Drawing.Point(54, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 20);
             this.label6.TabIndex = 30;
@@ -141,7 +141,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(315, 122);
+            this.txtPassword.Location = new System.Drawing.Point(337, 182);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.ReadOnly = true;
@@ -152,7 +152,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(244, 124);
+            this.label5.Location = new System.Drawing.Point(266, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 26;
@@ -166,7 +166,7 @@
             this.cmbGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cmbGender.Location = new System.Drawing.Point(91, 121);
+            this.cmbGender.Location = new System.Drawing.Point(95, 181);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
             this.cmbGender.TabIndex = 25;
@@ -174,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 124);
+            this.label4.Location = new System.Drawing.Point(54, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 20);
             this.label4.TabIndex = 24;
@@ -182,7 +182,7 @@
             // 
             // txtPhoneNum
             // 
-            this.txtPhoneNum.Location = new System.Drawing.Point(315, 214);
+            this.txtPhoneNum.Location = new System.Drawing.Point(337, 296);
             this.txtPhoneNum.Name = "txtPhoneNum";
             this.txtPhoneNum.Size = new System.Drawing.Size(138, 25);
             this.txtPhoneNum.TabIndex = 21;
@@ -190,7 +190,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 217);
+            this.label2.Location = new System.Drawing.Point(266, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 20;
@@ -198,7 +198,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(315, 36);
+            this.txtID.Location = new System.Drawing.Point(337, 67);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(138, 25);
             this.txtID.TabIndex = 19;
@@ -206,7 +206,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 39);
+            this.label1.Location = new System.Drawing.Point(266, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 18;
@@ -214,7 +214,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(91, 36);
+            this.txtName.Location = new System.Drawing.Point(95, 67);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 25);
             this.txtName.TabIndex = 17;
@@ -222,7 +222,7 @@
             // lnl
             // 
             this.lnl.AutoSize = true;
-            this.lnl.Location = new System.Drawing.Point(50, 39);
+            this.lnl.Location = new System.Drawing.Point(54, 70);
             this.lnl.Name = "lnl";
             this.lnl.Size = new System.Drawing.Size(37, 20);
             this.lnl.TabIndex = 16;
@@ -235,7 +235,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(515, 281);
+            this.tabPage2.Size = new System.Drawing.Size(550, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "员工权限";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@
             this.twPower.Indent = 21;
             this.twPower.Location = new System.Drawing.Point(3, 3);
             this.twPower.Name = "twPower";
-            this.twPower.Size = new System.Drawing.Size(509, 275);
+            this.twPower.Size = new System.Drawing.Size(544, 448);
             this.twPower.TabIndex = 0;
             this.twPower.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.twPower_AfterCheck);
             this.twPower.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.twPower_AfterSelect);
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 393);
+            this.ClientSize = new System.Drawing.Size(558, 566);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("微软雅黑", 10F);

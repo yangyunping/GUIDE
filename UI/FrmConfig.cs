@@ -15,8 +15,15 @@ namespace UI
             InitializeComponent();
             IniteData();
             DgvColumns();
+            PowerInite();
         }
-
+        private void PowerInite()
+        {
+            btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置新增);
+            btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置删除);
+            btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置修改);
+            btnAddStyle.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.新增类别);
+        }
         private void IniteData()
         {
             DataTable dtType = bllConfig.GetConfigInfo(null,null,1);
@@ -172,6 +179,7 @@ namespace UI
                 {
                     MessageBox.Show(@"添加修改成功！");
                     txtContent.Clear();
+                    btnSearch_Click(null,null);
                 }
                 else
                 {
@@ -201,6 +209,14 @@ namespace UI
             btnAddStyle.Text = "新增类别";
             txtType.Clear();
             txtType.Visible = btnTypeClose.Visible = false;
+        }
+
+        private void txtContent_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSave_Click(null,null);
+            }
         }
     }
 }

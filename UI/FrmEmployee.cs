@@ -37,13 +37,23 @@ namespace UI
                         DataTable dtsonPower = bllConfig.GetConfigInfo(null, dtPower.Rows[i]["ConfigNO"].ToString(), 0);
                         for (int j = 0; j < dtsonPower.Rows.Count; j++)
                         {
-                            treeNode.Nodes.Add(dtsonPower.Rows[j]["ConfigNO"].ToString(), dtsonPower.Rows[j]["ConfigValue"].ToString());
+                            TreeNode treeNode1 = new TreeNode()
+                            {
+                                Name = dtsonPower.Rows[j]["ConfigNO"].ToString(),
+                                Text = dtsonPower.Rows[j]["ConfigValue"].ToString()
+                            };
+                            DataTable dtsonsonPower = bllConfig.GetConfigInfo(null, dtsonPower.Rows[j]["ConfigNO"].ToString(), 0);
+                            for (int h = 0; h < dtsonsonPower.Rows.Count; h++)
+                            {
+                                treeNode1.Nodes.Add(dtsonsonPower.Rows[h]["ConfigNO"].ToString(), dtsonsonPower.Rows[h]["ConfigValue"].ToString());
+                            }
+                            dtsonsonPower.Dispose();
+                            treeNode.Nodes.Add(treeNode1);
                         }
                         twPower.Nodes.Add(treeNode);
                         dtsonPower.Dispose();
                     }
                     dtPower.Dispose();
-
                 }
                 if (_employee != null)
                 {
@@ -62,6 +72,20 @@ namespace UI
                             if (treeNode.Name == t["PowerNo"].ToString())
                             {
                                 treeNode.Checked = true;
+                            }
+                            foreach (TreeNode item in treeNode.Nodes)
+                            {
+                                if (item.Name == t["PowerNo"].ToString())
+                                {
+                                    item.Checked = true;
+                                }
+                                foreach (TreeNode item1 in item.Nodes)
+                                {
+                                    if (item1.Name == t["PowerNo"].ToString())
+                                    {
+                                        item1.Checked = true;
+                                    }
+                                }
                             }
                         }
                     }
@@ -92,6 +116,26 @@ namespace UI
                         empPowers.EmployeeNo = txtID.Text;
                         empPowers.PowerNo = treeNode.Name;
                         lstEmp.Add(empPowers);
+                    }
+                    foreach (TreeNode item in treeNode.Nodes)
+                    {
+                        if (item.Checked)
+                        {
+                            EmpPowers empPowers = new EmpPowers();
+                            empPowers.EmployeeNo = txtID.Text;
+                            empPowers.PowerNo = item.Name;
+                            lstEmp.Add(empPowers);
+                        }
+                        foreach (TreeNode item1 in item.Nodes)
+                        {
+                            if (item.Checked)
+                            {
+                                EmpPowers empPowers = new EmpPowers();
+                                empPowers.EmployeeNo = txtID.Text;
+                                empPowers.PowerNo = item1.Name;
+                                lstEmp.Add(empPowers);
+                            }
+                        }
                     }
                 }
                 if (lstEmp.Count == 0)

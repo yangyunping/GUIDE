@@ -8,6 +8,6 @@ namespace MODEL
     public static class CurrentInfo
     {
         public static Employee currentEmp = new Employee();
-        public static List<EmpPowers> currentPowers = new List<EmpPowers>();
+        public static Dictionary<int,string> currentPowers = new Dictionary<int, string>();
     }
 }

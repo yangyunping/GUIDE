@@ -158,6 +158,7 @@
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(145, 26);
             this.txtContent.TabIndex = 12;
+            this.txtContent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContent_KeyDown_1);
             // 
             // btnSave
             // 
