@@ -51,14 +51,14 @@ END
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>
-        /// 删除临时设置显示数据
+        /// 变更状态
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool UpdateShowState(string id)
+        public bool UpdateShowState(string id,int state)
         {
             string sSql = $@"
-  Update ShowInfo  set state = 1  where Id = '{id}'";
+  Update ShowInfo  set state = {state}  where Id = '{id}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
     }

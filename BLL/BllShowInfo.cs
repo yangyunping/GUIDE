@@ -38,9 +38,9 @@ namespace BLL
             return dalShowInfo.InsertOrModifyShow(showInfo);
         }
 
-        public bool UpdateShowState(string id)
+        public bool UpdateShowState(string id,int state)
         {
-            return dalShowInfo.UpdateShowState(id);
+            return dalShowInfo.UpdateShowState(id, state);
         }
     }
 }

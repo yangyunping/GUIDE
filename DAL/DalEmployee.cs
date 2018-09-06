@@ -48,5 +48,15 @@ END";
             string sSql = $@" Update Employee set Isdelete = 1 where EmployeeNo = '{empNo}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="empNo"></param>
+        /// <returns></returns>
+        public bool UpdatePwd(string empNo,string password)
+        {
+            string sSql = $@" Update Employee set PassWord = '{password}' where EmployeeNo = '{empNo}'";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
     }
 }

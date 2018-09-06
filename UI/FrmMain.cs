@@ -94,5 +94,12 @@ namespace UI
             FrmConfig frmConfig = new FrmConfig() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmConfig);
         }
+
+        private void tsbPwd_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmPassword frmPassword = new FrmPassword() { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmPassword);
+        }
     }
 }

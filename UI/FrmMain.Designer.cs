@@ -41,6 +41,7 @@
             this.tsbBegin = new System.Windows.Forms.ToolStripButton();
             this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
+            this.tsbPwd = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.pnlShow = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStrip1.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(35, 35);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -56,6 +58,7 @@
             this.tsbBegin,
             this.tsbEmployee,
             this.tsbConfig,
+            this.tsbPwd,
             this.tsbClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -80,7 +83,7 @@
             // 
             this.AreaShowSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.AreaShowSearch.Name = "AreaShowSearch";
-            this.AreaShowSearch.Size = new System.Drawing.Size(180, 24);
+            this.AreaShowSearch.Size = new System.Drawing.Size(130, 24);
             this.AreaShowSearch.Text = "区域设置";
             this.AreaShowSearch.Click += new System.EventHandler(this.AreaShowSearch_Click);
             // 
@@ -88,7 +91,7 @@
             // 
             this.tsmConfigNum.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmConfigNum.Name = "tsmConfigNum";
-            this.tsmConfigNum.Size = new System.Drawing.Size(180, 24);
+            this.tsmConfigNum.Size = new System.Drawing.Size(130, 24);
             this.tsmConfigNum.Text = "编号设置";
             this.tsmConfigNum.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
             // 
@@ -96,7 +99,7 @@
             // 
             this.ShowSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.ShowSetting.Name = "ShowSetting";
-            this.ShowSetting.Size = new System.Drawing.Size(180, 24);
+            this.ShowSetting.Size = new System.Drawing.Size(130, 24);
             this.ShowSetting.Text = "显示设置";
             this.ShowSetting.Click += new System.EventHandler(this.ConfigInfoISearch_Click);
             // 
@@ -104,7 +107,7 @@
             // 
             this.tsmSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmSetting.Name = "tsmSetting";
-            this.tsmSetting.Size = new System.Drawing.Size(180, 24);
+            this.tsmSetting.Size = new System.Drawing.Size(130, 24);
             this.tsmSetting.Text = "基础设置";
             this.tsmSetting.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
@@ -162,6 +165,15 @@
             this.tsbConfig.Text = "配置信息";
             this.tsbConfig.Click += new System.EventHandler(this.tsbConfig_Click);
             // 
+            // tsbPwd
+            // 
+            this.tsbPwd.Image = global::UI.Properties.Resources.Applications;
+            this.tsbPwd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPwd.Name = "tsbPwd";
+            this.tsbPwd.Size = new System.Drawing.Size(108, 39);
+            this.tsbPwd.Text = "密码修改";
+            this.tsbPwd.Click += new System.EventHandler(this.tsbPwd_Click);
+            // 
             // tsbClear
             // 
             this.tsbClear.Image = global::UI.Properties.Resources.Recicle_bin;
@@ -216,6 +228,7 @@
         private System.Windows.Forms.ToolStripButton tsbBegin;
         private System.Windows.Forms.ToolStripButton tsbEmployee;
         private System.Windows.Forms.ToolStripButton tsbConfig;
+        private System.Windows.Forms.ToolStripButton tsbPwd;
     }
 }
 

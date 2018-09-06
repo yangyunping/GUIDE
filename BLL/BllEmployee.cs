@@ -36,5 +36,9 @@ namespace BLL
         {
             return DalEmployee.DeleteEmployee(empNo);
         }
+        public bool UpdatePwd(string empNo, string password)
+        {
+            return DalEmployee.UpdatePwd(empNo, password);
+        }
     }
 }

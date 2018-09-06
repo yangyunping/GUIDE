@@ -12,7 +12,6 @@ namespace UI
         BllShowInfo bllShowInfo = new BllShowInfo();
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         BlllConfiguration BlllConfiguration = new BlllConfiguration();
-        private bool Finished = true;
         private string _OperateType;
         public FrmSearchTemplet(string OperateType)
         {
@@ -30,12 +29,19 @@ namespace UI
                new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 100 },
                new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 150 }
                );
+                    btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域新增);
+                    btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域删除);
+                    btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域修改);
                     break;
                 case "配置":
                     dgvContent.Columns.AddRange(
                 new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 150 },
                 new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组", DataPropertyName = @"ConfigNum", Width = 100 }
               );
+                    btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号新增);
+                    btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号删除);
+                    btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号修改);
+                    btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示新增);
                     btnAddShow.Visible = true;
                     break;
                 case "显示":
@@ -49,6 +55,8 @@ namespace UI
              new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 120 },
              new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 120 }
               );
+                    btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示删除);
+                    btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示修改);
                     btnAdd.Visible = false;
                     break;
             }
