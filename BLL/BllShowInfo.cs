@@ -11,9 +11,10 @@ namespace BLL
         {
             return dalShowInfo.GetShowInfo($"  and AreaName like '%{areaName}%'");
         }
-        public DataTable GetShowStateInfo(int state,string order)
+        public DataTable GetShowStateInfo(string order)
         {
             string byOrder = string.Empty;
+            string sState = string.Empty;
             switch (order)
             {
                 case "开始时间":
@@ -26,7 +27,7 @@ namespace BLL
                     byOrder = "  order by ConfigName desc";
                     break;
             }
-            return dalShowInfo.GetShowInfo($"  and  State = {state}  {byOrder}");
+            return dalShowInfo.GetShowInfo($"  and  State in(0,1) {byOrder}");
         }
         public  bool DeleteShow(string id)
         {

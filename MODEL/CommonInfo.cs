@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System;
 using System.Linq;
-using System.Text;
 
 namespace MODEL
 {
@@ -38,5 +38,26 @@ namespace MODEL
         public static int 显示新增 = 24;
         public static int 显示修改 = 25;
         public static int 显示删除 = 26;
+        public static string ChangesToJson(string jsonKey)
+        {
+            string json = "{\"Name\" : \"Jack\", \"Age\" : 34, \"Colleagues\" : [{\"Name\" : \"Tom\" , \"Age\":44},{\"Name\" : \"Abel\",\"Age\":29}] }";
+            JObject jObj = JObject.Parse(json);
+            JToken ageToken = jObj["Age"];
+            Console.WriteLine(ageToken.ToString());
+
+            //将json转换为JObject
+            JObject jObj1 = JObject.Parse(json);
+            var names = from staff in jObj1["Colleagues"].Children() //Children() 可以返回所有数组中的对象
+                        select (string)staff["Name"];
+            foreach (var name in names)
+                Console.WriteLine(name);
+
+            //删除
+            JObject jObj2 = JObject.Parse(json);
+            jObj2.Remove("Colleagues");//跟的是属性名称
+            Console.WriteLine(jObj2.ToString());
+
+            return ageToken.ToString();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace UI
             InitializeComponent();
             _employee = employee;
             IniteData();
+            twPower.ExpandAll();
         }
 
         private void IniteData()
