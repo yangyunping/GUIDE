@@ -143,7 +143,6 @@ namespace UI
         {
             //图例
             Graphics g = pnlPhoto.CreateGraphics();
-            //g.DrawRectangle(new Pen(Color.Red),new Rectangle(new Size()))
             Pen pen = new Pen(Color.Red);
 
             for (int i = 0; i < showContents.Count; i++)
@@ -156,7 +155,7 @@ namespace UI
                 }
                 else
                 {
-                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 150, 150 * (i - 1) / 2 + 130);
+                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 150, 150 * (i - 1) / 2 + 125);
                     g.DrawString(showContents[i].AreaName + showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
                 }
             }
