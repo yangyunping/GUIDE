@@ -31,10 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tsMenue = new System.Windows.Forms.ToolStrip();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.tsbBegin = new System.Windows.Forms.ToolStripButton();
             this.tsbEnd = new System.Windows.Forms.ToolStripButton();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.pnlContent = new System.Windows.Forms.TabPage();
+            this.tbPhoto = new System.Windows.Forms.TabPage();
+            this.pnlPhoto = new System.Windows.Forms.Panel();
             this.tsMenue.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tbPhoto.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -51,24 +56,16 @@
             this.tsbEnd});
             this.tsMenue.Location = new System.Drawing.Point(0, 0);
             this.tsMenue.Name = "tsMenue";
-            this.tsMenue.Size = new System.Drawing.Size(994, 37);
+            this.tsMenue.Size = new System.Drawing.Size(994, 42);
             this.tsMenue.TabIndex = 1;
             this.tsMenue.Text = "toolStrip1";
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 37);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(994, 618);
-            this.pnlContent.TabIndex = 2;
             // 
             // tsbBegin
             // 
             this.tsbBegin.Image = global::UI.Properties.Resources.player_play;
             this.tsbBegin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBegin.Name = "tsbBegin";
-            this.tsbBegin.Size = new System.Drawing.Size(73, 34);
+            this.tsbBegin.Size = new System.Drawing.Size(78, 39);
             this.tsbBegin.Text = "开始";
             this.tsbBegin.Click += new System.EventHandler(this.tsbBegin_Click);
             // 
@@ -77,9 +74,51 @@
             this.tsbEnd.Image = global::UI.Properties.Resources.Pause;
             this.tsbEnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEnd.Name = "tsbEnd";
-            this.tsbEnd.Size = new System.Drawing.Size(73, 34);
+            this.tsbEnd.Size = new System.Drawing.Size(78, 39);
             this.tsbEnd.Text = "停止";
             this.tsbEnd.Click += new System.EventHandler(this.tsbEnd_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.pnlContent);
+            this.tabControl1.Controls.Add(this.tbPhoto);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.tabControl1.Location = new System.Drawing.Point(0, 42);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(994, 613);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Location = new System.Drawing.Point(4, 28);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(3);
+            this.pnlContent.Size = new System.Drawing.Size(986, 581);
+            this.pnlContent.TabIndex = 0;
+            this.pnlContent.Text = "列   表";
+            this.pnlContent.UseVisualStyleBackColor = true;
+            // 
+            // tbPhoto
+            // 
+            this.tbPhoto.Controls.Add(this.pnlPhoto);
+            this.tbPhoto.Location = new System.Drawing.Point(4, 28);
+            this.tbPhoto.Name = "tbPhoto";
+            this.tbPhoto.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPhoto.Size = new System.Drawing.Size(986, 581);
+            this.tbPhoto.TabIndex = 1;
+            this.tbPhoto.Text = "图   例";
+            this.tbPhoto.UseVisualStyleBackColor = true;
+            // 
+            // pnlPhoto
+            // 
+            this.pnlPhoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPhoto.Location = new System.Drawing.Point(3, 3);
+            this.pnlPhoto.Name = "pnlPhoto";
+            this.pnlPhoto.Size = new System.Drawing.Size(980, 575);
+            this.pnlPhoto.TabIndex = 0;
+            this.pnlPhoto.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPhoto_Paint);
             // 
             // FrmShow
             // 
@@ -87,7 +126,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(994, 655);
-            this.Controls.Add(this.pnlContent);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tsMenue);
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -96,6 +135,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tsMenue.ResumeLayout(false);
             this.tsMenue.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tbPhoto.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,6 +147,9 @@
         private System.Windows.Forms.ToolStrip tsMenue;
         private System.Windows.Forms.ToolStripButton tsbBegin;
         private System.Windows.Forms.ToolStripButton tsbEnd;
-        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage pnlContent;
+        private System.Windows.Forms.TabPage tbPhoto;
+        private System.Windows.Forms.Panel pnlPhoto;
     }
 }
