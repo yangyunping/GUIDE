@@ -54,9 +54,12 @@ namespace UI
                 cmbEmpID.Focus();
                 return;
             }
-            cmbEmpID.Items.AddRange(registry);
-            cmbEmpID.SelectedIndex = 0;
-            txtPassword.Focus();
+            else
+            {
+                cmbEmpID.Items.AddRange(registry);
+                cmbEmpID.SelectedIndex = 0;
+                txtPassword.Focus();
+            }
         }
 
         private void FrmLogin_Paint(object sender, PaintEventArgs e)

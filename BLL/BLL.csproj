@@ -46,6 +46,7 @@
     <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEmpPowers.cs" />
     <Compile Include="BlllConfiguration.cs" />
+    <Compile Include="BllScreen.cs" />
     <Compile Include="BllServer.cs" />
     <Compile Include="BllShowInfo.cs" />
     <Compile Include="BllAreaInfo.cs" />

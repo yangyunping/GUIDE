@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class EmpPowers
+    public class Screen
     {
         /// <summary>
-        /// 编号
+        /// 屏幕编号
         /// </summary>
-        public string ID { get;  set; }
+        public int ScreenID { set; get; }
         /// <summary>
-        /// 员工编号
+        /// 区域名
         /// </summary>
-        public string EmployeeNo { get;  set; }
+        public string AreaName { set; get; }
         /// <summary>
-        /// 权限编号
+        /// 地址码
         /// </summary>
-        public string PowerNo { get;  set; }
+        public int AddressNum { set; get; }
+
     }
 }

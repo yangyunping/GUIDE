@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class FrmAddArea : UserControl
     {
+        private int areaId;
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         public FrmAddArea()
         {
@@ -21,19 +22,23 @@ namespace UI
         public FrmAddArea(AreaInfo areaInfo)
         {
             InitializeComponent();
-            txtAreaId.Text = areaInfo.AreaName;
-            txtAreaId.ReadOnly = true;
+            txtAreaName.Text = areaInfo.AreaName;
+            areaId = areaInfo.AreaId;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtAreaId.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtAreaName.Text.Trim()))
             {
                 AreaInfo areaInfo = new AreaInfo();
-                areaInfo.AreaName = txtAreaId.Text.Trim();
+                areaInfo.AreaName = txtAreaName.Text.Trim();
+                if (!string.IsNullOrEmpty(areaId.ToString()))
+                {
+                    areaInfo.AreaId = areaId;
+                }
                 if (bllAreaInfo.InsertOrModifyArea(areaInfo))
                 {
                     MessageBox.Show("添加修改成功！");
-                    txtAreaId.Clear();
+                    txtAreaName.Clear();
                 }
             }
         }

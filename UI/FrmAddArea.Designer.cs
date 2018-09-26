@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtAreaId = new System.Windows.Forms.TextBox();
+            this.txtAreaName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,14 +45,14 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtAreaId
+            // txtAreaName
             // 
-            this.txtAreaId.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtAreaId.Location = new System.Drawing.Point(95, 31);
-            this.txtAreaId.Name = "txtAreaId";
-            this.txtAreaId.Size = new System.Drawing.Size(133, 26);
-            this.txtAreaId.TabIndex = 15;
-            this.txtAreaId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAreaId_KeyDown);
+            this.txtAreaName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAreaName.Location = new System.Drawing.Point(95, 31);
+            this.txtAreaName.Name = "txtAreaName";
+            this.txtAreaName.Size = new System.Drawing.Size(133, 26);
+            this.txtAreaName.TabIndex = 15;
+            this.txtAreaName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAreaId_KeyDown);
             // 
             // label1
             // 
@@ -60,9 +60,9 @@
             this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(24, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 14;
-            this.label1.Text = "区域编号";
+            this.label1.Text = "区域名";
             // 
             // btnClose
             // 
@@ -82,7 +82,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtAreaId);
+            this.Controls.Add(this.txtAreaName);
             this.Controls.Add(this.label1);
             this.Name = "FrmAddArea";
             this.Size = new System.Drawing.Size(432, 90);
@@ -93,7 +93,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtAreaId;
+        private System.Windows.Forms.TextBox txtAreaName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
     }

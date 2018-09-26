@@ -38,6 +38,7 @@ namespace MODEL
         public static int 显示新增 = 24;
         public static int 显示修改 = 25;
         public static int 显示删除 = 26;
+
         public static string ChangesToJson(string jsonKey)
         {
             string json = "{\"Name\" : \"Jack\", \"Age\" : 34, \"Colleagues\" : [{\"Name\" : \"Tom\" , \"Age\":44},{\"Name\" : \"Abel\",\"Age\":29}] }";

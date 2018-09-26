@@ -19,14 +19,16 @@ namespace UI
             _OperateType = OperateType;
             DgvColumns();
         }
-  
+       /// <summary>
+       /// 初始化列名
+       /// </summary>
         private void DgvColumns()
         {
             switch (_OperateType)
             {
                 case "区域":
                     dgvContent.Columns.AddRange(
-               new DataGridViewTextBoxColumn { Name = @"RowNum", HeaderText = @"序号", DataPropertyName = @"RowNum", Width = 100 },
+               new DataGridViewTextBoxColumn { Name = @"AreaId", HeaderText = @"编号", DataPropertyName = @"AreaId", Width = 100 },
                new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 150 }
                );
                     btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域新增);
@@ -61,6 +63,11 @@ namespace UI
                     break;
             }
         }
+        /// <summary>
+        /// 各种类别查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -89,7 +96,11 @@ namespace UI
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// 各种删除数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try

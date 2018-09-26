@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DalAreaInfo
+    public class DalScreen
     {
         Server server = new Server();
         /// <summary>
@@ -15,9 +16,9 @@ namespace DAL
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public DataTable GetAreaInfo(string key)
+        public DataTable GetScreenInfo(string key)
         {
-            string sSql = $@"Select * from  AreaInfo  where  1=1 ";
+            string sSql = $@"Select * from Screen where 1=1";
             if (!string.IsNullOrEmpty(key))
             {
                 sSql += $@"  and AreaName like '%{key}%'";
@@ -29,9 +30,9 @@ namespace DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool DeleteArea(string areaID)
+        public bool DeleteScreen(string screenID)
         {
-            string sSql = $@"Delete from AreaInfo where AreaName = '{areaID}'";
+            string sSql = $@"Delete from Screen where ScreenID = '{screenID}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>
@@ -39,16 +40,16 @@ namespace DAL
         /// </summary>
         /// <param name="showInfo"></param>
         /// <returns></returns>
-        public bool InsertOrModifyArea(AreaInfo areaInfo)
+        public bool InsertOrModifyScreen(Screen screen)
         {
             string sSql = $@"
-IF NOT EXISTS(Select * from AreaInfo where AreaId = '{areaInfo.AreaId}')
+IF NOT EXISTS(Select * from Screen where ScreenID = '{screen.ScreenID}')
 BEGIN
-Insert into AreaInfo(AreaName) values('{areaInfo.AreaName}')
+Insert into Screen(AreaName,AddressNum) values('{screen.AreaName}')
 END
 ELSE
 BEGIN
-Update AreaInfo set AreaName = '{areaInfo.AreaName}' where AreaId = '{areaInfo.AreaId}'
+Update Screen set AreaName = '{screen.AreaName}',AddressNum = '{screen.AddressNum}' where ScreenID = '{screen.ScreenID}'
 END";
             return server.ExecuteNonQuery(sSql) > 0;
         }
