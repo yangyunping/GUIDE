@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.pnlShow = new System.Windows.Forms.Panel();
             this.tdbShow = new System.Windows.Forms.ToolStripDropDownButton();
             this.AreaShowSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConfigNum = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSreen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +45,6 @@
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
             this.tsbPwd = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
-            this.pnlShow = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,14 +63,25 @@
             this.tsbClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(957, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(924, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // pnlShow
+            // 
+            this.pnlShow.BackgroundImage = global::UI.Properties.Resources.Win10;
+            this.pnlShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlShow.Location = new System.Drawing.Point(0, 42);
+            this.pnlShow.Name = "pnlShow";
+            this.pnlShow.Size = new System.Drawing.Size(924, 510);
+            this.pnlShow.TabIndex = 1;
             // 
             // tdbShow
             // 
             this.tdbShow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AreaShowSearch,
+            this.tsmSreen,
             this.tsmConfigNum,
             this.ShowSetting,
             this.tsmSetting});
@@ -83,7 +95,7 @@
             // 
             this.AreaShowSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.AreaShowSearch.Name = "AreaShowSearch";
-            this.AreaShowSearch.Size = new System.Drawing.Size(130, 24);
+            this.AreaShowSearch.Size = new System.Drawing.Size(180, 24);
             this.AreaShowSearch.Text = "区域设置";
             this.AreaShowSearch.Click += new System.EventHandler(this.AreaShowSearch_Click);
             // 
@@ -91,24 +103,32 @@
             // 
             this.tsmConfigNum.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmConfigNum.Name = "tsmConfigNum";
-            this.tsmConfigNum.Size = new System.Drawing.Size(130, 24);
-            this.tsmConfigNum.Text = "编号设置";
+            this.tsmConfigNum.Size = new System.Drawing.Size(180, 24);
+            this.tsmConfigNum.Text = "编号显示设置";
             this.tsmConfigNum.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
             // 
             // ShowSetting
             // 
             this.ShowSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.ShowSetting.Name = "ShowSetting";
-            this.ShowSetting.Size = new System.Drawing.Size(130, 24);
-            this.ShowSetting.Text = "显示设置";
+            this.ShowSetting.Size = new System.Drawing.Size(180, 24);
+            this.ShowSetting.Text = "显示查询修改";
             this.ShowSetting.Click += new System.EventHandler(this.ConfigInfoISearch_Click);
+            // 
+            // tsmSreen
+            // 
+            this.tsmSreen.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.tsmSreen.Name = "tsmSreen";
+            this.tsmSreen.Size = new System.Drawing.Size(180, 24);
+            this.tsmSreen.Text = "显示器设置";
+            this.tsmSreen.Click += new System.EventHandler(this.tsmSreen_Click);
             // 
             // tsmSetting
             // 
             this.tsmSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmSetting.Name = "tsmSetting";
-            this.tsmSetting.Size = new System.Drawing.Size(130, 24);
-            this.tsmSetting.Text = "基础设置";
+            this.tsmSetting.Size = new System.Drawing.Size(180, 24);
+            this.tsmSetting.Text = "列表顺序设置";
             this.tsmSetting.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
@@ -183,21 +203,11 @@
             this.tsbClear.Text = "清空界面";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
-            // pnlShow
-            // 
-            this.pnlShow.BackgroundImage = global::UI.Properties.Resources.Win10;
-            this.pnlShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlShow.Location = new System.Drawing.Point(0, 42);
-            this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(957, 636);
-            this.pnlShow.TabIndex = 1;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 678);
+            this.ClientSize = new System.Drawing.Size(924, 552);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmMain";
@@ -229,6 +239,7 @@
         private System.Windows.Forms.ToolStripButton tsbEmployee;
         private System.Windows.Forms.ToolStripButton tsbConfig;
         private System.Windows.Forms.ToolStripButton tsbPwd;
+        private System.Windows.Forms.ToolStripMenuItem tsmSreen;
     }
 }
 

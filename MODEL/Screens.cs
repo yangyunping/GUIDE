@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class Screen
+    public class Screens
     {
         /// <summary>
         /// 屏幕编号

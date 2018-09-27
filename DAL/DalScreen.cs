@@ -40,12 +40,12 @@ namespace DAL
         /// </summary>
         /// <param name="showInfo"></param>
         /// <returns></returns>
-        public bool InsertOrModifyScreen(Screen screen)
+        public bool InsertOrModifyScreen(Screens screen)
         {
             string sSql = $@"
 IF NOT EXISTS(Select * from Screen where ScreenID = '{screen.ScreenID}')
 BEGIN
-Insert into Screen(AreaName,AddressNum) values('{screen.AreaName}')
+Insert into Screen(AreaName,AddressNum) values('{screen.AreaName}','{screen.AddressNum}')
 END
 ELSE
 BEGIN

@@ -49,6 +49,7 @@ namespace UI
             pnlShow.Controls.Clear();
             FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("配置") { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmShowSearch);
+
         }
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +101,13 @@ namespace UI
             pnlShow.Controls.Clear();
             FrmPassword frmPassword = new FrmPassword() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmPassword);
+        }
+
+        private void tsmSreen_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("屏幕") { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmShowSearch);
         }
     }
 }

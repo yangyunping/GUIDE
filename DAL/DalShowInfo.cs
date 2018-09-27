@@ -40,12 +40,12 @@ namespace DAL
             string sSql = $@"
 IF NOT EXISTS(Select * from ShowInfo where Id = '{showInfo.ID}')
 BEGIN
-Insert into ShowInfo(ConfigName,AreaName,BeginTime,EndTime,ByOrder) values('{showInfo.ConfigName}','{showInfo.AreaName}','{showInfo.BeginTime}','{showInfo.EndTime}','{showInfo.ByOrder}')
+Insert into ShowInfo(ConfigName,AreaName,BeginTime,EndTime,ByOrder,ScreenId) values('{showInfo.ConfigName}','{showInfo.AreaName}','{showInfo.BeginTime}','{showInfo.EndTime}','{showInfo.ByOrder}','{showInfo.ScreenId}')
 END
 ELSE
 BEGIN
 
-Update ShowInfo set ConfigName = '{showInfo.ConfigName}',AreaName = '{showInfo.AreaName}',BeginTime = '{showInfo.BeginTime}',EndTime = '{showInfo.EndTime}',ByOrder= '{showInfo.ByOrder}' where Id = '{showInfo.ID}'
+Update ShowInfo set ConfigName = '{showInfo.ConfigName}',AreaName = '{showInfo.AreaName}',BeginTime = '{showInfo.BeginTime}',EndTime = '{showInfo.EndTime}',ByOrder= '{showInfo.ByOrder}',ScreenId = '{showInfo.ScreenId}'  where Id = '{showInfo.ID}'
 END
 ";
             return server.ExecuteNonQuery(sSql) > 0;

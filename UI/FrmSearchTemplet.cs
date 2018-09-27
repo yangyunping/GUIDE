@@ -11,7 +11,8 @@ namespace UI
     {
         BllShowInfo bllShowInfo = new BllShowInfo();
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
-        BlllConfiguration BlllConfiguration = new BlllConfiguration();
+        BlllConfiguration blllConfiguration = new BlllConfiguration();
+        BllScreen bllScreen = new BllScreen();
         private string _OperateType;
         public FrmSearchTemplet(string OperateType)
         {
@@ -55,11 +56,20 @@ namespace UI
              new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 120 },
-             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 120 }
+             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 120 },
+             new DataGridViewTextBoxColumn { Name = @"ScreenId", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenId", Width = 120 }
               );
                     btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示删除);
                     btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示修改);
                     btnAdd.Visible = false;
+                    break;
+                case "屏幕":
+                    dgvContent.Columns.AddRange(
+             new DataGridViewTextBoxColumn { Name = @"ScreenID", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenID", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 },
+             new DataGridViewTextBoxColumn { Name = @"AddressNum", HeaderText = @"地址码", DataPropertyName = @"AddressNum", Width = 100 }
+              );
+                    btnAddShow.Visible = false;
                     break;
             }
         }
@@ -80,7 +90,7 @@ namespace UI
                         dgvContent.DataSource = dtArea;
                         break;
                     case "配置":
-                        DataTable dtConfig = BlllConfiguration.GetConfigInfo(txtKey.Text);
+                        DataTable dtConfig = blllConfiguration.GetConfigInfo(txtKey.Text);
                         dgvContent.AutoGenerateColumns = false;
                         dgvContent.DataSource = dtConfig;
                         break;
@@ -88,6 +98,11 @@ namespace UI
                         DataTable dtShow = bllShowInfo.GetShowInfo(txtKey.Text.Trim());
                         dgvContent.AutoGenerateColumns = false;
                         dgvContent.DataSource = dtShow;
+                        break;
+                    case "屏幕":
+                        DataTable dtScreen = bllScreen.GetScreenInfo(txtKey.Text.Trim());
+                        dgvContent.AutoGenerateColumns = false;
+                        dgvContent.DataSource = dtScreen;
                         break;
                 }
             }
@@ -121,7 +136,7 @@ namespace UI
                             }
                             break;
                         case "配置":
-                            if (BlllConfiguration.DeleteConfig(dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString()))
+                            if (blllConfiguration.DeleteConfig(dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString()))
                             {
                                 MessageBox.Show("删除成功！");
                                 dgvContent.Rows.Remove(dgvContent.CurrentRow);
@@ -133,6 +148,17 @@ namespace UI
                             break;
                         case "显示":
                             if (bllShowInfo.DeleteShow(dgvContent.CurrentRow.Cells["Id"].Value.ToString()))
+                            {
+                                MessageBox.Show("删除成功！");
+                                dgvContent.Rows.Remove(dgvContent.CurrentRow);
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败！");
+                            }
+                            break;
+                        case "屏幕":
+                            if (bllScreen.DeleteScreen(dgvContent.CurrentRow.Cells["ScreenID"].Value.ToString()))
                             {
                                 MessageBox.Show("删除成功！");
                                 dgvContent.Rows.Remove(dgvContent.CurrentRow);
@@ -169,6 +195,7 @@ namespace UI
                     {
                         AreaInfo areaInfo = new AreaInfo();
                         areaInfo.AreaName = dgvContent.CurrentRow.Cells["AreaName"].Value.ToString();
+                        areaInfo.AreaId = Convert.ToInt32(dgvContent.CurrentRow.Cells["AreaId"].Value);
                         FrmAddArea frmAddArea = new FrmAddArea(areaInfo);
                         FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmAddArea.Size.Width, frmAddArea.Size.Height) };
                         frmExample.Controls.Add(frmAddArea);
@@ -193,11 +220,23 @@ namespace UI
                         showInfo.ByOrder = dgvContent.CurrentRow.Cells["ByOrders"].Value.ToString().Equals("正序") ? false : true;
                         showInfo.BeginTime = Convert.ToDateTime(dgvContent.CurrentRow.Cells["BeginTime"].Value);
                         showInfo.EndTime = Convert.ToDateTime(dgvContent.CurrentRow.Cells["EndTime"].Value);
+                        showInfo.ScreenId = Convert.ToInt32(dgvContent.CurrentRow.Cells["ScreenId"].Value);
                         Configuration configuration = new Configuration();
                         configuration.ConfigName = dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString();
                         configuration.ConfigNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["ConfigNum"].Value);
                         FrmShowSetting frmShowSetting = new FrmShowSetting(showInfo, configuration);
                         frmShowSetting.ShowDialog();
+                    }
+                    else if (_OperateType.Equals("屏幕"))
+                    {
+                        Screens screens = new Screens();
+                        screens.ScreenID =Convert.ToInt32(dgvContent.CurrentRow.Cells["ScreenID"].Value);
+                        screens.AreaName = dgvContent.CurrentRow.Cells["AreaName"].Value.ToString();
+                        screens.AddressNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["AddressNum"].Value);
+                        FrmSreen frmSreen = new FrmSreen(screens);
+                        FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmSreen.Size.Width, frmSreen.Size.Height) };
+                        frmExample.Controls.Add(frmSreen);
+                        frmExample.ShowDialog();
                     }
                 }
                 else
@@ -230,6 +269,14 @@ namespace UI
                     frmExample.Controls.Add(frmConfigNumAdd);
                     frmExample.ShowDialog();
                 }
+                else if (_OperateType.Equals("屏幕"))
+                {
+                    FrmSreen frmSreen = new FrmSreen(null);
+                    FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmSreen.Size.Width, frmSreen.Size.Height) };
+                    frmExample.Controls.Add(frmSreen);
+                    frmExample.ShowDialog();
+                }
+                btnSearch_Click(null, null);
             } 
             catch (Exception ex)
             {

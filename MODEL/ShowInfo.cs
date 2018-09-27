@@ -35,5 +35,9 @@ namespace MODEL
         /// 顺序
         /// </summary>
         public bool ByOrder { set; get; }
+        /// <summary>
+        /// 屏幕编号
+        /// </summary>
+        public int ScreenId { set; get; }
     }
 }

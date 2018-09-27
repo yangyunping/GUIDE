@@ -12,15 +12,15 @@ namespace BLL
     public class BllScreen
     {
         DalScreen dalScreen = new DalScreen();
-        public DataTable GetAreaInfo(string key)
+        public DataTable GetScreenInfo(string key)
         {
             return dalScreen.GetScreenInfo(key);
         }
-        public bool DeleteArea(string areaID)
+        public bool DeleteScreen(string areaID)
         {
             return dalScreen.DeleteScreen(areaID);
         }
-        public bool InsertOrModifyArea(Screen screen)
+        public bool InsertOrModifyScreen(Screens screen)
         {
             return dalScreen.InsertOrModifyScreen(screen);
         }
