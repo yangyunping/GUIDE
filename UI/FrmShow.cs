@@ -55,7 +55,7 @@ namespace UI
                         {
                             for (int j = 0; j < configNum; j++)
                             {
-                                content += (j + 1) + "    ";
+                                content += (j + 1) +",";
                             }
                             panel.BackColor = Color.FromArgb(224 + i * 3, 224, 224);
                         }
@@ -64,7 +64,7 @@ namespace UI
                             for (int j = configNum; 0 < j; j--)
                             {
 
-                                content += j + "    ";
+                                content += j + ",";
                             }
                             panel.BackColor = Color.FromArgb(224, 224 + i * 3, 224 + i * 3);
                         }
@@ -77,12 +77,12 @@ namespace UI
                         //已显示的内容临时保存
                         ShowContent showContent = new ShowContent()
                         {
-                            AreaName = "区域：" + dtShow.Rows[i]["AreaName"].ToString(),
+                            AreaName = dtShow.Rows[i]["AreaName"].ToString(),
                             ConfigName = "    配置编号 " + dtShow.Rows[i]["ConfigName"].ToString(),
                             GroupNum = "   编组：" + configNum,
                             BeginTime = "    开始时间：" + dtShow.Rows[i]["BeginTime"].ToString(),
                             EndTime = "    结束时间：" + dtShow.Rows[i]["EndTime"].ToString(),
-                            Content = content.Remove(content.LastIndexOf(" "), 1)
+                            Content = content.Remove(content.LastIndexOf(","), 1)
                         };
                         if (!showContents.Contains(showContent))
                         {
@@ -144,19 +144,29 @@ namespace UI
             //图例
             Graphics g = pnlPhoto.CreateGraphics();
             Pen pen = new Pen(Color.Red);
-
+            BllScreen bllScreen = new BllScreen();
             for (int i = 0; i < showContents.Count; i++)
             {
+                DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaName);//查询区域对应的屏幕数量
                 if (i%2 == 0)
                 {
+                    for (int j = 0; j < dtScreen.Rows.Count; j++)
+                    {
+                        g.DrawRectangle(pen, 100 + j * 40, 150 * i / 2 + 20, 25, 25);
+                    }
                     g.DrawRectangle(pen, 100, 150 * i/2+50, 900, 70);
-                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 150, 150 * i / 2 + 30);
-                    g.DrawString(showContents[i].AreaName+ showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black,120, 150 * i / 2 + 60);
+
+                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 100, 150 * i / 2 + 20);
+                    g.DrawString("区域：" + showContents[i].AreaName+ showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black,120, 150 * i / 2 + 60);
                 }
                 else
                 {
+                    for (int j = 0; j < dtScreen.Rows.Count; j++)
+                    {
+                        g.DrawRectangle(pen, 100 + j * 40, 150 * (i - 1) / 2 + 20, 25, 25);
+                    }
                     g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 150, 150 * (i - 1) / 2 + 125);
-                    g.DrawString(showContents[i].AreaName + showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
+                    g.DrawString("区域：" + showContents[i].AreaName + showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
                 }
             }
         }

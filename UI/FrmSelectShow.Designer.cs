@@ -51,7 +51,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(317, 36);
+            this.btnClose.Location = new System.Drawing.Point(335, 41);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(74, 34);
             this.btnClose.TabIndex = 2;
@@ -61,7 +61,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(217, 36);
+            this.btnSave.Location = new System.Drawing.Point(227, 41);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(77, 34);
             this.btnSave.TabIndex = 1;
@@ -77,7 +77,7 @@
             "开始时间",
             "结束时间",
             "配置编号"});
-            this.cmbSearchOrder.Location = new System.Drawing.Point(47, 39);
+            this.cmbSearchOrder.Location = new System.Drawing.Point(45, 44);
             this.cmbSearchOrder.Name = "cmbSearchOrder";
             this.cmbSearchOrder.Size = new System.Drawing.Size(155, 28);
             this.cmbSearchOrder.TabIndex = 0;

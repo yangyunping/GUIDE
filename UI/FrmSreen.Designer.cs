@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(214, 26);
+            this.label1.Location = new System.Drawing.Point(217, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 26);
+            this.label3.Location = new System.Drawing.Point(27, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 19);
             this.label3.TabIndex = 2;
@@ -56,14 +56,14 @@
             // 
             // txtAddressNum
             // 
-            this.txtAddressNum.Location = new System.Drawing.Point(268, 23);
+            this.txtAddressNum.Location = new System.Drawing.Point(271, 32);
             this.txtAddressNum.Name = "txtAddressNum";
             this.txtAddressNum.Size = new System.Drawing.Size(116, 24);
             this.txtAddressNum.TabIndex = 3;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(400, 18);
+            this.btnSave.Location = new System.Drawing.Point(403, 27);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 35);
             this.btnSave.TabIndex = 4;
@@ -75,14 +75,14 @@
             // 
             this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(78, 22);
+            this.cmbArea.Location = new System.Drawing.Point(81, 31);
             this.cmbArea.Name = "cmbArea";
             this.cmbArea.Size = new System.Drawing.Size(121, 27);
             this.cmbArea.TabIndex = 5;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(494, 18);
+            this.btnClose.Location = new System.Drawing.Point(497, 27);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 35);
             this.btnClose.TabIndex = 6;
@@ -103,7 +103,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmSreen";
-            this.Size = new System.Drawing.Size(591, 74);
+            this.Size = new System.Drawing.Size(601, 89);
             this.ResumeLayout(false);
             this.PerformLayout();
 
