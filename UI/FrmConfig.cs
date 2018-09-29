@@ -26,19 +26,14 @@ namespace UI
         }
         private void IniteData()
         {
-            DataTable dtType = bllConfig.GetConfigInfo(null,null,1);
+            DataTable dtType = bllConfig.GetConfigInfo(null, null, 1);
             DataRow newRow = dtType.NewRow();
             newRow["ConfigNO"] = "-1";
             newRow["ConfigValue"] = "全部";
-            dtType.Rows.InsertAt(newRow,0);
+            dtType.Rows.InsertAt(newRow, 0);
             cmbStyle.ValueMember = @"ConfigNO";
             cmbStyle.DisplayMember = @"ConfigValue";
             cmbStyle.DataSource = dtType;
-
-            DataTable dtType1 = bllConfig.GetConfigInfo(null,null, 2);
-            cmbType.ValueMember = @"ConfigNO";
-            cmbType.DisplayMember = @"ConfigValue";
-            cmbType.DataSource = dtType1;
         }
 
         private void DgvColumns()
@@ -67,6 +62,10 @@ namespace UI
             grpAdd.Visible = true;
             cmbType.Enabled = true;
             txtContent.Clear();
+            DataTable dtType1 = bllConfig.GetConfigInfo(null, null, 2);
+            cmbType.ValueMember = @"ConfigNO";
+            cmbType.DisplayMember = @"ConfigValue";
+            cmbType.DataSource = dtType1;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

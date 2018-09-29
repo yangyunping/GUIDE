@@ -20,10 +20,11 @@ namespace UI
             AreaShowSearch.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域设置);
             tsmConfigNum.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号设置);
             ShowSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示设置);
-            tsmSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.基础设置);
+            tsmSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.列表顺序设置);
             tsbBegin.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.启动);
             tsbEmployee.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员管理);
             tsbConfig.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置管理);
+            tsmSreen.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器设置);
         }
         private void AreaShowSearch_Click(object sender, EventArgs e)
         {

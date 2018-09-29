@@ -28,7 +28,7 @@ namespace UI
                 if (bllConfig.GetConfigInfo(CommonInfo.Types.权限.ToString(), null, 1).Rows.Count != 0)
                 {
                     DataTable dtPower = bllConfig.GetConfigInfo(null, bllConfig.GetConfigInfo(CommonInfo.Types.权限.ToString(), null, 1).Rows[0]["ConfigNO"].ToString(), 0);
-                    for (int i = 0; i < dtPower.Rows.Count; i++)
+                    for (int i = 0; i < dtPower.Rows.Count; i++)//第一级节点
                     {
                         TreeNode treeNode = new TreeNode()
                         {
@@ -36,7 +36,7 @@ namespace UI
                             Text = dtPower.Rows[i]["ConfigValue"].ToString()
                         };
                         DataTable dtsonPower = bllConfig.GetConfigInfo(null, dtPower.Rows[i]["ConfigNO"].ToString(), 0);
-                        for (int j = 0; j < dtsonPower.Rows.Count; j++)
+                        for (int j = 0; j < dtsonPower.Rows.Count; j++)//第二级节点
                         {
                             TreeNode treeNode1 = new TreeNode()
                             {
@@ -44,7 +44,7 @@ namespace UI
                                 Text = dtsonPower.Rows[j]["ConfigValue"].ToString()
                             };
                             DataTable dtsonsonPower = bllConfig.GetConfigInfo(null, dtsonPower.Rows[j]["ConfigNO"].ToString(), 0);
-                            for (int h = 0; h < dtsonsonPower.Rows.Count; h++)
+                            for (int h = 0; h < dtsonsonPower.Rows.Count; h++)//第三级节点
                             {
                                 treeNode1.Nodes.Add(dtsonsonPower.Rows[h]["ConfigNO"].ToString(), dtsonsonPower.Rows[h]["ConfigValue"].ToString());
                             }
@@ -109,7 +109,7 @@ namespace UI
             try
             {
                 List<EmpPowers> lstEmp = new List<EmpPowers>();
-                foreach (TreeNode treeNode in twPower.Nodes)
+                foreach (TreeNode treeNode in twPower.Nodes)//第一级节点
                 {
                     if (treeNode.Checked)
                     {
@@ -118,7 +118,7 @@ namespace UI
                         empPowers.PowerNo = treeNode.Name;
                         lstEmp.Add(empPowers);
                     }
-                    foreach (TreeNode item in treeNode.Nodes)
+                    foreach (TreeNode item in treeNode.Nodes)//第二级节点
                     {
                         if (item.Checked)
                         {
@@ -127,9 +127,9 @@ namespace UI
                             empPowers.PowerNo = item.Name;
                             lstEmp.Add(empPowers);
                         }
-                        foreach (TreeNode item1 in item.Nodes)
+                        foreach (TreeNode item1 in item.Nodes)//第三级节点
                         {
-                            if (item.Checked)
+                            if (item1.Checked)
                             {
                                 EmpPowers empPowers = new EmpPowers();
                                 empPowers.EmployeeNo = txtID.Text;

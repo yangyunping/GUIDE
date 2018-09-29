@@ -71,6 +71,9 @@ namespace UI
              new DataGridViewTextBoxColumn { Name = @"AddressNum", HeaderText = @"地址码", DataPropertyName = @"AddressNum", Width = 100 }
               );
                     btnAddShow.Visible = false;
+                    btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器新增);
+                    btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器修改);
+                    btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器删除);
                     break;
             }
         }

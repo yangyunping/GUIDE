@@ -21,7 +21,7 @@ namespace MODEL
         public static  int  人员修改 = 7;
         public static  int  区域设置 = 8;
         public static  int  显示设置 = 9;
-        public static  int  基础设置 = 10;
+        public static  int  列表顺序设置 = 10;
         public static  int  开始 = 11;
         public static  int  停止 = 12;
         public static  int  配置新增 = 13;
@@ -38,6 +38,10 @@ namespace MODEL
         public static int 显示新增 = 24;
         public static int 显示修改 = 25;
         public static int 显示删除 = 26;
+        public static int 显示器设置 = 27;
+        public static int 显示器新增 = 28;
+        public static int 显示器修改 = 29;
+        public static int 显示器删除 = 30;
 
         public static string ChangesToJson(string jsonKey)
         {
