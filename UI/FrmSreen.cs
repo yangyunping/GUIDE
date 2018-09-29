@@ -16,7 +16,7 @@ namespace UI
     {
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         BllScreen bllScreen = new BllScreen();
-        private int screenId = -1;
+        private int Id = -1;
         public FrmSreen(Screens screens)
         {
             InitializeComponent();
@@ -28,9 +28,10 @@ namespace UI
             cmbArea.SelectedIndex = -1;
             if (screens != null)
             {
-                screenId = screens.ScreenID;
+                Id = screens.ID;
                 cmbArea.Text = screens.AreaName;
                 txtAddressNum.Text = screens.AddressNum.ToString();
+                txtScreenID.Text = screens.ID.ToString();
             }
         }
 
@@ -41,7 +42,8 @@ namespace UI
                 try
                 {
                     Screens screens = new Screens();
-                    screens.ScreenID = screenId;
+                    screens.ID = Id;
+                    screens.ScreenID =Convert.ToInt32(txtScreenID.Text);
                     screens.AreaName = cmbArea.Text;
                     screens.AddressNum = Convert.ToInt32(txtAddressNum.Text);
                     if (bllScreen.InsertOrModifyScreen(screens))

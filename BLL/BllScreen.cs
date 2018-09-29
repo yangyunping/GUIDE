@@ -16,9 +16,9 @@ namespace BLL
         {
             return dalScreen.GetScreenInfo(key);
         }
-        public bool DeleteScreen(string areaID)
+        public bool DeleteScreen(string ID)
         {
-            return dalScreen.DeleteScreen(areaID);
+            return dalScreen.DeleteScreen(ID);
         }
         public bool InsertOrModifyScreen(Screens screen)
         {

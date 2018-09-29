@@ -11,7 +11,11 @@ namespace UI
         BllShowInfo bllShowInfo = new BllShowInfo();
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         BllScreen bllScreen = new BllScreen();
-        private string showId = string.Empty;
+        private int showId = -1;
+        /// <summary>
+        /// 编号配置
+        /// </summary>
+        /// <param name="configInfo"></param>
         public FrmShowSetting(Configuration configInfo)
         {
             InitializeComponent();
@@ -25,6 +29,11 @@ namespace UI
             txtConfigName.Text = configInfo.ConfigName;
             GroupNum.Value = configInfo.ConfigNum;
         }
+        /// <summary>
+        /// 显示设置，编号配置
+        /// </summary>
+        /// <param name="showInfo"></param>
+        /// <param name="configInfo"></param>
         public FrmShowSetting(ShowInfo showInfo, Configuration configInfo)
         {
             InitializeComponent();
@@ -34,7 +43,6 @@ namespace UI
             cmbAreaId.DisplayMember = "AreaName";
             cmbAreaId.DataSource = dtInfo;
          
-
             showId = showInfo.ID;
             txtConfigName.Text = showInfo.ConfigName;
             cmbAreaId.Text = showInfo.AreaName;

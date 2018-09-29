@@ -19,7 +19,7 @@ namespace MODEL
         /// <summary>
         /// 编组
         /// </summary>
-        public string GroupNum { set; get; }
+        public int GroupNum { set; get; }
         /// <summary>
         /// 开始时间
         /// </summary>
@@ -32,5 +32,13 @@ namespace MODEL
         /// 显示内容
         /// </summary>
         public string Content { set; get; }
+        /// <summary>
+        /// 显示顺序
+        /// </summary>
+        public int ByOrder { set; get; }
+        /// <summary>
+        /// 显示屏幕
+        /// </summary>
+        public int ScreenID { set; get; }
     }
 }

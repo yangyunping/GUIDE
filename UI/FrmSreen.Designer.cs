@@ -34,12 +34,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbArea = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.txtScreenID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(217, 35);
+            this.label1.Location = new System.Drawing.Point(27, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 0;
@@ -56,14 +58,14 @@
             // 
             // txtAddressNum
             // 
-            this.txtAddressNum.Location = new System.Drawing.Point(271, 32);
+            this.txtAddressNum.Location = new System.Drawing.Point(81, 113);
             this.txtAddressNum.Name = "txtAddressNum";
-            this.txtAddressNum.Size = new System.Drawing.Size(116, 24);
+            this.txtAddressNum.Size = new System.Drawing.Size(121, 24);
             this.txtAddressNum.TabIndex = 3;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(403, 27);
+            this.btnSave.Location = new System.Drawing.Point(274, 177);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 35);
             this.btnSave.TabIndex = 4;
@@ -82,7 +84,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(497, 27);
+            this.btnClose.Location = new System.Drawing.Point(92, 177);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 35);
             this.btnClose.TabIndex = 6;
@@ -90,10 +92,28 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // txtScreenID
+            // 
+            this.txtScreenID.Location = new System.Drawing.Point(287, 32);
+            this.txtScreenID.Name = "txtScreenID";
+            this.txtScreenID.Size = new System.Drawing.Size(116, 24);
+            this.txtScreenID.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(233, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "编   号";
+            // 
             // FrmSreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtScreenID);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.cmbArea);
             this.Controls.Add(this.btnSave);
@@ -103,7 +123,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmSreen";
-            this.Size = new System.Drawing.Size(601, 89);
+            this.Size = new System.Drawing.Size(431, 249);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +137,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbArea;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtScreenID;
+        private System.Windows.Forms.Label label2;
     }
 }

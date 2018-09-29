@@ -30,9 +30,9 @@ namespace DAL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool DeleteScreen(string screenID)
+        public bool DeleteScreen(string ID)
         {
-            string sSql = $@"Delete from Screen where ScreenID = '{screenID}'";
+            string sSql = $@"Delete from Screen where  ID = '{ID}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>
@@ -43,13 +43,13 @@ namespace DAL
         public bool InsertOrModifyScreen(Screens screen)
         {
             string sSql = $@"
-IF NOT EXISTS(Select * from Screen where ScreenID = '{screen.ScreenID}')
+IF NOT EXISTS(Select * from Screen where ID = '{screen.ID}')
 BEGIN
-Insert into Screen(AreaName,AddressNum) values('{screen.AreaName}','{screen.AddressNum}')
+Insert into Screen(AreaName,AddressNum,ScreenID) values('{screen.AreaName}','{screen.AddressNum}','{screen.ScreenID}')
 END
 ELSE
 BEGIN
-Update Screen set AreaName = '{screen.AreaName}',AddressNum = '{screen.AddressNum}' where ScreenID = '{screen.ScreenID}'
+Update Screen set AreaName = '{screen.AreaName}',AddressNum = '{screen.AddressNum}',ScreenID ='{screen.ScreenID}'  where ID = '{screen.ID}'
 END";
             return server.ExecuteNonQuery(sSql) > 0;
         }

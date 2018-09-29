@@ -10,7 +10,7 @@ namespace MODEL
         /// <summary>
         /// 主键ID
         /// </summary>
-        public string ID { set; get; }
+        public int ID { set; get; }
         /// <summary>
         /// 配置编号
         /// </summary>

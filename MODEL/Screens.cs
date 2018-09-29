@@ -9,6 +9,10 @@ namespace MODEL
     public class Screens
     {
         /// <summary>
+        /// ID
+        /// </summary>
+        public int ID { set; get; }
+        /// <summary>
         /// 屏幕编号
         /// </summary>
         public int ScreenID { set; get; }

@@ -65,6 +65,7 @@ namespace UI
                     break;
                 case "屏幕":
                     dgvContent.Columns.AddRange(
+             new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"编号ID", DataPropertyName = @"ID", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ScreenID", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenID", Width = 100 },
              new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 },
              new DataGridViewTextBoxColumn { Name = @"AddressNum", HeaderText = @"地址码", DataPropertyName = @"AddressNum", Width = 100 }
@@ -158,7 +159,7 @@ namespace UI
                             }
                             break;
                         case "屏幕":
-                            if (bllScreen.DeleteScreen(dgvContent.CurrentRow.Cells["ScreenID"].Value.ToString()))
+                            if (bllScreen.DeleteScreen(dgvContent.CurrentRow.Cells["ID"].Value.ToString()))
                             {
                                 MessageBox.Show("删除成功！");
                                 dgvContent.Rows.Remove(dgvContent.CurrentRow);
@@ -214,7 +215,7 @@ namespace UI
                     else if (_OperateType.Equals("显示"))
                     {
                         ShowInfo showInfo = new ShowInfo();
-                        showInfo.ID = dgvContent.CurrentRow.Cells["ID"].Value.ToString();
+                        showInfo.ID =Convert.ToInt32(dgvContent.CurrentRow.Cells["ID"].Value);
                         showInfo.AreaName = dgvContent.CurrentRow.Cells["AreaName"].Value.ToString();
                         showInfo.ConfigName = dgvContent.CurrentRow.Cells["ConfigName"].Value.ToString();
                         showInfo.ByOrder = dgvContent.CurrentRow.Cells["ByOrders"].Value.ToString().Equals("正序") ? false : true;
@@ -230,6 +231,7 @@ namespace UI
                     else if (_OperateType.Equals("屏幕"))
                     {
                         Screens screens = new Screens();
+                        screens.ID = Convert.ToInt32(dgvContent.CurrentRow.Cells["ID"].Value);
                         screens.ScreenID =Convert.ToInt32(dgvContent.CurrentRow.Cells["ScreenID"].Value);
                         screens.AreaName = dgvContent.CurrentRow.Cells["AreaName"].Value.ToString();
                         screens.AddressNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["AddressNum"].Value);

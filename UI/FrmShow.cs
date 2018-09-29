@@ -51,7 +51,7 @@ namespace UI
 
                         //列表
                         Panel panel = new Panel() { Dock = DockStyle.Top,Height = 70 };
-                        if (Convert.ToInt32(dtShow.Rows[i]["ByOrder"]) == 0)
+                        if (Convert.ToInt32(dtShow.Rows[i]["ByOrder"]) == 0)//顺序
                         {
                             for (int j = 0; j < configNum; j++)
                             {
@@ -61,28 +61,31 @@ namespace UI
                         }
                         else
                         {
-                            for (int j = configNum; 0 < j; j--)
+                            for (int j = configNum; 0 < j; j--)//倒序
                             {
 
                                 content += j + ",";
                             }
                             panel.BackColor = Color.FromArgb(224, 224 + i * 3, 224 + i * 3);
                         }
-                        Label label = new Label() { Dock = DockStyle.Bottom, Font = new Font("微软雅黑", 15), Height = 70 };
+                        string order = Convert.ToInt32(dtShow.Rows[i]["ByOrder"]) == 0 ? "正序" : "倒序";
+                        Label label = new Label() { Dock = DockStyle.Bottom, Font = new Font("微软雅黑", 13), Height = 70 };
                         label.Text = "区域：" + dtShow.Rows[i]["AreaName"].ToString() + "     配置编号 " + dtShow.Rows[i]["ConfigName"].ToString()
-                            + "    开始时间：" + dtShow.Rows[i]["BeginTime"].ToString() + "    结束时间：" + dtShow.Rows[i]["EndTime"].ToString() + "   编组：" 
-                            + configNum + "     序号：" + content.Remove(content.LastIndexOf(" "), 1);
+                            + "    时间段：" + dtShow.Rows[i]["BeginTime"].ToString() + "-" + dtShow.Rows[i]["EndTime"].ToString() + "   编组：" 
+                            + configNum + "     开始屏幕：" + dtShow.Rows[i]["ScreenID"].ToString() + "     顺序：" + order + "     序号：" + content.Remove(content.LastIndexOf(","), 1);
                         showInfo.Add(dtShow.Rows[i]["Id"].ToString(), Convert.ToDateTime(dtShow.Rows[i]["BeginTime"]));
 
                         //已显示的内容临时保存
                         ShowContent showContent = new ShowContent()
                         {
                             AreaName = dtShow.Rows[i]["AreaName"].ToString(),
-                            ConfigName = "    配置编号 " + dtShow.Rows[i]["ConfigName"].ToString(),
-                            GroupNum = "   编组：" + configNum,
-                            BeginTime = "    开始时间：" + dtShow.Rows[i]["BeginTime"].ToString(),
-                            EndTime = "    结束时间：" + dtShow.Rows[i]["EndTime"].ToString(),
-                            Content = content.Remove(content.LastIndexOf(","), 1)
+                            ConfigName = dtShow.Rows[i]["ConfigName"].ToString(),
+                            GroupNum = configNum,
+                            BeginTime =dtShow.Rows[i]["BeginTime"].ToString(),
+                            EndTime = dtShow.Rows[i]["EndTime"].ToString(),
+                            Content = content.Remove(content.LastIndexOf(","), 1),
+                            ScreenID = Convert.ToInt32(dtShow.Rows[i]["ScreenID"]),
+                            ByOrder = Convert.ToInt32(dtShow.Rows[i]["ByOrder"])
                         };
                         if (!showContents.Contains(showContent))
                         {
@@ -141,33 +144,78 @@ namespace UI
         /// <param name="e"></param>
         private void pnlPhoto_Paint(object sender, PaintEventArgs e)
         {
-            //图例
-            Graphics g = pnlPhoto.CreateGraphics();
-            Pen pen = new Pen(Color.Red);
-            BllScreen bllScreen = new BllScreen();
-            for (int i = 0; i < showContents.Count; i++)
+            try
             {
-                DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaName);//查询区域对应的屏幕数量
-                if (i%2 == 0)
+                //图例
+                Graphics g = pnlPhoto.CreateGraphics();
+                Pen pen = new Pen(Color.Red);
+                BllScreen bllScreen = new BllScreen();
+                for (int i = 0; i < showContents.Count; i++)
                 {
-                    for (int j = 0; j < dtScreen.Rows.Count; j++)
+                    DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaName);//查询区域对应的屏幕数量
+                    //偶数画框
+                    if (i % 2 == 0)
                     {
-                        g.DrawRectangle(pen, 100 + j * 40, 150 * i / 2 + 20, 25, 25);
+                        if (showContents[i].ByOrder == 0)
+                        {
+                            //顺序画屏幕框
+                            for (int j = 0; j < dtScreen.Rows.Count; j++)
+                            {
+                                g.DrawRectangle(pen, 100 + j * 40, 150 * i / 2 + 20, 25, 25);
+                                if (j + 1 == showContents[i].ScreenID)
+                                {
+                                    g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * i / 2 + 20);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //倒序画屏幕框
+                            for (int j = 0; j < dtScreen.Rows.Count; j++)
+                            {
+                                g.DrawRectangle(pen, 100 + j * 40, 150 * i / 2 + 20, 25, 25);
+                                if (j +1 == showContents[i].ScreenID - showContents[i].GroupNum + 1)
+                                {
+                                    g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * i / 2 + 20);
+                                }
+                            }
+                        }
+                        g.DrawRectangle(pen, 100, 150 * i / 2 + 50, 900, 70);
+                        g.DrawString("区域：" + showContents[i].AreaName + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * i / 2 + 60);
                     }
-                    g.DrawRectangle(pen, 100, 150 * i/2+50, 900, 70);
-
-                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 100, 150 * i / 2 + 20);
-                    g.DrawString("区域：" + showContents[i].AreaName+ showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black,120, 150 * i / 2 + 60);
-                }
-                else
-                {
-                    for (int j = 0; j < dtScreen.Rows.Count; j++)
+                    else //奇数不用画大框
                     {
-                        g.DrawRectangle(pen, 100 + j * 40, 150 * (i - 1) / 2 + 20, 25, 25);
+                        if (showContents[i].ByOrder == 0)
+                        {
+                            //顺序画屏幕框
+                            for (int j = 0; j < dtScreen.Rows.Count; j++)
+                            {
+                                g.DrawRectangle(pen, 100 + j * 40, 150 * (i - 1) / 2 + 125, 25, 25);
+                                if (j + 1 == showContents[i].ScreenID)
+                                {
+                                    g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * (i - 1) / 2 + 125);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //倒序画屏幕框
+                            for (int j = 0; j < dtScreen.Rows.Count; j++)
+                            {
+                                g.DrawRectangle(pen, 100 + j * 40, 150 * (i - 1) / 2 + 125, 25, 25);
+                                if (j  == showContents[i].ScreenID - showContents[i].GroupNum + 1)
+                                {
+                                    g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * (i - 1) / 2 + 125);
+                                }
+                            }
+                        }
+                        g.DrawString("区域：" + showContents[i].AreaName + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
                     }
-                    g.DrawString(showContents[i].Content, new Font("微软雅黑", 12), Brushes.Black, 150, 150 * (i - 1) / 2 + 125);
-                    g.DrawString("区域：" + showContents[i].AreaName + showContents[i].ConfigName + showContents[i].GroupNum + showContents[i].BeginTime + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

@@ -44,7 +44,6 @@ Insert into ShowInfo(ConfigName,AreaName,BeginTime,EndTime,ByOrder,ScreenId) val
 END
 ELSE
 BEGIN
-
 Update ShowInfo set ConfigName = '{showInfo.ConfigName}',AreaName = '{showInfo.AreaName}',BeginTime = '{showInfo.BeginTime}',EndTime = '{showInfo.EndTime}',ByOrder= '{showInfo.ByOrder}',ScreenId = '{showInfo.ScreenId}'  where Id = '{showInfo.ID}'
 END
 ";
