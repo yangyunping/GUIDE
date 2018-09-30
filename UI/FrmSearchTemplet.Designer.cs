@@ -40,8 +40,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.grbMenues = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.panel1.SuspendLayout();
+            this.grbMenues.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvContent
@@ -58,7 +60,7 @@
             this.dgvContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvContent.Location = new System.Drawing.Point(0, 69);
+            this.dgvContent.Location = new System.Drawing.Point(0, 96);
             this.dgvContent.MultiSelect = false;
             this.dgvContent.Name = "dgvContent";
             this.dgvContent.ReadOnly = true;
@@ -75,28 +77,22 @@
             this.dgvContent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvContent.RowTemplate.Height = 23;
             this.dgvContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContent.Size = new System.Drawing.Size(652, 441);
+            this.dgvContent.Size = new System.Drawing.Size(652, 414);
             this.dgvContent.TabIndex = 3;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnAddShow);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.btnModify);
-            this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.txtKey);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.grbMenues);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(652, 69);
+            this.panel1.Size = new System.Drawing.Size(652, 96);
             this.panel1.TabIndex = 2;
             // 
             // btnAddShow
             // 
             this.btnAddShow.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnAddShow.Location = new System.Drawing.Point(517, 13);
+            this.btnAddShow.Location = new System.Drawing.Point(531, 36);
             this.btnAddShow.Name = "btnAddShow";
             this.btnAddShow.Size = new System.Drawing.Size(78, 40);
             this.btnAddShow.TabIndex = 22;
@@ -108,7 +104,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnAdd.Location = new System.Drawing.Point(445, 13);
+            this.btnAdd.Location = new System.Drawing.Point(459, 36);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(66, 40);
             this.btnAdd.TabIndex = 21;
@@ -119,7 +115,7 @@
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnModify.Location = new System.Drawing.Point(299, 13);
+            this.btnModify.Location = new System.Drawing.Point(313, 36);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(64, 40);
             this.btnModify.TabIndex = 20;
@@ -130,7 +126,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnDelete.Location = new System.Drawing.Point(369, 13);
+            this.btnDelete.Location = new System.Drawing.Point(383, 36);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(70, 40);
             this.btnDelete.TabIndex = 19;
@@ -141,7 +137,7 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnSearch.Location = new System.Drawing.Point(227, 13);
+            this.btnSearch.Location = new System.Drawing.Point(241, 36);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(66, 40);
             this.btnSearch.TabIndex = 18;
@@ -152,7 +148,7 @@
             // txtKey
             // 
             this.txtKey.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtKey.Location = new System.Drawing.Point(72, 20);
+            this.txtKey.Location = new System.Drawing.Point(86, 43);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(132, 26);
             this.txtKey.TabIndex = 17;
@@ -162,11 +158,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(15, 23);
+            this.label1.Location = new System.Drawing.Point(29, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "关键字";
+            // 
+            // grbMenues
+            // 
+            this.grbMenues.Controls.Add(this.btnAddShow);
+            this.grbMenues.Controls.Add(this.label1);
+            this.grbMenues.Controls.Add(this.btnAdd);
+            this.grbMenues.Controls.Add(this.txtKey);
+            this.grbMenues.Controls.Add(this.btnModify);
+            this.grbMenues.Controls.Add(this.btnSearch);
+            this.grbMenues.Controls.Add(this.btnDelete);
+            this.grbMenues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbMenues.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.grbMenues.Location = new System.Drawing.Point(0, 0);
+            this.grbMenues.Name = "grbMenues";
+            this.grbMenues.Size = new System.Drawing.Size(652, 96);
+            this.grbMenues.TabIndex = 4;
+            this.grbMenues.TabStop = false;
+            this.grbMenues.Text = "菜单";
             // 
             // FrmSearchTemplet
             // 
@@ -178,7 +192,8 @@
             this.Size = new System.Drawing.Size(652, 510);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.grbMenues.ResumeLayout(false);
+            this.grbMenues.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,5 +209,6 @@
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnAddShow;
+        private System.Windows.Forms.GroupBox grbMenues;
     }
 }

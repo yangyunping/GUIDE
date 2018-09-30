@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.cmbSearchOrder = new System.Windows.Forms.ComboBox();
@@ -37,21 +38,31 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.cmbSearchOrder);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 100);
+            this.groupBox1.Size = new System.Drawing.Size(529, 104);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "启动排序";
+            this.groupBox1.Text = "列表顺序设置";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(48, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "选 项：";
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(335, 41);
+            this.btnClose.Location = new System.Drawing.Point(399, 44);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(74, 34);
             this.btnClose.TabIndex = 2;
@@ -61,7 +72,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(227, 41);
+            this.btnSave.Location = new System.Drawing.Point(291, 44);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(77, 34);
             this.btnSave.TabIndex = 1;
@@ -77,7 +88,7 @@
             "开始时间",
             "结束时间",
             "配置编号"});
-            this.cmbSearchOrder.Location = new System.Drawing.Point(45, 44);
+            this.cmbSearchOrder.Location = new System.Drawing.Point(109, 47);
             this.cmbSearchOrder.Name = "cmbSearchOrder";
             this.cmbSearchOrder.Size = new System.Drawing.Size(155, 28);
             this.cmbSearchOrder.TabIndex = 0;
@@ -88,8 +99,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSelectShow";
-            this.Size = new System.Drawing.Size(456, 106);
+            this.Size = new System.Drawing.Size(529, 104);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -100,5 +112,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cmbSearchOrder;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label1;
     }
 }

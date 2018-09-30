@@ -174,7 +174,7 @@ namespace UI
                             for (int j = 0; j < dtScreen.Rows.Count; j++)
                             {
                                 g.DrawRectangle(pen, 100 + j * 40, 150 * i / 2 + 20, 25, 25);
-                                if (j +1 == showContents[i].ScreenID - showContents[i].GroupNum + 1)
+                                if (j  == showContents[i].ScreenID - showContents[i].GroupNum)
                                 {
                                     g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * i / 2 + 20);
                                 }
@@ -203,7 +203,7 @@ namespace UI
                             for (int j = 0; j < dtScreen.Rows.Count; j++)
                             {
                                 g.DrawRectangle(pen, 100 + j * 40, 150 * (i - 1) / 2 + 125, 25, 25);
-                                if (j  == showContents[i].ScreenID - showContents[i].GroupNum + 1)
+                                if (j  == showContents[i].ScreenID - showContents[i].GroupNum)
                                 {
                                     g.DrawString(showContents[i].Content.Replace(",", "      "), new Font("微软雅黑", 12), Brushes.Black, 105 + j * 40, 150 * (i - 1) / 2 + 125);
                                 }

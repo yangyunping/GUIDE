@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace UI
@@ -9,6 +10,7 @@ namespace UI
     public partial class FrmMain : Form
     {
         BllAreaInfo BllAreaInfo = new BllAreaInfo();
+        public readonly string _configPath = Application.StartupPath + @"\\" + @"Config.ini";//配置文件存放路径
         public FrmMain()
         {
             InitializeComponent();
@@ -109,6 +111,24 @@ namespace UI
             pnlShow.Controls.Clear();
             FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("屏幕") { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmShowSearch);
+        }
+
+        private void 皮肤更换ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmSkinEngine frmSkinEngine = new FrmSkinEngine() { Dock = DockStyle.Left };
+            pnlShow.Controls.Add(frmSkinEngine);
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            StringBuilder selectOrder = new StringBuilder(255);
+            GetOrSetConfig.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
+                _configPath);
+            CommonInfo.skin = selectOrder.ToString();
+            Sunisoft.IrisSkin.SkinEngine s = new Sunisoft.IrisSkin.SkinEngine();
+            s.SkinFile = selectOrder.ToString();
+            s.DisableTag = 9999;
         }
     }
 }

@@ -61,8 +61,24 @@ namespace UI
         {
             try
             {
-                if (!string.IsNullOrEmpty(cmbAreaId.Text) && GroupNum.Value > 0 && !string.IsNullOrEmpty(cmbOrder.Text))
+                if (!string.IsNullOrEmpty(cmbAreaId.Text) && GroupNum.Value > 0 && !string.IsNullOrEmpty(cmbOrder.Text) &&  !string.IsNullOrEmpty(cmbScreens.Text))
                 {
+                    if (cmbOrder.Text.Equals("正序"))
+                    {
+                        if (cmbScreens.Items.Count - Convert.ToInt32(cmbScreens.Text) < Convert.ToInt32(cmbScreens.Text) + GroupNum.Value)//正序判断是否屏幕范围内
+                        {
+                            MessageBox.Show("超出屏幕范围，请重新选择！");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (Convert.ToInt32(cmbScreens.Text) < GroupNum.Value)//倒序判断是否屏幕范围内
+                        {
+                            MessageBox.Show("超出屏幕范围，请重新选择！");
+                            return;
+                        }
+                    }
                     ShowInfo showInfo = new ShowInfo();
                     showInfo.ID = showId;
                     showInfo.AreaName = cmbAreaId.Text;

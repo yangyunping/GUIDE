@@ -28,6 +28,7 @@ namespace UI
             switch (_OperateType)
             {
                 case "区域":
+                    grbMenues.Text = "区域设置";
                     dgvContent.Columns.AddRange(
                new DataGridViewTextBoxColumn { Name = @"AreaId", HeaderText = @"编号", DataPropertyName = @"AreaId", Width = 100 },
                new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 150 }
@@ -37,6 +38,7 @@ namespace UI
                     btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域修改);
                     break;
                 case "配置":
+                    grbMenues.Text = "编组设置";
                     dgvContent.Columns.AddRange(
                 new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 150 },
                 new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组", DataPropertyName = @"ConfigNum", Width = 100 }
@@ -48,6 +50,7 @@ namespace UI
                     btnAddShow.Visible = true;
                     break;
                 case "显示":
+                    grbMenues.Text = "显示查询";
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
              new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 120 },
@@ -64,6 +67,7 @@ namespace UI
                     btnAdd.Visible = false;
                     break;
                 case "屏幕":
+                    grbMenues.Text = "显示器设置";
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"编号ID", DataPropertyName = @"ID", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ScreenID", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenID", Width = 100 },

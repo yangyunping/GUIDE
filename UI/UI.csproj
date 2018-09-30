@@ -54,6 +54,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IrisSkin4.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
@@ -153,6 +157,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSkinEngine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmSkinEngine.Designer.cs">
+      <DependentUpon>FrmSkinEngine.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -199,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSkinEngine.resx">
+      <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSreen.resx">
       <DependentUpon>FrmSreen.cs</DependentUpon>
