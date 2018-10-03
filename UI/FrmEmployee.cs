@@ -208,14 +208,8 @@ namespace UI
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             } 
-        }
-
-        private void FrmEmployee_Load(object sender, EventArgs e)
-        {
-            twPower.ExpandAll();
         }
     }
 }
