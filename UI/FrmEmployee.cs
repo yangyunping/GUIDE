@@ -186,25 +186,29 @@ namespace UI
         {
             try
             {
-                if (!e.Node.Checked)
+                foreach (TreeNode item in e.Node.Nodes)
                 {
-                    foreach (TreeNode item in e.Node.Nodes)
-                    {
-                        item.Checked = e.Node.Checked;
-                    }
-                    return;
+                    item.Checked = e.Node.Checked;
                 }
-                if (e.Node.Parent != null)
-                {
-                    foreach (TreeNode item in e.Node.Parent.Nodes)
-                    {
-                        if (item.Checked)
-                        {
-                            e.Node.Parent.Checked = true;
-                            return;
-                        }
-                    }
-                }
+                //if (!e.Node.Checked)
+                //{
+                //    foreach (TreeNode item in e.Node.Nodes)
+                //    {
+                //        item.Checked = e.Node.Checked;
+                //    }
+                //    return;
+                //}
+                //if (e.Node.Parent != null)
+                //{
+                //    foreach (TreeNode item in e.Node.Parent.Nodes)
+                //    {
+                //        if (item.Checked)
+                //        {
+                //            e.Node.Parent.Checked = true;
+                //            return;
+                //        }
+                //    }
+                //}
             }
             catch (Exception ex)
             {

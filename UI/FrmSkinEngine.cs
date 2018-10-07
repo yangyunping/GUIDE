@@ -35,7 +35,6 @@ namespace UI
                 if (!string.IsNullOrEmpty(skinType))
                 {
                     GetOrSetConfig.WritePrivateProfileString("SkinPath", "SkinPathValue", skinType, _configPath);
-                    CommonInfo.skin = skinType;
                 }
             }
         }

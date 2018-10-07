@@ -43,11 +43,5 @@ namespace MODEL
         public static int 显示器修改 = 29;
         public static int 显示器删除 = 30;
 
-        /// <summary>
-        /// 皮肤选择
-        /// </summary>
-        /// <param name="jsonKey"></param>
-        /// <returns></returns>
-        public static string  skin = "GlassBrown.ssk";
     }
 }
