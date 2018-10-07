@@ -52,7 +52,6 @@ namespace UI
             if (null == registry)
             {
                 cmbEmpID.Focus();
-                return;
             }
             else
             {
@@ -67,6 +66,7 @@ namespace UI
             Graphics g = e.Graphics;
             LinearGradientBrush myBrush = new LinearGradientBrush(ClientRectangle, Color.LightSkyBlue, Color.White, LinearGradientMode.Vertical);
             g.FillRectangle(myBrush, ClientRectangle);
+            txtPassword.Focus();
         }
 
         private void btnLogin_Click(object sender, System.EventArgs e)

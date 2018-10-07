@@ -143,6 +143,7 @@ namespace UI
                 _configPath);
             if (string.IsNullOrEmpty(selectOrder.ToString()))
             {
+                skinEngine1.Active = false;
                 return;
             }
             skinEngine1.SkinFile = selectOrder.ToString();
