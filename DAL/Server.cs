@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using MODEL;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,7 +7,7 @@ namespace DAL
 {
     public class Server
     {
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["GUIDEConnectionString"].ConnectionString;
+        private string ConnectionString = CommonInfo.Decrypt(ConfigurationManager.ConnectionStrings["GUIDEConnectionString"].ConnectionString,"emewesoft");
         protected const int ExecuteTimeout = 60;
         /// <summary>
         /// 测试连接是否成功

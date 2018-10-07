@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace MODEL
 {
@@ -9,30 +12,30 @@ namespace MODEL
     {
         public enum Types
         {
-           权限,
+            权限,
         }
-        public static  int  权限 = 0;
-        public static  int  人员管理 = 1;
-        public static  int  显示管理 = 2;
-        public static  int  启动 = 3;
-        public static  int  配置管理 = 4;
-        public static  int  人员删除 = 5;
-        public static  int  人员新增 = 6;
-        public static  int  人员修改 = 7;
-        public static  int  区域设置 = 8;
-        public static  int  显示设置 = 9;
-        public static  int  列表顺序设置 = 10;
-        public static  int  开始 = 11;
-        public static  int  停止 = 12;
-        public static  int  配置新增 = 13;
-        public static  int  配置修改 = 14;
-        public static  int  配置删除 = 15;
-        public static  int  新增类别 = 16;
-        public static  int  编号设置 = 17;
+        public static int 权限 = 0;
+        public static int 人员管理 = 1;
+        public static int 显示管理 = 2;
+        public static int 启动 = 3;
+        public static int 配置管理 = 4;
+        public static int 人员删除 = 5;
+        public static int 人员新增 = 6;
+        public static int 人员修改 = 7;
+        public static int 区域设置 = 8;
+        public static int 显示设置 = 9;
+        public static int 列表顺序设置 = 10;
+        public static int 开始 = 11;
+        public static int 停止 = 12;
+        public static int 配置新增 = 13;
+        public static int 配置修改 = 14;
+        public static int 配置删除 = 15;
+        public static int 新增类别 = 16;
+        public static int 编号设置 = 17;
         public static int 区域新增 = 18;
         public static int 区域修改 = 19;
-        public static int 区域删除=20;
-        public static int 编号新增=21;
+        public static int 区域删除 = 20;
+        public static int 编号新增 = 21;
         public static int 编号修改 = 22;
         public static int 编号删除 = 23;
         public static int 显示新增 = 24;
@@ -43,5 +46,56 @@ namespace MODEL
         public static int 显示器修改 = 29;
         public static int 显示器删除 = 30;
 
+
+        /// <summary>
+        /// 解密
+        /// </summary>
+        /// <param name="stringToDecrypt">待解密字符串</param>
+        /// <param name="sEncryptionKey">密钥</param>
+        /// <returns>解密后的字符串</returns>
+        public static string Decrypt(string stringToDecrypt, string sEncryptionKey)
+        {
+            try
+            {
+                byte[] rgbIV = { 10, 20, 30, 40, 50, 60, 70, 80 };
+                byte[] rgbKey = Encoding.UTF8.GetBytes(sEncryptionKey.Substring(0, 8));
+                DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
+                byte[] buffer = Convert.FromBase64String(stringToDecrypt);
+                MemoryStream stream = new MemoryStream();
+                CryptoStream stream2 = new CryptoStream(stream, provider.CreateDecryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
+                stream2.Write(buffer, 0, buffer.Length);
+                stream2.FlushFinalBlock();
+                return Encoding.UTF8.GetString(stream.ToArray());
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="stringToEncrypt">待加密字符串</param>
+        /// <param name="sEncryptionKey">密钥</param>
+        /// <returns>加密后的字符串</returns>
+        public static string Encrypt(string stringToEncrypt, string sEncryptionKey)
+        {
+            try
+            {
+                byte[] rgbIV = { 10, 20, 30, 40, 50, 60, 70, 80 };
+                byte[] rgbKey = Encoding.UTF8.GetBytes(sEncryptionKey.Substring(0, 8));
+                DESCryptoServiceProvider provider = new DESCryptoServiceProvider();
+                byte[] bytes = Encoding.UTF8.GetBytes(stringToEncrypt);
+                MemoryStream stream = new MemoryStream();
+                CryptoStream stream2 = new CryptoStream(stream, provider.CreateEncryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
+                stream2.Write(bytes, 0, bytes.Length);
+                stream2.FlushFinalBlock();
+                return Convert.ToBase64String(stream.ToArray());
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
     }
 }
