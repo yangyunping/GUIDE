@@ -11,7 +11,7 @@ using BLL;
 
 namespace UI
 {
-    public partial class FrmPassword : UserControl
+    public partial class FrmPassword : Form
     {
         public FrmPassword()
         {
@@ -20,7 +20,7 @@ namespace UI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void txtOriginal_KeyDown(object sender, KeyEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -14,7 +15,7 @@ namespace Encrypt
 {
     public partial class Main : Form
     {
-        private string sEncryptionKey = "";
+        // private string sEncryptionKey = ConfigurationManager.AppSettings["sEncryptionKey"];
         public Main()
         {
             InitializeComponent();

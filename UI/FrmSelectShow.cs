@@ -10,7 +10,7 @@ using MODEL;
 
 namespace UI
 {
-    public partial class FrmSelectShow : UserControl
+    public partial class FrmSelectShow : Form
     {
         public readonly string _configPath = Application.StartupPath + @"\\" + @"Config.ini";//配置文件存放路径
         public FrmSelectShow()
