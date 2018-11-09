@@ -21,24 +21,32 @@ namespace MODEL
         /// </summary>
         public int GroupNum { set; get; }
         /// <summary>
-        /// 开始时间
-        /// </summary>
-        public string BeginTime { set; get; }
-        /// <summary>
-        /// 结束时间
-        /// </summary>
-        public string EndTime { set; get; }
-        /// <summary>
-        /// 显示内容
-        /// </summary>
-        public string Content { set; get; }
-        /// <summary>
-        /// 显示顺序
+        /// 顺序
         /// </summary>
         public int ByOrder { set; get; }
         /// <summary>
-        /// 显示屏幕
+        /// 开始时间
+        /// </summary>
+        public DateTime BeginTime { set; get; }
+        /// <summary>
+        /// 结束时间
+        /// </summary>
+        public DateTime EndTime { set; get; }
+        /// <summary>
+        /// 显示内容
+        /// </summary>
+        public string SingleTxt { set; get; }
+        /// <summary>
+        /// 一个编组所有内容
+        /// </summary>
+        public string AllContents { set; get; }
+        /// <summary>
+        /// 显示屏幕编号
         /// </summary>
         public int ScreenID { set; get; }
+        /// <summary>
+        /// 屏幕地址码
+        /// </summary>
+        public int AddressNum { set; get; }
     }
 }

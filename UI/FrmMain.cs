@@ -179,8 +179,8 @@ namespace UI
                     skinEngine1.DisableTag = 9999;
                 }
             }
-            catch (Exception ex) { }
-           
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)

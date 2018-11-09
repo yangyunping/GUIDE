@@ -73,6 +73,16 @@ namespace UI.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap clock_alt {
+            get {
+                object obj = ResourceManager.GetObject("clock_alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Filmroll {
             get {
                 object obj = ResourceManager.GetObject("Filmroll", resourceCulture);

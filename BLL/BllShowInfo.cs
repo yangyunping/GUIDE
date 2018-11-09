@@ -27,7 +27,7 @@ namespace BLL
                     byOrder = "  order by ConfigName desc";
                     break;
             }
-            return dalShowInfo.GetShowInfo($"  and  State in(0,1) {byOrder}");
+            return dalShowInfo.GetShowInfo($"  and  State in(0,1) {byOrder}");//state 0未显示  1正显示  2已显示
         }
         public  bool DeleteShow(string id)
         {

@@ -32,7 +32,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tsMenue = new System.Windows.Forms.ToolStrip();
             this.tsbBegin = new System.Windows.Forms.ToolStripButton();
-            this.tsbEnd = new System.Windows.Forms.ToolStripButton();
+            this.tsbLED = new System.Windows.Forms.ToolStripButton();
+            this.tsmRefurbish = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pnlContent = new System.Windows.Forms.TabPage();
             this.tbPhoto = new System.Windows.Forms.TabPage();
@@ -53,7 +54,8 @@
             this.tsMenue.ImageScalingSize = new System.Drawing.Size(35, 35);
             this.tsMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbBegin,
-            this.tsbEnd});
+            this.tsmRefurbish,
+            this.tsbLED});
             this.tsMenue.Location = new System.Drawing.Point(0, 0);
             this.tsMenue.Name = "tsMenue";
             this.tsMenue.Size = new System.Drawing.Size(994, 42);
@@ -65,18 +67,27 @@
             this.tsbBegin.Image = global::UI.Properties.Resources.player_play;
             this.tsbBegin.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBegin.Name = "tsbBegin";
-            this.tsbBegin.Size = new System.Drawing.Size(78, 39);
-            this.tsbBegin.Text = "开始";
+            this.tsbBegin.Size = new System.Drawing.Size(108, 39);
+            this.tsbBegin.Text = "显示示例";
             this.tsbBegin.Click += new System.EventHandler(this.tsbBegin_Click);
             // 
-            // tsbEnd
+            // tsbLED
             // 
-            this.tsbEnd.Image = global::UI.Properties.Resources.Pause;
-            this.tsbEnd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEnd.Name = "tsbEnd";
-            this.tsbEnd.Size = new System.Drawing.Size(78, 39);
-            this.tsbEnd.Text = "停止";
-            this.tsbEnd.Click += new System.EventHandler(this.tsbEnd_Click);
+            this.tsbLED.Image = global::UI.Properties.Resources.Pause;
+            this.tsbLED.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLED.Name = "tsbLED";
+            this.tsbLED.Size = new System.Drawing.Size(105, 39);
+            this.tsbLED.Text = "LED显示";
+            this.tsbLED.Click += new System.EventHandler(this.tsbLEDhow_Click);
+            // 
+            // tsmRefurbish
+            // 
+            this.tsmRefurbish.Image = global::UI.Properties.Resources.clock_alt;
+            this.tsmRefurbish.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmRefurbish.Name = "tsmRefurbish";
+            this.tsmRefurbish.Size = new System.Drawing.Size(108, 39);
+            this.tsmRefurbish.Text = "图例刷新";
+            this.tsmRefurbish.Click += new System.EventHandler(this.tsmRefurbish_Click);
             // 
             // tabControl1
             // 
@@ -146,10 +157,11 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStrip tsMenue;
         private System.Windows.Forms.ToolStripButton tsbBegin;
-        private System.Windows.Forms.ToolStripButton tsbEnd;
+        private System.Windows.Forms.ToolStripButton tsbLED;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage pnlContent;
         private System.Windows.Forms.TabPage tbPhoto;
         private System.Windows.Forms.Panel pnlPhoto;
+        private System.Windows.Forms.ToolStripButton tsmRefurbish;
     }
 }
