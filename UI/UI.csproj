@@ -118,6 +118,12 @@
     <Compile Include="FrmExample.Designer.cs">
       <DependentUpon>FrmExample.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLEDSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLEDSetting.Designer.cs">
+      <DependentUpon>FrmLEDSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmExample.resx">
       <DependentUpon>FrmExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLEDSetting.resx">
+      <DependentUpon>FrmLEDSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
