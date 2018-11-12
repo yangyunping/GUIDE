@@ -258,7 +258,6 @@ namespace UI
                     int programIndex = 0; //节目序号
                     LEDShow.LedOpen(cardNum);
                     programIndex = LEDShow.AddProgram(cardNum, duraTion); //节目序号
-
                     LEDShow.AddText(cardNum, singleTxt, programIndex);
 
                     LEDShow.CheckTime(cardNum);//校验时间

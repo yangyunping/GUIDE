@@ -28,7 +28,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -148,6 +148,12 @@
     <Compile Include="FrmSelectShow.Designer.cs">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSendLEDShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSendLEDShow.Designer.cs">
+      <DependentUpon>FrmSendLEDShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmShow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelectShow.resx">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSendLEDShow.resx">
+      <DependentUpon>FrmSendLEDShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>

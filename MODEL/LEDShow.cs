@@ -139,11 +139,11 @@ namespace MODEL
             SingleText.MoveSet.iFrameTime = 20;
             if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
             {
-                MessageBox.Show("添加单行文本失败！");
+                MessageBox.Show("添加文本失败！");
             }
             else
             {
-                MessageBox.Show("添加单行文本成功！");
+                MessageBox.Show("添加文本成功！");
             }
         }
         //添加单行文本
@@ -193,19 +193,18 @@ namespace MODEL
         /// <summary>
         /// 添加时间
         /// </summary>
-        private void AddDateTime(int cardNum, int g_iProgramIndex)
+        public static void AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time)
         {
             User_DateTime DateTime = new User_DateTime();
-
-            DateTime.bDay = false;
-            DateTime.bHour = true;
+            DateTime.bDay = date;
+            DateTime.bHour = time;
             DateTime.BkColor = 0;
-            DateTime.bMin = true;
-            DateTime.bMouth = false;
+            DateTime.bMin = time;
+            DateTime.bMouth = date;
             DateTime.bMulOrSingleLine = false;
-            DateTime.bSec = true;
-            DateTime.bWeek = false;
-            DateTime.bYear = false;
+            DateTime.bSec = time;
+            DateTime.bWeek = week;
+            DateTime.bYear = date;
             DateTime.bYearDisType = false;
             DateTime.chTitle = "";
 
@@ -239,7 +238,7 @@ namespace MODEL
         /// 实时连接
         /// </summary>
         /// <param name="g_iCardNum"></param>
-        private void RealTimeConnect(int g_iCardNum)
+        public static void RealTimeConnect(int g_iCardNum)
         {
             if (!User_RealtimeConnect(g_iCardNum))
             {
@@ -255,7 +254,7 @@ namespace MODEL
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RealTimeDisConnect(int g_iCardNum)
+        public static void RealTimeDisConnect(int g_iCardNum)
         {
             if (!User_RealtimeDisConnect(g_iCardNum))
             {
@@ -303,7 +302,7 @@ namespace MODEL
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RealtimeScreenClear(int g_iCardNum)
+        public static void RealtimeScreenClear(int g_iCardNum)
         {
             if (!User_RealtimeScreenClear(g_iCardNum))
             {
