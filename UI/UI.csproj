@@ -100,6 +100,12 @@
     <Compile Include="FrmConfigNum.Designer.cs">
       <DependentUpon>FrmConfigNum.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmDefinedShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LED\FrmDefinedShow.Designer.cs">
+      <DependentUpon>FrmDefinedShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,10 +124,10 @@
     <Compile Include="FrmExample.Designer.cs">
       <DependentUpon>FrmExample.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLEDSetting.cs">
+    <Compile Include="LED\FrmLEDSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLEDSetting.Designer.cs">
+    <Compile Include="LED\FrmLEDSetting.Designer.cs">
       <DependentUpon>FrmLEDSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
@@ -148,11 +154,11 @@
     <Compile Include="FrmSelectShow.Designer.cs">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSendLEDShow.cs">
+    <Compile Include="LED\FrmLEDXML.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSendLEDShow.Designer.cs">
-      <DependentUpon>FrmSendLEDShow.cs</DependentUpon>
+    <Compile Include="LED\FrmLEDXML.Designer.cs">
+      <DependentUpon>FrmLEDXML.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShow.cs">
       <SubType>Form</SubType>
@@ -201,6 +207,9 @@
     <EmbeddedResource Include="FrmConfigNum.resx">
       <DependentUpon>FrmConfigNum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmDefinedShow.resx">
+      <DependentUpon>FrmDefinedShow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployee.resx">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,7 +219,7 @@
     <EmbeddedResource Include="FrmExample.resx">
       <DependentUpon>FrmExample.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLEDSetting.resx">
+    <EmbeddedResource Include="LED\FrmLEDSetting.resx">
       <DependentUpon>FrmLEDSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
@@ -225,8 +234,8 @@
     <EmbeddedResource Include="FrmSelectShow.resx">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSendLEDShow.resx">
-      <DependentUpon>FrmSendLEDShow.cs</DependentUpon>
+    <EmbeddedResource Include="LED\FrmLEDXML.resx">
+      <DependentUpon>FrmLEDXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>

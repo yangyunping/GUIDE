@@ -37,7 +37,7 @@ namespace UI
             {
                 //获取设置的显示顺序
                 StringBuilder selectOrder = new StringBuilder(255);
-                GetOrSetConfig.GetPrivateProfileString("SelectOrder", "SelectOrderValue", " ", selectOrder, 255,
+                PublicClass.GetPrivateProfileString("SelectOrder", "SelectOrderValue", " ", selectOrder, 255,
                     _configPath);
                 //获取显示信息
                 DataTable dtShow = BllShowInfo.GetShowStateInfo(selectOrder.ToString());
@@ -258,7 +258,7 @@ namespace UI
                     int programIndex = 0; //节目序号
                     LEDShow.LedOpen(cardNum);
                     programIndex = LEDShow.AddProgram(cardNum, duraTion); //节目序号
-                    LEDShow.AddText(cardNum, singleTxt, programIndex);
+                    //LEDShow.AddText(cardNum, singleTxt, programIndex);
 
                     LEDShow.CheckTime(cardNum);//校验时间
 

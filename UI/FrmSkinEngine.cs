@@ -34,7 +34,7 @@ namespace UI
 
                 if (!string.IsNullOrEmpty(skinType))
                 {
-                    GetOrSetConfig.WritePrivateProfileString("SkinPath", "SkinPathValue", skinType, _configPath);
+                    PublicClass.WritePrivateProfileString("SkinPath", "SkinPathValue", skinType, _configPath);
                 }
             }
         }

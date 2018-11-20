@@ -7,7 +7,7 @@ namespace DAL
 {
     public class Server
     {
-        private string ConnectionString = CommonInfo.Decrypt(ConfigurationManager.ConnectionStrings["GUIDEConnectionString"].ConnectionString, ConfigurationManager.AppSettings["sEncryptionKey"]);
+        private string ConnectionString = PublicClass.Decrypt(ConfigurationManager.ConnectionStrings["GUIDEConnectionString"].ConnectionString, ConfigurationManager.AppSettings["sEncryptionKey"]);
         protected const int ExecuteTimeout = 60;
         /// <summary>
         /// 测试连接是否成功

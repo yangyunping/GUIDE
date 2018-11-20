@@ -59,15 +59,17 @@ namespace MODEL
         /// <summary>
         /// 打开显示屏
         /// </summary>
-        public static void LedOpen(int cardNum)
+        public static bool LedOpen(int cardNum)
         {
             if (User_OpenScreen(cardNum))
             {
-                MessageBox.Show(cardNum + "打开显示屏成功！");
+                //MessageBox.Show(cardNum + "打开显示屏成功！");
+                return true;
             }
             else
             {
                 MessageBox.Show(cardNum + "打开显示屏失败！");
+                return false;
             }
         }
         /// <summary>
@@ -88,13 +90,17 @@ namespace MODEL
         /// 添加节目
         /// </summary>
         /// <param name="cardNum">控制卡地址</param>
-        /// <param name="duraTion">时长 秒</param>
+        /// 
+        /// <param name="duraTion">播放时长 秒</param>
         public static int AddProgram(int cardNum, int duraTion)
         {
             return User_AddProgram(cardNum, false, duraTion);
         }
-        //删除所有节目
-        public void DeleteProgram(int cardNum)
+        /// <summary>
+        /// 删除所有节目
+        /// </summary>
+        /// <param name="cardNum"></param>
+        public static void DeleteProgram(int cardNum)
         {
             if (User_DelAllProgram(cardNum) == false)
             {
@@ -113,7 +119,7 @@ namespace MODEL
         /// <summary>
         /// 添加显示内容
         /// </summary>
-        public static void AddText(int cardNum, string content, int g_iProgramIndex)
+        public static void AddText(int cardNum, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor)
         {
             User_SingleText SingleText = new User_SingleText();
             SingleText.BkColor = 0;
@@ -123,17 +129,19 @@ namespace MODEL
             SingleText.PartInfo.iWidth = 128;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
+            SingleText.FontInfo.iAlignStyle = 0;
+            SingleText.FontInfo.iVAlignerStyle = 1;
             SingleText.FontInfo.bFontBold = false;
             SingleText.FontInfo.bFontItaic = false;
             SingleText.FontInfo.bFontUnderline = false;
             SingleText.FontInfo.colorFont = g_iRed;
-            SingleText.FontInfo.iFontSize = g_FontSize;
+            SingleText.FontInfo.iFontSize = fontSize;
             SingleText.PartInfo.FrameColor = g_iYellow;
-            SingleText.FontInfo.strFontName = "宋体";
+            SingleText.FontInfo.strFontName = fontName; 
             SingleText.MoveSet.bClear = false;
             SingleText.MoveSet.iActionSpeed = 6;
-            SingleText.MoveSet.iActionType = 2;
-            SingleText.MoveSet.iHoldTime = 20;
+            SingleText.MoveSet.iActionType = showType;
+            SingleText.MoveSet.iHoldTime = 10;
             SingleText.MoveSet.iClearActionType = 0;
             SingleText.MoveSet.iClearSpeed = 0;
             SingleText.MoveSet.iFrameTime = 20;
@@ -158,6 +166,8 @@ namespace MODEL
             SingleText.PartInfo.iWidth = 128;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
+            SingleText.FontInfo.iAlignStyle = 0;
+            SingleText.FontInfo.iVAlignerStyle = 1;
             SingleText.FontInfo.bFontBold = false;
             SingleText.FontInfo.bFontItaic = false;
             SingleText.FontInfo.bFontUnderline = false;
@@ -172,6 +182,7 @@ namespace MODEL
             SingleText.MoveSet.iClearActionType = 0;
             SingleText.MoveSet.iClearSpeed = 0;
             SingleText.MoveSet.iFrameTime = 20;
+          
 
             if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
             {
@@ -193,7 +204,7 @@ namespace MODEL
         /// <summary>
         /// 添加时间
         /// </summary>
-        public static void AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time)
+        public static void AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time, string fontName, int fontSize, int fontColor)
         {
             User_DateTime DateTime = new User_DateTime();
             DateTime.bDay = date;
@@ -211,7 +222,7 @@ namespace MODEL
             DateTime.PartInfo.iFrameMode = 1;
             DateTime.iDisplayType = 1;
 
-            DateTime.PartInfo.FrameColor = 0xFFFF;
+            DateTime.PartInfo.FrameColor = fontColor;
             DateTime.PartInfo.iHeight = 32;
             DateTime.PartInfo.iWidth = 128;
             DateTime.PartInfo.iX = 0;
@@ -220,10 +231,11 @@ namespace MODEL
             DateTime.FontInfo.bFontBold = false;
             DateTime.FontInfo.bFontItaic = false;
             DateTime.FontInfo.bFontUnderline = false;
-            DateTime.FontInfo.colorFont = 0xFF;
-            DateTime.FontInfo.iAlignStyle = 1;
-            DateTime.FontInfo.iFontSize = 12;
-            DateTime.FontInfo.strFontName = "宋体";
+            DateTime.FontInfo.colorFont = fontColor;
+            DateTime.FontInfo.iAlignStyle = 0;
+            DateTime.FontInfo.iVAlignerStyle = 1;
+            DateTime.FontInfo.iFontSize = fontSize;
+            DateTime.FontInfo.strFontName = fontName;
 
             if (-1 == User_AddTime(cardNum, ref DateTime, g_iProgramIndex))
             {

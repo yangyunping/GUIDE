@@ -55,7 +55,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="EmpPowers.cs" />
     <Compile Include="EQ2008_DataStruct.cs" />
-    <Compile Include="GetOrSetConfig.cs" />
+    <Compile Include="PublicClass.cs" />
     <Compile Include="LEDShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry.cs" />

@@ -153,7 +153,7 @@ namespace UI
                 Application.Exit();
             };
            StringBuilder selectOrder = new StringBuilder(255);
-            GetOrSetConfig.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
+            PublicClass.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
                 _configPath);
             if (string.IsNullOrEmpty(selectOrder.ToString()))
             {
@@ -187,14 +187,14 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(skinType))
             {
-                GetOrSetConfig.WritePrivateProfileString("SkinPath", "SkinPathValue", skinType, _configPath);
+                PublicClass.WritePrivateProfileString("SkinPath", "SkinPathValue", skinType, _configPath);
             }
             pnlThemes.Visible = false;
         }
 
         private void btnOrigal_Click(object sender, EventArgs e)
         {
-            GetOrSetConfig.WritePrivateProfileString("SkinPath", "SkinPathValue", "", _configPath);
+            PublicClass.WritePrivateProfileString("SkinPath", "SkinPathValue", "", _configPath);
             skinEngine1.Active = false;
             pnlThemes.Visible = false;
         }

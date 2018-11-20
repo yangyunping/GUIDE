@@ -22,7 +22,7 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(cmbSearchOrder.Text))
             {
-                GetOrSetConfig.WritePrivateProfileString("SelectOrder", "SelectOrderValue", cmbSearchOrder.Text, _configPath);
+                PublicClass.WritePrivateProfileString("SelectOrder", "SelectOrderValue", cmbSearchOrder.Text, _configPath);
                 MessageBox.Show("保存成功！");
                 cmbSearchOrder.SelectedIndex = -1;
             }

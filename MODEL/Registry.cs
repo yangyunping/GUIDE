@@ -2,6 +2,9 @@
 
 namespace Model
 {
+    /// <summary>
+    /// 注册表获取信息
+    /// </summary>
     public class Registry
     {
         private readonly string _keyName;
