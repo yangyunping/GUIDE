@@ -21,7 +21,12 @@ namespace BLL
         }
         public DataTable GetTempletShows(string key)
         {
-            return dalTempletShow.GetTempletShows(key);
+            string sKey = string.Empty;
+            if (!string.IsNullOrEmpty(key))
+            {
+                sKey = $@"  and  ShowContent like '%{key}%'";
+            }
+            return dalTempletShow.GetTempletShows(sKey);
         }
     }
 }

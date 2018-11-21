@@ -10,21 +10,29 @@ namespace DAL
 {
     public class DalTempletShow
     {
+        Server server = new Server();
         public bool InsertTempletShow(TempletShow templetShow)
         {
-            return false;
+            string sSql = $@"Insert into TempletShow(FontName,FontSize,FontColor,ShowStyle,ShowContent) 
+values('{templetShow.FontName}','{templetShow.FontSize}','{templetShow.FontColor}','{templetShow.ShowStyle}','{templetShow.ShowContent}')";
+            return server.ExecuteNonQuery(sSql) > 0;
+          
         }
         public bool DeleteTempletShow(int id)
         {
-            return false;
+            string sSql = $@"Delete from TempletShow where ID='{id}'";
+            return server.ExecuteNonQuery(sSql) > 0;
         }
         public bool ModifyTempletShow(TempletShow templetShow)
         {
-            return false;
+            string sSql = $@"Update TempletShow set FontName='{templetShow.FontName}',FontSize='{templetShow.FontSize}',FontColor='{templetShow.FontColor}',
+ShowStyle='{templetShow.ShowStyle}',ShowContent='{templetShow.ShowContent}' where ID='{templetShow.ID}'";
+            return server.ExecuteNonQuery(sSql) > 0;
         }
         public DataTable GetTempletShows(string key)
         {
-            return null;
+            string sSql = $@"select * from TempletShow where 1=1 {key}";
+            return server.ExecuteQuery(sSql).Tables[0];
         }
     }
 }

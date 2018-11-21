@@ -202,6 +202,12 @@
     <Compile Include="LED\FrmTempletLED.Designer.cs">
       <DependentUpon>FrmTempletLED.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmTempletSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LED\FrmTempletSearch.Designer.cs">
+      <DependentUpon>FrmTempletSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddArea.resx">
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmTempletLED.resx">
       <DependentUpon>FrmTempletLED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmTempletSearch.resx">
+      <DependentUpon>FrmTempletSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

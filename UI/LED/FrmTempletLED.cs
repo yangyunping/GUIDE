@@ -5,14 +5,15 @@ using System.IO;
 using System.Windows.Forms;
 using BLL;
 
-namespace UI.LED
+namespace UI
 {
     public partial class FrmTempletLED : Form
     {
         private int fontSize = 24;//字体大小
         private string fontName = "宋体";//字体名称
-        private string fontColor = "";//字体颜色
+        private string fontColor = "Red";//字体颜色
         BllTempletShow bllTempletShow = new BllTempletShow();
+        private int templetId = -1;
         public FrmTempletLED()
         {
             InitializeComponent();
@@ -30,40 +31,60 @@ namespace UI.LED
                 cmbShowType.DisplayMember = "名称";
             }
         }
+        public FrmTempletLED(TempletShow templetShow)
+        {
+            InitializeComponent();
+            templetId = templetShow.ID;
+            cmbShowType.SelectedValue = templetShow.ShowStyle;
+            txtContent.Text = templetShow.ShowContent;
+            fontName = templetShow.FontName;
+            fontSize = templetShow.FontSize;
+            fontColor = templetShow.FontColor;
+        }
 
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
-            fontDialogled.ShowDialog();
+            if (fontDialogled.ShowDialog() == DialogResult.OK)
+            {
+                fontSize = Convert.ToInt32(fontDialogled.Font.Size);
+                fontName = fontDialogled.Font.Name;
+            }
         }
 
         private void btnFontColor_Click(object sender, EventArgs e)
         {
-            colorDialogLed.ShowDialog();
+            if (colorDialogLed.ShowDialog() == DialogResult.OK)
+            {
+                fontColor = colorDialogLed.Color.Name;
+            }
         }
 
         private void btnSava_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()) ||string.IsNullOrEmpty(txtContent.Text))
+            TempletShow templetShow = new TempletShow();
+            templetShow.FontColor = fontColor;
+            templetShow.FontName = fontName;
+            templetShow.FontSize = fontSize;
+            templetShow.ShowContent = txtContent.Text.Trim();
+            templetShow.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
+            if (!string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()) && !string.IsNullOrEmpty(txtContent.Text))
             {
-                if (fontDialogled.ShowDialog() == DialogResult.OK)
+                if (templetId == -1)
                 {
-                    fontSize = Convert.ToInt32(fontDialogled.Font.Size);
-                    fontName = fontDialogled.Font.Name;
+                    if (bllTempletShow.InsertTempletShow(templetShow))
+                    {
+                        MessageBox.Show("添加模板成功！");
+                        txtContent.Clear();
+                    }
                 }
-                if (colorDialogLed.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    fontColor = colorDialogLed.Color.Name;
-                }
-                TempletShow templetShow = new TempletShow();
-                templetShow.FontColor = fontColor;
-                templetShow.FontName = fontName;
-                templetShow.FontSize = fontSize;
-                templetShow.ShowContent = txtContent.Text.Trim();
-                templetShow.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
-                if (bllTempletShow.InsertTempletShow(templetShow))
-                {
-                    MessageBox.Show("添加模板成功！");
-                    txtContent.Clear();
+                    templetShow.ID = templetId;
+                    if (bllTempletShow.ModifyTempletShow(templetShow))
+                    {
+                        MessageBox.Show("修改模板成功！");
+                        this.Close();
+                    }
                 }
             }
             else

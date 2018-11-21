@@ -42,6 +42,8 @@
             this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
+            this.tsmDefinedShow = new System.Windows.Forms.ToolStripButton();
+            this.tsmListShow = new System.Windows.Forms.ToolStripButton();
             this.pnlThemes = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOrigal = new System.Windows.Forms.Button();
@@ -49,6 +51,7 @@
             this.lstContent = new System.Windows.Forms.ListBox();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
             this.pnlShow = new System.Windows.Forms.Panel();
+            this.tsmTempletShow = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.pnlThemes.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +67,13 @@
             this.tsbBegin,
             this.tsbEmployee,
             this.tsbConfig,
-            this.tsbClear});
+            this.tsbClear,
+            this.tsmTempletShow,
+            this.tsmDefinedShow,
+            this.tsmListShow});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(924, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(986, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -90,7 +96,7 @@
             // 
             this.AreaShowSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.AreaShowSearch.Name = "AreaShowSearch";
-            this.AreaShowSearch.Size = new System.Drawing.Size(180, 24);
+            this.AreaShowSearch.Size = new System.Drawing.Size(156, 24);
             this.AreaShowSearch.Text = "区域设置";
             this.AreaShowSearch.Click += new System.EventHandler(this.AreaShowSearch_Click);
             // 
@@ -98,7 +104,7 @@
             // 
             this.tsmSreen.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmSreen.Name = "tsmSreen";
-            this.tsmSreen.Size = new System.Drawing.Size(180, 24);
+            this.tsmSreen.Size = new System.Drawing.Size(156, 24);
             this.tsmSreen.Text = "显示器设置";
             this.tsmSreen.Click += new System.EventHandler(this.tsmSreen_Click);
             // 
@@ -106,7 +112,7 @@
             // 
             this.tsmConfigNum.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmConfigNum.Name = "tsmConfigNum";
-            this.tsmConfigNum.Size = new System.Drawing.Size(180, 24);
+            this.tsmConfigNum.Size = new System.Drawing.Size(156, 24);
             this.tsmConfigNum.Text = "编组设置";
             this.tsmConfigNum.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
             // 
@@ -114,7 +120,7 @@
             // 
             this.tsmSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmSetting.Name = "tsmSetting";
-            this.tsmSetting.Size = new System.Drawing.Size(180, 24);
+            this.tsmSetting.Size = new System.Drawing.Size(156, 24);
             this.tsmSetting.Text = "列表顺序设置";
             this.tsmSetting.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
@@ -122,7 +128,7 @@
             // 
             this.皮肤更换ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.皮肤更换ToolStripMenuItem.Name = "皮肤更换ToolStripMenuItem";
-            this.皮肤更换ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.皮肤更换ToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.皮肤更换ToolStripMenuItem.Text = "皮肤更换";
             this.皮肤更换ToolStripMenuItem.Click += new System.EventHandler(this.皮肤更换ToolStripMenuItem_Click);
             // 
@@ -130,7 +136,7 @@
             // 
             this.密码修改ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.密码修改ToolStripMenuItem.Name = "密码修改ToolStripMenuItem";
-            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.密码修改ToolStripMenuItem.Text = "密码修改";
             this.密码修改ToolStripMenuItem.Click += new System.EventHandler(this.密码修改ToolStripMenuItem_Click);
             // 
@@ -179,6 +185,22 @@
             this.tsbClear.Size = new System.Drawing.Size(108, 39);
             this.tsbClear.Text = "清空界面";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
+            // 
+            // tsmDefinedShow
+            // 
+            this.tsmDefinedShow.Image = ((System.Drawing.Image)(resources.GetObject("tsmDefinedShow.Image")));
+            this.tsmDefinedShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmDefinedShow.Name = "tsmDefinedShow";
+            this.tsmDefinedShow.Size = new System.Drawing.Size(123, 39);
+            this.tsmDefinedShow.Text = "自定义显示";
+            // 
+            // tsmListShow
+            // 
+            this.tsmListShow.Image = ((System.Drawing.Image)(resources.GetObject("tsmListShow.Image")));
+            this.tsmListShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmListShow.Name = "tsmListShow";
+            this.tsmListShow.Size = new System.Drawing.Size(108, 39);
+            this.tsmListShow.Text = "排序显示";
             // 
             // pnlThemes
             // 
@@ -250,15 +272,23 @@
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShow.Location = new System.Drawing.Point(318, 42);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(606, 510);
+            this.pnlShow.Size = new System.Drawing.Size(668, 510);
             this.pnlShow.TabIndex = 1;
+            // 
+            // tsmTempletShow
+            // 
+            this.tsmTempletShow.Image = ((System.Drawing.Image)(resources.GetObject("tsmTempletShow.Image")));
+            this.tsmTempletShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmTempletShow.Name = "tsmTempletShow";
+            this.tsmTempletShow.Size = new System.Drawing.Size(108, 39);
+            this.tsmTempletShow.Text = "模板显示";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(924, 552);
+            this.ClientSize = new System.Drawing.Size(986, 552);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.pnlThemes);
             this.Controls.Add(this.toolStrip1);
@@ -298,6 +328,9 @@
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.Panel pnlShow;
         private System.Windows.Forms.ToolStripMenuItem 密码修改ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton tsmDefinedShow;
+        private System.Windows.Forms.ToolStripButton tsmListShow;
+        private System.Windows.Forms.ToolStripButton tsmTempletShow;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿namespace UI.LED
+﻿namespace UI
 {
     partial class FrmTempletLED
     {
