@@ -63,6 +63,7 @@
     <Compile Include="Screens.cs" />
     <Compile Include="ShowContent.cs" />
     <Compile Include="ShowInfo.cs" />
+    <Compile Include="TempletShow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

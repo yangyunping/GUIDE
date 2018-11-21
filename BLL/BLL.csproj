@@ -50,6 +50,7 @@
     <Compile Include="BllServer.cs" />
     <Compile Include="BllShowInfo.cs" />
     <Compile Include="BllAreaInfo.cs" />
+    <Compile Include="BllTempletShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

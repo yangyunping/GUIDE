@@ -134,9 +134,9 @@ namespace MODEL
             SingleText.FontInfo.bFontBold = false;
             SingleText.FontInfo.bFontItaic = false;
             SingleText.FontInfo.bFontUnderline = false;
-            SingleText.FontInfo.colorFont = g_iRed;
+            SingleText.FontInfo.colorFont = fontColor;
             SingleText.FontInfo.iFontSize = fontSize;
-            SingleText.PartInfo.FrameColor = g_iYellow;
+            SingleText.PartInfo.FrameColor = fontColor;
             SingleText.FontInfo.strFontName = fontName; 
             SingleText.MoveSet.bClear = false;
             SingleText.MoveSet.iActionSpeed = 6;

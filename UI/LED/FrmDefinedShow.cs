@@ -57,10 +57,18 @@ namespace UI
 
         private void btnFontColor_Click(object sender, EventArgs e)
         {
-            if (colorDialogLed.ShowDialog() == DialogResult.OK)
+            try
             {
-                fontColor =Convert.ToInt32(fontDialogLed.Color.ToArgb());
+                if (colorDialogLed.ShowDialog() == DialogResult.OK)
+                {
+                    string name = colorDialogLed.Color.Name;
+                    string color = ColorTranslator.ToHtml(Color.FromArgb(colorDialogLed.Color.R, colorDialogLed.Color.G, colorDialogLed.Color.B));
+                    fontColor = Convert.ToInt32(color.Replace("#", "0x"),16);
+                    //fontColor = int.Parse(color.Replace("#", "0x"));
+                    //fontColor =Convert.ToInt32(Color.FromArgb(colorDialogLed.Color.B, colorDialogLed.Color.G, colorDialogLed.Color.R).ToArgb());
+                }
             }
+            catch (Exception ex) { }
         }
 
         private void btnAddTxt_Click(object sender, EventArgs e)
