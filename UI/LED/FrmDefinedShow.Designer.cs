@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtContent = new System.Windows.Forms.TextBox();
-            this.cmbCarId = new System.Windows.Forms.ComboBox();
+            this.cmbLEDId = new System.Windows.Forms.ComboBox();
             this.btnFontSetting = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbShowType = new System.Windows.Forms.ComboBox();
@@ -71,15 +71,15 @@
             this.txtContent.TabIndex = 1;
             this.txtContent.Text = "网红城市-重庆欢迎你，重庆众乐科技欢迎你！";
             // 
-            // cmbCarId
+            // cmbLEDId
             // 
-            this.cmbCarId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCarId.FormattingEnabled = true;
-            this.cmbCarId.Location = new System.Drawing.Point(132, 45);
-            this.cmbCarId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.cmbCarId.Name = "cmbCarId";
-            this.cmbCarId.Size = new System.Drawing.Size(143, 28);
-            this.cmbCarId.TabIndex = 2;
+            this.cmbLEDId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLEDId.FormattingEnabled = true;
+            this.cmbLEDId.Location = new System.Drawing.Point(132, 45);
+            this.cmbLEDId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cmbLEDId.Name = "cmbLEDId";
+            this.cmbLEDId.Size = new System.Drawing.Size(143, 28);
+            this.cmbLEDId.TabIndex = 2;
             // 
             // btnFontSetting
             // 
@@ -273,7 +273,7 @@
             this.Controls.Add(this.cmbShowType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFontSetting);
-            this.Controls.Add(this.cmbCarId);
+            this.Controls.Add(this.cmbLEDId);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -290,7 +290,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtContent;
-        private System.Windows.Forms.ComboBox cmbCarId;
+        private System.Windows.Forms.ComboBox cmbLEDId;
         private System.Windows.Forms.Button btnFontSetting;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbShowType;

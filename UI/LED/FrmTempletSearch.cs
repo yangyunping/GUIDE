@@ -4,7 +4,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace UI.LED
+namespace UI
 {
     public partial class FrmTempletSearch : UserControl
     {
@@ -17,7 +17,7 @@ namespace UI.LED
         private void DgvColumns()
         {
             dgvTemShow.Columns.AddRange(
-            new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"ID", DataPropertyName = @"编号", Width = 40 },
+            new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"编号", DataPropertyName = @"ID", Width = 60 },
             new DataGridViewTextBoxColumn { Name = @"FontName", HeaderText = @"字体名称", DataPropertyName = @"FontName", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"FontSize", HeaderText = @"字体大小", DataPropertyName = @"FontSize", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"FontColor", HeaderText = @"字体颜色", DataPropertyName = @"FontColor", Width = 120 },

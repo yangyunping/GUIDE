@@ -24,7 +24,7 @@ namespace BLL
             string sKey = string.Empty;
             if (!string.IsNullOrEmpty(key))
             {
-                sKey = $@"  and  ShowContent like '%{key}%'";
+                sKey = $@"  and  Content like '%{key}%'";
             }
             return dalTempletShow.GetTempletShows(sKey);
         }

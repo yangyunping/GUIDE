@@ -54,7 +54,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IrisSkin4, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=127be25a6db25e07, processorArchitecture=MSIL">
@@ -154,6 +154,12 @@
     <Compile Include="FrmSelectShow.Designer.cs">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmLedShowInfoSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LED\FrmLedShowInfoSearch.Designer.cs">
+      <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="LED\FrmLEDXML.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,12 @@
     <Compile Include="LED\FrmTempletSearch.Designer.cs">
       <DependentUpon>FrmTempletSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmTempletSendLED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LED\FrmTempletSendLED.Designer.cs">
+      <DependentUpon>FrmTempletSendLED.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAddArea.resx">
@@ -246,6 +258,9 @@
     <EmbeddedResource Include="FrmSelectShow.resx">
       <DependentUpon>FrmSelectShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmLedShowInfoSearch.resx">
+      <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmLEDXML.resx">
       <DependentUpon>FrmLEDXML.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,16 +288,14 @@
     <EmbeddedResource Include="LED\FrmTempletSearch.resx">
       <DependentUpon>FrmTempletSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmTempletSendLED.resx">
+      <DependentUpon>FrmTempletSendLED.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -290,6 +303,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -301,44 +319,40 @@
       <Project>{ccbc6114-654a-4d61-8834-701372923788}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{81D32B52-6B68-469F-9100-8494B4C16E27}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MODEL\MODEL.csproj">
       <Project>{9ae7d44b-946b-49a7-b819-8838032421bd}</Project>
       <Name>MODEL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\universalsearch.png" />
+    <None Include="Resources\Images\universalsearch.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Users.png" />
+    <None Include="Resources\Images\Users.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\System.png" />
+    <None Include="Resources\Images\System.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\player play.png" />
+    <None Include="Resources\Images\player play.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\homescreen.png" />
+    <None Include="Resources\Images\homescreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Recicle bin.png" />
+    <None Include="Resources\Images\Recicle bin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Win10.jpg" />
+    <None Include="Resources\Images\Win10.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Forward.png" />
+    <None Include="Resources\Images\Forward.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Images\Pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Applications.png" />
+    <None Include="Resources\Images\Applications.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -353,12 +367,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Filmroll.png" />
+    <None Include="Resources\Images\Filmroll.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Resources\clock_alt.png" />
-    <None Include="Resources\icon.ico" />
+    <None Include="Resources\Images\password.png" />
+    <None Include="Resources\Images\Network radar.png" />
+    <None Include="Resources\Images\Message.png" />
+    <None Include="Resources\Images\Laptop.png" />
+    <None Include="Resources\Images\Laptop white.png" />
+    <None Include="Resources\Images\evernote.png" />
+    <None Include="Resources\Images\Contacts2.png" />
+    <None Include="Resources\Images\Console.png" />
+    <None Include="Resources\Images\clock_alt.png" />
+    <None Include="Resources\Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,7 +17,21 @@ namespace UI
         public FrmTempletLED()
         {
             InitializeComponent();
-
+            IniteData();
+        }
+        public FrmTempletLED(TempletShow templetShow)
+        {
+            InitializeComponent();
+            IniteData();
+            templetId = templetShow.ID;
+            cmbShowType.SelectedValue = templetShow.ShowStyle;
+            txtContent.Text = templetShow.ShowContent;
+            fontName = templetShow.FontName;
+            fontSize = templetShow.FontSize;
+            fontColor = templetShow.FontColor;
+        }
+        private void IniteData()
+        {
             string txtPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";
             if (File.Exists(txtPath))
             {
@@ -31,17 +45,6 @@ namespace UI
                 cmbShowType.DisplayMember = "名称";
             }
         }
-        public FrmTempletLED(TempletShow templetShow)
-        {
-            InitializeComponent();
-            templetId = templetShow.ID;
-            cmbShowType.SelectedValue = templetShow.ShowStyle;
-            txtContent.Text = templetShow.ShowContent;
-            fontName = templetShow.FontName;
-            fontSize = templetShow.FontSize;
-            fontColor = templetShow.FontColor;
-        }
-
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
             if (fontDialogled.ShowDialog() == DialogResult.OK)

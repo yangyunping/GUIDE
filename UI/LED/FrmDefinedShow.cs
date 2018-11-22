@@ -40,9 +40,9 @@ namespace UI
                 dt1.Columns.Add("编号");
                 dt1.Columns.Add("地址");
                 DataTable dtLED = PublicClass.GetXMLInfo(txtPath, dt1, "LEDNum", "LEDid", "LEDAddress");
-                cmbCarId.DataSource = dtLED;
-                cmbCarId.ValueMember = "地址";
-                cmbCarId.DisplayMember = "编号";
+                cmbLEDId.DataSource = dtLED;
+                cmbLEDId.ValueMember = "地址";
+                cmbLEDId.DisplayMember = "编号";
             }
         }
 
@@ -73,14 +73,14 @@ namespace UI
 
         private void btnAddTxt_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbCarId.SelectedValue.ToString()) || string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()))
+            if (string.IsNullOrEmpty(cmbLEDId.SelectedValue.ToString()) || string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()))
             {
                 MessageBox.Show("请完善LED信息！");
                 return;
             }
-            if (LEDShow.LedOpen(Convert.ToInt32(cmbCarId.SelectedValue)))
+            if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
             {
-                 LEDShow.AddText(Convert.ToInt32(cmbCarId.SelectedValue),txtContent.Text, programInx,Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor);
+                 LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue),txtContent.Text, programInx,Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor);
             }
         }
 
@@ -88,22 +88,22 @@ namespace UI
         {
             if (chkYear.Checked || chkWeek.Checked || chkTime.Checked)
             {
-                if (LEDShow.LedOpen(Convert.ToInt32(cmbCarId.SelectedValue)))
+                if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
                 {
-                    LEDShow.AddDateTime(Convert.ToInt32(cmbCarId.SelectedValue), programInx,chkYear.Checked,chkWeek.Checked,chkTime.Checked,fontName, fontSize, fontColor);
+                    LEDShow.AddDateTime(Convert.ToInt32(cmbLEDId.SelectedValue), programInx,chkYear.Checked,chkWeek.Checked,chkTime.Checked,fontName, fontSize, fontColor);
                 }
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            LEDShow.DeleteProgram(Convert.ToInt32(cmbCarId.SelectedValue));
+            LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));
             lblProgram.Text = "节目：" + 0;
         }
 
         private void btnSendData_Click(object sender, EventArgs e)
         {
-            if (LEDShow.SendData(Convert.ToInt32(cmbCarId.SelectedValue)))
+            if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
             {
                 MessageBox.Show("发送成功！");
             }
@@ -120,7 +120,7 @@ namespace UI
         }
         private void AddProgram()
         {
-            programInx = LEDShow.AddProgram(Convert.ToInt32(cmbCarId.SelectedValue), 10);
+            programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
             lblProgram.Text = "节目：" + (programInx+1);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using UI.LED;
 
 namespace UI
 {
@@ -34,7 +35,6 @@ namespace UI
             //tdbShow.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示管理);
             AreaShowSearch.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域设置);
             tsmConfigNum.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号设置);
-            tsmSearchManage.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示设置);
             tsmSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.列表顺序设置);
            // tsbBegin.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.启动);
            // tsbEmployee.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员管理);
@@ -212,7 +212,7 @@ namespace UI
         private void tsmSearchManage_Click(object sender, EventArgs e)
         {
             pnlShow.Controls.Clear();
-            FrmSearchTemplet frmAreaSearch = new FrmSearchTemplet("显示") { Dock = DockStyle.Fill };
+            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmAreaSearch);
         }
 
@@ -220,6 +220,50 @@ namespace UI
         {
             FrmPassword frmPassword = new FrmPassword();
             frmPassword.ShowDialog();
+        }
+
+        private void tsmDefinedShow_Click(object sender, EventArgs e)
+        {
+            FrmDefinedShow frmDefinedShow = new FrmDefinedShow();
+            frmDefinedShow.ShowDialog();
+        }
+
+        private void 模板查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmTempletSearch frmTempletSearch = new FrmTempletSearch() { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmTempletSearch);
+        }
+
+        private void 排序查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmSearchTemplet frmAreaSearch = new FrmSearchTemplet("显示") { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmAreaSearch);
+        }
+
+        private void 模板设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTempletLED frmTempletLED = new FrmTempletLED();
+            frmTempletLED.ShowDialog();
+        }
+
+        private void lED显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 模板显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTempletSendLED frmTempletSendLED = new FrmTempletSendLED();
+            frmTempletSendLED.ShowDialog();
+        }
+
+        private void tsmReadyShow_Click(object sender, EventArgs e)
+        {
+            pnlShow.Controls.Clear();
+            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
+            pnlShow.Controls.Add(frmAreaSearch);
         }
     }
 }

@@ -119,6 +119,13 @@ namespace MODEL
         /// <summary>
         /// 添加显示内容
         /// </summary>
+        /// <param name="cardNum">控制卡地址码</param>
+        /// <param name="content">显示内容</param>
+        /// <param name="g_iProgramIndex">节目顺序</param>
+        /// <param name="showType">播放方式</param>
+        /// <param name="fontName">字体名称</param>
+        /// <param name="fontSize">字体大小</param>
+        /// <param name="fontColor">字体颜色</param>
         public static void AddText(int cardNum, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor)
         {
             User_SingleText SingleText = new User_SingleText();
