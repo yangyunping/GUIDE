@@ -13,7 +13,7 @@ namespace UI
 
         private void btnAddType_Click(object sender, EventArgs e)
         {
-            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"LEDSetting.txt", "ActionType", "AcitonId", "ActionName", txtTypeId.Text, txtTypeName.Text))
+            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"ActionShow.txt", "ActionType", "AcitonId", "ActionName", txtTypeId.Text, txtTypeName.Text))
             {
                 MessageBox.Show("添加成功！");
                 txtTypeId.Clear();

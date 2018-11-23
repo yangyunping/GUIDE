@@ -265,5 +265,11 @@ namespace UI
             FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmAreaSearch);
         }
+
+        private void lED参数配置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLEDSetting frmLEDSetting = new FrmLEDSetting();
+            frmLEDSetting.ShowDialog();
+        }
     }
 }

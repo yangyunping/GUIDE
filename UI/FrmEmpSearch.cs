@@ -32,10 +32,10 @@ namespace UI
         private void DgvColumns()
         {
             dgvEmployee.Columns.AddRange(
-                new DataGridViewTextBoxColumn { Name = @"EmployeeNo", DataPropertyName = @"EmployeeNo", HeaderText = @"员工ID", Width = 100 },
-                new DataGridViewTextBoxColumn { Name = @"EmployeeName", DataPropertyName = @"EmployeeName", HeaderText = @"员工姓名", Width = 120 },
-                new DataGridViewTextBoxColumn { Name = @"Gender", DataPropertyName = @"Gender", HeaderText = @"性别", Width = 80 },
-                new DataGridViewTextBoxColumn { Name = @"Age", DataPropertyName = @"Age", HeaderText = @"年龄", Width = 80 },
+                new DataGridViewTextBoxColumn { Name = @"EmployeeNo", DataPropertyName = @"EmployeeNo", HeaderText = @"员工ID", Width = 150 },
+                new DataGridViewTextBoxColumn { Name = @"EmployeeName", DataPropertyName = @"EmployeeName", HeaderText = @"员工姓名", Width = 150 },
+                new DataGridViewTextBoxColumn { Name = @"Gender", DataPropertyName = @"Gender", HeaderText = @"性别", Width = 100 },
+                new DataGridViewTextBoxColumn { Name = @"Age", DataPropertyName = @"Age", HeaderText = @"年龄", Width = 100 },
                 new DataGridViewTextBoxColumn { Name = @"MoblePhone", DataPropertyName = @"MoblePhone", HeaderText = @"电话号码", Width = 150 }
                 );
         }

@@ -21,31 +21,39 @@ namespace UI
         public FrmDefinedShow()
         {
             InitializeComponent();
-
+            IniteData();
+        }
+        /// <summary>
+        /// 加载基础信息
+        /// </summary>
+        private void IniteData()
+        {
             //txt文件读取信息
-            string txtPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";
-            if (File.Exists(txtPath))
+            string ledSettingPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";//LED配置文件
+            string actionShowPath = Application.StartupPath + @"\\" + @"ActionShow.txt";//播放方式文件 
+            if (File.Exists(actionShowPath))
             {
                 //播放方式
                 DataTable dt = new DataTable();
                 dt.Columns.Add("编号");
                 dt.Columns.Add("名称");
-                DataTable dtAction = PublicClass.GetXMLInfo(txtPath, dt, "ActionType", "AcitonId", "ActionName");
+                DataTable dtAction = PublicClass.GetXMLInfo(actionShowPath, dt, "ActionType", "AcitonId", "ActionName");
                 cmbShowType.DataSource = dtAction;
                 cmbShowType.ValueMember = "编号";
                 cmbShowType.DisplayMember = "名称";
-
+            }
+            if (File.Exists(ledSettingPath))
+            {
                 //LED
                 DataTable dt1 = new DataTable();
                 dt1.Columns.Add("编号");
                 dt1.Columns.Add("地址");
-                DataTable dtLED = PublicClass.GetXMLInfo(txtPath, dt1, "LEDNum", "LEDid", "LEDAddress");
+                DataTable dtLED = PublicClass.GetXMLInfo(ledSettingPath, dt1, "LEDNum", "LEDid", "LEDAddress");
                 cmbLEDId.DataSource = dtLED;
                 cmbLEDId.ValueMember = "地址";
                 cmbLEDId.DisplayMember = "编号";
             }
         }
-
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
             if (fontDialogLed.ShowDialog()== DialogResult.OK)

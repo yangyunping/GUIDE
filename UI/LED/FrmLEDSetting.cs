@@ -11,7 +11,11 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 添加控制卡参数到配置文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             int carTpe = 0;
@@ -57,6 +61,61 @@ namespace UI
             PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "ColorStyle", colorStyle.ToString(), _EQSetPath); //显示屏颜色类型
 
             MessageBox.Show("保存成功！");
+        }
+        /// <summary>
+        /// 添加EQ动态库提供的播放方式
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddType_Click(object sender, EventArgs e)
+        {
+            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"ActionShow.txt", "ActionType", "AcitonId", "ActionName", txtTypeId.Text, txtTypeName.Text))
+            {
+                MessageBox.Show("添加成功！");
+                txtTypeId.Clear();
+                txtTypeName.Clear();
+                txtTypeId.Focus();
+            }
+            else
+            {
+                MessageBox.Show("添加失败！");
+            }
+
+        }
+        /// <summary>
+        /// 匹配LED编号和控制卡地址码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddLED_Click(object sender, EventArgs e)
+        {
+            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"LEDSetting.txt", "LEDNum", "LEDid", "LEDAddress", txtLEDid.Text, txtAdress.Text))
+            {
+                MessageBox.Show("添加成功！");
+                txtLEDid.Clear();
+                txtAdress.Clear();
+                txtLEDid.Focus();
+            }
+            else
+            {
+                MessageBox.Show("添加失败！");
+            }
+        }
+
+        private void txtTypeName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAddType_Click(null, null);
+            }
+        }
+
+        private void txtAdress_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAddLED_Click(null, null);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace UI
             new DataGridViewTextBoxColumn { Name = @"FontSize", HeaderText = @"字体大小", DataPropertyName = @"FontSize", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"FontColor", HeaderText = @"字体颜色", DataPropertyName = @"FontColor", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"ShowStyle", HeaderText = @"播放方式", DataPropertyName = @"ShowStyle", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"ShowContent", HeaderText = @"播放内容", DataPropertyName = @"ShowContent", Width = 300 }
+            new DataGridViewTextBoxColumn { Name = @"ShowContent", HeaderText = @"播放内容", DataPropertyName = @"ShowContent", Width = 500 }
              );
         }
         private void btnSearch_Click(object sender, EventArgs e)

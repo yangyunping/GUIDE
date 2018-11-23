@@ -32,7 +32,7 @@ namespace UI
         }
         private void IniteData()
         {
-            string txtPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";
+            string txtPath = Application.StartupPath + @"\\" + @"ActionShow.txt";
             if (File.Exists(txtPath))
             {
                 //播放方式

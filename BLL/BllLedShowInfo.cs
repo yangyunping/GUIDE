@@ -1,4 +1,5 @@
 ﻿using DAL;
+using MODEL;
 using System.Data;
 
 namespace BLL
@@ -6,6 +7,15 @@ namespace BLL
     public class BllLedShowInfo
     {
         DalLedShowInfo dalLedShowInfo = new DalLedShowInfo();
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="lEDShowInfo"></param>
+        /// <returns></returns>
+        public bool InsertLedShowInfo(LEDShowInfo  lEDShowInfo)
+        {
+            return dalLedShowInfo.InsertLedShowInfo(lEDShowInfo);
+        }
         /// <summary>
         /// 删除
         /// </summary>

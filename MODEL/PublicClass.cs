@@ -90,17 +90,17 @@ namespace MODEL
         /// <param name="sourceDt">数据原表</param>
         /// <param name="nodeName">获取信息关键字</param>
         /// <returns></returns>
-        public static DataTable GetXMLInfo(string xmlPathName, DataTable sourceDt, string nodeName,string key,string value)
+        public static DataTable GetXMLInfo(string xmlPathName, DataTable sourceDt, string nodeName, string key, string value)
         {
             //XmlDocument XmlDoc = new XmlDocument();
             //XmlDoc.Load(xmlPathName);  // 读取XML
             StreamReader sr = new StreamReader(xmlPathName); //读取TXT
-            string str = sr.ReadToEnd(); 
+            string str = sr.ReadToEnd();
             sr.DiscardBufferedData();
-            sr.Close();   
+            sr.Close();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(str);
- 
+
             for (int i = 0; i < xmlDoc.GetElementsByTagName(nodeName).Count; i++)
             {
                 DataRow drNew = sourceDt.NewRow();
@@ -118,7 +118,7 @@ namespace MODEL
                 if (!string.IsNullOrEmpty(drNew[0].ToString()))
                 {
                     sourceDt.Rows.InsertAt(drNew, sourceDt.Rows.Count);
-                }  
+                }
             }
             return sourceDt;
         }
@@ -132,7 +132,7 @@ namespace MODEL
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static bool CreateXmlInfo(string xmlPathName, string xmlNode1, string xmlNode2, string xmlNode3,string key, string value)
+        public static bool CreateXmlInfo(string xmlPathName, string xmlNode1, string xmlNode2, string xmlNode3, string key, string value)
         {
             //GetOrSetConfig.CreateXmlInfo(Application.StartupPath + @"\\" + @"ShowActionType.xml", "Type", "Key", "value", textBox1.Text, textBox2.Text);
             //MessageBox.Show("添加成功！");
@@ -148,7 +148,37 @@ namespace MODEL
                     xmlDoc.LoadXml(str);
                     //XmlDocument xmlDoc = new XmlDocument();
                     //xmlDoc.Load(xmlPathName);  //XML文件读取
+                    XmlNodeList nodeLst = xmlDoc.SelectSingleNode("XML").ChildNodes;
+                    bool finded = false;
+                    foreach (XmlNode nodes in nodeLst)
+                    {
+                        foreach (XmlNode item in nodes.ChildNodes)
+                        {
+                            if (item.InnerText == key)
+                            {
+                                item.ParentNode.RemoveAll();//移除该同级节点信息
+                                finded = true;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        if (finded)
+                        {
+                            //修改
+                            XmlElement item1 = xmlDoc.CreateElement(xmlNode2);
+                            item1.InnerText = key;
+                            nodes.AppendChild(item1);
 
+                            XmlElement item2 = xmlDoc.CreateElement(xmlNode3);
+                            item2.InnerText = value;
+                            nodes.AppendChild(item2);
+                            xmlDoc.Save(xmlPathName);
+                            return true;
+                        }
+                    }
+                    //直接新增
                     XmlNode node = xmlDoc.SelectSingleNode("XML");
                     XmlElement node1 = xmlDoc.CreateElement(xmlNode1);
 
@@ -164,7 +194,7 @@ namespace MODEL
                     xmlDoc.Save(xmlPathName);
                     return true;
                 }
-                else //无文件，创建
+                else //无文件，创建新增
                 {
                     XmlDocument xmlDocument = new XmlDocument();
                     //XmlDeclaration declaration = xmlDocument.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -318,8 +348,8 @@ namespace MODEL
         }
         public static void ColorToInt16(Byte R, Byte G, Byte B)
         {
-           // return System.Drawing. //Translator.ToHtml(System.Drawing.Color.FromArgb(R, G, B));
+            // return System.Drawing. //Translator.ToHtml(System.Drawing.Color.FromArgb(R, G, B));
             //return Convert.ToInt32(hex);
-        } 
+        }
     }
 }

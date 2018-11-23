@@ -154,7 +154,7 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(117, 101);
+            this.txtContent.Location = new System.Drawing.Point(101, 77);
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(145, 26);
             this.txtContent.TabIndex = 12;
@@ -163,7 +163,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnSave.Location = new System.Drawing.Point(185, 157);
+            this.btnSave.Location = new System.Drawing.Point(169, 133);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(77, 40);
             this.btnSave.TabIndex = 13;
@@ -174,7 +174,7 @@
             // btnCancle
             // 
             this.btnCancle.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnCancle.Location = new System.Drawing.Point(57, 157);
+            this.btnCancle.Location = new System.Drawing.Point(41, 133);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 40);
             this.btnCancle.TabIndex = 14;
@@ -185,7 +185,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 104);
+            this.label4.Location = new System.Drawing.Point(37, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 20);
             this.label4.TabIndex = 17;
@@ -194,7 +194,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 46);
+            this.label2.Location = new System.Drawing.Point(37, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 20);
             this.label2.TabIndex = 16;
@@ -204,7 +204,7 @@
             // 
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(117, 46);
+            this.cmbType.Location = new System.Drawing.Point(101, 22);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(145, 28);
             this.cmbType.TabIndex = 15;
@@ -225,7 +225,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1017, 95);
+            this.panel1.Size = new System.Drawing.Size(1017, 80);
             this.panel1.TabIndex = 16;
             // 
             // btnTypeClose
@@ -248,12 +248,11 @@
             this.grpAdd.Controls.Add(this.cmbType);
             this.grpAdd.Controls.Add(this.btnCancle);
             this.grpAdd.Controls.Add(this.txtContent);
-            this.grpAdd.Location = new System.Drawing.Point(400, 111);
+            this.grpAdd.Location = new System.Drawing.Point(400, 80);
             this.grpAdd.Name = "grpAdd";
-            this.grpAdd.Size = new System.Drawing.Size(313, 219);
+            this.grpAdd.Size = new System.Drawing.Size(286, 192);
             this.grpAdd.TabIndex = 16;
             this.grpAdd.TabStop = false;
-            this.grpAdd.Text = "添加修改";
             this.grpAdd.Visible = false;
             // 
             // dgvShow
@@ -263,14 +262,14 @@
             this.dgvShow.BackgroundColor = System.Drawing.Color.White;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvShow.Location = new System.Drawing.Point(0, 95);
+            this.dgvShow.Location = new System.Drawing.Point(0, 80);
             this.dgvShow.MultiSelect = false;
             this.dgvShow.Name = "dgvShow";
             this.dgvShow.ReadOnly = true;
             this.dgvShow.RowHeadersWidth = 11;
             this.dgvShow.RowTemplate.Height = 23;
             this.dgvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShow.Size = new System.Drawing.Size(1017, 410);
+            this.dgvShow.Size = new System.Drawing.Size(1017, 425);
             this.dgvShow.TabIndex = 17;
             // 
             // FrmConfig

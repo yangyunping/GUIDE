@@ -150,6 +150,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmTempletSendLED";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "模板发送";
             this.ResumeLayout(false);
             this.PerformLayout();

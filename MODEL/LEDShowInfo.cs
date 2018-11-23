@@ -15,7 +15,7 @@ namespace MODEL
         /// <summary>
         /// LED编号
         /// </summary>
-        public int ScreenId { set; get; }
+        public string ScreenId { set; get; }
         /// <summary>
         /// 控制卡地址码
         /// </summary>

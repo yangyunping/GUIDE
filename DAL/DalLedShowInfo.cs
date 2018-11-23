@@ -10,6 +10,18 @@ namespace DAL
     {
         Server server = new Server();
         /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="ledShowInfo"></param>
+        /// <returns></returns>
+        public bool InsertLedShowInfo(LEDShowInfo ledShowInfo)
+        {
+            string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle) 
+values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime.ToShortTimeString()}','{ledShowInfo.EndTime.ToShortTimeString()}',
+'{ledShowInfo.Content}','{ledShowInfo.FontColor}','{ledShowInfo.FontName}','{ledShowInfo.FontSize}','{ledShowInfo.ShowStyle}')";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="id"></param>
