@@ -48,5 +48,9 @@ namespace MODEL
         /// 播放方式
         /// </summary>
         public int ShowStyle { set; get; }
+        /// <summary>
+        /// 区分
+        /// </summary>
+        public int Tag { set; get; }
     }
 }

@@ -8,9 +8,9 @@ namespace UI
 {
     public partial class FrmShowSetting : Form
     {
-        BllShowInfo bllShowInfo = new BllShowInfo();
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         BllScreen bllScreen = new BllScreen();
+        BllShowInfo bllShowInfo = new BllShowInfo();
         private int showId = -1;
         /// <summary>
         /// 编号配置

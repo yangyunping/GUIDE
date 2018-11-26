@@ -65,7 +65,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(274, 177);
+            this.btnSave.Location = new System.Drawing.Point(268, 177);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 35);
             this.btnSave.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(92, 177);
+            this.btnClose.Location = new System.Drawing.Point(81, 177);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 35);
             this.btnClose.TabIndex = 6;
@@ -102,11 +102,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 35);
+            this.label2.Location = new System.Drawing.Point(222, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 19);
+            this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 7;
-            this.label2.Text = "编   号";
+            this.label2.Text = "LED编号";
             // 
             // FrmSreen
             // 
@@ -123,7 +123,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmSreen";
-            this.Size = new System.Drawing.Size(431, 249);
+            this.Size = new System.Drawing.Size(428, 235);
             this.ResumeLayout(false);
             this.PerformLayout();
 

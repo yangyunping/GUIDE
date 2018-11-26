@@ -53,16 +53,16 @@ namespace UI
                     grbMenues.Text = "显示查询";
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"Id", HeaderText = @"ID", DataPropertyName = @"ID", Width = 40 },
-             new DataGridViewTextBoxColumn { Name = @"ConfigName", HeaderText = @"配置编号", DataPropertyName = @"ConfigName", Width = 120 },
-             new DataGridViewTextBoxColumn { Name = @"States", HeaderText = @"状态", DataPropertyName = @"States", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"ScreenId", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenId", Width = 120 },
              new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 100 },
-             new DataGridViewTextBoxColumn { Name = @"ConfigNum", HeaderText = @"编组号", DataPropertyName = @"ConfigNum", Width = 80 },
-             new DataGridViewTextBoxColumn { Name = @"ByOrders", HeaderText = @"顺序", DataPropertyName = @"ByOrders", Width = 80 },
-             new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"BeginTime", Width = 120 },
-             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 120 },
-             new DataGridViewTextBoxColumn { Name = @"ScreenId", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenId", Width = 120 }
+             new DataGridViewTextBoxColumn { Name = @"BeginTime", HeaderText = @"开始时间", DataPropertyName = @"AreaName", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"EndTime", HeaderText = @"结束时间", DataPropertyName = @"EndTime", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"Content", HeaderText = @"显示内容", DataPropertyName = @"Content", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"FontName", HeaderText = @"字体名称", DataPropertyName = @"FontName", Width = 80 },
+             new DataGridViewTextBoxColumn { Name = @"FontColor", HeaderText = @"字体颜色", DataPropertyName = @"FontColor", Width = 120 },
+             new DataGridViewTextBoxColumn { Name = @"FontSize", HeaderText = @"字体大小", DataPropertyName = @"FontSize", Width = 120 }
               );
-                    btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示删除);
+        btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示删除);
                     btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示修改);
                     btnAdd.Visible = false;
                     break;
@@ -71,10 +71,21 @@ namespace UI
                     dgvContent.Columns.AddRange(
              new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"编号ID", DataPropertyName = @"ID", Width = 80 },
              new DataGridViewTextBoxColumn { Name = @"ScreenID", HeaderText = @"屏幕编号", DataPropertyName = @"ScreenID", Width = 100 },
+             new DataGridViewTextBoxColumn { Name = @"AreaId", HeaderText = @"区域编号", DataPropertyName = @"AreaId", Width = 120 },
              new DataGridViewTextBoxColumn { Name = @"AreaName", HeaderText = @"区域名", DataPropertyName = @"AreaName", Width = 120 },
-             new DataGridViewTextBoxColumn { Name = @"AddressNum", HeaderText = @"地址码", DataPropertyName = @"AddressNum", Width = 100 }
+             new DataGridViewTextBoxColumn { Name = @"AddressNum", HeaderText = @"硬件地址码", DataPropertyName = @"AddressNum", Width = 130 },
+             new DataGridViewTextBoxColumn { Name = @"OrderNum", HeaderText = @"顺序", DataPropertyName = @"OrderNum", Width = 100 }
               );
-                    btnAddShow.Visible = false;
+                    DataTable dtAre = bllAreaInfo.GetAreaInfo(string.Empty);
+                    DataRow newRow = dtAre.NewRow();
+                    newRow["AreaId"] = -1;
+                    newRow["AreaName"] = "全部";
+                    dtAre.Rows.InsertAt(newRow,0);
+                    cmbArea.ValueMember = "AreaId";
+                    cmbArea.DisplayMember = "AreaName";
+                    cmbArea.DataSource = dtAre;
+                    lblArea.Visible = cmbArea.Visible = true;
+                    btnAddShow.Visible = lblKey.Visible = txtKey.Visible = false;
                     btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器新增);
                     btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器修改);
                     btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器删除);
@@ -108,7 +119,12 @@ namespace UI
                         dgvContent.DataSource = dtShow;
                         break;
                     case "屏幕":
-                        DataTable dtScreen = bllScreen.GetScreenInfo(txtKey.Text.Trim());
+                        string key = string.Empty;
+                        if (!cmbArea.Text.Equals("全部"))
+                        {
+                            key = cmbArea.SelectedValue.ToString();
+                        }
+                        DataTable dtScreen = bllScreen.GetScreenInfo(key);
                         dgvContent.AutoGenerateColumns = false;
                         dgvContent.DataSource = dtScreen;
                         break;
@@ -239,8 +255,8 @@ namespace UI
                     {
                         Screens screens = new Screens();
                         screens.ID = Convert.ToInt32(dgvContent.CurrentRow.Cells["ID"].Value);
-                        screens.ScreenID =Convert.ToInt32(dgvContent.CurrentRow.Cells["ScreenID"].Value);
-                        screens.AreaName = dgvContent.CurrentRow.Cells["AreaName"].Value.ToString();
+                        screens.ScreenID =dgvContent.CurrentRow.Cells["ScreenID"].Value.ToString();
+                        screens.AreaID = Convert.ToInt32(dgvContent.CurrentRow.Cells["AreaID"].Value);
                         screens.AddressNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["AddressNum"].Value);
                         FrmSreen frmSreen = new FrmSreen(screens);
                         FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmSreen.Size.Width, frmSreen.Size.Height) };

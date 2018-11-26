@@ -38,6 +38,7 @@
             this.btnSendData = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbLEDId = new System.Windows.Forms.ComboBox();
+            this.chkDelete = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +63,7 @@
             // chkDate
             // 
             this.chkDate.AutoSize = true;
-            this.chkDate.Location = new System.Drawing.Point(111, 202);
+            this.chkDate.Location = new System.Drawing.Point(266, 136);
             this.chkDate.Name = "chkDate";
             this.chkDate.Size = new System.Drawing.Size(80, 23);
             this.chkDate.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             this.dtpBegin.Enabled = false;
             this.dtpBegin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpBegin.Location = new System.Drawing.Point(197, 201);
+            this.dtpBegin.Location = new System.Drawing.Point(356, 135);
             this.dtpBegin.Name = "dtpBegin";
             this.dtpBegin.Size = new System.Drawing.Size(128, 24);
             this.dtpBegin.TabIndex = 3;
@@ -83,9 +84,9 @@
             // 
             this.dtpEnd.Enabled = false;
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(349, 201);
+            this.dtpEnd.Location = new System.Drawing.Point(356, 187);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(112, 24);
+            this.dtpEnd.Size = new System.Drawing.Size(128, 24);
             this.dtpEnd.TabIndex = 4;
             // 
             // txtFontName
@@ -106,7 +107,7 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(111, 265);
+            this.btnSendData.Location = new System.Drawing.Point(108, 242);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(88, 37);
             this.btnSendData.TabIndex = 7;
@@ -132,11 +133,24 @@
             this.cmbLEDId.Size = new System.Drawing.Size(121, 27);
             this.cmbLEDId.TabIndex = 9;
             // 
+            // chkDelete
+            // 
+            this.chkDelete.AutoSize = true;
+            this.chkDelete.Checked = true;
+            this.chkDelete.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDelete.Location = new System.Drawing.Point(108, 191);
+            this.chkDelete.Name = "chkDelete";
+            this.chkDelete.Size = new System.Drawing.Size(106, 23);
+            this.chkDelete.TabIndex = 25;
+            this.chkDelete.Text = "删除已有显示";
+            this.chkDelete.UseVisualStyleBackColor = true;
+            // 
             // FrmTempletSendLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 336);
+            this.ClientSize = new System.Drawing.Size(575, 303);
+            this.Controls.Add(this.chkDelete);
             this.Controls.Add(this.cmbLEDId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSendData);
@@ -169,5 +183,6 @@
         private System.Windows.Forms.Button btnSendData;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbLEDId;
+        private System.Windows.Forms.CheckBox chkDelete;
     }
 }

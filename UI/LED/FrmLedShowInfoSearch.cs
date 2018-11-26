@@ -36,7 +36,12 @@ namespace UI.LED
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable dtShow = bllLedShowInfo.GetLEDShowInfos(txtKey.Text);
+            string sKey = string.Empty;
+            if (!string.IsNullOrEmpty(txtKey.Text))
+            {
+                sKey = $@"  and  ShowContent like '%{txtKey.Text}%'";
+            }
+            DataTable dtShow = bllLedShowInfo.GetLEDShowInfos(sKey);
             dgvTemShow.AutoGenerateColumns = false;
             dgvTemShow.DataSource = dtShow;
         }

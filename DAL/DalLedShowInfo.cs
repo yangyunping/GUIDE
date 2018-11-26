@@ -38,8 +38,18 @@ values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTi
         /// <returns></returns>
         public DataTable GetLEDShowInfos(string key)
         {
-            string sSql = $@"select * from LEDShowInfo where 1=1 {key}";
+            string sSql = $@"select * from  LEDShowInfo where 1=1 {key}";
             return server.ExecuteQuery(sSql).Tables[0];
+        }
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public bool UpdateLEDShowInfo(int id, int stateCnt)
+        {
+            string sSql = $@"Update LEDShowInfo set Tag = {stateCnt}  where ID = '{id}'";
+            return server.ExecuteNonQuery(sSql) > 0;
         }
     }
 }

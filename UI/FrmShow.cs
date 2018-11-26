@@ -82,7 +82,6 @@ namespace UI
                         //已显示的内容临时保存
                         ShowContent showContent = new ShowContent()
                         {
-                            AreaName = dtShow.Rows[i]["AreaName"].ToString(),
                             ConfigName = dtShow.Rows[i]["ConfigName"].ToString(),
                             GroupNum = configNum,
                             BeginTime = Convert.ToDateTime(dtShow.Rows[i]["BeginTime"]),
@@ -166,7 +165,7 @@ namespace UI
                 BllScreen bllScreen = new BllScreen();
                 for (int i = 0; i < showContents.Count; i++)
                 {
-                    DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaName);//查询区域对应的屏幕数量
+                    DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaId.ToString());//查询区域对应的屏幕数量
                     //偶数画框
                     if (i % 2 == 0)
                     {
@@ -195,7 +194,7 @@ namespace UI
                             }
                         }
                         g.DrawRectangle(pen, 100, 150 * i / 2 + 50, 900, 70);
-                        g.DrawString("区域：" + showContents[i].AreaName + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * i / 2 + 60);
+                        g.DrawString("区域：" + showContents[i].AreaId + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * i / 2 + 60);
                     }
                     else //奇数不用画大框
                     {
@@ -223,7 +222,7 @@ namespace UI
                                 }
                             }
                         }
-                        g.DrawString("区域：" + showContents[i].AreaName + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
+                        g.DrawString("区域：" + showContents[i].AreaId + "    配置编号 " + showContents[i].ConfigName + "   编组：" + showContents[i].GroupNum + "    开始时间：" + showContents[i].BeginTime + "    结束时间：" + showContents[i].EndTime, new Font("微软雅黑", 12), Brushes.Black, 120, 150 * (i - 1) / 2 + 90);
                     }
                 }
             }
@@ -253,7 +252,6 @@ namespace UI
                     int cardNum = showContents[i].AddressNum; //地址码
                     int LedNum = showContents[i].ScreenID;    //屏幕编号
                     int duraTion = Convert.ToInt32((showContents[i].EndTime - showContents[i].BeginTime).TotalSeconds);//播放时长，秒为单位
-                    string areaName = showContents[i].AreaName;
                     string singleTxt = showContents[i].SingleTxt;
                     int programIndex = 0; //节目序号
                     LEDShow.LedOpen(cardNum);
@@ -264,7 +262,7 @@ namespace UI
 
                     if (!LEDShow.SendData(cardNum))
                     {
-                        MessageBox.Show("屏幕编号为 " + areaName + " " + LedNum + " 显示内容发送失败！");
+                        MessageBox.Show("屏幕编号为 "  + LedNum + " 显示内容发送失败！");
                         continue;
                     }
                 }

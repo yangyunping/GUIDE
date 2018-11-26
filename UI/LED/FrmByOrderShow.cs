@@ -1,0 +1,139 @@
+﻿using BLL;
+using MODEL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace UI.LED
+{
+    public partial class FrmByOrderShow : Form
+    {
+        private int fontSize = 24;//字体大小
+        private string fontName = "宋体";//字体名称
+        private string fontColor = "Red";//字体颜色
+        BllAreaInfo bllAreaInfo = new BllAreaInfo();//区域
+        BllScreen bllScreen = new BllScreen();//屏幕
+        BllLedShowInfo ledShowInfo = new BllLedShowInfo();//保存到显示表中
+        private Dictionary<string, int> ledInfo = new Dictionary<string, int>();//区域屏幕信息临时缓存
+        public FrmByOrderShow()
+        {
+            InitializeComponent();
+
+            DataTable dtInfo = bllAreaInfo.GetAreaInfo(string.Empty);
+            cmbAreaId.ValueMember = "AreaId";
+            cmbAreaId.DisplayMember = "AreaName";
+            cmbAreaId.DataSource = dtInfo;
+            cmbAreaId.SelectedIndex = -1;
+        }
+
+        private void btnFontSetting_Click(object sender, EventArgs e)
+        {
+            if (fontDialogled.ShowDialog() == DialogResult.OK)
+            {
+                fontSize = Convert.ToInt32(fontDialogled.Font.Size);
+                fontName = fontDialogled.Font.Name;
+            }
+        }
+
+        private void btnFontColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialogLed.ShowDialog() == DialogResult.OK)
+            {
+                fontColor = colorDialogLed.Color.Name;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(cmbAreaId.Text) && GroupNum.Value > 0 && !string.IsNullOrEmpty(cmbByOrder.Text) && !string.IsNullOrEmpty(cmbScreens.Text))
+                {
+                    if (GroupNum.Value > cmbScreens.Items.Count)
+                    {
+                        MessageBox.Show("超出屏幕总数!");
+                        return;
+                    }
+                    if (cmbByOrder.Text.Equals("正序"))
+                    {
+                        if (cmbScreens.SelectedIndex + GroupNum.Value > cmbScreens.Items.Count)
+                        {
+                            MessageBox.Show("超出区域屏幕范围!");
+                            return;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < Convert.ToInt32(GroupNum.Value); i++)
+                            {
+                                LEDShowInfo lEDShowInfo = new LEDShowInfo();
+                                lEDShowInfo.ScreenId = ledInfo.Keys.ToArray()[cmbScreens.SelectedIndex + i];
+                                lEDShowInfo.AddressNum = Convert.ToInt32(ledInfo.Values.ToArray()[cmbScreens.SelectedIndex + i]);
+                                lEDShowInfo.Content = (i + 1).ToString();
+                                lEDShowInfo.BeginTime = dtpBegin.Value;
+                                lEDShowInfo.EndTime = dtpEnd.Value;
+                                lEDShowInfo.FontColor = fontColor;
+                                lEDShowInfo.FontName = fontName;
+                                lEDShowInfo.FontSize = fontSize;
+                                lEDShowInfo.ShowStyle = 1;
+                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);
+                            }
+                        }
+                    }
+                    else if (cmbByOrder.Text.Equals("倒序"))
+                    {
+                        if (cmbScreens.SelectedIndex + 1 - GroupNum.Value < 0)
+                        {
+                            MessageBox.Show("超出区域屏幕范围!");
+                            return;
+                        }
+                        else
+                        {
+                            for (int i = Convert.ToInt32(GroupNum.Value); i > 0; i--)
+                            {
+                                LEDShowInfo lEDShowInfo = new LEDShowInfo();
+                                lEDShowInfo.ScreenId = ledInfo.Keys.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i];
+                                lEDShowInfo.AddressNum = Convert.ToInt32(ledInfo.Values.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i]);
+                                lEDShowInfo.Content = i.ToString();
+                                lEDShowInfo.BeginTime = dtpBegin.Value;
+                                lEDShowInfo.EndTime = dtpEnd.Value;
+                                lEDShowInfo.FontColor = fontColor;
+                                lEDShowInfo.FontName = fontName;
+                                lEDShowInfo.FontSize = fontSize;
+                                lEDShowInfo.ShowStyle = 1;
+                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);
+                            }
+                        }
+                    }
+                    MessageBox.Show("保存成功！");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存错误！"+ex.ToString());
+            }
+        }
+
+        private void cmbAreaId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbAreaId.SelectedValue != null && !string.IsNullOrEmpty(cmbAreaId.Text) && cmbAreaId.SelectedIndex != -1)
+            {
+                DataTable dtLED = bllScreen.GetScreenInfo(cmbAreaId.SelectedValue.ToString());
+                ledInfo = new Dictionary<string, int>();
+                for (int i = 0; i < dtLED.Rows.Count; i++)
+                {
+                    ledInfo.Add(dtLED.Rows[i]["ScreenID"].ToString(),Convert.ToInt32(dtLED.Rows[i]["AddressNum"]));
+                }
+                cmbScreens.DisplayMember = "ScreenID";
+                cmbScreens.ValueMember = "AddressNum";
+                cmbScreens.DataSource = dtLED;
+                cmbScreens.SelectedIndex = -1;
+            }
+        }
+    }
+}

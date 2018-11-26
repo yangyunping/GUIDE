@@ -100,6 +100,12 @@
     <Compile Include="FrmConfigNum.Designer.cs">
       <DependentUpon>FrmConfigNum.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmByOrderShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LED\FrmByOrderShow.Designer.cs">
+      <DependentUpon>FrmByOrderShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="LED\FrmDefinedShow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfigNum.resx">
       <DependentUpon>FrmConfigNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmByOrderShow.resx">
+      <DependentUpon>FrmByOrderShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmDefinedShow.resx">
       <DependentUpon>FrmDefinedShow.cs</DependentUpon>

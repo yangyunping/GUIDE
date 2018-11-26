@@ -49,9 +49,9 @@
             this.label1.Location = new System.Drawing.Point(135, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 30);
+            this.label1.Size = new System.Drawing.Size(145, 30);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LED管理系统";
+            this.label1.Text = "引导管理系统";
             // 
             // label2
             // 

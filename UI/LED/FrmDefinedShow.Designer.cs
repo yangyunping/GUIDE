@@ -49,6 +49,7 @@
             this.lblProgram = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btndefault = new System.Windows.Forms.Button();
+            this.chkDelete = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -115,6 +116,7 @@
             // 
             // btnFontColor
             // 
+            this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.btnFontColor.Location = new System.Drawing.Point(206, 310);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -223,7 +225,7 @@
             // lblProgram
             // 
             this.lblProgram.AutoSize = true;
-            this.lblProgram.Location = new System.Drawing.Point(215, 479);
+            this.lblProgram.Location = new System.Drawing.Point(261, 479);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(51, 20);
             this.lblProgram.TabIndex = 21;
@@ -252,11 +254,24 @@
             this.btndefault.UseVisualStyleBackColor = true;
             this.btndefault.Click += new System.EventHandler(this.btndefault_Click);
             // 
+            // chkDelete
+            // 
+            this.chkDelete.AutoSize = true;
+            this.chkDelete.Checked = true;
+            this.chkDelete.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDelete.Location = new System.Drawing.Point(132, 477);
+            this.chkDelete.Name = "chkDelete";
+            this.chkDelete.Size = new System.Drawing.Size(112, 24);
+            this.chkDelete.TabIndex = 24;
+            this.chkDelete.Text = "删除已有显示";
+            this.chkDelete.UseVisualStyleBackColor = true;
+            // 
             // FrmDefinedShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 552);
+            this.Controls.Add(this.chkDelete);
             this.Controls.Add(this.btndefault);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblProgram);
@@ -309,5 +324,6 @@
         private System.Windows.Forms.Label lblProgram;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btndefault;
+        private System.Windows.Forms.CheckBox chkDelete;
     }
 }

@@ -15,7 +15,7 @@ namespace MODEL
         /// <summary>
         /// 区域名
         /// </summary>
-        public string AreaName { set; get; }
+        public int AreaId { set; get; }
         /// <summary>
         /// 编组
         /// </summary>

@@ -133,7 +133,7 @@ namespace MODEL
             SingleText.chContent = content;
             SingleText.PartInfo.iFrameMode = 0;
             SingleText.PartInfo.iHeight = 32;
-            SingleText.PartInfo.iWidth = 128;
+            SingleText.PartInfo.iWidth = 64;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
             SingleText.FontInfo.iAlignStyle = 0;
@@ -158,7 +158,7 @@ namespace MODEL
             }
             else
             {
-                MessageBox.Show("添加文本成功！");
+                MessageBox.Show ("添加文本成功！");
             }
         }
         //添加单行文本

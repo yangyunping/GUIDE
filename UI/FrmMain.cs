@@ -1,6 +1,7 @@
 ﻿using BLL;
 using MODEL;
 using System;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -11,13 +12,14 @@ namespace UI
     public partial class FrmMain : Form
     {
         BllAreaInfo BllAreaInfo = new BllAreaInfo();
+        BllLedShowInfo ledShowInfo = new BllLedShowInfo();
         public readonly string _configPath = Application.StartupPath + @"\\" + @"Config.ini";//配置文件存放路径
         private string skinType = string.Empty;
         public FrmMain()
         {
             InitializeComponent();
             PowersInite();
-
+            timer1.Start();//开始预设显示
             string skinPath = Application.StartupPath + @"\Skins";
             this.lstContent.DataSource = new DirectoryInfo(skinPath).GetFiles();
             this.lstContent.DisplayMember = "Name";
@@ -32,13 +34,8 @@ namespace UI
         /// </summary>
         private void PowersInite()
         {
-            //tdbShow.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示管理);
             AreaShowSearch.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域设置);
             tsmConfigNum.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.编号设置);
-            tsmSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.列表顺序设置);
-           // tsbBegin.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.启动);
-           // tsbEmployee.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.人员管理);
-           // tsbConfig.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置管理);
             tsmSreen.Visible = CurrentInfo.currentPowers.ContainsKey(CommonInfo.显示器设置);
         }
         /// <summary>
@@ -250,7 +247,26 @@ namespace UI
 
         private void lED显示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DataTable dtShow = ledShowInfo.GetLEDShowInfos($@" and BeginTime <= CONVERT (CHAR(10), GETDATE(), 108) and EndTime >= CONVERT (CHAR(10), GETDATE(), 108)");
+            
+            for (int i = 0; i < dtShow.Rows.Count; i++)
+            {
+                int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                LEDShow.DeleteProgram(addressNum);//删除现有显示
+                int programInx = LEDShow.AddProgram(addressNum, 10);
+                if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
+                {
+                    LEDShow.AddText(addressNum, dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF);
+                }
+                else
+                {
+                    continue;
+                }
+                if (!LEDShow.SendData(addressNum))
+                {
+                    MessageBox.Show(dtShow.Rows[i]["ScreenId"].ToString() + "发送失败！");
+                }
+            }
         }
 
         private void 模板显示ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,6 +286,53 @@ namespace UI
         {
             FrmLEDSetting frmLEDSetting = new FrmLEDSetting();
             frmLEDSetting.ShowDialog();
+        }
+
+        private void 排序设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmByOrderShow frmByOrderShow = new FrmByOrderShow();
+            frmByOrderShow.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                //预设显示
+                DataTable dtShow = ledShowInfo.GetLEDShowInfos($@" and  Tag != 2  and  BeginTime <= CONVERT (CHAR(10), GETDATE(), 108) and EndTime >= CONVERT (CHAR(10), GETDATE(), 108)");
+                for (int i = 0; i < dtShow.Rows.Count; i++)
+                {
+                    int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                    LEDShow.DeleteProgram(addressNum);//删除现有显示
+                    int programInx = LEDShow.AddProgram(addressNum, 10);
+                    if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
+                    {
+                        LEDShow.AddText(addressNum, dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    if (LEDShow.SendData(addressNum))
+                    {
+                        ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]),2);
+                    }
+                    else
+                    {
+                        MessageBox.Show(dtShow.Rows[i]["ScreenId"].ToString() + "发送失败！");
+                    }
+                }
+                //到结束时间，停止显示
+                DataTable dtOutShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2 and  EndTime < CONVERT (CHAR(10), GETDATE(), 108)");
+                for (int i = 0; i < dtOutShow.Rows.Count; i++)
+                {
+                    int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                    LEDShow.DeleteProgram(addressNum);//删除现有显示
+                    LEDShow.User_CloseScreen(addressNum);//关屏
+                    ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]), 0);
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

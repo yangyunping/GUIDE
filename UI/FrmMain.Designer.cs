@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tdbShow = new System.Windows.Forms.ToolStripDropDownButton();
             this.AreaShowSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSreen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConfigNum = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.lED参数配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.皮肤更换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.lED显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.排序设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.排序查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lED显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.模板显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模板设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模板查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDefinedShow = new System.Windows.Forms.ToolStripButton();
-            this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsmReadyShow = new System.Windows.Forms.ToolStripButton();
+            this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
-            this.tsbBegin = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pnlThemes = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOrigal = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             this.lstContent = new System.Windows.Forms.ListBox();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
             this.pnlShow = new System.Windows.Forms.Panel();
-            this.lED参数配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.pnlThemes.SuspendLayout();
             this.SuspendLayout();
@@ -72,14 +72,14 @@
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton1,
             this.tsmDefinedShow,
-            this.tsbEmployee,
             this.tsmReadyShow,
+            this.tsbEmployee,
             this.tsbConfig,
-            this.tsbBegin,
-            this.tsbClear});
+            this.tsbClear,
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1121, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1044, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -89,10 +89,9 @@
             this.AreaShowSearch,
             this.tsmSreen,
             this.tsmConfigNum,
-            this.tsmSetting,
+            this.lED参数配置ToolStripMenuItem,
             this.皮肤更换ToolStripMenuItem,
-            this.密码修改ToolStripMenuItem,
-            this.lED参数配置ToolStripMenuItem});
+            this.密码修改ToolStripMenuItem});
             this.tdbShow.Image = global::UI.Properties.Resources.homescreen;
             this.tdbShow.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tdbShow.Name = "tdbShow";
@@ -103,7 +102,7 @@
             // 
             this.AreaShowSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.AreaShowSearch.Name = "AreaShowSearch";
-            this.AreaShowSearch.Size = new System.Drawing.Size(180, 24);
+            this.AreaShowSearch.Size = new System.Drawing.Size(154, 24);
             this.AreaShowSearch.Text = "区域设置";
             this.AreaShowSearch.Click += new System.EventHandler(this.AreaShowSearch_Click);
             // 
@@ -111,31 +110,32 @@
             // 
             this.tsmSreen.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmSreen.Name = "tsmSreen";
-            this.tsmSreen.Size = new System.Drawing.Size(180, 24);
-            this.tsmSreen.Text = "显示器设置";
+            this.tsmSreen.Size = new System.Drawing.Size(154, 24);
+            this.tsmSreen.Text = "区域LED设置";
             this.tsmSreen.Click += new System.EventHandler(this.tsmSreen_Click);
             // 
             // tsmConfigNum
             // 
             this.tsmConfigNum.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmConfigNum.Name = "tsmConfigNum";
-            this.tsmConfigNum.Size = new System.Drawing.Size(180, 24);
+            this.tsmConfigNum.Size = new System.Drawing.Size(154, 24);
             this.tsmConfigNum.Text = "编组设置";
+            this.tsmConfigNum.Visible = false;
             this.tsmConfigNum.Click += new System.EventHandler(this.配置查询ToolStripMenuItem_Click);
             // 
-            // tsmSetting
+            // lED参数配置ToolStripMenuItem
             // 
-            this.tsmSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.tsmSetting.Name = "tsmSetting";
-            this.tsmSetting.Size = new System.Drawing.Size(180, 24);
-            this.tsmSetting.Text = "列表顺序设置";
-            this.tsmSetting.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
+            this.lED参数配置ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.lED参数配置ToolStripMenuItem.Name = "lED参数配置ToolStripMenuItem";
+            this.lED参数配置ToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.lED参数配置ToolStripMenuItem.Text = "LED参数配置";
+            this.lED参数配置ToolStripMenuItem.Click += new System.EventHandler(this.lED参数配置ToolStripMenuItem_Click);
             // 
             // 皮肤更换ToolStripMenuItem
             // 
             this.皮肤更换ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.皮肤更换ToolStripMenuItem.Name = "皮肤更换ToolStripMenuItem";
-            this.皮肤更换ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.皮肤更换ToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.皮肤更换ToolStripMenuItem.Text = "皮肤更换";
             this.皮肤更换ToolStripMenuItem.Click += new System.EventHandler(this.皮肤更换ToolStripMenuItem_Click);
             // 
@@ -143,41 +143,36 @@
             // 
             this.密码修改ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.密码修改ToolStripMenuItem.Name = "密码修改ToolStripMenuItem";
-            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.密码修改ToolStripMenuItem.Text = "密码修改";
             this.密码修改ToolStripMenuItem.Click += new System.EventHandler(this.密码修改ToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lED显示ToolStripMenuItem,
             this.排序设置ToolStripMenuItem,
-            this.排序查询ToolStripMenuItem});
+            this.lED显示ToolStripMenuItem});
             this.toolStripDropDownButton2.Image = global::UI.Properties.Resources.clock_alt;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(117, 39);
             this.toolStripDropDownButton2.Text = "排序显示";
             // 
-            // lED显示ToolStripMenuItem
-            // 
-            this.lED显示ToolStripMenuItem.Name = "lED显示ToolStripMenuItem";
-            this.lED显示ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.lED显示ToolStripMenuItem.Text = "LED显示";
-            this.lED显示ToolStripMenuItem.Click += new System.EventHandler(this.lED显示ToolStripMenuItem_Click);
-            // 
             // 排序设置ToolStripMenuItem
             // 
+            this.排序设置ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.排序设置ToolStripMenuItem.Name = "排序设置ToolStripMenuItem";
-            this.排序设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.排序设置ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.排序设置ToolStripMenuItem.Text = "排序设置";
+            this.排序设置ToolStripMenuItem.Click += new System.EventHandler(this.排序设置ToolStripMenuItem_Click);
             // 
-            // 排序查询ToolStripMenuItem
+            // lED显示ToolStripMenuItem
             // 
-            this.排序查询ToolStripMenuItem.Name = "排序查询ToolStripMenuItem";
-            this.排序查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.排序查询ToolStripMenuItem.Text = "排序查询";
-            this.排序查询ToolStripMenuItem.Click += new System.EventHandler(this.排序查询ToolStripMenuItem_Click);
+            this.lED显示ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.lED显示ToolStripMenuItem.Name = "lED显示ToolStripMenuItem";
+            this.lED显示ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.lED显示ToolStripMenuItem.Text = "LED显示";
+            this.lED显示ToolStripMenuItem.Click += new System.EventHandler(this.lED显示ToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -193,22 +188,25 @@
             // 
             // 模板显示ToolStripMenuItem
             // 
+            this.模板显示ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.模板显示ToolStripMenuItem.Name = "模板显示ToolStripMenuItem";
-            this.模板显示ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.模板显示ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.模板显示ToolStripMenuItem.Text = "LED显示";
             this.模板显示ToolStripMenuItem.Click += new System.EventHandler(this.模板显示ToolStripMenuItem_Click);
             // 
             // 模板设置ToolStripMenuItem
             // 
+            this.模板设置ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.模板设置ToolStripMenuItem.Name = "模板设置ToolStripMenuItem";
-            this.模板设置ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.模板设置ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.模板设置ToolStripMenuItem.Text = "模板设置";
             this.模板设置ToolStripMenuItem.Click += new System.EventHandler(this.模板设置ToolStripMenuItem_Click);
             // 
             // 模板查询ToolStripMenuItem
             // 
+            this.模板查询ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.模板查询ToolStripMenuItem.Name = "模板查询ToolStripMenuItem";
-            this.模板查询ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.模板查询ToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.模板查询ToolStripMenuItem.Text = "模板查询";
             this.模板查询ToolStripMenuItem.Click += new System.EventHandler(this.模板查询ToolStripMenuItem_Click);
             // 
@@ -221,15 +219,6 @@
             this.tsmDefinedShow.Text = "自定义显示";
             this.tsmDefinedShow.Click += new System.EventHandler(this.tsmDefinedShow_Click);
             // 
-            // tsbEmployee
-            // 
-            this.tsbEmployee.Image = global::UI.Properties.Resources.Users;
-            this.tsbEmployee.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEmployee.Name = "tsbEmployee";
-            this.tsbEmployee.Size = new System.Drawing.Size(108, 39);
-            this.tsbEmployee.Text = "员工管理";
-            this.tsbEmployee.Click += new System.EventHandler(this.tsbEmployee_Click);
-            // 
             // tsmReadyShow
             // 
             this.tsmReadyShow.Image = global::UI.Properties.Resources.universalsearch;
@@ -238,6 +227,15 @@
             this.tsmReadyShow.Size = new System.Drawing.Size(123, 39);
             this.tsmReadyShow.Text = "预显示查询";
             this.tsmReadyShow.Click += new System.EventHandler(this.tsmReadyShow_Click);
+            // 
+            // tsbEmployee
+            // 
+            this.tsbEmployee.Image = global::UI.Properties.Resources.Users;
+            this.tsbEmployee.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEmployee.Name = "tsbEmployee";
+            this.tsbEmployee.Size = new System.Drawing.Size(108, 39);
+            this.tsbEmployee.Text = "员工管理";
+            this.tsbEmployee.Click += new System.EventHandler(this.tsbEmployee_Click);
             // 
             // tsbConfig
             // 
@@ -248,15 +246,6 @@
             this.tsbConfig.Text = "配置信息";
             this.tsbConfig.Click += new System.EventHandler(this.tsbConfig_Click);
             // 
-            // tsbBegin
-            // 
-            this.tsbBegin.Image = global::UI.Properties.Resources.player_play;
-            this.tsbBegin.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBegin.Name = "tsbBegin";
-            this.tsbBegin.Size = new System.Drawing.Size(78, 39);
-            this.tsbBegin.Text = "启动";
-            this.tsbBegin.Click += new System.EventHandler(this.tsbBegin_Click);
-            // 
             // tsbClear
             // 
             this.tsbClear.Image = global::UI.Properties.Resources.Recicle_bin;
@@ -265,6 +254,14 @@
             this.tsbClear.Size = new System.Drawing.Size(108, 39);
             this.tsbClear.Text = "清空界面";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 39);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // pnlThemes
             // 
@@ -275,7 +272,7 @@
             this.pnlThemes.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlThemes.Location = new System.Drawing.Point(0, 42);
             this.pnlThemes.Name = "pnlThemes";
-            this.pnlThemes.Size = new System.Drawing.Size(318, 357);
+            this.pnlThemes.Size = new System.Drawing.Size(318, 398);
             this.pnlThemes.TabIndex = 0;
             this.pnlThemes.Visible = false;
             // 
@@ -316,7 +313,7 @@
             this.lstContent.ItemHeight = 12;
             this.lstContent.Location = new System.Drawing.Point(0, 0);
             this.lstContent.Name = "lstContent";
-            this.lstContent.Size = new System.Drawing.Size(221, 357);
+            this.lstContent.Size = new System.Drawing.Size(221, 398);
             this.lstContent.TabIndex = 0;
             this.lstContent.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -336,23 +333,20 @@
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlShow.Location = new System.Drawing.Point(318, 42);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(803, 357);
+            this.pnlShow.Size = new System.Drawing.Size(726, 398);
             this.pnlShow.TabIndex = 1;
             // 
-            // lED参数配置ToolStripMenuItem
+            // timer1
             // 
-            this.lED参数配置ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.lED参数配置ToolStripMenuItem.Name = "lED参数配置ToolStripMenuItem";
-            this.lED参数配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.lED参数配置ToolStripMenuItem.Text = "LED参数配置";
-            this.lED参数配置ToolStripMenuItem.Click += new System.EventHandler(this.lED参数配置ToolStripMenuItem_Click);
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1121, 399);
+            this.ClientSize = new System.Drawing.Size(1044, 440);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.pnlThemes);
             this.Controls.Add(this.toolStrip1);
@@ -376,9 +370,7 @@
         private System.Windows.Forms.ToolStripDropDownButton tdbShow;
         private System.Windows.Forms.ToolStripMenuItem AreaShowSearch;
         private System.Windows.Forms.ToolStripMenuItem tsmConfigNum;
-        private System.Windows.Forms.ToolStripMenuItem tsmSetting;
         private System.Windows.Forms.ToolStripButton tsbClear;
-        private System.Windows.Forms.ToolStripButton tsbBegin;
         private System.Windows.Forms.ToolStripButton tsbEmployee;
         private System.Windows.Forms.ToolStripButton tsbConfig;
         private System.Windows.Forms.ToolStripMenuItem tsmSreen;
@@ -392,9 +384,7 @@
         private System.Windows.Forms.Panel pnlShow;
         private System.Windows.Forms.ToolStripMenuItem 密码修改ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem lED显示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 排序设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 排序查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem 模板显示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 模板设置ToolStripMenuItem;
@@ -402,6 +392,9 @@
         private System.Windows.Forms.ToolStripButton tsmDefinedShow;
         private System.Windows.Forms.ToolStripButton tsmReadyShow;
         private System.Windows.Forms.ToolStripMenuItem lED参数配置ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem lED显示ToolStripMenuItem;
     }
 }
 

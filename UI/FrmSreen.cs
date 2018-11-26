@@ -20,7 +20,6 @@ namespace UI
         public FrmSreen(Screens screens)
         {
             InitializeComponent();
-
             DataTable dtInfo = bllAreaInfo.GetAreaInfo(string.Empty);
             cmbArea.ValueMember = "AreaId";
             cmbArea.DisplayMember = "AreaName";
@@ -29,9 +28,10 @@ namespace UI
             if (screens != null)
             {
                 Id = screens.ID;
-                cmbArea.Text = screens.AreaName;
+                cmbArea.SelectedValue = screens.AreaID;
                 txtAddressNum.Text = screens.AddressNum.ToString();
-                txtScreenID.Text = screens.ID.ToString();
+                txtScreenID.Text = screens.ScreenID.ToString();
+                cmbArea.Enabled = false;
             }
         }
 
@@ -43,12 +43,15 @@ namespace UI
                 {
                     Screens screens = new Screens();
                     screens.ID = Id;
-                    screens.ScreenID =Convert.ToInt32(txtScreenID.Text);
-                    screens.AreaName = cmbArea.Text;
+                    screens.ScreenID = txtScreenID.Text;
+                    screens.AreaID =Convert.ToInt32(cmbArea.SelectedValue);
                     screens.AddressNum = Convert.ToInt32(txtAddressNum.Text);
                     if (bllScreen.InsertOrModifyScreen(screens))
                     {
                         MessageBox.Show("保存成功!");
+                        cmbArea.SelectedIndex = -1;
+                        txtAddressNum.Clear();
+                        txtScreenID.Clear();
                     }
                     else
                     {

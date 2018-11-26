@@ -12,7 +12,7 @@ namespace BLL
         /// </summary>
         /// <param name="lEDShowInfo"></param>
         /// <returns></returns>
-        public bool InsertLedShowInfo(LEDShowInfo  lEDShowInfo)
+        public bool InsertLedShowInfo(LEDShowInfo lEDShowInfo)
         {
             return dalLedShowInfo.InsertLedShowInfo(lEDShowInfo);
         }
@@ -32,12 +32,16 @@ namespace BLL
         /// <returns></returns>
         public DataTable GetLEDShowInfos(string key)
         {
-            string sKey = string.Empty;
-            if (!string.IsNullOrEmpty(key))
-            {
-                sKey = $@"  and  ShowContent like '%{key}%'";
-            }
-            return dalLedShowInfo.GetLEDShowInfos(sKey);
+            return dalLedShowInfo.GetLEDShowInfos(key);
+        }
+        /// <summary>
+        /// 修改状态
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool UpdateLEDShowInfo(int id,int stateCnt)
+        {
+            return dalLedShowInfo.UpdateLEDShowInfo(id, stateCnt);
         }
     }
 }

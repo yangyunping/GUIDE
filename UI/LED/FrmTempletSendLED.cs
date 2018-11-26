@@ -55,6 +55,7 @@ namespace UI.LED
                     lEDShowInfo.FontSize = tempInfo.FontSize;
                     lEDShowInfo.FontColor = tempInfo.FontColor;
                     lEDShowInfo.Content = tempInfo.ShowContent;
+                    lEDShowInfo.Tag =1;
                     if (bllLedShowInfo.InsertLedShowInfo(lEDShowInfo))
                     {
                         MessageBox.Show("发送成功！");
@@ -66,6 +67,10 @@ namespace UI.LED
                 }
                 else
                 {
+                    if (chkDelete.Checked)
+                    {
+                        LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));//删除指定控制卡所有节目
+                    }
                     int programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
                     if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
                     {

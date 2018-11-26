@@ -18,10 +18,10 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetScreenInfo(string key)
         {
-            string sSql = $@"Select * from Screen where 1=1";
+            string sSql = $@"Select * from View_LED where 1=1";
             if (!string.IsNullOrEmpty(key))
             {
-                sSql += $@"  and AreaName like '%{key}%'";
+                sSql += $@"  and  AreaId ='{key}' order by OrderNum";
             }
             return server.ExecuteQuery(sSql).Tables[0];
         }
@@ -43,13 +43,15 @@ namespace DAL
         public bool InsertOrModifyScreen(Screens screen)
         {
             string sSql = $@"
+declare @OrderNum int
+select @OrderNum =ISNULL(MAX(OrderNum)+1,1) from Screen where AreaID = '{screen.AreaID}'
 IF NOT EXISTS(Select * from Screen where ID = '{screen.ID}')
 BEGIN
-Insert into Screen(AreaName,AddressNum,ScreenID) values('{screen.AreaName}','{screen.AddressNum}','{screen.ScreenID}')
+Insert into Screen(AreaID,AddressNum,ScreenID,OrderNum) values('{screen.AreaID}','{screen.AddressNum}','{screen.ScreenID}',@OrderNum)
 END
 ELSE
 BEGIN
-Update Screen set AreaName = '{screen.AreaName}',AddressNum = '{screen.AddressNum}',ScreenID ='{screen.ScreenID}'  where ID = '{screen.ID}'
+Update Screen set  AddressNum = '{screen.AddressNum}',ScreenID ='{screen.ScreenID}'  where  ID  = '{screen.ID}'
 END";
             return server.ExecuteNonQuery(sSql) > 0;
         }

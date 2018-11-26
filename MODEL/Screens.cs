@@ -15,15 +15,18 @@ namespace MODEL
         /// <summary>
         /// 屏幕编号
         /// </summary>
-        public int ScreenID { set; get; }
+        public string ScreenID { set; get; }
         /// <summary>
-        /// 区域名
+        /// 区域ID
         /// </summary>
-        public string AreaName { set; get; }
+        public int AreaID { set; get; }
         /// <summary>
         /// 地址码
         /// </summary>
         public int AddressNum { set; get; }
-
+        /// <summary>
+        /// 排序号
+        /// </summary>
+        public int OrderNum { set; get; }
     }
 }

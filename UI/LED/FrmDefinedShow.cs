@@ -111,7 +111,7 @@ namespace UI
 
         private void btnSendData_Click(object sender, EventArgs e)
         {
-            if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
+            if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))//发送节目
             {
                 MessageBox.Show("发送成功！");
             }
@@ -128,6 +128,10 @@ namespace UI
         }
         private void AddProgram()
         {
+            if (chkDelete.Checked)
+            {
+                LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));//删除指定控制卡所有节目
+            }
             programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
             lblProgram.Text = "节目：" + (programInx+1);
         }

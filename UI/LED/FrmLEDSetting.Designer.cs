@@ -123,7 +123,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(128, 201);
+            this.label6.Location = new System.Drawing.Point(126, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(22, 19);
             this.label6.TabIndex = 7;
@@ -140,7 +140,7 @@
             // 
             // txtWidth
             // 
-            this.txtWidth.Location = new System.Drawing.Point(147, 198);
+            this.txtWidth.Location = new System.Drawing.Point(149, 198);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(54, 24);
             this.txtWidth.TabIndex = 9;
@@ -343,7 +343,7 @@
             this.groupBox3.Size = new System.Drawing.Size(389, 200);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "LED信息";
+            this.groupBox3.Text = "非区域LED信息";
             // 
             // label12
             // 
