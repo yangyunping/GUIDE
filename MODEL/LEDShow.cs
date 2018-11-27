@@ -137,8 +137,17 @@ namespace MODEL
             SingleText.chContent = content;
             SingleText.PartInfo.iFrameMode = 0;
             SingleText.PartInfo.iHeight = iHeight;
-            SingleText.PartInfo.iWidth = iWidth;
-            SingleText.PartInfo.iX = 0;
+           
+            if (iAlignStyle==1)
+            {
+                SingleText.PartInfo.iX = iWidth/3;
+                SingleText.PartInfo.iWidth = iWidth/2;
+            }
+            else
+            {
+                SingleText.PartInfo.iX = 0;
+                SingleText.PartInfo.iWidth = iWidth;
+            }
             SingleText.PartInfo.iY = 0;
             SingleText.FontInfo.iAlignStyle = iAlignStyle;
             SingleText.FontInfo.iVAlignerStyle = 1;

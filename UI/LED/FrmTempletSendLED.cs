@@ -83,7 +83,8 @@ namespace UI.LED
                     int programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
                     if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
                     {
-                        LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, cmbContent.Text, programInx, tempInfo.ShowStyle, tempInfo.FontName, tempInfo.FontSize, 0x00FF,chkFoild.Checked,0);//最后0  左对齐 1居中 2右对齐
+                        int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0; //左对齐 1居中 2右对齐
+                        LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, cmbContent.Text, programInx, tempInfo.ShowStyle, tempInfo.FontName, tempInfo.FontSize, 0x00FF, chkFoild.Checked, postion);
                     }
                     if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
                     {

@@ -81,6 +81,8 @@ namespace UI.LED
                                 lEDShowInfo.FontName = fontName;
                                 lEDShowInfo.FontSize = fontSize;
                                 lEDShowInfo.ShowStyle = 1;
+                                lEDShowInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0;
+                                lEDShowInfo.FontBold = chkFontBold.Checked;
                                 ledShowInfo.InsertLedShowInfo(lEDShowInfo);
                             }
                         }
@@ -106,6 +108,8 @@ namespace UI.LED
                                 lEDShowInfo.FontName = fontName;
                                 lEDShowInfo.FontSize = fontSize;
                                 lEDShowInfo.ShowStyle = 1;
+                                lEDShowInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0;
+                                lEDShowInfo.FontBold = chkFontBold.Checked;
                                 ledShowInfo.InsertLedShowInfo(lEDShowInfo);
                             }
                         }

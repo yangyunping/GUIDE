@@ -19,7 +19,7 @@ namespace UI
         {
             InitializeComponent();
             PowersInite();
-            timer1.Start();//开始预设显示
+            ShowTimer.Start();//开始预设显示
             string skinPath = Application.StartupPath + @"\Skins";
             this.lstContent.DataSource = new DirectoryInfo(skinPath).GetFiles();
             this.lstContent.DisplayMember = "Name";
@@ -142,9 +142,6 @@ namespace UI
         {
             lstContent.Enabled = true;
             pnlThemes.Visible = true;
-            //pnlShow.Controls.Clear();
-            //FrmSkinEngine frmSkinEngine = new FrmSkinEngine() { Dock = DockStyle.Left };
-            //pnlShow.Controls.Add(frmSkinEngine);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -183,7 +180,11 @@ namespace UI
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 
         }
-
+        /// <summary>
+        /// 保存皮肤到本地文件缓存中
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(skinType))
@@ -192,14 +193,22 @@ namespace UI
             }
             pnlThemes.Visible = false;
         }
-
+        /// <summary>
+        /// 加载本地的所有皮肤
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrigal_Click(object sender, EventArgs e)
         {
             PublicClass.WritePrivateProfileString("SkinPath", "SkinPathValue", "", _configPath);
             skinEngine1.Active = false;
             pnlThemes.Visible = false;
         }
-
+        /// <summary>
+        /// 关闭皮肤操作框
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             lstContent.Enabled = false;
@@ -216,74 +225,106 @@ namespace UI
             FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmAreaSearch);
         }
-
+        /// <summary>
+        ///密码修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 密码修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmPassword frmPassword = new FrmPassword();
             frmPassword.ShowDialog();
         }
-
+        /// <summary>
+        /// 自定义显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsmDefinedShow_Click(object sender, EventArgs e)
         {
             FrmDefinedShow frmDefinedShow = new FrmDefinedShow();
             frmDefinedShow.ShowDialog();
         }
-
+        /// <summary>
+        /// 模板查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 模板查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlShow.Controls.Clear();
             FrmTempletSearch frmTempletSearch = new FrmTempletSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmTempletSearch);
         }
-
-        private void 排序查询ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlShow.Controls.Clear();
-            FrmSearchTemplet frmAreaSearch = new FrmSearchTemplet("显示") { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmAreaSearch);
-        }
-
+        /// <summary>
+        /// 模板设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 模板设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTempletLED frmTempletLED = new FrmTempletLED();
             frmTempletLED.ShowDialog();
         }
-
-        private void lED显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        ///LED预显示重置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmResetOrderShow_Click(object sender, EventArgs e)
         {
             DataTable dtALLShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2 ");
             for (int i = 0; i < dtALLShow.Rows.Count; i++)
             {
                 ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtALLShow.Rows[i]["ID"]), 0);
             }
-         
         }
-
+        /// <summary>
+        /// 模板显示操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 模板显示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmTempletSendLED frmTempletSendLED = new FrmTempletSendLED();
             frmTempletSendLED.ShowDialog();
         }
-
+        /// <summary>
+        /// 预显示查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsmReadyShow_Click(object sender, EventArgs e)
         {
             pnlShow.Controls.Clear();
             FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
             pnlShow.Controls.Add(frmAreaSearch);
         }
-
+        /// <summary>
+        /// 参数配置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lED参数配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLEDSetting frmLEDSetting = new FrmLEDSetting();
             frmLEDSetting.ShowDialog();
         }
-
+        /// <summary>
+        /// 排序设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void 排序设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmByOrderShow frmByOrderShow = new FrmByOrderShow();
             frmByOrderShow.ShowDialog();
         }
-
+        /// <summary>
+        /// timer 实时显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -298,7 +339,7 @@ namespace UI
                     if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
                     {
                         //添加显示内容
-                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF,true,1);
+                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF,true,1);//最后0  左对齐 1居中 2右对齐
                     }
                     else
                     {
@@ -325,8 +366,12 @@ namespace UI
             }
             catch (Exception) { }
         }
-
-        private void lED查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// LED参数查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lED参数查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlShow.Controls.Clear();
             FrmScreenSettingSearch frmScreenSettingSearch = new FrmScreenSettingSearch() { Dock = DockStyle.Fill };

@@ -45,6 +45,9 @@
             this.btnFontSetting = new System.Windows.Forms.Button();
             this.fontDialogled = new System.Windows.Forms.FontDialog();
             this.colorDialogLed = new System.Windows.Forms.ColorDialog();
+            this.chkFontBold = new System.Windows.Forms.CheckBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GroupNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +65,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.label7.Location = new System.Drawing.Point(237, 41);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 20);
+            this.label7.Size = new System.Drawing.Size(85, 19);
             this.label7.TabIndex = 51;
             this.label7.Text = "LED起始编号";
             // 
@@ -87,7 +90,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(279, 121);
+            this.label6.Location = new System.Drawing.Point(273, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 20);
             this.label6.TabIndex = 49;
@@ -108,7 +111,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label5.Location = new System.Drawing.Point(267, 199);
+            this.label5.Location = new System.Drawing.Point(261, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 19);
             this.label5.TabIndex = 45;
@@ -154,10 +157,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.label4.Location = new System.Drawing.Point(28, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 41;
             this.label4.Text = "显示顺序";
             // 
@@ -165,7 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label2.Location = new System.Drawing.Point(32, 199);
+            this.label2.Location = new System.Drawing.Point(28, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 19);
             this.label2.TabIndex = 40;
@@ -174,7 +177,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(336, 286);
+            this.btnSave.Location = new System.Drawing.Point(338, 354);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 37);
@@ -186,10 +189,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(42, 41);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.label1.Location = new System.Drawing.Point(41, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 37;
             this.label1.Text = "区域名";
             // 
@@ -197,7 +200,7 @@
             // 
             this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontColor.Location = new System.Drawing.Point(205, 284);
+            this.btnFontColor.Location = new System.Drawing.Point(207, 352);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnFontColor.Name = "btnFontColor";
             this.btnFontColor.Size = new System.Drawing.Size(75, 40);
@@ -209,7 +212,7 @@
             // btnFontSetting
             // 
             this.btnFontSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontSetting.Location = new System.Drawing.Point(74, 284);
+            this.btnFontSetting.Location = new System.Drawing.Point(76, 352);
             this.btnFontSetting.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnFontSetting.Name = "btnFontSetting";
             this.btnFontSetting.Size = new System.Drawing.Size(75, 40);
@@ -218,11 +221,50 @@
             this.btnFontSetting.UseVisualStyleBackColor = true;
             this.btnFontSetting.Click += new System.EventHandler(this.btnFontSetting_Click);
             // 
+            // chkFontBold
+            // 
+            this.chkFontBold.AutoSize = true;
+            this.chkFontBold.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.chkFontBold.Location = new System.Drawing.Point(265, 279);
+            this.chkFontBold.Name = "chkFontBold";
+            this.chkFontBold.Size = new System.Drawing.Size(80, 23);
+            this.chkFontBold.TabIndex = 57;
+            this.chkFontBold.Text = "是否加粗";
+            this.chkFontBold.UseVisualStyleBackColor = true;
+            // 
+            // cmbPosition
+            // 
+            this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPosition.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "居中",
+            "左对齐",
+            "右对齐"});
+            this.cmbPosition.Location = new System.Drawing.Point(99, 276);
+            this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(127, 28);
+            this.cmbPosition.TabIndex = 59;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.label3.Location = new System.Drawing.Point(28, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "显示位置";
+            // 
             // FrmByOrderShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 370);
+            this.ClientSize = new System.Drawing.Size(504, 424);
+            this.Controls.Add(this.cmbPosition);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.chkFontBold);
             this.Controls.Add(this.btnFontColor);
             this.Controls.Add(this.btnFontSetting);
             this.Controls.Add(this.cmbScreens);
@@ -265,5 +307,8 @@
         private System.Windows.Forms.Button btnFontSetting;
         private System.Windows.Forms.FontDialog fontDialogled;
         private System.Windows.Forms.ColorDialog colorDialogLed;
+        private System.Windows.Forms.CheckBox chkFontBold;
+        private System.Windows.Forms.ComboBox cmbPosition;
+        private System.Windows.Forms.Label label3;
     }
 }

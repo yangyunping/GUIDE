@@ -52,5 +52,14 @@ namespace MODEL
         /// 区分
         /// </summary>
         public int Tag { set; get; }
+        /// <summary>
+        /// 是否加粗
+        /// </summary>
+        public bool FontBold { set; get; }
+        /// <summary>
+        /// 显示位置 （0左对齐，1居中，2右对齐）
+        /// </summary>
+        public int Position { set; get; }
+         
     }
 }

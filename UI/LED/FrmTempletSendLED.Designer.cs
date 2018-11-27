@@ -40,6 +40,8 @@
             this.cmbLEDId = new System.Windows.Forms.ComboBox();
             this.chkDelete = new System.Windows.Forms.CheckBox();
             this.chkFoild = new System.Windows.Forms.CheckBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             // chkDate
             // 
             this.chkDate.AutoSize = true;
-            this.chkDate.Location = new System.Drawing.Point(266, 136);
+            this.chkDate.Location = new System.Drawing.Point(45, 200);
             this.chkDate.Name = "chkDate";
             this.chkDate.Size = new System.Drawing.Size(80, 23);
             this.chkDate.TabIndex = 2;
@@ -76,7 +78,7 @@
             // 
             this.dtpBegin.Enabled = false;
             this.dtpBegin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpBegin.Location = new System.Drawing.Point(356, 135);
+            this.dtpBegin.Location = new System.Drawing.Point(131, 199);
             this.dtpBegin.Name = "dtpBegin";
             this.dtpBegin.Size = new System.Drawing.Size(128, 24);
             this.dtpBegin.TabIndex = 3;
@@ -85,7 +87,7 @@
             // 
             this.dtpEnd.Enabled = false;
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(356, 187);
+            this.dtpEnd.Location = new System.Drawing.Point(269, 199);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(128, 24);
             this.dtpEnd.TabIndex = 4;
@@ -108,9 +110,9 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(108, 242);
+            this.btnSendData.Location = new System.Drawing.Point(349, 268);
             this.btnSendData.Name = "btnSendData";
-            this.btnSendData.Size = new System.Drawing.Size(88, 37);
+            this.btnSendData.Size = new System.Drawing.Size(98, 43);
             this.btnSendData.TabIndex = 7;
             this.btnSendData.Text = "发送数据";
             this.btnSendData.UseVisualStyleBackColor = true;
@@ -119,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 138);
+            this.label2.Location = new System.Drawing.Point(41, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 8;
@@ -129,7 +131,7 @@
             // 
             this.cmbLEDId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLEDId.FormattingEnabled = true;
-            this.cmbLEDId.Location = new System.Drawing.Point(108, 134);
+            this.cmbLEDId.Location = new System.Drawing.Point(108, 123);
             this.cmbLEDId.Name = "cmbLEDId";
             this.cmbLEDId.Size = new System.Drawing.Size(121, 27);
             this.cmbLEDId.TabIndex = 9;
@@ -140,7 +142,7 @@
             this.chkDelete.AutoSize = true;
             this.chkDelete.Checked = true;
             this.chkDelete.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDelete.Location = new System.Drawing.Point(108, 191);
+            this.chkDelete.Location = new System.Drawing.Point(45, 279);
             this.chkDelete.Name = "chkDelete";
             this.chkDelete.Size = new System.Drawing.Size(106, 23);
             this.chkDelete.TabIndex = 25;
@@ -152,18 +154,45 @@
             this.chkFoild.AutoSize = true;
             this.chkFoild.Checked = true;
             this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFoild.Location = new System.Drawing.Point(220, 191);
+            this.chkFoild.Location = new System.Drawing.Point(179, 279);
             this.chkFoild.Name = "chkFoild";
             this.chkFoild.Size = new System.Drawing.Size(80, 23);
             this.chkFoild.TabIndex = 26;
             this.chkFoild.Text = "字体加粗";
             this.chkFoild.UseVisualStyleBackColor = true;
             // 
+            // cmbPosition
+            // 
+            this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPosition.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "居中",
+            "左对齐",
+            "右对齐"});
+            this.cmbPosition.Location = new System.Drawing.Point(329, 122);
+            this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(145, 28);
+            this.cmbPosition.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.label3.Location = new System.Drawing.Point(264, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "显示位置";
+            // 
             // FrmTempletSendLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 303);
+            this.ClientSize = new System.Drawing.Size(546, 331);
+            this.Controls.Add(this.cmbPosition);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.chkFoild);
             this.Controls.Add(this.chkDelete);
             this.Controls.Add(this.cmbLEDId);
@@ -200,5 +229,7 @@
         private System.Windows.Forms.ComboBox cmbLEDId;
         private System.Windows.Forms.CheckBox chkDelete;
         private System.Windows.Forms.CheckBox chkFoild;
+        private System.Windows.Forms.ComboBox cmbPosition;
+        private System.Windows.Forms.Label label3;
     }
 }
