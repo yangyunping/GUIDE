@@ -339,7 +339,7 @@ namespace UI
                     if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
                     {
                         //添加显示内容
-                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF,true,1);//最后0  左对齐 1居中 2右对齐
+                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF,Convert.ToBoolean(dtShow.Rows[i]["FontBold"]), Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
                     }
                     else
                     {
