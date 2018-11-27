@@ -1,12 +1,14 @@
 ﻿using MODEL;
 using System;
 using System.Windows.Forms;
+using BLL;
 
 namespace UI
 {
     public partial class FrmLEDSetting : Form
     {
         public readonly string _EQSetPath = Application.StartupPath + @"\\" + @"EQ2008_Dll_Set.ini";//配置文件存放路径
+        BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
         public FrmLEDSetting()
         {
             InitializeComponent();
@@ -45,76 +47,51 @@ namespace UI
             {
                 colorStyle = 1;
             }
+         
+            ScreeenSetting screeenSetting = new ScreeenSetting();
+            screeenSetting.ScreenID = txtLEDid.Text.Trim();
+            screeenSetting.ScreenWidth = Convert.ToInt32(txtWidth.Text);
+            screeenSetting.ScreenHeight = Convert.ToInt32(txtHeight.Text);
+            screeenSetting.AddressNum = Convert.ToInt32(cmbCarAdress.Text);
+            screeenSetting.CarName = cmbControlType.Text;
+            screeenSetting.ColorStyle = cmbColor.Text;
+            screeenSetting.IpAddress = IpAddress0.Text +"."+ IpAddress1.Text + "." + IpAddress2.Text + "." + IpAddress3.Text;
+            bllScreeenSetting.InsertScreenSetting(screeenSetting);
 
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "CardType", carTpe.ToString(), _EQSetPath);//控制类型
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "CardAddress", cmbControlnerAdress.Text, _EQSetPath);//控制地址
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "CommunicationMode", "1", _EQSetPath);//通讯方式
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "ScreemHeight", txtWidth.Text, _EQSetPath);//显示屏宽度
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "ScreemWidth", txtHeight.Text, _EQSetPath);//显示屏高度
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "SerialBaud", "57600", _EQSetPath);//串口通信波特率
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "SerialNum","1", _EQSetPath);//串口通信串口号
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "NetPort", "5005", _EQSetPath);//网络通信端口号
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "IpAddress0", IpAddress0.Text, _EQSetPath); //IP地址
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "IpAddress1", IpAddress1.Text, _EQSetPath); 
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "IpAddress2", IpAddress2.Text, _EQSetPath);
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "IpAddress3", IpAddress3.Text, _EQSetPath);
-            PublicClass.WritePrivateProfileString(@"地址：" + Convert.ToInt32(cmbControlnerAdress.Text), "ColorStyle", colorStyle.ToString(), _EQSetPath); //显示屏颜色类型
+            //保存到EQ诣阔LED动态库指定的文件里
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "CardType", carTpe.ToString(), _EQSetPath);//控制类型
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "CardAddress", (Convert.ToInt32(cmbCarAdress.Text) - 1).ToString(), _EQSetPath);//控制地址
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "CommunicationMode", "1", _EQSetPath);//通讯方式
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "ScreemWidth", txtWidth.Text, _EQSetPath);//显示屏宽度
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "ScreemHeight", txtHeight.Text, _EQSetPath);//显示屏高度
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "SerialBaud", "57600", _EQSetPath);//串口通信波特率
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "SerialNum","1", _EQSetPath);//串口通信串口号
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "NetPort", "5005", _EQSetPath);//网络通信端口号
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "IpAddress0", IpAddress0.Text, _EQSetPath); //IP地址
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "IpAddress1", IpAddress1.Text, _EQSetPath); 
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "IpAddress2", IpAddress2.Text, _EQSetPath);
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "IpAddress3", IpAddress3.Text, _EQSetPath);
+            PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text)-1), "ColorStyle", colorStyle.ToString(), _EQSetPath); //显示屏颜色类型
 
             MessageBox.Show("保存成功！");
         }
-        /// <summary>
-        /// 添加EQ动态库提供的播放方式
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAddType_Click(object sender, EventArgs e)
-        {
-            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"ActionShow.txt", "ActionType", "AcitonId", "ActionName", txtTypeId.Text, txtTypeName.Text))
-            {
-                MessageBox.Show("添加成功！");
-                txtTypeId.Clear();
-                txtTypeName.Clear();
-                txtTypeId.Focus();
-            }
-            else
-            {
-                MessageBox.Show("添加失败！");
-            }
 
-        }
         /// <summary>
         /// 匹配LED编号和控制卡地址码
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAddLED_Click(object sender, EventArgs e)
+        private void AddLEDTxt()
         {
-            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"LEDSetting.txt", "LEDNum", "LEDid", "LEDAddress", txtLEDid.Text, txtAdress.Text))
+            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"LEDSetting.txt", "LEDNum", "LEDid", "LEDAddress", txtLEDid.Text, cmbCarAdress.Text))
             {
                 MessageBox.Show("添加成功！");
                 txtLEDid.Clear();
-                txtAdress.Clear();
                 txtLEDid.Focus();
             }
             else
             {
                 MessageBox.Show("添加失败！");
-            }
-        }
-
-        private void txtTypeName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnAddType_Click(null, null);
-            }
-        }
-
-        private void txtAdress_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnAddLED_Click(null, null);
             }
         }
     }

@@ -11,7 +11,11 @@ namespace UI.LED
         BllTempletShow templetShow = new BllTempletShow();
         BllLedShowInfo bllLedShowInfo = new BllLedShowInfo();
         private TempletShow tempInfo = new TempletShow();
-        private DataTable dtContent;
+        private DataTable dtContent; //显示内容
+        BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
+        private DataTable dtScreen = null; //屏幕信息
+        private int sWidth = 0;//屏宽
+        private int sHeight = 0;//屏高
         public FrmTempletSendLED()
         {
             InitializeComponent();
@@ -22,16 +26,21 @@ namespace UI.LED
             cmbContent.DisplayMember = "ShowContent";
             cmbContent.DataSource = dtContent;
             cmbContent.SelectedIndex = -1;
-        
+
             //LED编号
-            string txtPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";
-            DataTable dt = new DataTable();
-            dt.Columns.Add("编号");
-            dt.Columns.Add("地址");
-            DataTable dtLED = PublicClass.GetXMLInfo(txtPath, dt, "LEDNum", "LEDid", "LEDAddress");
-            cmbLEDId.ValueMember = "地址";
-            cmbLEDId.DisplayMember = "编号";
-            cmbLEDId.DataSource = dtLED;
+            //屏幕信息
+            dtScreen = bllScreeenSetting.GetScreenSetting(string.Empty);
+            cmbLEDId.ValueMember = "AddressNum";
+            cmbLEDId.DisplayMember = "ScreenID";
+            cmbLEDId.DataSource = dtScreen;
+            //string txtPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("编号");
+            //dt.Columns.Add("地址");
+            //DataTable dtLED = PublicClass.GetXMLInfo(txtPath, dt, "LEDNum", "LEDid", "LEDAddress");
+            //cmbLEDId.ValueMember = "地址";
+            //cmbLEDId.DisplayMember = "编号";
+            //cmbLEDId.DataSource = dtLED;
         }
 
         private void chkDate_CheckedChanged(object sender, EventArgs e)
@@ -74,7 +83,7 @@ namespace UI.LED
                     int programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
                     if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
                     {
-                        LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), cmbContent.Text, programInx, tempInfo.ShowStyle, tempInfo.FontName, tempInfo.FontSize, 0x00FF);
+                        LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, cmbContent.Text, programInx, tempInfo.ShowStyle, tempInfo.FontName, tempInfo.FontSize, 0x00FF,chkFoild.Checked,0);//最后0  左对齐 1居中 2右对齐
                     }
                     if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
                     {
@@ -106,6 +115,23 @@ namespace UI.LED
                 }
             }
             catch { }
+        }
+
+        private void cmbLEDId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(cmbLEDId.Text))
+                {
+                    if (dtScreen.Rows.Count > 0)
+                    {
+                        DataRow[] screenRow = dtScreen.Select($"AddressNum = {cmbLEDId.SelectedValue}");
+                        sWidth = Convert.ToInt32(screenRow[0]["ScreenWidth"]);
+                        sHeight = Convert.ToInt32(screenRow[0]["ScreenHeight"]);
+                    }
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

@@ -34,15 +34,14 @@
             this.dgvContent = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grbMenues = new System.Windows.Forms.GroupBox();
-            this.btnAddShow = new System.Windows.Forms.Button();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
             this.lblKey = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.cmbArea = new System.Windows.Forms.ComboBox();
-            this.lblArea = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContent)).BeginInit();
             this.panel1.SuspendLayout();
             this.grbMenues.SuspendLayout();
@@ -95,7 +94,6 @@
             // 
             this.grbMenues.Controls.Add(this.lblArea);
             this.grbMenues.Controls.Add(this.cmbArea);
-            this.grbMenues.Controls.Add(this.btnAddShow);
             this.grbMenues.Controls.Add(this.lblKey);
             this.grbMenues.Controls.Add(this.btnAdd);
             this.grbMenues.Controls.Add(this.txtKey);
@@ -111,17 +109,25 @@
             this.grbMenues.TabStop = false;
             this.grbMenues.Text = "菜单";
             // 
-            // btnAddShow
+            // lblArea
             // 
-            this.btnAddShow.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnAddShow.Location = new System.Drawing.Point(541, 31);
-            this.btnAddShow.Name = "btnAddShow";
-            this.btnAddShow.Size = new System.Drawing.Size(78, 40);
-            this.btnAddShow.TabIndex = 22;
-            this.btnAddShow.Text = "显示添加";
-            this.btnAddShow.UseVisualStyleBackColor = true;
-            this.btnAddShow.Visible = false;
-            this.btnAddShow.Click += new System.EventHandler(this.btnAddShow_Click);
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point(55, 41);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(35, 19);
+            this.lblArea.TabIndex = 24;
+            this.lblArea.Text = "区域";
+            this.lblArea.Visible = false;
+            // 
+            // cmbArea
+            // 
+            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(96, 37);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(131, 27);
+            this.cmbArea.TabIndex = 23;
+            this.cmbArea.Visible = false;
             // 
             // lblKey
             // 
@@ -186,26 +192,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // cmbArea
-            // 
-            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(96, 37);
-            this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(131, 27);
-            this.cmbArea.TabIndex = 23;
-            this.cmbArea.Visible = false;
-            // 
-            // lblArea
-            // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(55, 41);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(35, 19);
-            this.lblArea.TabIndex = 24;
-            this.lblArea.Text = "区域";
-            this.lblArea.Visible = false;
-            // 
             // FrmSearchTemplet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -232,7 +218,6 @@
         private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnAddShow;
         private System.Windows.Forms.GroupBox grbMenues;
         private System.Windows.Forms.Label lblArea;
         private System.Windows.Forms.ComboBox cmbArea;

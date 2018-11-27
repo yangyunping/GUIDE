@@ -19,8 +19,6 @@ namespace UI
         public FrmShow()
         {
             InitializeComponent();
-            tsbBegin.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.开始);
-            tsbLED.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.停止);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

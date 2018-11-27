@@ -15,15 +15,8 @@ namespace UI
             InitializeComponent();
             IniteData();
             DgvColumns();
-            PowerInite();
         }
-        private void PowerInite()
-        {
-            btnAdd.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置新增);
-            btnDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置删除);
-            btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置修改);
-            btnAddStyle.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.新增类别);
-        }
+
         private void IniteData()
         {
             DataTable dtType = bllConfig.GetConfigInfo(null, null, 1);
@@ -215,6 +208,21 @@ namespace UI
             if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click(null,null);
+            }
+        }
+
+        private void dgvShow_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvShow.CurrentRow != null)
+            {
+                if (Convert.ToInt32(dgvShow.CurrentRow.Cells["ConfigNO"].Value) < 22)
+                {
+                    btnDelete.Enabled =btnModify.Enabled= false;
+                }
+                else
+                {
+                    btnDelete.Enabled = btnModify.Enabled = true;
+                }
             }
         }
     }

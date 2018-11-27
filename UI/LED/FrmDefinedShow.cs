@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace UI
 {
@@ -18,6 +19,10 @@ namespace UI
         private int fontSize = 24;//字体大小
         private int fontColor = 0x00FF;//字体颜色
         private string fontName = "宋体";//字体名称
+        BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
+        private DataTable dtScreen = null;
+        private int sWidth = 0;
+        private int sHeight = 0;
         public FrmDefinedShow()
         {
             InitializeComponent();
@@ -29,7 +34,6 @@ namespace UI
         private void IniteData()
         {
             //txt文件读取信息
-            string ledSettingPath = Application.StartupPath + @"\\" + @"LEDSetting.txt";//LED配置文件
             string actionShowPath = Application.StartupPath + @"\\" + @"ActionShow.txt";//播放方式文件 
             if (File.Exists(actionShowPath))
             {
@@ -42,22 +46,17 @@ namespace UI
                 cmbShowType.ValueMember = "编号";
                 cmbShowType.DisplayMember = "名称";
             }
-            if (File.Exists(ledSettingPath))
-            {
-                //LED
-                DataTable dt1 = new DataTable();
-                dt1.Columns.Add("编号");
-                dt1.Columns.Add("地址");
-                DataTable dtLED = PublicClass.GetXMLInfo(ledSettingPath, dt1, "LEDNum", "LEDid", "LEDAddress");
-                cmbLEDId.DataSource = dtLED;
-                cmbLEDId.ValueMember = "地址";
-                cmbLEDId.DisplayMember = "编号";
-            }
+            //屏幕信息
+            dtScreen = bllScreeenSetting.GetScreenSetting(string.Empty);
+            cmbLEDId.ValueMember = "AddressNum";
+            cmbLEDId.DisplayMember = "ScreenID";
+            cmbLEDId.DataSource = dtScreen;
         }
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
             if (fontDialogLed.ShowDialog()== DialogResult.OK)
             {
+                //设置字体类型和大小
                 fontName = fontDialogLed.Font.Name;
                 fontSize = Convert.ToInt32(fontDialogLed.Font.Size);
             }
@@ -67,13 +66,12 @@ namespace UI
         {
             try
             {
+                //设置字体颜色
                 if (colorDialogLed.ShowDialog() == DialogResult.OK)
                 {
                     string name = colorDialogLed.Color.Name;
                     string color = ColorTranslator.ToHtml(Color.FromArgb(colorDialogLed.Color.R, colorDialogLed.Color.G, colorDialogLed.Color.B));
-                    fontColor = Convert.ToInt32(color.Replace("#", "0x"),16);
-                    //fontColor = int.Parse(color.Replace("#", "0x"));
-                    //fontColor =Convert.ToInt32(Color.FromArgb(colorDialogLed.Color.B, colorDialogLed.Color.G, colorDialogLed.Color.R).ToArgb());
+                    //fontColor = colorDialogLed.Color.ToArgb();
                 }
             }
             catch (Exception ex) { }
@@ -86,9 +84,24 @@ namespace UI
                 MessageBox.Show("请完善LED信息！");
                 return;
             }
-            if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
+            if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))//打开显示屏
             {
-                 LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue),txtContent.Text, programInx,Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor);
+                //添加节目
+                AddProgram();
+                //添加文本
+                if (LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text, programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor,chkFoild.Checked,2))//最后0  左对齐 1居中 2右对齐
+                {
+                    MessageBox.Show("添加文本成功！");
+                }
+                else
+                {
+                    MessageBox.Show("添加文本失败！");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show(cmbLEDId.SelectedValue.ToString() + "打开显示屏失败！");
             }
         }
 
@@ -98,33 +111,40 @@ namespace UI
             {
                 if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
                 {
-                    LEDShow.AddDateTime(Convert.ToInt32(cmbLEDId.SelectedValue), programInx,chkYear.Checked,chkWeek.Checked,chkTime.Checked,fontName, fontSize, fontColor);
+                    //添加节目
+                    AddProgram();
+                    //添加时间
+                    if (LEDShow.AddDateTime(Convert.ToInt32(cmbLEDId.SelectedValue), programInx, chkYear.Checked, chkWeek.Checked, chkTime.Checked, fontName, fontSize, fontColor))
+                    {
+                        MessageBox.Show("添加时间成功！");
+                    }
+                    else
+                    {
+                        MessageBox.Show("添加时间失败！");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(cmbLEDId.SelectedValue.ToString() + "打开显示屏失败！");
                 }
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));
-            lblProgram.Text = "节目：" + 0;
-        }
-
         private void btnSendData_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(cmbLEDId.Text))
+            {
+                MessageBox.Show("请选择指定LED!");
+                return;
+            }
             if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))//发送节目
             {
                 MessageBox.Show("发送成功！");
             }
-        }
-
-        private void btnAddProgram_Click(object sender, EventArgs e)
-        {
-            AddProgram();
-        }
-
-        private void btnAddPro_Click(object sender, EventArgs e)
-        {
-            AddProgram();
+            else
+            {
+                MessageBox.Show("发送失败！");
+            }
         }
         private void AddProgram()
         {
@@ -133,7 +153,6 @@ namespace UI
                 LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));//删除指定控制卡所有节目
             }
             programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), 10);
-            lblProgram.Text = "节目：" + (programInx+1);
         }
 
         private void btndefault_Click(object sender, EventArgs e)
@@ -141,6 +160,23 @@ namespace UI
             fontSize = 24;
             fontColor = 0x00FF;
             fontName = "宋体";
+        }
+
+        private void cmbLEDId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(cmbLEDId.Text))
+                {
+                    if (dtScreen.Rows.Count > 0)
+                    {
+                        DataRow[] screenRow = dtScreen.Select($"AddressNum = {cmbLEDId.SelectedValue}");
+                        sWidth = Convert.ToInt32(screenRow[0]["ScreenWidth"]);
+                        sHeight = Convert.ToInt32(screenRow[0]["ScreenHeight"]);
+                    }
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

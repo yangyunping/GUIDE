@@ -38,11 +38,11 @@ values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTi
         /// <returns></returns>
         public DataTable GetLEDShowInfos(string key)
         {
-            string sSql = $@"select * from  LEDShowInfo where 1=1 {key}";
+            string sSql = $@"select * from  View_LEDOnTimeShow where 1=1 {key}";
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>
-        /// 查询
+        /// 修改
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>

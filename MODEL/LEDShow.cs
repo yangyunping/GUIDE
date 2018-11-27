@@ -63,12 +63,10 @@ namespace MODEL
         {
             if (User_OpenScreen(cardNum))
             {
-                //MessageBox.Show(cardNum + "打开显示屏成功！");
                 return true;
             }
             else
             {
-                MessageBox.Show(cardNum + "打开显示屏失败！");
                 return false;
             }
         }
@@ -116,29 +114,35 @@ namespace MODEL
         {
             return User_SendToScreen(cardNum);
         }
+
         /// <summary>
         /// 添加显示内容
         /// </summary>
         /// <param name="cardNum">控制卡地址码</param>
+        /// <param name="iWidth">屏幕宽</param>
+        /// <param name="iHeight">屏幕高</param>
         /// <param name="content">显示内容</param>
         /// <param name="g_iProgramIndex">节目顺序</param>
         /// <param name="showType">播放方式</param>
         /// <param name="fontName">字体名称</param>
         /// <param name="fontSize">字体大小</param>
         /// <param name="fontColor">字体颜色</param>
-        public static void AddText(int cardNum, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor)
+        /// <param name="bFontBold">字体是否加粗</param>
+        /// <param name="iAlignStyle">是否左右居中</param>
+        /// <returns></returns>
+        public static bool AddText(int cardNum,int iWidth, int iHeight, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor,bool bFontBold, int iAlignStyle)
         {
             User_SingleText SingleText = new User_SingleText();
             SingleText.BkColor = 0;
             SingleText.chContent = content;
             SingleText.PartInfo.iFrameMode = 0;
-            SingleText.PartInfo.iHeight = 32;
-            SingleText.PartInfo.iWidth = 64;
+            SingleText.PartInfo.iHeight = iHeight;
+            SingleText.PartInfo.iWidth = iWidth;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
-            SingleText.FontInfo.iAlignStyle = 0;
+            SingleText.FontInfo.iAlignStyle = iAlignStyle;
             SingleText.FontInfo.iVAlignerStyle = 1;
-            SingleText.FontInfo.bFontBold = false;
+            SingleText.FontInfo.bFontBold = bFontBold;
             SingleText.FontInfo.bFontItaic = false;
             SingleText.FontInfo.bFontUnderline = false;
             SingleText.FontInfo.colorFont = fontColor;
@@ -154,15 +158,22 @@ namespace MODEL
             SingleText.MoveSet.iFrameTime = 20;
             if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
             {
-                MessageBox.Show("添加文本失败！");
+                return false;
             }
             else
             {
-                MessageBox.Show ("添加文本成功！");
+                return true;
             }
         }
-        //添加单行文本
-        private void AddSingleText(int cardNum, string content, int g_iProgramIndex)
+
+        /// <summary>
+        /// 添加单行文本
+        /// </summary>
+        /// <param name="cardNum"></param>
+        /// <param name="content"></param>
+        /// <param name="g_iProgramIndex"></param>
+        /// <returns></returns>
+        private bool AddSingleText(int cardNum, string content, int g_iProgramIndex)
         {
             User_SingleText SingleText = new User_SingleText();
 
@@ -173,7 +184,7 @@ namespace MODEL
             SingleText.PartInfo.iWidth = 128;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
-            SingleText.FontInfo.iAlignStyle = 0;
+            SingleText.FontInfo.iAlignStyle = 1;
             SingleText.FontInfo.iVAlignerStyle = 1;
             SingleText.FontInfo.bFontBold = false;
             SingleText.FontInfo.bFontItaic = false;
@@ -193,11 +204,11 @@ namespace MODEL
 
             if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
             {
-                MessageBox.Show("添加单行文本失败！");
+                return false;
             }
             else
             {
-                MessageBox.Show("添加单行文本成功！");
+                return true;
             }
         }
         /// <summary>
@@ -211,7 +222,16 @@ namespace MODEL
         /// <summary>
         /// 添加时间
         /// </summary>
-        public static void AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time, string fontName, int fontSize, int fontColor)
+        /// <param name="cardNum">控制卡地址码</param>
+        /// <param name="g_iProgramIndex">节目号</param>
+        /// <param name="date">是否显示日期</param>
+        /// <param name="week">是否显示星期</param>
+        /// <param name="time">是否显示时间</param>
+        /// <param name="fontName">字体名称</param>
+        /// <param name="fontSize">字体大小</param>
+        /// <param name="fontColor">字体颜色</param>
+        /// <returns></returns>
+        public static bool AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time, string fontName, int fontSize, int fontColor)
         {
             User_DateTime DateTime = new User_DateTime();
             DateTime.bDay = date;
@@ -239,18 +259,18 @@ namespace MODEL
             DateTime.FontInfo.bFontItaic = false;
             DateTime.FontInfo.bFontUnderline = false;
             DateTime.FontInfo.colorFont = fontColor;
-            DateTime.FontInfo.iAlignStyle = 0;
+            DateTime.FontInfo.iAlignStyle = 1;
             DateTime.FontInfo.iVAlignerStyle = 1;
             DateTime.FontInfo.iFontSize = fontSize;
             DateTime.FontInfo.strFontName = fontName;
 
             if (-1 == User_AddTime(cardNum, ref DateTime, g_iProgramIndex))
             {
-                MessageBox.Show("添加时间失败！");
+                return false;
             }
             else
             {
-                MessageBox.Show("添加时间成功！");
+                return true;
             }
         }
         /// <summary>

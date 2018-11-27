@@ -1,23 +1,18 @@
 ﻿using BLL;
 using MODEL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FrmSreen : UserControl
+    public partial class FrmSreenToArea : UserControl
     {
         BllAreaInfo bllAreaInfo = new BllAreaInfo();
         BllScreen bllScreen = new BllScreen();
+        BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
         private int Id = -1;
-        public FrmSreen(Screens screens)
+        public FrmSreenToArea(Screens screens)
         {
             InitializeComponent();
             DataTable dtInfo = bllAreaInfo.GetAreaInfo(string.Empty);
@@ -25,33 +20,37 @@ namespace UI
             cmbArea.DisplayMember = "AreaName";
             cmbArea.DataSource = dtInfo;
             cmbArea.SelectedIndex = -1;
+
+            //屏幕信息
+            DataTable dtScreen = bllScreeenSetting.GetScreenSetting(string.Empty);
+            cmbLEDId.ValueMember = "AddressNum";
+            cmbLEDId.DisplayMember = "ScreenID";
+            cmbLEDId.DataSource = dtScreen;
             if (screens != null)
             {
                 Id = screens.ID;
                 cmbArea.SelectedValue = screens.AreaID;
-                txtAddressNum.Text = screens.AddressNum.ToString();
-                txtScreenID.Text = screens.ScreenID.ToString();
+                cmbLEDId.Text = screens.ScreenID.ToString();
                 cmbArea.Enabled = false;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cmbArea.Text) && !string.IsNullOrEmpty(txtAddressNum.Text))
+            if (!string.IsNullOrEmpty(cmbArea.Text) && !string.IsNullOrEmpty(cmbLEDId.Text))
             {
                 try
                 {
                     Screens screens = new Screens();
                     screens.ID = Id;
-                    screens.ScreenID = txtScreenID.Text;
+                    screens.ScreenID = cmbLEDId.Text;
                     screens.AreaID =Convert.ToInt32(cmbArea.SelectedValue);
-                    screens.AddressNum = Convert.ToInt32(txtAddressNum.Text);
+                    screens.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
                     if (bllScreen.InsertOrModifyScreen(screens))
                     {
                         MessageBox.Show("保存成功!");
                         cmbArea.SelectedIndex = -1;
-                        txtAddressNum.Clear();
-                        txtScreenID.Clear();
+                        cmbLEDId.SelectedIndex = -1;
                     }
                     else
                     {

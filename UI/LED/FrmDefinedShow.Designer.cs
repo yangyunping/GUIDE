@@ -44,18 +44,15 @@
             this.chkYear = new System.Windows.Forms.CheckBox();
             this.chkWeek = new System.Windows.Forms.CheckBox();
             this.chkTime = new System.Windows.Forms.CheckBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnAddProgram = new System.Windows.Forms.Button();
-            this.lblProgram = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.btndefault = new System.Windows.Forms.Button();
             this.chkDelete = new System.Windows.Forms.CheckBox();
+            this.chkFoild = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 49);
+            this.label1.Location = new System.Drawing.Point(42, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 20);
@@ -64,11 +61,11 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(132, 123);
+            this.txtContent.Location = new System.Drawing.Point(109, 103);
             this.txtContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(409, 152);
+            this.txtContent.Size = new System.Drawing.Size(363, 152);
             this.txtContent.TabIndex = 1;
             this.txtContent.Text = "网红城市-重庆欢迎你，重庆众乐科技欢迎你！";
             // 
@@ -76,16 +73,17 @@
             // 
             this.cmbLEDId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLEDId.FormattingEnabled = true;
-            this.cmbLEDId.Location = new System.Drawing.Point(132, 45);
+            this.cmbLEDId.Location = new System.Drawing.Point(109, 31);
             this.cmbLEDId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbLEDId.Name = "cmbLEDId";
             this.cmbLEDId.Size = new System.Drawing.Size(143, 28);
             this.cmbLEDId.TabIndex = 2;
+            this.cmbLEDId.SelectedIndexChanged += new System.EventHandler(this.cmbLEDId_SelectedIndexChanged);
             // 
             // btnFontSetting
             // 
             this.btnFontSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontSetting.Location = new System.Drawing.Point(132, 310);
+            this.btnFontSetting.Location = new System.Drawing.Point(109, 291);
             this.btnFontSetting.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFontSetting.Name = "btnFontSetting";
             this.btnFontSetting.Size = new System.Drawing.Size(70, 42);
@@ -97,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 49);
+            this.label2.Location = new System.Drawing.Point(271, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
@@ -108,7 +106,7 @@
             // 
             this.cmbShowType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShowType.FormattingEnabled = true;
-            this.cmbShowType.Location = new System.Drawing.Point(408, 45);
+            this.cmbShowType.Location = new System.Drawing.Point(340, 31);
             this.cmbShowType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbShowType.Name = "cmbShowType";
             this.cmbShowType.Size = new System.Drawing.Size(132, 28);
@@ -118,7 +116,7 @@
             // 
             this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontColor.Location = new System.Drawing.Point(206, 310);
+            this.btnFontColor.Location = new System.Drawing.Point(203, 291);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFontColor.Name = "btnFontColor";
             this.btnFontColor.Size = new System.Drawing.Size(71, 42);
@@ -130,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 123);
+            this.label5.Location = new System.Drawing.Point(42, 103);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
@@ -139,7 +137,7 @@
             // 
             // btnAddTxt
             // 
-            this.btnAddTxt.Location = new System.Drawing.Point(462, 310);
+            this.btnAddTxt.Location = new System.Drawing.Point(393, 291);
             this.btnAddTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTxt.Name = "btnAddTxt";
             this.btnAddTxt.Size = new System.Drawing.Size(79, 42);
@@ -150,7 +148,7 @@
             // 
             // btnAddTime
             // 
-            this.btnAddTime.Location = new System.Drawing.Point(461, 387);
+            this.btnAddTime.Location = new System.Drawing.Point(393, 373);
             this.btnAddTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTime.Name = "btnAddTime";
             this.btnAddTime.Size = new System.Drawing.Size(79, 42);
@@ -161,7 +159,7 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(461, 469);
+            this.btnSendData.Location = new System.Drawing.Point(393, 454);
             this.btnSendData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(79, 40);
@@ -173,7 +171,7 @@
             // chkYear
             // 
             this.chkYear.AutoSize = true;
-            this.chkYear.Location = new System.Drawing.Point(132, 396);
+            this.chkYear.Location = new System.Drawing.Point(109, 382);
             this.chkYear.Name = "chkYear";
             this.chkYear.Size = new System.Drawing.Size(70, 24);
             this.chkYear.TabIndex = 16;
@@ -183,7 +181,7 @@
             // chkWeek
             // 
             this.chkWeek.AutoSize = true;
-            this.chkWeek.Location = new System.Drawing.Point(219, 396);
+            this.chkWeek.Location = new System.Drawing.Point(196, 382);
             this.chkWeek.Name = "chkWeek";
             this.chkWeek.Size = new System.Drawing.Size(56, 24);
             this.chkWeek.TabIndex = 17;
@@ -193,59 +191,17 @@
             // chkTime
             // 
             this.chkTime.AutoSize = true;
-            this.chkTime.Location = new System.Drawing.Point(292, 396);
+            this.chkTime.Location = new System.Drawing.Point(269, 382);
             this.chkTime.Name = "chkTime";
             this.chkTime.Size = new System.Drawing.Size(56, 24);
             this.chkTime.TabIndex = 18;
             this.chkTime.Text = "时间";
             this.chkTime.UseVisualStyleBackColor = true;
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(365, 469);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(79, 40);
-            this.btnClear.TabIndex = 19;
-            this.btnClear.Text = "清空节目";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnAddProgram
-            // 
-            this.btnAddProgram.Location = new System.Drawing.Point(365, 310);
-            this.btnAddProgram.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnAddProgram.Name = "btnAddProgram";
-            this.btnAddProgram.Size = new System.Drawing.Size(79, 42);
-            this.btnAddProgram.TabIndex = 20;
-            this.btnAddProgram.Text = "添加节目";
-            this.btnAddProgram.UseVisualStyleBackColor = true;
-            this.btnAddProgram.Click += new System.EventHandler(this.btnAddProgram_Click);
-            // 
-            // lblProgram
-            // 
-            this.lblProgram.AutoSize = true;
-            this.lblProgram.Location = new System.Drawing.Point(261, 479);
-            this.lblProgram.Name = "lblProgram";
-            this.lblProgram.Size = new System.Drawing.Size(51, 20);
-            this.lblProgram.TabIndex = 21;
-            this.lblProgram.Text = "节目：";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(365, 387);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 42);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "添加节目";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAddPro_Click);
-            // 
             // btndefault
             // 
             this.btndefault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btndefault.Location = new System.Drawing.Point(281, 310);
+            this.btndefault.Location = new System.Drawing.Point(298, 291);
             this.btndefault.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btndefault.Name = "btndefault";
             this.btndefault.Size = new System.Drawing.Size(71, 42);
@@ -259,24 +215,33 @@
             this.chkDelete.AutoSize = true;
             this.chkDelete.Checked = true;
             this.chkDelete.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDelete.Location = new System.Drawing.Point(132, 477);
+            this.chkDelete.Location = new System.Drawing.Point(109, 463);
             this.chkDelete.Name = "chkDelete";
             this.chkDelete.Size = new System.Drawing.Size(112, 24);
             this.chkDelete.TabIndex = 24;
-            this.chkDelete.Text = "删除已有显示";
+            this.chkDelete.Text = "清除已有显示";
             this.chkDelete.UseVisualStyleBackColor = true;
+            // 
+            // chkFoild
+            // 
+            this.chkFoild.AutoSize = true;
+            this.chkFoild.Checked = true;
+            this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkFoild.Location = new System.Drawing.Point(241, 463);
+            this.chkFoild.Name = "chkFoild";
+            this.chkFoild.Size = new System.Drawing.Size(84, 24);
+            this.chkFoild.TabIndex = 25;
+            this.chkFoild.Text = "字体加粗";
+            this.chkFoild.UseVisualStyleBackColor = true;
             // 
             // FrmDefinedShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 552);
+            this.ClientSize = new System.Drawing.Size(543, 533);
+            this.Controls.Add(this.chkFoild);
             this.Controls.Add(this.chkDelete);
             this.Controls.Add(this.btndefault);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblProgram);
-            this.Controls.Add(this.btnAddProgram);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.chkTime);
             this.Controls.Add(this.chkWeek);
             this.Controls.Add(this.chkYear);
@@ -319,11 +284,8 @@
         private System.Windows.Forms.CheckBox chkYear;
         private System.Windows.Forms.CheckBox chkWeek;
         private System.Windows.Forms.CheckBox chkTime;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnAddProgram;
-        private System.Windows.Forms.Label lblProgram;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btndefault;
         private System.Windows.Forms.CheckBox chkDelete;
+        private System.Windows.Forms.CheckBox chkFoild;
     }
 }

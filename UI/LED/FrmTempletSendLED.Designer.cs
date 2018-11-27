@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbLEDId = new System.Windows.Forms.ComboBox();
             this.chkDelete = new System.Windows.Forms.CheckBox();
+            this.chkFoild = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +133,7 @@
             this.cmbLEDId.Name = "cmbLEDId";
             this.cmbLEDId.Size = new System.Drawing.Size(121, 27);
             this.cmbLEDId.TabIndex = 9;
+            this.cmbLEDId.SelectedIndexChanged += new System.EventHandler(this.cmbLEDId_SelectedIndexChanged);
             // 
             // chkDelete
             // 
@@ -145,11 +147,24 @@
             this.chkDelete.Text = "删除已有显示";
             this.chkDelete.UseVisualStyleBackColor = true;
             // 
+            // chkFoild
+            // 
+            this.chkFoild.AutoSize = true;
+            this.chkFoild.Checked = true;
+            this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkFoild.Location = new System.Drawing.Point(220, 191);
+            this.chkFoild.Name = "chkFoild";
+            this.chkFoild.Size = new System.Drawing.Size(80, 23);
+            this.chkFoild.TabIndex = 26;
+            this.chkFoild.Text = "字体加粗";
+            this.chkFoild.UseVisualStyleBackColor = true;
+            // 
             // FrmTempletSendLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 303);
+            this.Controls.Add(this.chkFoild);
             this.Controls.Add(this.chkDelete);
             this.Controls.Add(this.cmbLEDId);
             this.Controls.Add(this.label2);
@@ -184,5 +199,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbLEDId;
         private System.Windows.Forms.CheckBox chkDelete;
+        private System.Windows.Forms.CheckBox chkFoild;
     }
 }

@@ -89,6 +89,8 @@ namespace MODEL
         /// <param name="xmlPathName">路径</param>
         /// <param name="sourceDt">数据原表</param>
         /// <param name="nodeName">获取信息关键字</param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         /// <returns></returns>
         public static DataTable GetXMLInfo(string xmlPathName, DataTable sourceDt, string nodeName, string key, string value)
         {

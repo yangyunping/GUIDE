@@ -47,6 +47,7 @@
     <Compile Include="BllEmpPowers.cs" />
     <Compile Include="BlllConfiguration.cs" />
     <Compile Include="BllLedShowInfo.cs" />
+    <Compile Include="BllScreeenSetting.cs" />
     <Compile Include="BllScreen.cs" />
     <Compile Include="BllServer.cs" />
     <Compile Include="BllShowInfo.cs" />

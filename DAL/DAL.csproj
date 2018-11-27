@@ -51,6 +51,7 @@
     <Compile Include="DalScreen.cs" />
     <Compile Include="DalShowInfo.cs" />
     <Compile Include="DalEmpPowers.cs" />
+    <Compile Include="DalSreenSetting.cs" />
     <Compile Include="DalTempletShow.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

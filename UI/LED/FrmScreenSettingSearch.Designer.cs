@@ -1,6 +1,6 @@
 ﻿namespace UI.LED
 {
-    partial class FrmLedShowInfoSearch
+    partial class FrmScreenSettingSearch
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,38 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvTemShow = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bntDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).BeginInit();
+            this.dgvScreenSetting = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScreenSetting)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvTemShow
-            // 
-            this.dgvTemShow.AllowUserToAddRows = false;
-            this.dgvTemShow.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTemShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTemShow.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgvTemShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTemShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTemShow.Location = new System.Drawing.Point(0, 70);
-            this.dgvTemShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvTemShow.MultiSelect = false;
-            this.dgvTemShow.Name = "dgvTemShow";
-            this.dgvTemShow.ReadOnly = true;
-            this.dgvTemShow.RowHeadersWidth = 11;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTemShow.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTemShow.RowTemplate.Height = 23;
-            this.dgvTemShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTemShow.Size = new System.Drawing.Size(793, 429);
-            this.dgvTemShow.TabIndex = 3;
-            this.dgvTemShow.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTemShow_CellFormatting);
             // 
             // panel1
             // 
@@ -74,8 +51,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 70);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(850, 70);
+            this.panel1.TabIndex = 3;
             // 
             // bntDelete
             // 
@@ -114,28 +91,50 @@
             this.txtKey.Size = new System.Drawing.Size(168, 24);
             this.txtKey.TabIndex = 0;
             // 
-            // FrmLedShowInfoSearch
+            // dgvScreenSetting
+            // 
+            this.dgvScreenSetting.AllowUserToAddRows = false;
+            this.dgvScreenSetting.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvScreenSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvScreenSetting.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dgvScreenSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvScreenSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvScreenSetting.Location = new System.Drawing.Point(0, 70);
+            this.dgvScreenSetting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvScreenSetting.MultiSelect = false;
+            this.dgvScreenSetting.Name = "dgvScreenSetting";
+            this.dgvScreenSetting.ReadOnly = true;
+            this.dgvScreenSetting.RowHeadersWidth = 11;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvScreenSetting.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvScreenSetting.RowTemplate.Height = 23;
+            this.dgvScreenSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvScreenSetting.Size = new System.Drawing.Size(850, 452);
+            this.dgvScreenSetting.TabIndex = 4;
+            // 
+            // FrmScreenSettingSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgvTemShow);
+            this.Controls.Add(this.dgvScreenSetting);
             this.Controls.Add(this.panel1);
-            this.Name = "FrmLedShowInfoSearch";
-            this.Size = new System.Drawing.Size(793, 499);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).EndInit();
+            this.Name = "FrmScreenSettingSearch";
+            this.Size = new System.Drawing.Size(850, 522);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScreenSetting)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvTemShow;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bntDelete;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.DataGridView dgvScreenSetting;
     }
 }
