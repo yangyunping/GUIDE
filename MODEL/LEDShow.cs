@@ -31,6 +31,9 @@ namespace MODEL
         //添加单行文本区
         [DllImport("EQ2008_Dll.dll", CharSet = CharSet.Ansi)]
         public static extern int User_AddSingleText(int CardNum, ref User_SingleText pSingleText, int iProgramIndex);
+        //添加文本区
+        [DllImport("EQ2008_Dll.dll", CharSet = CharSet.Ansi)]
+        public static extern int User_AddText(int CardNum, ref User_Text pText, int iProgramIndex);
         //校正时间
         [DllImport("EQ2008_Dll.dll", CharSet = CharSet.Ansi)]
         public static extern Boolean User_AdjustTime(int CardNum);
@@ -132,22 +135,23 @@ namespace MODEL
         /// <returns></returns>
         public static bool AddText(int cardNum,int iWidth, int iHeight, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor,bool bFontBold, int iAlignStyle)
         {
-            User_SingleText SingleText = new User_SingleText();
+            User_Text SingleText = new User_Text();
             SingleText.BkColor = 0;
             SingleText.chContent = content;
             SingleText.PartInfo.iFrameMode = 0;
             SingleText.PartInfo.iHeight = iHeight;
-           
-            if (iAlignStyle==1)
-            {
-                SingleText.PartInfo.iX = iWidth/3;
-                SingleText.PartInfo.iWidth = iWidth/2;
-            }
-            else
-            {
-                SingleText.PartInfo.iX = 0;
-                SingleText.PartInfo.iWidth = iWidth;
-            }
+            SingleText.PartInfo.iWidth = iWidth;
+            //if (iAlignStyle==1)
+            //{
+            //    SingleText.PartInfo.iX = iWidth/3;
+            //    SingleText.PartInfo.iWidth = iWidth/2;
+            //}
+            //else
+            //{
+            //    SingleText.PartInfo.iX = 0;
+            //    SingleText.PartInfo.iWidth = iWidth;
+            //}
+            SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
             SingleText.FontInfo.iAlignStyle = iAlignStyle;
             SingleText.FontInfo.iVAlignerStyle = 1;
@@ -165,7 +169,7 @@ namespace MODEL
             SingleText.MoveSet.iClearActionType = 0;
             SingleText.MoveSet.iClearSpeed = 0;
             SingleText.MoveSet.iFrameTime = 20;
-            if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
+            if (-1 == User_AddText(cardNum, ref SingleText, g_iProgramIndex))
             {
                 return false;
             }
@@ -248,7 +252,7 @@ namespace MODEL
             DateTime.BkColor = 0;
             DateTime.bMin = time;
             DateTime.bMouth = date;
-            DateTime.bMulOrSingleLine = false;
+            DateTime.bMulOrSingleLine = false;//单行 多行
             DateTime.bSec = time;
             DateTime.bWeek = week;
             DateTime.bYear = date;
