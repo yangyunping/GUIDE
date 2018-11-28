@@ -42,7 +42,7 @@ namespace UI
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            FrmEmployee frmEmployee = new FrmEmployee(null);
+            FrmEmployee frmEmployee = new FrmEmployee();
             frmEmployee.ShowDialog();
             btnSearch_Click(null, null);
         }
@@ -51,7 +51,11 @@ namespace UI
         {
             btnChange_Click(null,null);
         }
-
+        /// <summary>
+        /// 修改员工信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (dgvEmployee.CurrentRow != null)

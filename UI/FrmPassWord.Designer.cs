@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 42);
+            this.label1.Location = new System.Drawing.Point(57, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
@@ -51,7 +51,7 @@
             // 
             // txtOriginal
             // 
-            this.txtOriginal.Location = new System.Drawing.Point(121, 39);
+            this.txtOriginal.Location = new System.Drawing.Point(115, 33);
             this.txtOriginal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOriginal.Name = "txtOriginal";
             this.txtOriginal.PasswordChar = '*';
@@ -62,7 +62,7 @@
             // txtReEnter
             // 
             this.txtReEnter.Enabled = false;
-            this.txtReEnter.Location = new System.Drawing.Point(121, 213);
+            this.txtReEnter.Location = new System.Drawing.Point(115, 207);
             this.txtReEnter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReEnter.Name = "txtReEnter";
             this.txtReEnter.PasswordChar = '*';
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 216);
+            this.label2.Location = new System.Drawing.Point(57, 210);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
@@ -83,7 +83,7 @@
             // txtNewPwd
             // 
             this.txtNewPwd.Enabled = false;
-            this.txtNewPwd.Location = new System.Drawing.Point(121, 146);
+            this.txtNewPwd.Location = new System.Drawing.Point(115, 140);
             this.txtNewPwd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
@@ -93,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 149);
+            this.label3.Location = new System.Drawing.Point(57, 143);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 20);
@@ -104,7 +104,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(135, 81);
+            this.label4.Location = new System.Drawing.Point(129, 75);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(173, 20);
@@ -113,7 +113,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(81, 289);
+            this.btnClose.Location = new System.Drawing.Point(76, 269);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(77, 34);
             this.btnClose.TabIndex = 7;
@@ -124,7 +124,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(228, 289);
+            this.btnSave.Location = new System.Drawing.Point(223, 269);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 34);
             this.btnSave.TabIndex = 8;

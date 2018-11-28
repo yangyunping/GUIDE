@@ -94,12 +94,6 @@
     <Compile Include="FrmConfig.designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConfigNum.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmConfigNum.Designer.cs">
-      <DependentUpon>FrmConfigNum.cs</DependentUpon>
-    </Compile>
     <Compile Include="LED\FrmByOrderShow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,23 +148,11 @@
     <Compile Include="FrmSearchTemplet.Designer.cs">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSelectShow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSelectShow.Designer.cs">
-      <DependentUpon>FrmSelectShow.cs</DependentUpon>
-    </Compile>
     <Compile Include="LED\FrmLedShowInfoSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LED\FrmLedShowInfoSearch.Designer.cs">
       <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LED\FrmLEDXML.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LED\FrmLEDXML.Designer.cs">
-      <DependentUpon>FrmLEDXML.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShow.cs">
       <SubType>Form</SubType>
@@ -178,11 +160,11 @@
     <Compile Include="FrmShow.Designer.cs">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmShowSetting.cs">
+    <Compile Include="FrmiAplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmShowSetting.Designer.cs">
-      <DependentUpon>FrmShowSetting.cs</DependentUpon>
+    <Compile Include="FrmiAplay.Designer.cs">
+      <DependentUpon>FrmiAplay.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -240,9 +222,6 @@
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfigNum.resx">
-      <DependentUpon>FrmConfigNum.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmByOrderShow.resx">
       <DependentUpon>FrmByOrderShow.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,20 +249,14 @@
     <EmbeddedResource Include="FrmSearchTemplet.resx">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelectShow.resx">
-      <DependentUpon>FrmSelectShow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmLedShowInfoSearch.resx">
       <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmLEDXML.resx">
-      <DependentUpon>FrmLEDXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmShowSetting.resx">
-      <DependentUpon>FrmShowSetting.cs</DependentUpon>
+    <EmbeddedResource Include="FrmiAplay.resx">
+      <DependentUpon>FrmiAplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

@@ -96,7 +96,10 @@ namespace UI.LED
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbContent_SelectedIndexChanged(object sender, EventArgs e)

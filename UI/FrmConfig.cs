@@ -21,20 +21,22 @@ namespace UI
         {
             DataTable dtType = bllConfig.GetConfigInfo(null, null, 1);
             DataRow newRow = dtType.NewRow();
-            newRow["ConfigNO"] = "-1";
+            newRow["ConfigNO"] = "-1"; //类别父级编号默认
             newRow["ConfigValue"] = "全部";
             dtType.Rows.InsertAt(newRow, 0);
             cmbStyle.ValueMember = @"ConfigNO";
             cmbStyle.DisplayMember = @"ConfigValue";
             cmbStyle.DataSource = dtType;
         }
-
+        /// <summary>
+        /// 加载datagridview 列名
+        /// </summary>
         private void DgvColumns()
         {
             dgvShow.Columns.AddRange(
                 new DataGridViewTextBoxColumn { Name = @"ConfigNO", DataPropertyName = @"ConfigNO", HeaderText = @"配置编号", Width = 120 },
-                 new DataGridViewTextBoxColumn { Name = @"ConfigValue", DataPropertyName = @"ConfigValue", HeaderText = @"配置名称", Width = 150 },
-                 new DataGridViewTextBoxColumn { Name = @"ParConfigValue", DataPropertyName = @"ParConfigValue", HeaderText = @"上级名称", Width = 150 }
+                 new DataGridViewTextBoxColumn { Name = @"ConfigValue", DataPropertyName = @"ConfigValue", HeaderText = @"配置名称", Width = 170 },
+                 new DataGridViewTextBoxColumn { Name = @"ParConfigValue", DataPropertyName = @"ParConfigValue", HeaderText = @"上级名称", Width = 170 }
                     );
         }
 
@@ -76,7 +78,11 @@ namespace UI
                 catch(Exception ex) { MessageBox.Show(ex.ToString()); }
             }
         }
-
+        /// <summary>
+        /// 添加新类别
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddStyle_Click(object sender, EventArgs e)
         {
             if (btnAddStyle.Text.Equals("新增类别"))
@@ -133,6 +139,7 @@ namespace UI
             }
             try
             {
+                //修改配置信息
                 grpAdd.Visible = true;
                 DataTable dtInfo = dgvShow.DataSource as DataTable;
                 cmbType.SelectedValue =Convert.ToInt32(dtInfo.Select($@"ConfigNO  = '{dgvShow.CurrentRow.Cells["ConfigNO"].Value}'").CopyToDataTable().Rows[0]["ParConfigNO"]);

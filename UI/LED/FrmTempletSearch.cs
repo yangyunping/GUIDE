@@ -14,6 +14,7 @@ namespace UI
             InitializeComponent();
             DgvColumns();
             bntDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.模板删除);
+            btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.模板修改);
         }
         private void DgvColumns()
         {

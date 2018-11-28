@@ -12,7 +12,13 @@ namespace UI
         BllEmployee bllEmployee = new BllEmployee();
         BllEmpPowers bllEmpPowers = new BllEmpPowers();
         BllConfig bllConfig = new BllConfig();
-        private readonly Employee _employee;
+        private readonly Employee _employee = null;
+        public FrmEmployee()
+        {
+            InitializeComponent();
+            IniteData();
+            twPower.ExpandAll();
+        }
         public FrmEmployee(Employee employee)
         {
             InitializeComponent();
@@ -20,7 +26,9 @@ namespace UI
             IniteData();
             twPower.ExpandAll();
         }
-
+        /// <summary>
+        /// 基础数据加载
+        /// </summary>
         private void IniteData()
         {
             try
@@ -56,7 +64,7 @@ namespace UI
                     }
                     dtPower.Dispose();
                 }
-                if (_employee != null)
+                if (_employee != null) //权限勾选
                 {
                     txtID.Text = _employee.EmployeeNo;
                     txtID.ReadOnly = true;
@@ -65,7 +73,7 @@ namespace UI
                     cmbGender.Text = _employee.Gender;
                     txtAge.Text = _employee.Age.ToString();
 
-                    DataTable dtEmpPower = bllEmpPowers.GetEmpPowers(CurrentInfo.currentEmp.EmployeeNo);
+                    DataTable dtEmpPower = bllEmpPowers.GetEmpPowers(_employee.EmployeeNo);
                     foreach (DataRow t in dtEmpPower.Rows)
                     {
                         foreach (TreeNode treeNode in twPower.Nodes)
@@ -190,25 +198,6 @@ namespace UI
                 {
                     item.Checked = e.Node.Checked;
                 }
-                //if (!e.Node.Checked)
-                //{
-                //    foreach (TreeNode item in e.Node.Nodes)
-                //    {
-                //        item.Checked = e.Node.Checked;
-                //    }
-                //    return;
-                //}
-                //if (e.Node.Parent != null)
-                //{
-                //    foreach (TreeNode item in e.Node.Parent.Nodes)
-                //    {
-                //        if (item.Checked)
-                //        {
-                //            e.Node.Parent.Checked = true;
-                //            return;
-                //        }
-                //    }
-                //}
             }
             catch (Exception ex)
             {

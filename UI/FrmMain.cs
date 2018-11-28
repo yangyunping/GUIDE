@@ -75,16 +75,6 @@ namespace UI
             FrmiAplay.ShowDialog();
         }
         /// <summary>
-        /// 显示按指定条件顺序
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmSelectShow frmSelectShow = new FrmSelectShow();
-            frmSelectShow.ShowDialog();
-        }
-        /// <summary>
         /// 启动
         /// </summary>
         /// <param name="sender"></param>

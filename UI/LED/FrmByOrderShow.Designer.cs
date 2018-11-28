@@ -224,6 +224,8 @@
             // chkFontBold
             // 
             this.chkFontBold.AutoSize = true;
+            this.chkFontBold.Checked = true;
+            this.chkFontBold.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkFontBold.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.chkFontBold.Location = new System.Drawing.Point(265, 279);
             this.chkFontBold.Name = "chkFontBold";

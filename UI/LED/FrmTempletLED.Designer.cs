@@ -41,6 +41,7 @@
             // 
             // btnFontColor
             // 
+            this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.btnFontColor.Location = new System.Drawing.Point(228, 331);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);

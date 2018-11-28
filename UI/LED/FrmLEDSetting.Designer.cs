@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 181);
+            this.label1.Location = new System.Drawing.Point(84, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 0;
@@ -73,7 +73,6 @@
             "7",
             "8",
             "9"});
-            this.cmbCarAdress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarAdress.FormattingEnabled = true;
             this.cmbCarAdress.Items.AddRange(new object[] {
             "1",
@@ -90,25 +89,10 @@
             "12",
             "13",
             "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
-            this.cmbCarAdress.Location = new System.Drawing.Point(179, 177);
+            "15"});
+            this.cmbCarAdress.Location = new System.Drawing.Point(176, 177);
             this.cmbCarAdress.Name = "cmbCarAdress";
-            this.cmbCarAdress.Size = new System.Drawing.Size(154, 27);
+            this.cmbCarAdress.Size = new System.Drawing.Size(157, 27);
             this.cmbCarAdress.TabIndex = 1;
             // 
             // label3
@@ -132,7 +116,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(175, 248);
+            this.label6.Location = new System.Drawing.Point(176, 248);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(22, 19);
             this.label6.TabIndex = 7;
@@ -141,7 +125,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(99, 248);
+            this.label7.Location = new System.Drawing.Point(94, 248);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
             this.label7.TabIndex = 8;
@@ -178,15 +162,15 @@
             "21-EQ2013",
             "22-EQ2023",
             "23-EQ2033"});
-            this.cmbControlType.Location = new System.Drawing.Point(179, 110);
+            this.cmbControlType.Location = new System.Drawing.Point(176, 110);
             this.cmbControlType.Name = "cmbControlType";
-            this.cmbControlType.Size = new System.Drawing.Size(154, 27);
+            this.cmbControlType.Size = new System.Drawing.Size(157, 27);
             this.cmbControlType.TabIndex = 13;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(99, 114);
+            this.label9.Location = new System.Drawing.Point(84, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 19);
             this.label9.TabIndex = 12;
@@ -230,15 +214,15 @@
             this.cmbColor.Items.AddRange(new object[] {
             "单色",
             "双色"});
-            this.cmbColor.Location = new System.Drawing.Point(190, 379);
+            this.cmbColor.Location = new System.Drawing.Point(176, 380);
             this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(110, 27);
+            this.cmbColor.Size = new System.Drawing.Size(124, 27);
             this.cmbColor.TabIndex = 21;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(99, 383);
+            this.label11.Location = new System.Drawing.Point(73, 383);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 19);
             this.label11.TabIndex = 20;
@@ -246,9 +230,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(190, 446);
+            this.btnSave.Location = new System.Drawing.Point(176, 446);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 40);
+            this.btnSave.Size = new System.Drawing.Size(124, 40);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "保  存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -276,9 +260,9 @@
             this.groupBox1.Controls.Add(this.txtHeight);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.cmbControlType);
-            this.groupBox1.Location = new System.Drawing.Point(21, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(486, 509);
+            this.groupBox1.Size = new System.Drawing.Size(476, 513);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "控制卡参数配置";
@@ -304,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 533);
+            this.ClientSize = new System.Drawing.Size(500, 537);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

@@ -79,30 +79,37 @@ namespace UI
 
         private void btnAddTxt_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbLEDId.SelectedValue.ToString()) || string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()))
+            try
             {
-                MessageBox.Show("请完善LED信息！");
-                return;
-            }
-            if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))//打开显示屏
-            {
-                //添加节目
-                AddProgram();
-                //添加文本
-                int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0; //左对齐 1居中 2右对齐
-                if (LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text, programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor,chkFoild.Checked, postion))
+                if (string.IsNullOrEmpty(cmbLEDId.SelectedValue.ToString()) || string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()))
                 {
-                    MessageBox.Show("添加文本成功！");
+                    MessageBox.Show("请完善LED信息！");
+                    return;
+                }
+                if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))//打开显示屏
+                {
+                    //添加节目
+                    AddProgram();
+                    //添加文本
+                    int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0; //左对齐 1居中 2右对齐
+                    if (LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text, programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor, chkFoild.Checked, postion))
+                    {
+                        MessageBox.Show("添加文本成功！");
+                    }
+                    else
+                    {
+                        MessageBox.Show("添加文本失败！");
+                        return;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("添加文本失败！");
-                    return;
+                    MessageBox.Show(cmbLEDId.SelectedValue.ToString() + "打开显示屏失败！");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(cmbLEDId.SelectedValue.ToString() + "打开显示屏失败！");
+                MessageBox.Show(ex.ToString());
             }
         }
 

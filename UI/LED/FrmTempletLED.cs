@@ -64,35 +64,42 @@ namespace UI
 
         private void btnSava_Click(object sender, EventArgs e)
         {
-            TempletShow templetShow = new TempletShow();
-            templetShow.FontColor = fontColor;
-            templetShow.FontName = fontName;
-            templetShow.FontSize = fontSize;
-            templetShow.ShowContent = txtContent.Text.Trim();
-            templetShow.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
-            if (!string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()) && !string.IsNullOrEmpty(txtContent.Text))
+            try
             {
-                if (templetId == -1)
+                TempletShow templetShow = new TempletShow();
+                templetShow.FontColor = fontColor;
+                templetShow.FontName = fontName;
+                templetShow.FontSize = fontSize;
+                templetShow.ShowContent = txtContent.Text.Trim();
+                templetShow.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
+                if (!string.IsNullOrEmpty(cmbShowType.SelectedValue.ToString()) && !string.IsNullOrEmpty(txtContent.Text))
                 {
-                    if (bllTempletShow.InsertTempletShow(templetShow))
+                    if (templetId == -1)
                     {
-                        MessageBox.Show("添加模板成功！");
-                        txtContent.Clear();
+                        if (bllTempletShow.InsertTempletShow(templetShow))
+                        {
+                            MessageBox.Show("添加模板成功！");
+                            txtContent.Clear();
+                        }
+                    }
+                    else
+                    {
+                        templetShow.ID = templetId;
+                        if (bllTempletShow.ModifyTempletShow(templetShow))
+                        {
+                            MessageBox.Show("修改模板成功！");
+                            this.Close();
+                        }
                     }
                 }
                 else
                 {
-                    templetShow.ID = templetId;
-                    if (bllTempletShow.ModifyTempletShow(templetShow))
-                    {
-                        MessageBox.Show("修改模板成功！");
-                        this.Close();
-                    }
+                    MessageBox.Show("请完善信息！");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("请完善信息！");
+                MessageBox.Show(ex.ToString());
             }
         }
     }
