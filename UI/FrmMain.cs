@@ -1,7 +1,9 @@
 ﻿using BLL;
 using MODEL;
 using System;
+using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -21,8 +23,55 @@ namespace UI
             PowersInite();
             ShowTimer.Start();//开始预设显示
             string skinPath = Application.StartupPath + @"\Skins";
-            this.lstContent.DataSource = new DirectoryInfo(skinPath).GetFiles();
-            this.lstContent.DisplayMember = "Name";
+            lstContent.DataSource = new DirectoryInfo(skinPath).GetFiles();
+            lstContent.DisplayMember = "Name";
+            lblEmpInfo.Text = "登录信息： " + CurrentInfo.currentEmp.EmployeeName;
+        }
+        /// <summary>
+        /// 添加新界面
+        /// </summary>
+        /// <param name="titleName"></param>
+        /// <param name="control"></param>
+        private void CreateNewPage(string titleName, Control control)
+        {
+            foreach (TabPage tbpage in tbMainShow.TabPages)
+            {
+                if (tbpage.Name == titleName)
+                {
+                    tbMainShow.SelectedTab = tbpage;
+                    return;
+                }
+            }
+            TabPage newPage = new TabPage() { Name = titleName, Text = titleName };
+            tbMainShow.TabPages.Add(newPage);
+            newPage.Controls.Add(control);
+            control.Parent = newPage;
+            tbMainShow.SelectTab(newPage);
+        }
+        /// <summary>
+        /// 双击删除界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tbContent_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TabControl tabControl1 = (TabControl)sender;
+            Point pt = new Point(e.X, e.Y);
+
+            for (int i = 0; i < tabControl1.TabCount; i++)
+            {
+                Rectangle recTab = tabControl1.GetTabRect(i);
+                if (recTab.Contains(pt))
+                {
+                    TabPage seltab = tbMainShow.SelectedTab;
+                    int seltabindex = tbMainShow.SelectedIndex;
+
+                    tabControl1.Controls.Remove(seltab);
+                    if (seltabindex != 0)
+                        tabControl1.SelectTab(seltabindex - 1);
+                    return;
+                }
+            }
         }
 
         private void FrmMain_FormClosing1(object sender, FormClosingEventArgs e)
@@ -51,18 +100,8 @@ namespace UI
         /// <param name="e"></param>
         private void AreaShowSearch_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmSearchTemplet frmAreaSearch = new FrmSearchTemplet("区域") { Dock = DockStyle.Fill};
-            pnlShow.Controls.Add(frmAreaSearch);
-        }
-        /// <summary>
-        /// 清空主界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsbClear_Click(object sender, EventArgs e)
-        {
-            pnlShow.Controls.Clear();
+            FrmSearchTemplet frmAreaSearch = new FrmSearchTemplet("区域") { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(AreaShowSearch.Text, frmAreaSearch);
         }
         /// <summary>
         /// 编组设置
@@ -71,7 +110,7 @@ namespace UI
         /// <param name="e"></param>
         private void 配置查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmiAplay FrmiAplay = new FrmiAplay();
+            FrmOperateLED FrmiAplay = new FrmOperateLED();
             FrmiAplay.ShowDialog();
         }
         /// <summary>
@@ -97,9 +136,8 @@ namespace UI
 
         private void tsbEmployee_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmEmpSearch frmEmpSearch = new FrmEmpSearch() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmEmpSearch);
+            FrmEmpSearch frmEmpSearch = new FrmEmpSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsbEmployee.Text, frmEmpSearch);
         }
         /// <summary>
         /// 配置信息（权限等）
@@ -108,20 +146,18 @@ namespace UI
         /// <param name="e"></param>
         private void tsbConfig_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmConfig frmConfig = new FrmConfig() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmConfig);
+            FrmConfig frmConfig = new FrmConfig() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsbConfig.Text, frmConfig);
         }
         /// <summary>
         /// 显示器设置
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tsmSreen_Click(object sender, EventArgs e)
+        private void tsmSreenToArea_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("屏幕") { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmShowSearch);
+            FrmSearchTemplet frmShowSearch = new FrmSearchTemplet("屏幕") { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmSreenToArea.Text, frmShowSearch);
         }
         /// <summary>
         /// 皮肤更换
@@ -136,11 +172,12 @@ namespace UI
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.FormClosing += (senders, ex) => {
+            this.FormClosing += (senders, ex) =>
+            {
                 GC.Collect();
                 Application.Exit();
             };
-           StringBuilder selectOrder = new StringBuilder(255);
+            StringBuilder selectOrder = new StringBuilder(255);
             PublicClass.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
                 _configPath);
             if (string.IsNullOrEmpty(selectOrder.ToString()))
@@ -205,17 +242,6 @@ namespace UI
             pnlThemes.Visible = false;
         }
         /// <summary>
-        /// 显示查询管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsmSearchManage_Click(object sender, EventArgs e)
-        {
-            pnlShow.Controls.Clear();
-            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmAreaSearch);
-        }
-        /// <summary>
         ///密码修改
         /// </summary>
         /// <param name="sender"></param>
@@ -240,11 +266,10 @@ namespace UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void 模板查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmTempletSearch_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmTempletSearch frmTempletSearch = new FrmTempletSearch() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmTempletSearch);
+            FrmTempletSearch frmTempletSearch = new FrmTempletSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmTempletSearch.Text, frmTempletSearch);
         }
         /// <summary>
         /// 模板设置
@@ -286,9 +311,8 @@ namespace UI
         /// <param name="e"></param>
         private void tsmReadyShow_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmAreaSearch);
+            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmReadyShow.Text, frmAreaSearch);
         }
         /// <summary>
         /// 参数配置
@@ -315,21 +339,24 @@ namespace UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
+        private void ShowTimer_Tick(object sender, EventArgs e)
         {
             try
             {
                 //预设显示
-                DataTable dtShow = ledShowInfo.GetLEDShowInfos($@" and  Tag != 2  and  BeginTime <= CONVERT (CHAR(10), GETDATE(), 108) and EndTime >= CONVERT (CHAR(10), GETDATE(), 108)");
+                DataTable dtShow = ledShowInfo.GetLEDShowInfos($@" and  Tag in(0,1)  and  BeginTime <= CONVERT (CHAR(10), GETDATE(), 108) and EndTime >= CONVERT (CHAR(10), GETDATE(), 108) order by BeginTime");
                 for (int i = 0; i < dtShow.Rows.Count; i++)
                 {
                     int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
-                    LEDShow.DeleteProgram(addressNum);//删除现有显示
-                    int programInx = LEDShow.AddProgram(addressNum, 10);//添加节目
+                    //LEDShow.DeleteProgram(addressNum);//删除现有显示
+                    int programInx = LEDShow.AddProgram(addressNum, Convert.ToInt32(dtShow.Rows[i]["Duration"]));//添加节目
                     if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
                     {
                         //添加显示内容
-                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(), Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF,Convert.ToBoolean(dtShow.Rows[i]["FontBold"]), Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
+                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),
+                            dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(),
+                            Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF, Convert.ToBoolean(dtShow.Rows[i]["FontBold"]),
+                            Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
                     }
                     else
                     {
@@ -337,7 +364,7 @@ namespace UI
                     }
                     if (LEDShow.SendData(addressNum))//发送数据
                     {
-                        ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]),2);//更新状态
+                        ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]), 2);//更新状态
                     }
                     else
                     {
@@ -345,7 +372,7 @@ namespace UI
                     }
                 }
                 //到结束时间，停止显示
-                DataTable dtOutShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2 and  EndTime < CONVERT (CHAR(10), GETDATE(), 108)");
+                DataTable dtOutShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2  and  EndTime < CONVERT (CHAR(10), GETDATE(), 108)");
                 for (int i = 0; i < dtOutShow.Rows.Count; i++)
                 {
                     int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
@@ -354,18 +381,33 @@ namespace UI
                     ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]), 0);//更新状态
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
         /// <summary>
         /// LED参数查询
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lED参数查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tsmLEDSetingSearch_Click(object sender, EventArgs e)
         {
-            pnlShow.Controls.Clear();
-            FrmScreenSettingSearch frmScreenSettingSearch = new FrmScreenSettingSearch() { Dock = DockStyle.Fill };
-            pnlShow.Controls.Add(frmScreenSettingSearch);
+            FrmScreenSettingSearch frmScreenSettingSearch = new FrmScreenSettingSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmLEDSetingSearch.Text, frmScreenSettingSearch);
+        }
+        /// <summary>
+        /// 预设显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmPreShow_Click(object sender, EventArgs e)
+        {
+            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmPreShow.Text, frmAreaSearch);
+        }
+
+        private void tsmOperateLED_Click(object sender, EventArgs e)
+        {
+            FrmOperateLED frmOperateLED = new FrmOperateLED();
+            frmOperateLED.ShowDialog();
         }
     }
 }

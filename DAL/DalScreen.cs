@@ -18,7 +18,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetScreenInfo(string key)
         {
-            string sSql = $@"Select * from View_LED where 1=1";
+            string sSql = $@"Select * from View_Sreens where 1=1";
             if (!string.IsNullOrEmpty(key))
             {
                 sSql += $@"  and  AreaId ='{key}' order by OrderNum";
@@ -32,7 +32,7 @@ namespace DAL
         /// <returns></returns>
         public bool DeleteScreen(string ID)
         {
-            string sSql = $@"Delete from Screen where  ID = '{ID}'";
+            string sSql = $@"Delete from ScreenToArea where  ID = '{ID}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>
@@ -40,18 +40,18 @@ namespace DAL
         /// </summary>
         /// <param name="showInfo"></param>
         /// <returns></returns>
-        public bool InsertOrModifyScreen(Screens screen)
+        public bool InsertOrModifyScreen(ScreensToArea screen)
         {
             string sSql = $@"
 declare @OrderNum int
-select @OrderNum =ISNULL(MAX(OrderNum)+1,1) from Screen where AreaID = '{screen.AreaID}'
-IF NOT EXISTS(Select * from Screen where ID = '{screen.ID}')
+select @OrderNum =ISNULL(MAX(OrderNum)+1,1) from ScreenToArea where AreaID = '{screen.AreaID}'
+IF NOT EXISTS(Select * from ScreenToArea where ID = '{screen.ID}')
 BEGIN
-Insert into Screen(AreaID,AddressNum,ScreenID,OrderNum) values('{screen.AreaID}','{screen.AddressNum}','{screen.ScreenID}',@OrderNum)
+Insert into ScreenToArea(AreaID,ScreenID,OrderNum) values('{screen.AreaID}','{screen.ScreenID}',@OrderNum)
 END
 ELSE
 BEGIN
-Update Screen set  AddressNum = '{screen.AddressNum}',ScreenID ='{screen.ScreenID}'  where  ID  = '{screen.ID}'
+Update ScreenToArea set ScreenID ='{screen.ScreenID}'  where  ID  = '{screen.ID}'
 END";
             return server.ExecuteNonQuery(sSql) > 0;
         }

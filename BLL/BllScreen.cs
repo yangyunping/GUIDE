@@ -11,6 +11,9 @@ namespace BLL
 {
     public class BllScreen
     {
+        /// <summary>
+        /// 屏幕信息
+        /// </summary>
         DalScreen dalScreen = new DalScreen();
         public DataTable GetScreenInfo(string key)
         {
@@ -20,7 +23,7 @@ namespace BLL
         {
             return dalScreen.DeleteScreen(ID);
         }
-        public bool InsertOrModifyScreen(Screens screen)
+        public bool InsertOrModifyScreen(ScreensToArea screen)
         {
             return dalScreen.InsertOrModifyScreen(screen);
         }

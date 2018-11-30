@@ -157,11 +157,10 @@ namespace UI
                     }
                     else if (_OperateType.Equals("屏幕"))
                     {
-                        Screens screens = new Screens();
+                        ScreensToArea screens = new ScreensToArea();
                         screens.ID = Convert.ToInt32(dgvContent.CurrentRow.Cells["ID"].Value);
                         screens.ScreenID =dgvContent.CurrentRow.Cells["ScreenID"].Value.ToString();
                         screens.AreaID = Convert.ToInt32(dgvContent.CurrentRow.Cells["AreaID"].Value);
-                        screens.AddressNum = Convert.ToInt32(dgvContent.CurrentRow.Cells["AddressNum"].Value);
                         FrmSreenToArea frmSreen = new FrmSreenToArea(screens);
                         FrmExample frmExample = new FrmExample() { Size = new System.Drawing.Size(frmSreen.Size.Width, frmSreen.Size.Height) };
                         frmExample.Controls.Add(frmSreen);

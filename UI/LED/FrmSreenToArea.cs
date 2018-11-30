@@ -12,7 +12,7 @@ namespace UI
         BllScreen bllScreen = new BllScreen();
         BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
         private int Id = -1;
-        public FrmSreenToArea(Screens screens)
+        public FrmSreenToArea(ScreensToArea screens)
         {
             InitializeComponent();
             DataTable dtInfo = bllAreaInfo.GetAreaInfo(string.Empty);
@@ -41,11 +41,10 @@ namespace UI
             {
                 try
                 {
-                    Screens screens = new Screens();
+                    ScreensToArea screens = new ScreensToArea();
                     screens.ID = Id;
                     screens.ScreenID = cmbLEDId.Text;
                     screens.AreaID =Convert.ToInt32(cmbArea.SelectedValue);
-                    screens.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
                     if (bllScreen.InsertOrModifyScreen(screens))
                     {
                         MessageBox.Show("保存成功!");

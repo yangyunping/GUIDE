@@ -82,24 +82,5 @@ namespace UI
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        /// <summary>
-        /// 匹配LED编号和控制卡地址码
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddLEDTxt()
-        {
-            if (PublicClass.CreateXmlInfo(Application.StartupPath + @"\\" + @"LEDSetting.txt", "LEDNum", "LEDid", "LEDAddress", txtLEDid.Text, cmbCarAdress.Text))
-            {
-                MessageBox.Show("添加成功！");
-                txtLEDid.Clear();
-                txtLEDid.Focus();
-            }
-            else
-            {
-                MessageBox.Show("添加失败！");
-            }
-        }
     }
 }

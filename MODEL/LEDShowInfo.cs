@@ -60,6 +60,17 @@ namespace MODEL
         /// 显示位置 （0左对齐，1居中，2右对齐）
         /// </summary>
         public int Position { set; get; }
-         
+        /// <summary>
+        /// 播放时长
+        /// </summary>
+        public int Duration { set; get; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateDate { set; get; }
+        /// <summary>
+        /// 编组名
+        /// </summary>
+        public string GroupName { set; get; }
     }
 }

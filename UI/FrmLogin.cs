@@ -170,6 +170,8 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                Application.Exit();
+                Application.ExitThread();
             }
         }
 

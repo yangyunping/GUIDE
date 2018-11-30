@@ -6,6 +6,9 @@ namespace BLL
 {
     public class BllLedShowInfo
     {
+        /// <summary>
+        /// 预显示记录表
+        /// </summary>
         DalLedShowInfo dalLedShowInfo = new DalLedShowInfo();
         /// <summary>
         /// 新增
@@ -26,13 +29,22 @@ namespace BLL
             return dalLedShowInfo.DeleteLedShowInfo(id);
         }
         /// <summary>
-        /// 查询
+        /// 查询显示信息
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public DataTable GetLayLEDShowInfos(string tag,string key)
+        {
+            return dalLedShowInfo.GetLayLEDShowInfos(tag, key, "LEDShow");
+        }
+        /// <summary>
+        /// 查询预显示
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public DataTable GetLEDShowInfos(string key)
         {
-            return dalLedShowInfo.GetLEDShowInfos(key);
+            return dalLedShowInfo.GeLEDShowInfos(key);
         }
         /// <summary>
         /// 修改状态

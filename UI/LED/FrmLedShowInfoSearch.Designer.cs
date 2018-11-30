@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTemShow = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbShowState = new System.Windows.Forms.ComboBox();
             this.bntDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,6 +67,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cmbShowState);
             this.panel1.Controls.Add(this.bntDelete);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.label1);
@@ -77,9 +81,31 @@
             this.panel1.Size = new System.Drawing.Size(793, 70);
             this.panel1.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "显示状态";
+            // 
+            // cmbShowState
+            // 
+            this.cmbShowState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShowState.FormattingEnabled = true;
+            this.cmbShowState.Items.AddRange(new object[] {
+            "全部",
+            "正在显示",
+            "准备显示"});
+            this.cmbShowState.Location = new System.Drawing.Point(87, 24);
+            this.cmbShowState.Name = "cmbShowState";
+            this.cmbShowState.Size = new System.Drawing.Size(121, 27);
+            this.cmbShowState.TabIndex = 5;
+            // 
             // bntDelete
             // 
-            this.bntDelete.Location = new System.Drawing.Point(403, 15);
+            this.bntDelete.Location = new System.Drawing.Point(533, 18);
             this.bntDelete.Name = "bntDelete";
             this.bntDelete.Size = new System.Drawing.Size(79, 38);
             this.bntDelete.TabIndex = 4;
@@ -89,7 +115,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(302, 15);
+            this.btnSearch.Location = new System.Drawing.Point(432, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(79, 38);
             this.btnSearch.TabIndex = 2;
@@ -100,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 25);
+            this.label1.Location = new System.Drawing.Point(220, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 19);
             this.label1.TabIndex = 1;
@@ -108,10 +134,10 @@
             // 
             // txtKey
             // 
-            this.txtKey.Location = new System.Drawing.Point(96, 22);
+            this.txtKey.Location = new System.Drawing.Point(275, 25);
             this.txtKey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(168, 24);
+            this.txtKey.Size = new System.Drawing.Size(129, 24);
             this.txtKey.TabIndex = 0;
             // 
             // FrmLedShowInfoSearch
@@ -137,5 +163,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbShowState;
     }
 }

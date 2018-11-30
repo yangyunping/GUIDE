@@ -135,41 +135,31 @@ namespace MODEL
         /// <returns></returns>
         public static bool AddText(int cardNum,int iWidth, int iHeight, string content, int g_iProgramIndex,int showType, string fontName, int fontSize, int fontColor,bool bFontBold, int iAlignStyle)
         {
-            User_Text SingleText = new User_Text();
-            SingleText.BkColor = 0;
-            SingleText.chContent = content;
-            SingleText.PartInfo.iFrameMode = 0;
-            SingleText.PartInfo.iHeight = iHeight;
-            SingleText.PartInfo.iWidth = iWidth;
-            //if (iAlignStyle==1)
-            //{
-            //    SingleText.PartInfo.iX = iWidth/3;
-            //    SingleText.PartInfo.iWidth = iWidth/2;
-            //}
-            //else
-            //{
-            //    SingleText.PartInfo.iX = 0;
-            //    SingleText.PartInfo.iWidth = iWidth;
-            //}
-            SingleText.PartInfo.iX = 0;
-            SingleText.PartInfo.iY = 0;
-            SingleText.FontInfo.iAlignStyle = iAlignStyle;
-            SingleText.FontInfo.iVAlignerStyle = 1;
-            SingleText.FontInfo.bFontBold = bFontBold;
-            SingleText.FontInfo.bFontItaic = false;
-            SingleText.FontInfo.bFontUnderline = false;
-            SingleText.FontInfo.colorFont = fontColor;
-            SingleText.FontInfo.iFontSize = fontSize;
-            SingleText.PartInfo.FrameColor = fontColor;
-            SingleText.FontInfo.strFontName = fontName; 
-            SingleText.MoveSet.bClear = false;
-            SingleText.MoveSet.iActionSpeed = 6;
-            SingleText.MoveSet.iActionType = showType;
-            SingleText.MoveSet.iHoldTime = 10;
-            SingleText.MoveSet.iClearActionType = 0;
-            SingleText.MoveSet.iClearSpeed = 0;
-            SingleText.MoveSet.iFrameTime = 20;
-            if (-1 == User_AddText(cardNum, ref SingleText, g_iProgramIndex))
+            User_Text areaTxt = new User_Text();
+            areaTxt.BkColor = 0;
+            areaTxt.chContent = content;
+            areaTxt.PartInfo.iFrameMode = 0;
+            areaTxt.PartInfo.iHeight = iHeight;
+            areaTxt.PartInfo.iWidth = iWidth;
+            areaTxt.PartInfo.iX = 0;
+            areaTxt.PartInfo.iY = 0;
+            areaTxt.FontInfo.iAlignStyle = iAlignStyle;
+            areaTxt.FontInfo.iVAlignerStyle = 1;
+            areaTxt.FontInfo.bFontBold = bFontBold;
+            areaTxt.FontInfo.bFontItaic = false;
+            areaTxt.FontInfo.bFontUnderline = false;
+            areaTxt.FontInfo.colorFont = fontColor;
+            areaTxt.FontInfo.iFontSize = fontSize;
+            areaTxt.PartInfo.FrameColor = fontColor;
+            areaTxt.FontInfo.strFontName = fontName; 
+            areaTxt.MoveSet.bClear = false;
+            areaTxt.MoveSet.iActionSpeed = Convert.ToInt32(ConfigurationManager.AppSettings["PlaySpeed"]);
+            areaTxt.MoveSet.iActionType = showType;
+            areaTxt.MoveSet.iHoldTime = 0;
+            areaTxt.MoveSet.iClearActionType = 0;
+            areaTxt.MoveSet.iClearSpeed = 0;
+            areaTxt.MoveSet.iFrameTime = 20;
+            if (-1 == User_AddText(cardNum, ref areaTxt, g_iProgramIndex))
             {
                 return false;
             }
@@ -181,40 +171,45 @@ namespace MODEL
 
         /// <summary>
         /// 添加单行文本
-        /// </summary>
-        /// <param name="cardNum"></param>
-        /// <param name="content"></param>
-        /// <param name="g_iProgramIndex"></param>
+        /// <param name="cardNum">控制卡地址码</param>
+        /// <param name="iWidth">屏幕宽</param>
+        /// <param name="iHeight">屏幕高</param>
+        /// <param name="content">显示内容</param>
+        /// <param name="g_iProgramIndex">节目顺序</param>
+        /// <param name="showType">播放方式</param>
+        /// <param name="fontName">字体名称</param>
+        /// <param name="fontSize">字体大小</param>
+        /// <param name="fontColor">字体颜色</param>
+        /// <param name="bFontBold">字体是否加粗</param>
+        /// <param name="iAlignStyle">是否左右居中</param>
         /// <returns></returns>
-        private bool AddSingleText(int cardNum, string content, int g_iProgramIndex)
+        public static bool AddSingleText(int cardNum, int iWidth, int iHeight, string content, int g_iProgramIndex, int showType, string fontName, int fontSize, int fontColor, bool bFontBold, int iAlignStyle)
         {
             User_SingleText SingleText = new User_SingleText();
 
             SingleText.BkColor = 0;
             SingleText.chContent = content;
             SingleText.PartInfo.iFrameMode = 0;
-            SingleText.PartInfo.iHeight = 32;
-            SingleText.PartInfo.iWidth = 128;
+            SingleText.PartInfo.iHeight = iHeight;
+            SingleText.PartInfo.iWidth = iWidth;
             SingleText.PartInfo.iX = 0;
             SingleText.PartInfo.iY = 0;
-            SingleText.FontInfo.iAlignStyle = 1;
+            SingleText.FontInfo.iAlignStyle = iAlignStyle;
             SingleText.FontInfo.iVAlignerStyle = 1;
-            SingleText.FontInfo.bFontBold = false;
+            SingleText.FontInfo.bFontBold = bFontBold;
             SingleText.FontInfo.bFontItaic = false;
             SingleText.FontInfo.bFontUnderline = false;
-            SingleText.FontInfo.colorFont = g_iRed;
-            SingleText.FontInfo.iFontSize =g_FontSize;
-            SingleText.PartInfo.FrameColor = g_iYellow;
-            SingleText.FontInfo.strFontName = "宋体";
+            SingleText.FontInfo.colorFont = fontColor;
+            SingleText.FontInfo.iFontSize = fontSize;
+            SingleText.PartInfo.FrameColor = fontColor;
+            SingleText.FontInfo.strFontName = fontName;
             SingleText.MoveSet.bClear = false;
-            SingleText.MoveSet.iActionSpeed = 6;
-            SingleText.MoveSet.iActionType = 2;
-            SingleText.MoveSet.iHoldTime = 20;
+            SingleText.MoveSet.iActionSpeed =Convert.ToInt32(ConfigurationManager.AppSettings["PlaySpeed"]);
+            SingleText.MoveSet.iActionType = showType;
+            SingleText.MoveSet.iHoldTime = 0;
             SingleText.MoveSet.iClearActionType = 0;
             SingleText.MoveSet.iClearSpeed = 0;
             SingleText.MoveSet.iFrameTime = 20;
-          
-
             if (-1 == User_AddSingleText(cardNum, ref SingleText, g_iProgramIndex))
             {
                 return false;

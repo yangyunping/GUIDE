@@ -62,7 +62,7 @@
     <Compile Include="Registry.cs" />
     <Compile Include="CommonInfo.cs" />
     <Compile Include="ScreeenSetting.cs" />
-    <Compile Include="Screens.cs" />
+    <Compile Include="ScreensToArea.cs" />
     <Compile Include="ShowContent.cs" />
     <Compile Include="ShowInfo.cs" />
     <Compile Include="TempletShow.cs" />

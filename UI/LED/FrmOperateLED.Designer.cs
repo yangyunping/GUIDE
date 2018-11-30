@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FrmiAplay
+    partial class FrmOperateLED
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,14 @@
             this.txtTypeId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTypeName = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.cmbLEDId = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnClearProgram = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -44,12 +51,13 @@
             this.groupBox2.Controls.Add(this.txtTypeId);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtTypeName);
-            this.groupBox2.Location = new System.Drawing.Point(23, 26);
+            this.groupBox2.Location = new System.Drawing.Point(35, 288);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(372, 172);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "播放方式";
+            this.groupBox2.Visible = false;
             // 
             // label9
             // 
@@ -95,19 +103,86 @@
             this.txtTypeName.Size = new System.Drawing.Size(116, 26);
             this.txtTypeName.TabIndex = 2;
             // 
-            // FrmiAplay
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnOpen);
+            this.groupBox1.Controls.Add(this.btnClose);
+            this.groupBox1.Controls.Add(this.cmbLEDId);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnClearProgram);
+            this.groupBox1.Location = new System.Drawing.Point(35, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(372, 171);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "开关关闭LED屏";
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(255, 108);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(78, 35);
+            this.btnOpen.TabIndex = 8;
+            this.btnOpen.Text = "打开屏幕";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(152, 108);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(78, 35);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "关闭屏幕";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // cmbLEDId
+            // 
+            this.cmbLEDId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLEDId.FormattingEnabled = true;
+            this.cmbLEDId.Location = new System.Drawing.Point(114, 43);
+            this.cmbLEDId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cmbLEDId.Name = "cmbLEDId";
+            this.cmbLEDId.Size = new System.Drawing.Size(143, 28);
+            this.cmbLEDId.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "LED编号";
+            // 
+            // btnClearProgram
+            // 
+            this.btnClearProgram.Location = new System.Drawing.Point(49, 108);
+            this.btnClearProgram.Name = "btnClearProgram";
+            this.btnClearProgram.Size = new System.Drawing.Size(78, 35);
+            this.btnClearProgram.TabIndex = 4;
+            this.btnClearProgram.Text = "清除保存";
+            this.btnClearProgram.UseVisualStyleBackColor = true;
+            this.btnClearProgram.Click += new System.EventHandler(this.btnClearProgram_Click);
+            // 
+            // FrmOperateLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 224);
+            this.ClientSize = new System.Drawing.Size(470, 482);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "FrmiAplay";
+            this.Name = "FrmOperateLED";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "播放方式配置";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -119,5 +194,11 @@
         private System.Windows.Forms.TextBox txtTypeId;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTypeName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnClearProgram;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ComboBox cmbLEDId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnOpen;
     }
 }

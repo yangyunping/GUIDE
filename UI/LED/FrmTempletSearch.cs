@@ -3,6 +3,7 @@ using MODEL;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using UI.LED;
 
 namespace UI
 {
@@ -64,6 +65,27 @@ namespace UI
                 {
                     MessageBox.Show("删除失败！");
                 }
+            }
+        }
+
+        private void dgvTemShow_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex != -1 && dgvTemShow.Columns[e.ColumnIndex].Name == "FontColor")
+            {
+                e.Value = PublicClass.ColorToText(dgvTemShow.Rows[e.RowIndex].Cells["FontColor"].Value.ToString());
+            }
+            else if (dgvTemShow.Columns[e.ColumnIndex].Name == "ShowStyle")
+            {
+                e.Value = PublicClass.AplayToText(Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["ShowStyle"].Value));
+            }
+        }
+
+        private void btnLEDShow_Click(object sender, EventArgs e)
+        {
+            if (dgvTemShow.CurrentRow != null)
+            {
+                FrmTempletSendLED frmTempletSendLED = new FrmTempletSendLED(dgvTemShow.CurrentRow.Cells["ShowContent"].Value.ToString());
+                frmTempletSendLED.ShowDialog();
             }
         }
     }

@@ -142,10 +142,10 @@
     <Compile Include="FrmPassword.Designer.cs">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchTemplet.cs">
+    <Compile Include="LED\FrmSearchTemplet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmSearchTemplet.Designer.cs">
+    <Compile Include="LED\FrmSearchTemplet.Designer.cs">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </Compile>
     <Compile Include="LED\FrmLedShowInfoSearch.cs">
@@ -160,11 +160,11 @@
     <Compile Include="FrmShow.Designer.cs">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmiAplay.cs">
+    <Compile Include="LED\FrmOperateLED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmiAplay.Designer.cs">
-      <DependentUpon>FrmiAplay.cs</DependentUpon>
+    <Compile Include="LED\FrmOperateLED.Designer.cs">
+      <DependentUpon>FrmOperateLED.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -178,10 +178,10 @@
     <Compile Include="FrmSkinEngine.Designer.cs">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSreenToArea.cs">
+    <Compile Include="LED\FrmSreenToArea.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmSreenToArea.Designer.cs">
+    <Compile Include="LED\FrmSreenToArea.Designer.cs">
       <DependentUpon>FrmSreenToArea.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEncrypt.cs">
@@ -246,7 +246,7 @@
     <EmbeddedResource Include="FrmPassWord.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchTemplet.resx">
+    <EmbeddedResource Include="LED\FrmSearchTemplet.resx">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmLedShowInfoSearch.resx">
@@ -255,8 +255,8 @@
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmiAplay.resx">
-      <DependentUpon>FrmiAplay.cs</DependentUpon>
+    <EmbeddedResource Include="LED\FrmOperateLED.resx">
+      <DependentUpon>FrmOperateLED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -264,7 +264,7 @@
     <EmbeddedResource Include="FrmSkinEngine.resx">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSreenToArea.resx">
+    <EmbeddedResource Include="LED\FrmSreenToArea.resx">
       <DependentUpon>FrmSreenToArea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEncrypt.resx">

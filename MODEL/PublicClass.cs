@@ -217,7 +217,7 @@ namespace MODEL
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -348,10 +348,73 @@ namespace MODEL
             //            xmlDoc.Save(@"d:\bookstore.xml");
             #endregion
         }
-        public static void ColorToInt16(Byte R, Byte G, Byte B)
+        /// <summary>
+        /// 播放方式编号转换为汉语
+        /// </summary>
+        /// <param name="dex"></param>
+        /// <returns></returns>
+        public static string AplayToText(int aplayTypeID)
         {
-            // return System.Drawing. //Translator.ToHtml(System.Drawing.Color.FromArgb(R, G, B));
-            //return Convert.ToInt32(hex);
+            string aplayTypenName = string.Empty;
+            if (aplayTypeID == 0)
+            {
+                aplayTypenName = "随机显示";
+            }
+            if (aplayTypeID == 1)
+            {
+                aplayTypenName = "立即显示";
+            }
+            if (aplayTypeID == 2)
+            {
+                aplayTypenName = "左移";
+            }
+            if (aplayTypeID == 3)
+            {
+                aplayTypenName = "连续左移";
+            }
+            if (aplayTypeID == 5)
+            {
+                aplayTypenName = "上移";
+            }
+            if (aplayTypeID ==6)
+            {
+                aplayTypenName = "连续上移";
+            }
+            if (aplayTypeID == 7)
+            {
+                aplayTypenName = "下移";
+            }
+            return aplayTypenName;
+        }
+        /// <summary>
+        /// 颜色英文转换汉语
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static string ColorToText(string color)
+        {
+            string colorName = string.Empty;
+            if (color.ToLower() == "red")
+            {
+                colorName = "红色";
+            }
+            if (color.ToLower() == "Blue")
+            {
+                colorName = "蓝色";
+            }
+            if (color.ToLower() == "Pink")
+            {
+                colorName = "粉色";
+            }
+            if (color.ToLower() == "black")
+            {
+                colorName = "黑色";
+            }
+            if (color.ToLower() == "yellow")
+            {
+                colorName = "黄色";
+            }
+            return colorName;
         }
     }
 }

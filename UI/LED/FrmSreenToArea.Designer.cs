@@ -75,7 +75,6 @@
             // 
             // cmbLEDId
             // 
-            this.cmbLEDId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLEDId.FormattingEnabled = true;
             this.cmbLEDId.Location = new System.Drawing.Point(103, 78);
             this.cmbLEDId.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class Screens
+    public class ScreensToArea
     {
         /// <summary>
         /// ID
@@ -20,10 +20,6 @@ namespace MODEL
         /// 区域ID
         /// </summary>
         public int AreaID { set; get; }
-        /// <summary>
-        /// 地址码
-        /// </summary>
-        public int AddressNum { set; get; }
         /// <summary>
         /// 排序号
         /// </summary>

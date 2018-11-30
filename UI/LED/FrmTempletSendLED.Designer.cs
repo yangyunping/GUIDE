@@ -42,6 +42,9 @@
             this.chkFoild = new System.Windows.Forms.CheckBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtiAplay = new System.Windows.Forms.TextBox();
+            this.txtTIme = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +62,7 @@
             this.cmbContent.FormattingEnabled = true;
             this.cmbContent.Location = new System.Drawing.Point(108, 28);
             this.cmbContent.Name = "cmbContent";
-            this.cmbContent.Size = new System.Drawing.Size(419, 27);
+            this.cmbContent.Size = new System.Drawing.Size(365, 27);
             this.cmbContent.TabIndex = 1;
             this.cmbContent.SelectedIndexChanged += new System.EventHandler(this.cmbContent_SelectedIndexChanged);
             // 
@@ -70,7 +73,7 @@
             this.chkDate.Name = "chkDate";
             this.chkDate.Size = new System.Drawing.Size(80, 23);
             this.chkDate.TabIndex = 2;
-            this.chkDate.Text = "定时发送";
+            this.chkDate.Text = "显示时间";
             this.chkDate.UseVisualStyleBackColor = true;
             this.chkDate.CheckedChanged += new System.EventHandler(this.chkDate_CheckedChanged);
             // 
@@ -80,16 +83,16 @@
             this.dtpBegin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpBegin.Location = new System.Drawing.Point(131, 199);
             this.dtpBegin.Name = "dtpBegin";
-            this.dtpBegin.Size = new System.Drawing.Size(128, 24);
+            this.dtpBegin.Size = new System.Drawing.Size(98, 24);
             this.dtpBegin.TabIndex = 3;
             // 
             // dtpEnd
             // 
             this.dtpEnd.Enabled = false;
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(269, 199);
+            this.dtpEnd.Location = new System.Drawing.Point(258, 199);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(128, 24);
+            this.dtpEnd.Size = new System.Drawing.Size(98, 24);
             this.dtpEnd.TabIndex = 4;
             // 
             // txtFontName
@@ -103,18 +106,18 @@
             // txtFontSize
             // 
             this.txtFontSize.Enabled = false;
-            this.txtFontSize.Location = new System.Drawing.Point(238, 61);
+            this.txtFontSize.Location = new System.Drawing.Point(247, 61);
             this.txtFontSize.Name = "txtFontSize";
             this.txtFontSize.Size = new System.Drawing.Size(87, 24);
             this.txtFontSize.TabIndex = 6;
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(349, 268);
+            this.btnSendData.Location = new System.Drawing.Point(375, 272);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(98, 43);
             this.btnSendData.TabIndex = 7;
-            this.btnSendData.Text = "发送数据";
+            this.btnSendData.Text = "保  存";
             this.btnSendData.UseVisualStyleBackColor = true;
             this.btnSendData.Click += new System.EventHandler(this.btnSendData_Click);
             // 
@@ -140,9 +143,7 @@
             // chkDelete
             // 
             this.chkDelete.AutoSize = true;
-            this.chkDelete.Checked = true;
-            this.chkDelete.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDelete.Location = new System.Drawing.Point(45, 279);
+            this.chkDelete.Location = new System.Drawing.Point(45, 282);
             this.chkDelete.Name = "chkDelete";
             this.chkDelete.Size = new System.Drawing.Size(106, 23);
             this.chkDelete.TabIndex = 25;
@@ -154,7 +155,7 @@
             this.chkFoild.AutoSize = true;
             this.chkFoild.Checked = true;
             this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFoild.Location = new System.Drawing.Point(179, 279);
+            this.chkFoild.Location = new System.Drawing.Point(393, 200);
             this.chkFoild.Name = "chkFoild";
             this.chkFoild.Size = new System.Drawing.Size(80, 23);
             this.chkFoild.TabIndex = 26;
@@ -170,7 +171,7 @@
             "居中",
             "左对齐",
             "右对齐"});
-            this.cmbPosition.Location = new System.Drawing.Point(329, 122);
+            this.cmbPosition.Location = new System.Drawing.Point(328, 122);
             this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(145, 28);
@@ -180,17 +181,45 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label3.Location = new System.Drawing.Point(264, 127);
+            this.label3.Location = new System.Drawing.Point(254, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 62;
             this.label3.Text = "显示位置";
             // 
+            // txtiAplay
+            // 
+            this.txtiAplay.Enabled = false;
+            this.txtiAplay.Location = new System.Drawing.Point(386, 61);
+            this.txtiAplay.Name = "txtiAplay";
+            this.txtiAplay.Size = new System.Drawing.Size(87, 24);
+            this.txtiAplay.TabIndex = 64;
+            // 
+            // txtTIme
+            // 
+            this.txtTIme.Location = new System.Drawing.Point(259, 281);
+            this.txtTIme.Name = "txtTIme";
+            this.txtTIme.Size = new System.Drawing.Size(64, 24);
+            this.txtTIme.TabIndex = 65;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.label4.Location = new System.Drawing.Point(192, 284);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 19);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "循环时间";
+            // 
             // FrmTempletSendLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 331);
+            this.ClientSize = new System.Drawing.Size(505, 340);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtTIme);
+            this.Controls.Add(this.txtiAplay);
             this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chkFoild);
@@ -231,5 +260,8 @@
         private System.Windows.Forms.CheckBox chkFoild;
         private System.Windows.Forms.ComboBox cmbPosition;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtiAplay;
+        private System.Windows.Forms.TextBox txtTIme;
+        private System.Windows.Forms.Label label4;
     }
 }
