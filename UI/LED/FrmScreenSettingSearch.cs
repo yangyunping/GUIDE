@@ -25,9 +25,11 @@ namespace UI.LED
             new DataGridViewTextBoxColumn { Name = @"ScreenWidth", DataPropertyName = @"ScreenWidth", HeaderText = @"屏宽", Width = 100 },
             new DataGridViewTextBoxColumn { Name = @"ScreenHeight", DataPropertyName = @"ScreenHeight", HeaderText = @"屏高", Width = 100 },
             new DataGridViewTextBoxColumn { Name = @"IpAddress", DataPropertyName = @"IpAddress", HeaderText = @"IP地址", Width = 150 },
-            new DataGridViewTextBoxColumn { Name = @"ColorStyle", DataPropertyName = @"ColorStyle", HeaderText = @"屏幕颜色", Width = 120 }
+            new DataGridViewTextBoxColumn { Name = @"ColorStyle", DataPropertyName = @"ColorStyle", HeaderText = @"屏幕颜色", Width = 120 },
+            new DataGridViewTextBoxColumn { Name = @"FontSize", DataPropertyName = @"FontSize", HeaderText = @"字体大小", Width = 120 }
              );
         }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string sKey = string.Empty;
@@ -39,7 +41,11 @@ namespace UI.LED
             dgvScreenSetting.AutoGenerateColumns = false;
             dgvScreenSetting.DataSource = dtShow;
         }
-
+        /// <summary>
+        /// 删除参数信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bntDelete_Click(object sender, EventArgs e)
         {
             if (dgvScreenSetting.CurrentRow != null)
@@ -54,6 +60,34 @@ namespace UI.LED
                     MessageBox.Show("删除失败！");
                 }
             }
+        }
+        /// <summary>
+        /// 修改参数信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvScreenSetting.CurrentRow != null)
+                {
+                    ScreenSetting screeenSetting = new ScreenSetting();
+                    screeenSetting.ID = Convert.ToInt32(dgvScreenSetting.CurrentRow.Cells["ID"].Value);
+                    screeenSetting.ScreenID = dgvScreenSetting.CurrentRow.Cells["ScreenId"].Value.ToString();
+                    screeenSetting.ScreenWidth = Convert.ToInt32(dgvScreenSetting.CurrentRow.Cells["ScreenWidth"].Value);
+                    screeenSetting.ScreenHeight = Convert.ToInt32(dgvScreenSetting.CurrentRow.Cells["ScreenHeight"].Value);
+                    screeenSetting.AddressNum = Convert.ToInt32(dgvScreenSetting.CurrentRow.Cells["AddressNum"].Value);
+                    screeenSetting.CarName = dgvScreenSetting.CurrentRow.Cells["CarName"].Value.ToString();
+                    screeenSetting.ColorStyle = dgvScreenSetting.CurrentRow.Cells["ColorStyle"].Value.ToString();
+                    screeenSetting.IpAddress = dgvScreenSetting.CurrentRow.Cells["IpAddress"].Value.ToString();
+                    screeenSetting.FontSize = Convert.ToInt32(dgvScreenSetting.CurrentRow.Cells["FontSize"].Value);
+                    FrmLEDSetting frmLEDSetting = new FrmLEDSetting(screeenSetting);
+                    frmLEDSetting.ShowDialog();
+                    btnSearch_Click(null,null);
+                }
+            }
+            catch { }
         }
     }
 }

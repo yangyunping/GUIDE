@@ -12,9 +12,15 @@ namespace BLL
         /// </summary>
         /// <param name="ledShowInfo"></param>
         /// <returns></returns>
-        public bool InsertScreenSetting(ScreeenSetting sreenSetting)
+        public bool InsertScreenSetting(ScreenSetting screenSetting)
         {
-            return dalSreenSetting.InsertScreenSetting(sreenSetting);
+            return dalSreenSetting.InsertScreenSetting(screenSetting);
+        }
+
+
+        public bool UpdateScreenSetting(ScreenSetting screenSetting)
+        {
+            return dalSreenSetting.UpdateScreenSetting(screenSetting);
         }
         /// <summary>
         /// 删除

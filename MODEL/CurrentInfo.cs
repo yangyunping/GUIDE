@@ -15,5 +15,7 @@ namespace MODEL
         /// 全局登录人员权限
         /// </summary>
         public static Dictionary<int,string> currentPowers = new Dictionary<int, string>();
+
+        public static string DataSendErro { set; get; }
     }
 }

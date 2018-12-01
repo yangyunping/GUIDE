@@ -17,10 +17,10 @@ namespace DAL
         /// <returns></returns>
         public bool InsertLedShowInfo(LEDShowInfo ledShowInfo)
         {
-            string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Tag,Duration) 
+            string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Tag,Duration,DeleteUpProgram) 
 values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime.ToShortTimeString()}','{ledShowInfo.EndTime.ToShortTimeString()}',
 '{ledShowInfo.Content}','{ledShowInfo.FontColor}','{ledShowInfo.FontName}','{ledShowInfo.FontSize}','{ledShowInfo.ShowStyle}','{ledShowInfo.FontBold}',
-'{ledShowInfo.Position}','{ledShowInfo.Tag}','{ledShowInfo.Duration}')";
+'{ledShowInfo.Position}','{ledShowInfo.Tag}','{ledShowInfo.Duration}','{ledShowInfo.DeleteUpProgram}')";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>

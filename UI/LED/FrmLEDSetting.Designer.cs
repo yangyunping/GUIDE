@@ -49,13 +49,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtLEDid = new System.Windows.Forms.TextBox();
+            this.btnFontColor = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFontSize = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 181);
+            this.label1.Location = new System.Drawing.Point(91, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 0;
@@ -125,7 +128,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(94, 248);
+            this.label7.Location = new System.Drawing.Point(96, 248);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
             this.label7.TabIndex = 8;
@@ -170,7 +173,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(84, 114);
+            this.label9.Location = new System.Drawing.Point(91, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 19);
             this.label9.TabIndex = 12;
@@ -218,11 +221,12 @@
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(124, 27);
             this.cmbColor.TabIndex = 21;
+            this.cmbColor.SelectedIndexChanged += new System.EventHandler(this.cmbColor_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(73, 383);
+            this.label11.Location = new System.Drawing.Point(86, 384);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 19);
             this.label11.TabIndex = 20;
@@ -230,9 +234,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(176, 446);
+            this.btnSave.Location = new System.Drawing.Point(176, 494);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(124, 40);
+            this.btnSave.Size = new System.Drawing.Size(124, 41);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "保  存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -240,6 +244,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtFontSize);
+            this.groupBox1.Controls.Add(this.btnFontColor);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtLEDid);
@@ -262,7 +269,7 @@
             this.groupBox1.Controls.Add(this.cmbControlType);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(476, 513);
+            this.groupBox1.Size = new System.Drawing.Size(456, 556);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "控制卡参数配置";
@@ -284,11 +291,39 @@
             this.txtLEDid.Size = new System.Drawing.Size(157, 24);
             this.txtLEDid.TabIndex = 5;
             // 
+            // btnFontColor
+            // 
+            this.btnFontColor.Enabled = false;
+            this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnFontColor.Location = new System.Drawing.Point(325, 372);
+            this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnFontColor.Name = "btnFontColor";
+            this.btnFontColor.Size = new System.Drawing.Size(71, 42);
+            this.btnFontColor.TabIndex = 24;
+            this.btnFontColor.Text = "字体颜色";
+            this.btnFontColor.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 450);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 19);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "字体大小";
+            // 
+            // txtFontSize
+            // 
+            this.txtFontSize.Location = new System.Drawing.Point(176, 447);
+            this.txtFontSize.Name = "txtFontSize";
+            this.txtFontSize.Size = new System.Drawing.Size(124, 24);
+            this.txtFontSize.TabIndex = 26;
+            // 
             // FrmLEDSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 537);
+            this.ClientSize = new System.Drawing.Size(477, 571);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -324,5 +359,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtLEDid;
+        private System.Windows.Forms.Button btnFontColor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFontSize;
     }
 }

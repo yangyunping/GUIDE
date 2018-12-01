@@ -36,12 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.dgvScreenSetting = new System.Windows.Forms.DataGridView();
+            this.btnModify = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScreenSetting)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnModify);
             this.panel1.Controls.Add(this.bntDelete);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.label1);
@@ -56,7 +58,7 @@
             // 
             // bntDelete
             // 
-            this.bntDelete.Location = new System.Drawing.Point(403, 15);
+            this.bntDelete.Location = new System.Drawing.Point(491, 15);
             this.bntDelete.Name = "bntDelete";
             this.bntDelete.Size = new System.Drawing.Size(79, 38);
             this.bntDelete.TabIndex = 4;
@@ -113,6 +115,16 @@
             this.dgvScreenSetting.Size = new System.Drawing.Size(850, 452);
             this.dgvScreenSetting.TabIndex = 4;
             // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(394, 15);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(79, 38);
+            this.btnModify.TabIndex = 5;
+            this.btnModify.Text = "修 改";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
             // FrmScreenSettingSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.DataGridView dgvScreenSetting;
+        private System.Windows.Forms.Button btnModify;
     }
 }

@@ -72,5 +72,10 @@ namespace MODEL
         /// 编组名
         /// </summary>
         public string GroupName { set; get; }
+
+        /// <summary>
+        /// 删除已显示所有节目
+        /// </summary>
+        public bool DeleteUpProgram { set; get; }
     }
 }

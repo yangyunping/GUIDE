@@ -42,7 +42,6 @@
             this.tsmByOrderSet = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmResetOrderShow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsmTempletShow = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTepletSet = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTempletSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDefinedShow = new System.Windows.Forms.ToolStripButton();
@@ -192,7 +191,6 @@
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmTempletShow,
             this.tsmTepletSet,
             this.tsmTempletSearch});
             this.toolStripDropDownButton1.Image = global::UI.Properties.Resources.Laptop_white;
@@ -201,19 +199,11 @@
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(117, 39);
             this.toolStripDropDownButton1.Text = "模板显示";
             // 
-            // tsmTempletShow
-            // 
-            this.tsmTempletShow.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.tsmTempletShow.Name = "tsmTempletShow";
-            this.tsmTempletShow.Size = new System.Drawing.Size(154, 24);
-            this.tsmTempletShow.Text = "模板LED显示";
-            this.tsmTempletShow.Click += new System.EventHandler(this.模板显示ToolStripMenuItem_Click);
-            // 
             // tsmTepletSet
             // 
             this.tsmTepletSet.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmTepletSet.Name = "tsmTepletSet";
-            this.tsmTepletSet.Size = new System.Drawing.Size(154, 24);
+            this.tsmTepletSet.Size = new System.Drawing.Size(180, 24);
             this.tsmTepletSet.Text = "模板设置";
             this.tsmTepletSet.Click += new System.EventHandler(this.模板设置ToolStripMenuItem_Click);
             // 
@@ -221,7 +211,7 @@
             // 
             this.tsmTempletSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmTempletSearch.Name = "tsmTempletSearch";
-            this.tsmTempletSearch.Size = new System.Drawing.Size(154, 24);
+            this.tsmTempletSearch.Size = new System.Drawing.Size(180, 24);
             this.tsmTempletSearch.Text = "模板查询";
             this.tsmTempletSearch.Click += new System.EventHandler(this.tsmTempletSearch_Click);
             // 
@@ -434,7 +424,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem tsmByOrderSet;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem tsmTempletShow;
         private System.Windows.Forms.ToolStripMenuItem tsmTepletSet;
         private System.Windows.Forms.ToolStripMenuItem tsmTempletSearch;
         private System.Windows.Forms.ToolStripButton tsmDefinedShow;

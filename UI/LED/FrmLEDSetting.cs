@@ -9,9 +9,26 @@ namespace UI
     {
         public readonly string _EQSetPath = Application.StartupPath + @"\\" + @"EQ2008_Dll_Set.ini";//配置文件存放路径
         BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
+        private int id = -1;
         public FrmLEDSetting()
         {
             InitializeComponent();
+        }
+        public FrmLEDSetting(ScreenSetting screeenSetting)
+        {
+            InitializeComponent();
+            id = screeenSetting.ID;
+            txtLEDid.Text = screeenSetting.ScreenID;
+            txtWidth.Text = screeenSetting.ScreenWidth.ToString();
+            txtHeight.Text = screeenSetting.ScreenHeight.ToString();
+            cmbControlType.Text = screeenSetting.CarName;
+            cmbCarAdress.Text = screeenSetting.AddressNum.ToString();
+            cmbColor.Text = screeenSetting.ColorStyle;
+            IpAddress0.Text = screeenSetting.IpAddress.Split('.')[0].ToString();
+            IpAddress1.Text = screeenSetting.IpAddress.Split('.')[1].ToString();
+            IpAddress2.Text = screeenSetting.IpAddress.Split('.')[2].ToString(); 
+            IpAddress3.Text = screeenSetting.IpAddress.Split('.')[3].ToString();
+            txtFontSize.Text = screeenSetting.FontSize.ToString();
         }
         /// <summary>
         /// 添加控制卡参数到配置文件
@@ -50,15 +67,25 @@ namespace UI
                     colorStyle = 1;
                 }
 
-                ScreeenSetting screeenSetting = new ScreeenSetting();
-                screeenSetting.ScreenID = txtLEDid.Text.Trim();
-                screeenSetting.ScreenWidth = Convert.ToInt32(txtWidth.Text);
-                screeenSetting.ScreenHeight = Convert.ToInt32(txtHeight.Text);
-                screeenSetting.AddressNum = Convert.ToInt32(cmbCarAdress.Text);
-                screeenSetting.CarName = cmbControlType.Text;
-                screeenSetting.ColorStyle = cmbColor.Text;
-                screeenSetting.IpAddress = IpAddress0.Text + "." + IpAddress1.Text + "." + IpAddress2.Text + "." + IpAddress3.Text;
-                bllScreeenSetting.InsertScreenSetting(screeenSetting);
+                ScreenSetting screenSetting = new ScreenSetting();
+                screenSetting.ScreenID = txtLEDid.Text.Trim();
+                screenSetting.ScreenWidth = Convert.ToInt32(txtWidth.Text);
+                screenSetting.ScreenHeight = Convert.ToInt32(txtHeight.Text);
+                screenSetting.AddressNum = Convert.ToInt32(cmbCarAdress.Text);
+                screenSetting.CarName = cmbControlType.Text;
+                screenSetting.ColorStyle = cmbColor.Text;
+                screenSetting.IpAddress = IpAddress0.Text + "." + IpAddress1.Text + "." + IpAddress2.Text + "." + IpAddress3.Text;
+                screenSetting.FontSize = Convert.ToInt32(txtFontSize.Text);
+                if (id == -1)//判断是修改还是新增
+                {
+                    bllScreeenSetting.InsertScreenSetting(screenSetting);
+                }
+                else
+                {
+                    screenSetting.ID = id;
+                    bllScreeenSetting.UpdateScreenSetting(screenSetting);
+                }
+              
 
                 //保存到EQ诣阔LED动态库指定的文件里
                 PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text) - 1), "CardType", carTpe.ToString(), _EQSetPath);//控制类型
@@ -76,10 +103,26 @@ namespace UI
                 PublicClass.WritePrivateProfileString(@"地址：" + (Convert.ToInt32(cmbCarAdress.Text) - 1), "ColorStyle", colorStyle.ToString(), _EQSetPath); //显示屏颜色类型
 
                 MessageBox.Show("保存成功！");
+                if (id != -1)
+                {
+                    this.Close();//修改完关闭窗体
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbColor.Text.Equals("双色"))
+            {
+                btnFontColor.Enabled = true;
+            }
+            else
+            {
+                btnFontColor.Enabled = false;
             }
         }
     }

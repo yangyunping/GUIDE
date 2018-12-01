@@ -8,6 +8,7 @@ namespace DAL
     /// </summary>
     public class DalSreenSetting
     {
+        Server server = new Server();
         /// <summary>
         /// 删除
         /// </summary>
@@ -18,17 +19,28 @@ namespace DAL
             string sSql = $@"Delete from ScreenSetting where ID = '{id}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
-        Server server = new Server();
         /// <summary>
         /// 新增
         /// </summary>
         /// <param name="ledShowInfo"></param>
         /// <returns></returns>
-        public bool InsertScreenSetting(ScreeenSetting screeenSetting)
+        public bool InsertScreenSetting(ScreenSetting screeenSetting)
         {
-            string sSql = $@"Insert into ScreenSetting(ScreenID,AddressNum,CarName,ScreenWidth,ScreenHeight,IpAddress,ColorStyle) 
+            string sSql = $@"Insert into ScreenSetting(ScreenID,AddressNum,CarName,ScreenWidth,ScreenHeight,IpAddress,ColorStyle,FontSize) 
 values('{screeenSetting.ScreenID}','{screeenSetting.AddressNum}','{screeenSetting.CarName}','{screeenSetting.ScreenWidth}','{screeenSetting.ScreenHeight}',
-'{screeenSetting.IpAddress}','{screeenSetting.ColorStyle}')";
+'{screeenSetting.IpAddress}','{screeenSetting.ColorStyle}','{screeenSetting.FontSize}')";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="ledShowInfo"></param>
+        /// <returns></returns>
+        public bool UpdateScreenSetting(ScreenSetting screenSetting)
+        {
+            string sSql = $@"Update ScreenSetting  set ScreenID ='{screenSetting.ScreenID}' ,AddressNum ='{screenSetting.AddressNum}' ,
+CarName = '{screenSetting.CarName}',ScreenWidth= '{screenSetting.ScreenWidth}' ,ScreenHeight = '{screenSetting.ScreenHeight}'
+,IpAddress = '{screenSetting.IpAddress}',ColorStyle= '{screenSetting.ColorStyle}',FontSize = '{screenSetting.FontSize}' where ID = '{screenSetting.ID}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>

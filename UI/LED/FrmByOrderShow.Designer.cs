@@ -52,6 +52,7 @@
             this.txtTIme = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtGoupName = new System.Windows.Forms.TextBox();
+            this.chkDeleteProgram = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.GroupNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,12 +182,12 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(376, 415);
+            this.btnSave.Location = new System.Drawing.Point(376, 332);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 42);
             this.btnSave.TabIndex = 39;
-            this.btnSave.Text = "保 存";
+            this.btnSave.Text = "保存发送";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -204,25 +205,27 @@
             // 
             this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontColor.Location = new System.Drawing.Point(32, 417);
+            this.btnFontColor.Location = new System.Drawing.Point(38, 391);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnFontColor.Name = "btnFontColor";
             this.btnFontColor.Size = new System.Drawing.Size(75, 40);
             this.btnFontColor.TabIndex = 56;
             this.btnFontColor.Text = "字体颜色";
             this.btnFontColor.UseVisualStyleBackColor = true;
+            this.btnFontColor.Visible = false;
             this.btnFontColor.Click += new System.EventHandler(this.btnFontColor_Click);
             // 
             // btnFontSetting
             // 
             this.btnFontSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontSetting.Location = new System.Drawing.Point(149, 418);
+            this.btnFontSetting.Location = new System.Drawing.Point(117, 391);
             this.btnFontSetting.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnFontSetting.Name = "btnFontSetting";
             this.btnFontSetting.Size = new System.Drawing.Size(75, 40);
             this.btnFontSetting.TabIndex = 55;
             this.btnFontSetting.Text = "字体设置";
             this.btnFontSetting.UseVisualStyleBackColor = true;
+            this.btnFontSetting.Visible = false;
             this.btnFontSetting.Click += new System.EventHandler(this.btnFontSetting_Click);
             // 
             // chkFontBold
@@ -231,7 +234,7 @@
             this.chkFontBold.Checked = true;
             this.chkFontBold.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkFontBold.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.chkFontBold.Location = new System.Drawing.Point(277, 342);
+            this.chkFontBold.Location = new System.Drawing.Point(186, 342);
             this.chkFontBold.Name = "chkFontBold";
             this.chkFontBold.Size = new System.Drawing.Size(80, 23);
             this.chkFontBold.TabIndex = 57;
@@ -276,9 +279,9 @@
             // txtTIme
             // 
             this.txtTIme.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTIme.Location = new System.Drawing.Point(101, 340);
+            this.txtTIme.Location = new System.Drawing.Point(99, 340);
             this.txtTIme.Name = "txtTIme";
-            this.txtTIme.Size = new System.Drawing.Size(123, 26);
+            this.txtTIme.Size = new System.Drawing.Size(81, 26);
             this.txtTIme.TabIndex = 67;
             // 
             // label9
@@ -299,11 +302,23 @@
             this.txtGoupName.Size = new System.Drawing.Size(125, 26);
             this.txtGoupName.TabIndex = 70;
             // 
+            // chkDeleteProgram
+            // 
+            this.chkDeleteProgram.AutoSize = true;
+            this.chkDeleteProgram.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.chkDeleteProgram.Location = new System.Drawing.Point(272, 342);
+            this.chkDeleteProgram.Name = "chkDeleteProgram";
+            this.chkDeleteProgram.Size = new System.Drawing.Size(93, 23);
+            this.chkDeleteProgram.TabIndex = 71;
+            this.chkDeleteProgram.Text = "清除已显示";
+            this.chkDeleteProgram.UseVisualStyleBackColor = true;
+            // 
             // FrmByOrderShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 474);
+            this.ClientSize = new System.Drawing.Size(496, 389);
+            this.Controls.Add(this.chkDeleteProgram);
             this.Controls.Add(this.txtGoupName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -360,5 +375,6 @@
         private System.Windows.Forms.TextBox txtTIme;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtGoupName;
+        private System.Windows.Forms.CheckBox chkDeleteProgram;
     }
 }

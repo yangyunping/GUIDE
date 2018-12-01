@@ -88,7 +88,6 @@ namespace UI
             tsmScreenSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.LED参数配置);
             tsmByOrderSet.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.排序设置);
             tsmResetOrderShow.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.重置预显示);
-            tsmTempletShow.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.模板LED显示);
             tsmTepletSet.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.模板设置);
             tsmDefinedShow.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.自定义LED显示);
             tsbConfig.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置信息);
@@ -172,20 +171,24 @@ namespace UI
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.FormClosing += (senders, ex) =>
+            try
             {
-                GC.Collect();
-                Application.Exit();
-            };
-            StringBuilder selectOrder = new StringBuilder(255);
-            PublicClass.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
-                _configPath);
-            if (string.IsNullOrEmpty(selectOrder.ToString()))
-            {
-                skinEngine1.Active = false;
-                return;
+                FormClosing += (senders, ex) =>
+                {
+                    GC.Collect();
+                    Application.Exit();
+                };
+                StringBuilder selectOrder = new StringBuilder(255);
+                PublicClass.GetPrivateProfileString("SkinPath", "SkinPathValue", " ", selectOrder, 255,
+                    _configPath);
+                if (string.IsNullOrEmpty(selectOrder.ToString()))
+                {
+                    skinEngine1.Active = false;
+                    return;
+                }
+                skinEngine1.SkinFile = selectOrder.ToString();
             }
-            skinEngine1.SkinFile = selectOrder.ToString();
+            catch { }
         }
         /// <summary>
         /// 皮肤应用
@@ -348,7 +351,10 @@ namespace UI
                 for (int i = 0; i < dtShow.Rows.Count; i++)
                 {
                     int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
-                    //LEDShow.DeleteProgram(addressNum);//删除现有显示
+                    if (Convert.ToInt32(dtShow.Rows[i]["DeleteUpProgram"]) == 1)
+                    {
+                        LEDShow.DeleteProgram(addressNum);//删除指定控制卡所有节目
+                    }
                     int programInx = LEDShow.AddProgram(addressNum, Convert.ToInt32(dtShow.Rows[i]["Duration"]));//添加节目
                     if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
                     {
@@ -375,10 +381,10 @@ namespace UI
                 DataTable dtOutShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2  and  EndTime < CONVERT (CHAR(10), GETDATE(), 108)");
                 for (int i = 0; i < dtOutShow.Rows.Count; i++)
                 {
-                    int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                    int addressNum = Convert.ToInt32(dtOutShow.Rows[i]["AddressNum"]);
                     LEDShow.DeleteProgram(addressNum);//删除现有显示
                     LEDShow.User_CloseScreen(addressNum);//关屏
-                    ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]), 0);//更新状态
+                    ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtOutShow.Rows[i]["ID"]), 0);//更新状态
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }

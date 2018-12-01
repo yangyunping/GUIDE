@@ -14,7 +14,7 @@ namespace UI.LED
 {
     public partial class FrmByOrderShow : Form
     {
-        private int fontSize = 24;//字体大小
+        //private int fontSize = 24;//字体大小
         private string fontName = "宋体";//字体名称
         private string fontColor = "Red";//字体颜色
         BllAreaInfo bllAreaInfo = new BllAreaInfo();//区域
@@ -36,7 +36,7 @@ namespace UI.LED
         {
             if (fontDialogled.ShowDialog() == DialogResult.OK)
             {
-                fontSize = Convert.ToInt32(fontDialogled.Font.Size);
+                //fontSize = Convert.ToInt32(fontDialogled.Font.Size);
                 fontName = fontDialogled.Font.Name;
             }
         }
@@ -54,19 +54,17 @@ namespace UI.LED
             try
             {
                 if (!string.IsNullOrEmpty(cmbAreaId.Text) && GroupNum.Value > 0 && !string.IsNullOrEmpty(cmbByOrder.Text) && 
-                    !string.IsNullOrEmpty(cmbScreens.Text) && !string.IsNullOrEmpty(txtGoupName.Text))
+                    !string.IsNullOrEmpty(cmbScreens.Text) && !string.IsNullOrEmpty(txtGoupName.Text) && !string.IsNullOrEmpty(txtTIme.Text))
                 {
                     if (GroupNum.Value > cmbScreens.Items.Count)
                     {
                         MessageBox.Show("超出屏幕总数!");
                         return;
                     }
-                    if (dtpEnd.Value.Minute - dtpBegin.Value.Minute < 1)//显示时长提示
+                    if (dtpEnd.Value.Hour <= dtpBegin.Value.Hour && dtpEnd.Value.Minute - dtpBegin.Value.Minute < 1)//显示时长提示
                     {
-                        if (MessageBox.Show("设置的显示时间少于1分钟，是否需要重新设置！", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                        {
-                            return;
-                        }
+                        MessageBox.Show("设置的显示时间少于1分钟,请重新设置！");
+                        return;
                     }
                     if (cmbByOrder.Text.Equals("正序"))
                     {
@@ -87,12 +85,13 @@ namespace UI.LED
                                 lEDShowInfo.EndTime = dtpEnd.Value;
                                 lEDShowInfo.FontColor = fontColor;
                                 lEDShowInfo.FontName = fontName;
-                                lEDShowInfo.FontSize = fontSize;
+                                //lEDShowInfo.FontSize = fontSize;
                                 lEDShowInfo.ShowStyle = 1;
                                 lEDShowInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1;
                                 lEDShowInfo.FontBold = chkFontBold.Checked;
                                 lEDShowInfo.Duration = Convert.ToInt32(txtTIme.Text);
                                 lEDShowInfo.GroupName = txtGoupName.Text.Trim();
+                                lEDShowInfo.DeleteUpProgram = chkDeleteProgram.Checked;
                                 ledShowInfo.InsertLedShowInfo(lEDShowInfo);
                             }
                         }
@@ -111,20 +110,27 @@ namespace UI.LED
                                 LEDShowInfo lEDShowInfo = new LEDShowInfo();
                                 lEDShowInfo.ScreenId = ledInfo.Keys.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i];
                                 lEDShowInfo.AddressNum = Convert.ToInt32(ledInfo.Values.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i]);
-                                lEDShowInfo.Content = i.ToString();
+                                lEDShowInfo.Content =(i + 1).ToString()+ "←" + i.ToString()+ "→" + (i - 1).ToString();
                                 lEDShowInfo.BeginTime = dtpBegin.Value;
                                 lEDShowInfo.EndTime = dtpEnd.Value;
                                 lEDShowInfo.FontColor = fontColor;
                                 lEDShowInfo.FontName = fontName;
-                                lEDShowInfo.FontSize = fontSize;
+                                //lEDShowInfo.FontSize = fontSize;
                                 lEDShowInfo.ShowStyle = 1;
                                 lEDShowInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0;
                                 lEDShowInfo.FontBold = chkFontBold.Checked;
+                                lEDShowInfo.Duration = Convert.ToInt32(txtTIme.Text);
+                                lEDShowInfo.GroupName = txtGoupName.Text.Trim();
+                                lEDShowInfo.DeleteUpProgram = chkDeleteProgram.Checked;
                                 ledShowInfo.InsertLedShowInfo(lEDShowInfo);
                             }
                         }
                     }
                     MessageBox.Show("保存成功！");
+                }
+                else
+                {
+                    MessageBox.Show("请继续完善信息！");
                 }
             }
             catch (Exception ex)

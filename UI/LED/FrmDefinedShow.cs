@@ -17,7 +17,7 @@ namespace UI
     public partial class FrmDefinedShow : Form
     {
         private int programInx = 0;//节目数量
-        private int fontSize = 24;//字体大小
+        private int fontSize;//字体大小
         private int fontColor = 0x00FF;//字体颜色
         private string fontName = "宋体";//字体名称
         BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
@@ -243,7 +243,7 @@ namespace UI
 
         private void btndefault_Click(object sender, EventArgs e)
         {
-            fontSize = 24;
+            //fontSize = 24;
             fontColor = 0x00FF;
             fontName = "宋体";
         }
@@ -259,6 +259,7 @@ namespace UI
                         DataRow[] screenRow = dtScreen.Select($"AddressNum = {cmbLEDId.SelectedValue}");
                         sWidth = Convert.ToInt32(screenRow[0]["ScreenWidth"]);
                         sHeight = Convert.ToInt32(screenRow[0]["ScreenHeight"]);
+                        fontSize = Convert.ToInt32(screenRow[0]["FontSize"]);
                     }
                 }
             }

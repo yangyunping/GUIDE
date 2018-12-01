@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class ScreeenSetting
+    public class ScreenSetting
     {
         /// <summary>
         /// 序号
@@ -40,5 +40,9 @@ namespace MODEL
         /// 屏幕颜色类型
         /// </summary>
         public string ColorStyle { set; get; }
+        /// <summary>
+        /// 屏幕颜色类型
+        /// </summary>
+        public int FontSize { set; get; }
     }
 }

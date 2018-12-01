@@ -19,7 +19,8 @@ namespace UI.LED
         private void DgvColumns()
         {
             dgvTemShow.Columns.AddRange(
-            new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"序号", DataPropertyName = @"ID", Width = 60 },
+            new DataGridViewCheckBoxColumn { Name = @"勾选", DataPropertyName = @"勾选", HeaderText = @"",  Width = 60 },
+            new DataGridViewTextBoxColumn { Name = @"ID", DataPropertyName = @"ID", HeaderText = @"序号", Width = 60 },
             new DataGridViewTextBoxColumn { Name = @"ScreenId", DataPropertyName = @"ScreenId", HeaderText = @"屏幕编号",  Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"Tag", DataPropertyName = @"Tag", HeaderText = @"状态", Width = 80 },
             new DataGridViewTextBoxColumn { Name = @"AddressNum", DataPropertyName = @"AddressNum", HeaderText = @"控制卡地址码", Width = 140 },
@@ -29,8 +30,9 @@ namespace UI.LED
             new DataGridViewTextBoxColumn { Name = @"FontSize", DataPropertyName = @"FontSize", HeaderText = @"字体大小", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"FontColor", DataPropertyName = @"FontColor", HeaderText = @"字体颜色", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"ShowStyle", DataPropertyName = @"ShowStyle", HeaderText = @"播放方式", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"Content", DataPropertyName = @"Content", HeaderText = @"显示内容", Width = 500 },
-            new DataGridViewTextBoxColumn { Name = @"CreateDate", DataPropertyName = @"CreateDate", HeaderText = @"最新时间", Width = 500 }
+            new DataGridViewTextBoxColumn { Name = @"Content", DataPropertyName = @"Content", HeaderText = @"显示内容", Width = 200 },
+            new DataGridViewTextBoxColumn { Name = @"CreateDate", DataPropertyName = @"CreateDate", HeaderText = @"创建时间", Width = 120 },
+            new DataGridViewButtonColumn { Name = @"修改", DataPropertyName = @"修改", HeaderText = @"", Width = 100 }
              );
         }
         private void btnSearch_Click(object sender, EventArgs e)
@@ -42,11 +44,7 @@ namespace UI.LED
             {
                 sKey += $"%{txtKey.Text}%";
             }
-            if (cmbShowState.Text.Equals("全部"))
-            {
-                tag = "1','2";
-            }
-            else if (cmbShowState.Text.Equals("正在显示"))
+            if (cmbShowState.Text.Equals("正在显示"))
             {
                 tag = "2";
             }
@@ -57,6 +55,10 @@ namespace UI.LED
             dtShow = bllLedShowInfo.GetLayLEDShowInfos(tag, sKey);
             dgvTemShow.AutoGenerateColumns = false;
             dgvTemShow.DataSource = dtShow;
+            for (int i = 0; i < dgvTemShow.Rows.Count; i++)
+            {
+                dgvTemShow.Rows[i].Cells["勾选"].Value =0;
+            }
         }
 
         private void bntDelete_Click(object sender, EventArgs e)
@@ -77,13 +79,13 @@ namespace UI.LED
 
         private void dgvTemShow_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex !=-1 && dgvTemShow.Columns[e.ColumnIndex].Name == "FontColor")
+            if (e.RowIndex != -1 && dgvTemShow.Columns[e.ColumnIndex].Name == "FontColor")
             {
                 e.Value = PublicClass.ColorToText(dgvTemShow.Rows[e.RowIndex].Cells["FontColor"].Value.ToString());//颜色转换为汉语
             }
             else if (dgvTemShow.Columns[e.ColumnIndex].Name == "ShowStyle")
             {
-                e.Value =PublicClass.AplayToText(Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["ShowStyle"].Value));//播放方式转换汉语
+                e.Value = PublicClass.AplayToText(Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["ShowStyle"].Value));//播放方式转换汉语
             }
             else if (dgvTemShow.Columns[e.ColumnIndex].Name == "Tag")
             {
@@ -99,6 +101,10 @@ namespace UI.LED
                 {
                     e.Value = "正显示";
                 }
+            }
+            else if (dgvTemShow.Columns[e.ColumnIndex].Name == "修改")
+            {
+                e.Value = "修改";
             }
         }
     }

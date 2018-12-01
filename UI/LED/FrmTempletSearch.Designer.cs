@@ -126,7 +126,6 @@
             this.dgvTemShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTemShow.Size = new System.Drawing.Size(1010, 400);
             this.dgvTemShow.TabIndex = 1;
-            this.dgvTemShow.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTemShow_CellFormatting);
             // 
             // btnLEDShow
             // 

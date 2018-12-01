@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtContent = new System.Windows.Forms.TextBox();
             this.cmbLEDId = new System.Windows.Forms.ComboBox();
-            this.btnFontSetting = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbShowType = new System.Windows.Forms.ComboBox();
             this.btnFontColor = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.chkDate = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTIme = new System.Windows.Forms.TextBox();
+            this.btnFontSetting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,11 +68,11 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(107, 156);
+            this.txtContent.Location = new System.Drawing.Point(107, 169);
             this.txtContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(383, 111);
+            this.txtContent.Size = new System.Drawing.Size(308, 111);
             this.txtContent.TabIndex = 1;
             // 
             // cmbLEDId
@@ -86,22 +86,10 @@
             this.cmbLEDId.TabIndex = 2;
             this.cmbLEDId.SelectedIndexChanged += new System.EventHandler(this.cmbLEDId_SelectedIndexChanged);
             // 
-            // btnFontSetting
-            // 
-            this.btnFontSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontSetting.Location = new System.Drawing.Point(107, 292);
-            this.btnFontSetting.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnFontSetting.Name = "btnFontSetting";
-            this.btnFontSetting.Size = new System.Drawing.Size(70, 42);
-            this.btnFontSetting.TabIndex = 3;
-            this.btnFontSetting.Text = "字体设置";
-            this.btnFontSetting.UseVisualStyleBackColor = true;
-            this.btnFontSetting.Click += new System.EventHandler(this.btnFontSetting_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 35);
+            this.label2.Location = new System.Drawing.Point(293, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
@@ -112,7 +100,7 @@
             // 
             this.cmbShowType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShowType.FormattingEnabled = true;
-            this.cmbShowType.Location = new System.Drawing.Point(358, 31);
+            this.cmbShowType.Location = new System.Drawing.Point(368, 31);
             this.cmbShowType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbShowType.Name = "cmbShowType";
             this.cmbShowType.Size = new System.Drawing.Size(132, 28);
@@ -122,19 +110,20 @@
             // 
             this.btnFontColor.Enabled = false;
             this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontColor.Location = new System.Drawing.Point(207, 292);
+            this.btnFontColor.Location = new System.Drawing.Point(352, 94);
             this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnFontColor.Name = "btnFontColor";
             this.btnFontColor.Size = new System.Drawing.Size(71, 42);
             this.btnFontColor.TabIndex = 9;
             this.btnFontColor.Text = "字体颜色";
             this.btnFontColor.UseVisualStyleBackColor = true;
+            this.btnFontColor.Visible = false;
             this.btnFontColor.Click += new System.EventHandler(this.btnFontColor_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 156);
+            this.label5.Location = new System.Drawing.Point(38, 169);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
@@ -143,10 +132,10 @@
             // 
             // btnAddTxt
             // 
-            this.btnAddTxt.Location = new System.Drawing.Point(409, 292);
+            this.btnAddTxt.Location = new System.Drawing.Point(417, 238);
             this.btnAddTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTxt.Name = "btnAddTxt";
-            this.btnAddTxt.Size = new System.Drawing.Size(79, 42);
+            this.btnAddTxt.Size = new System.Drawing.Size(83, 42);
             this.btnAddTxt.TabIndex = 13;
             this.btnAddTxt.Text = "添加文本";
             this.btnAddTxt.UseVisualStyleBackColor = true;
@@ -154,10 +143,10 @@
             // 
             // btnAddTime
             // 
-            this.btnAddTime.Location = new System.Drawing.Point(409, 370);
+            this.btnAddTime.Location = new System.Drawing.Point(417, 313);
             this.btnAddTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTime.Name = "btnAddTime";
-            this.btnAddTime.Size = new System.Drawing.Size(79, 42);
+            this.btnAddTime.Size = new System.Drawing.Size(83, 42);
             this.btnAddTime.TabIndex = 14;
             this.btnAddTime.Text = "添加时间";
             this.btnAddTime.UseVisualStyleBackColor = true;
@@ -165,19 +154,19 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(411, 499);
+            this.btnSendData.Location = new System.Drawing.Point(413, 448);
             this.btnSendData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(79, 40);
             this.btnSendData.TabIndex = 15;
-            this.btnSendData.Text = "发送数据";
+            this.btnSendData.Text = "保存发送";
             this.btnSendData.UseVisualStyleBackColor = true;
             this.btnSendData.Click += new System.EventHandler(this.btnSendData_Click);
             // 
             // chkYear
             // 
             this.chkYear.AutoSize = true;
-            this.chkYear.Location = new System.Drawing.Point(109, 380);
+            this.chkYear.Location = new System.Drawing.Point(107, 323);
             this.chkYear.Name = "chkYear";
             this.chkYear.Size = new System.Drawing.Size(70, 24);
             this.chkYear.TabIndex = 16;
@@ -187,7 +176,7 @@
             // chkWeek
             // 
             this.chkWeek.AutoSize = true;
-            this.chkWeek.Location = new System.Drawing.Point(194, 380);
+            this.chkWeek.Location = new System.Drawing.Point(192, 323);
             this.chkWeek.Name = "chkWeek";
             this.chkWeek.Size = new System.Drawing.Size(56, 24);
             this.chkWeek.TabIndex = 17;
@@ -197,7 +186,7 @@
             // chkTime
             // 
             this.chkTime.AutoSize = true;
-            this.chkTime.Location = new System.Drawing.Point(267, 380);
+            this.chkTime.Location = new System.Drawing.Point(265, 323);
             this.chkTime.Name = "chkTime";
             this.chkTime.Size = new System.Drawing.Size(56, 24);
             this.chkTime.TabIndex = 18;
@@ -207,19 +196,20 @@
             // btndefault
             // 
             this.btndefault.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btndefault.Location = new System.Drawing.Point(308, 292);
+            this.btndefault.Location = new System.Drawing.Point(427, 94);
             this.btndefault.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btndefault.Name = "btndefault";
             this.btndefault.Size = new System.Drawing.Size(71, 42);
             this.btndefault.TabIndex = 23;
             this.btndefault.Text = "默认字体";
             this.btndefault.UseVisualStyleBackColor = true;
+            this.btndefault.Visible = false;
             this.btndefault.Click += new System.EventHandler(this.btndefault_Click);
             // 
             // chkDelete
             // 
             this.chkDelete.AutoSize = true;
-            this.chkDelete.Location = new System.Drawing.Point(107, 449);
+            this.chkDelete.Location = new System.Drawing.Point(107, 387);
             this.chkDelete.Name = "chkDelete";
             this.chkDelete.Size = new System.Drawing.Size(112, 24);
             this.chkDelete.TabIndex = 24;
@@ -231,7 +221,7 @@
             this.chkFoild.AutoSize = true;
             this.chkFoild.Checked = true;
             this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFoild.Location = new System.Drawing.Point(249, 449);
+            this.chkFoild.Location = new System.Drawing.Point(249, 387);
             this.chkFoild.Name = "chkFoild";
             this.chkFoild.Size = new System.Drawing.Size(84, 24);
             this.chkFoild.TabIndex = 25;
@@ -247,7 +237,7 @@
             "居中",
             "左对齐",
             "右对齐"});
-            this.cmbPosition.Location = new System.Drawing.Point(109, 94);
+            this.cmbPosition.Location = new System.Drawing.Point(107, 102);
             this.cmbPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(145, 28);
@@ -257,7 +247,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label3.Location = new System.Drawing.Point(42, 98);
+            this.label3.Location = new System.Drawing.Point(40, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 60;
@@ -267,7 +257,7 @@
             // 
             this.dtpEnd.Enabled = false;
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(297, 506);
+            this.dtpEnd.Location = new System.Drawing.Point(299, 455);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(98, 26);
             this.dtpEnd.TabIndex = 64;
@@ -276,7 +266,7 @@
             // 
             this.dtpBegin.Enabled = false;
             this.dtpBegin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpBegin.Location = new System.Drawing.Point(193, 506);
+            this.dtpBegin.Location = new System.Drawing.Point(195, 455);
             this.dtpBegin.Name = "dtpBegin";
             this.dtpBegin.Size = new System.Drawing.Size(98, 26);
             this.dtpBegin.TabIndex = 63;
@@ -284,13 +274,11 @@
             // chkDate
             // 
             this.chkDate.AutoSize = true;
-            this.chkDate.Checked = true;
-            this.chkDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDate.Location = new System.Drawing.Point(107, 507);
+            this.chkDate.Location = new System.Drawing.Point(109, 456);
             this.chkDate.Name = "chkDate";
             this.chkDate.Size = new System.Drawing.Size(84, 24);
             this.chkDate.TabIndex = 62;
-            this.chkDate.Text = "显示时间";
+            this.chkDate.Text = "显示定时";
             this.chkDate.UseVisualStyleBackColor = true;
             this.chkDate.CheckedChanged += new System.EventHandler(this.chkDate_CheckedChanged);
             // 
@@ -298,24 +286,36 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label4.Location = new System.Drawing.Point(354, 452);
+            this.label4.Location = new System.Drawing.Point(354, 390);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 68;
-            this.label4.Text = "循环时间";
+            this.label4.Text = "循环时长";
             // 
             // txtTIme
             // 
-            this.txtTIme.Location = new System.Drawing.Point(421, 448);
+            this.txtTIme.Location = new System.Drawing.Point(421, 386);
             this.txtTIme.Name = "txtTIme";
             this.txtTIme.Size = new System.Drawing.Size(67, 26);
             this.txtTIme.TabIndex = 67;
+            // 
+            // btnFontSetting
+            // 
+            this.btnFontSetting.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnFontSetting.Location = new System.Drawing.Point(276, 94);
+            this.btnFontSetting.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnFontSetting.Name = "btnFontSetting";
+            this.btnFontSetting.Size = new System.Drawing.Size(70, 42);
+            this.btnFontSetting.TabIndex = 3;
+            this.btnFontSetting.Text = "字体设置";
+            this.btnFontSetting.UseVisualStyleBackColor = true;
+            this.btnFontSetting.Click += new System.EventHandler(this.btnFontSetting_Click);
             // 
             // FrmDefinedShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 555);
+            this.ClientSize = new System.Drawing.Size(532, 510);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTIme);
             this.Controls.Add(this.dtpEnd);
@@ -355,7 +355,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.ComboBox cmbLEDId;
-        private System.Windows.Forms.Button btnFontSetting;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbShowType;
         private System.Windows.Forms.Button btnFontColor;
@@ -378,5 +377,6 @@
         private System.Windows.Forms.CheckBox chkDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTIme;
+        private System.Windows.Forms.Button btnFontSetting;
     }
 }

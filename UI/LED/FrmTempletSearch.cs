@@ -21,10 +21,6 @@ namespace UI
         {
             dgvTemShow.Columns.AddRange(
             new DataGridViewTextBoxColumn { Name = @"ID", HeaderText = @"编号", DataPropertyName = @"ID", Width = 60 },
-            new DataGridViewTextBoxColumn { Name = @"FontName", HeaderText = @"字体名称", DataPropertyName = @"FontName", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"FontSize", HeaderText = @"字体大小", DataPropertyName = @"FontSize", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"FontColor", HeaderText = @"字体颜色", DataPropertyName = @"FontColor", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"ShowStyle", HeaderText = @"播放方式", DataPropertyName = @"ShowStyle", Width = 120 },
             new DataGridViewTextBoxColumn { Name = @"ShowContent", HeaderText = @"播放内容", DataPropertyName = @"ShowContent", Width = 500 }
              );
         }
@@ -42,10 +38,6 @@ namespace UI
             {
                 TempletShow templetShow = new TempletShow();
                 templetShow.ID = Convert.ToInt32(dgvTemShow.CurrentRow.Cells["ID"].Value);
-                templetShow.FontName = dgvTemShow.CurrentRow.Cells["FontName"].Value.ToString();
-                templetShow.FontSize = Convert.ToInt32(dgvTemShow.CurrentRow.Cells["FontSize"].Value);
-                templetShow.FontColor = dgvTemShow.CurrentRow.Cells["FontColor"].Value.ToString();
-                templetShow.ShowStyle = Convert.ToInt32(dgvTemShow.CurrentRow.Cells["ShowStyle"].Value);
                 templetShow.ShowContent = dgvTemShow.CurrentRow.Cells["ShowContent"].Value.ToString();
                 FrmTempletLED frmTempletLED = new FrmTempletLED(templetShow);
                 frmTempletLED.ShowDialog();
@@ -65,18 +57,6 @@ namespace UI
                 {
                     MessageBox.Show("删除失败！");
                 }
-            }
-        }
-
-        private void dgvTemShow_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex != -1 && dgvTemShow.Columns[e.ColumnIndex].Name == "FontColor")
-            {
-                e.Value = PublicClass.ColorToText(dgvTemShow.Rows[e.RowIndex].Cells["FontColor"].Value.ToString());
-            }
-            else if (dgvTemShow.Columns[e.ColumnIndex].Name == "ShowStyle")
-            {
-                e.Value = PublicClass.AplayToText(Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["ShowStyle"].Value));
             }
         }
 
