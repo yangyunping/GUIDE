@@ -21,7 +21,7 @@ namespace UI.LED
         private int allFontSize = 0;//字体大小
         private string fontName = "宋体";//字体名称
         private string fontColor = "Red";//字体颜色
-        private int showType = 0;
+        private int showType = 0;//播放方式
         Dictionary<int, string> screenInfo = new Dictionary<int, string>();//勾选的屏幕信息  地址码  屏幕编号
         public FrmTempletSendLED()
         {

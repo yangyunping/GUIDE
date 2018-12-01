@@ -239,7 +239,7 @@ namespace MODEL
         /// <param name="fontSize">字体大小</param>
         /// <param name="fontColor">字体颜色</param>
         /// <returns></returns>
-        public static bool AddDateTime(int cardNum, int g_iProgramIndex,bool date, bool week, bool time, string fontName, int fontSize, int fontColor)
+        public static bool AddDateTime(int cardNum, int g_iProgramIndex, bool date, bool week, bool time, string fontName, int fontSize, int fontColor, bool bMulOrSingleLine)
         {
             User_DateTime DateTime = new User_DateTime();
             DateTime.bDay = date;
@@ -247,7 +247,7 @@ namespace MODEL
             DateTime.BkColor = 0;
             DateTime.bMin = time;
             DateTime.bMouth = date;
-            DateTime.bMulOrSingleLine = false;//单行 多行
+            DateTime.bMulOrSingleLine = bMulOrSingleLine;//单行 多行
             DateTime.bSec = time;
             DateTime.bWeek = week;
             DateTime.bYear = date;

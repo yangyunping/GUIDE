@@ -260,7 +260,7 @@
             // 
             this.pnlScreenIds.Controls.Add(this.btnlstClose);
             this.pnlScreenIds.Controls.Add(this.lstScreenIds);
-            this.pnlScreenIds.Location = new System.Drawing.Point(91, 3);
+            this.pnlScreenIds.Location = new System.Drawing.Point(106, 1);
             this.pnlScreenIds.Name = "pnlScreenIds";
             this.pnlScreenIds.Size = new System.Drawing.Size(218, 372);
             this.pnlScreenIds.TabIndex = 74;

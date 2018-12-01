@@ -48,12 +48,10 @@
             this.chkFoild = new System.Windows.Forms.CheckBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.dtpBegin = new System.Windows.Forms.DateTimePicker();
-            this.chkDate = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTIme = new System.Windows.Forms.TextBox();
             this.btnFontSetting = new System.Windows.Forms.Button();
+            this.chkLines = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +70,7 @@
             this.txtContent.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(308, 111);
+            this.txtContent.Size = new System.Drawing.Size(391, 63);
             this.txtContent.TabIndex = 1;
             // 
             // cmbLEDId
@@ -132,10 +130,10 @@
             // 
             // btnAddTxt
             // 
-            this.btnAddTxt.Location = new System.Drawing.Point(417, 238);
+            this.btnAddTxt.Location = new System.Drawing.Point(404, 253);
             this.btnAddTxt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTxt.Name = "btnAddTxt";
-            this.btnAddTxt.Size = new System.Drawing.Size(83, 42);
+            this.btnAddTxt.Size = new System.Drawing.Size(96, 42);
             this.btnAddTxt.TabIndex = 13;
             this.btnAddTxt.Text = "添加文本";
             this.btnAddTxt.UseVisualStyleBackColor = true;
@@ -143,10 +141,10 @@
             // 
             // btnAddTime
             // 
-            this.btnAddTime.Location = new System.Drawing.Point(417, 313);
+            this.btnAddTime.Location = new System.Drawing.Point(404, 314);
             this.btnAddTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddTime.Name = "btnAddTime";
-            this.btnAddTime.Size = new System.Drawing.Size(83, 42);
+            this.btnAddTime.Size = new System.Drawing.Size(96, 42);
             this.btnAddTime.TabIndex = 14;
             this.btnAddTime.Text = "添加时间";
             this.btnAddTime.UseVisualStyleBackColor = true;
@@ -154,12 +152,12 @@
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(413, 448);
+            this.btnSendData.Location = new System.Drawing.Point(402, 382);
             this.btnSendData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSendData.Name = "btnSendData";
-            this.btnSendData.Size = new System.Drawing.Size(79, 40);
+            this.btnSendData.Size = new System.Drawing.Size(96, 40);
             this.btnSendData.TabIndex = 15;
-            this.btnSendData.Text = "保存发送";
+            this.btnSendData.Text = "发送显示";
             this.btnSendData.UseVisualStyleBackColor = true;
             this.btnSendData.Click += new System.EventHandler(this.btnSendData_Click);
             // 
@@ -209,7 +207,7 @@
             // chkDelete
             // 
             this.chkDelete.AutoSize = true;
-            this.chkDelete.Location = new System.Drawing.Point(107, 387);
+            this.chkDelete.Location = new System.Drawing.Point(107, 262);
             this.chkDelete.Name = "chkDelete";
             this.chkDelete.Size = new System.Drawing.Size(112, 24);
             this.chkDelete.TabIndex = 24;
@@ -221,7 +219,7 @@
             this.chkFoild.AutoSize = true;
             this.chkFoild.Checked = true;
             this.chkFoild.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFoild.Location = new System.Drawing.Point(249, 387);
+            this.chkFoild.Location = new System.Drawing.Point(107, 390);
             this.chkFoild.Name = "chkFoild";
             this.chkFoild.Size = new System.Drawing.Size(84, 24);
             this.chkFoild.TabIndex = 25;
@@ -234,6 +232,7 @@
             this.cmbPosition.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbPosition.FormattingEnabled = true;
             this.cmbPosition.Items.AddRange(new object[] {
+            "",
             "居中",
             "左对齐",
             "右对齐"});
@@ -253,40 +252,11 @@
             this.label3.TabIndex = 60;
             this.label3.Text = "显示位置";
             // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Enabled = false;
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(299, 455);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(98, 26);
-            this.dtpEnd.TabIndex = 64;
-            // 
-            // dtpBegin
-            // 
-            this.dtpBegin.Enabled = false;
-            this.dtpBegin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpBegin.Location = new System.Drawing.Point(195, 455);
-            this.dtpBegin.Name = "dtpBegin";
-            this.dtpBegin.Size = new System.Drawing.Size(98, 26);
-            this.dtpBegin.TabIndex = 63;
-            // 
-            // chkDate
-            // 
-            this.chkDate.AutoSize = true;
-            this.chkDate.Location = new System.Drawing.Point(109, 456);
-            this.chkDate.Name = "chkDate";
-            this.chkDate.Size = new System.Drawing.Size(84, 24);
-            this.chkDate.TabIndex = 62;
-            this.chkDate.Text = "显示定时";
-            this.chkDate.UseVisualStyleBackColor = true;
-            this.chkDate.CheckedChanged += new System.EventHandler(this.chkDate_CheckedChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.label4.Location = new System.Drawing.Point(354, 390);
+            this.label4.Location = new System.Drawing.Point(237, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 19);
             this.label4.TabIndex = 68;
@@ -294,7 +264,7 @@
             // 
             // txtTIme
             // 
-            this.txtTIme.Location = new System.Drawing.Point(421, 386);
+            this.txtTIme.Location = new System.Drawing.Point(304, 261);
             this.txtTIme.Name = "txtTIme";
             this.txtTIme.Size = new System.Drawing.Size(67, 26);
             this.txtTIme.TabIndex = 67;
@@ -311,16 +281,24 @@
             this.btnFontSetting.UseVisualStyleBackColor = true;
             this.btnFontSetting.Click += new System.EventHandler(this.btnFontSetting_Click);
             // 
+            // chkLines
+            // 
+            this.chkLines.AutoSize = true;
+            this.chkLines.Location = new System.Drawing.Point(327, 323);
+            this.chkLines.Name = "chkLines";
+            this.chkLines.Size = new System.Drawing.Size(56, 24);
+            this.chkLines.TabIndex = 69;
+            this.chkLines.Text = "多行";
+            this.chkLines.UseVisualStyleBackColor = true;
+            // 
             // FrmDefinedShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 510);
+            this.ClientSize = new System.Drawing.Size(525, 441);
+            this.Controls.Add(this.chkLines);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTIme);
-            this.Controls.Add(this.dtpEnd);
-            this.Controls.Add(this.dtpBegin);
-            this.Controls.Add(this.chkDate);
             this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chkFoild);
@@ -372,11 +350,9 @@
         private System.Windows.Forms.CheckBox chkFoild;
         private System.Windows.Forms.ComboBox cmbPosition;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpEnd;
-        private System.Windows.Forms.DateTimePicker dtpBegin;
-        private System.Windows.Forms.CheckBox chkDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTIme;
         private System.Windows.Forms.Button btnFontSetting;
+        private System.Windows.Forms.CheckBox chkLines;
     }
 }

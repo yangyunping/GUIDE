@@ -55,12 +55,10 @@ namespace UI
             cmbLEDId.DisplayMember = "ScreenID";
             cmbLEDId.DataSource = dtScreen;
             cmbLEDId.SelectedIndex = 0;
-
-            cmbPosition.SelectedIndex = 0;
         }
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
-            if (fontDialogLed.ShowDialog()== DialogResult.OK)
+            if (fontDialogLed.ShowDialog() == DialogResult.OK)
             {
                 //设置字体类型和大小
                 fontName = fontDialogLed.Font.Name;
@@ -94,19 +92,17 @@ namespace UI
                 }
                 if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))//打开显示屏
                 {
-                    //添加节目
-                    AddProgram();
-                    //添加文本
-                    int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0; //左对齐 1居中 2右对齐
-                    if (LEDShow.AddSingleText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text, programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, fontColor, chkFoild.Checked, postion))
+                    AddProgram(); //添加节目
+                    int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1; //左对齐 1居中 2右对齐  -1不选
+                    if (string.IsNullOrEmpty(cmbPosition.Text)) //单行文本不存在位置显示 （左对齐 1居中 2右对齐）
                     {
-                        MessageBox.Show("添加文本成功！");
+                        LEDShow.AddSingleText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text.Trim(), programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, 0x00FF, chkFoild.Checked, postion);
                     }
-                    else
+                    else //区域显示
                     {
-                        MessageBox.Show("添加文本失败！");
-                        return;
+                        LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text.Trim(), programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, 0x00FF, chkFoild.Checked, postion);
                     }
+                    MessageBox.Show("添加成功!");
                 }
                 else
                 {
@@ -132,7 +128,7 @@ namespace UI
                     //添加节目
                     AddProgram();
                     //添加时间
-                    if (LEDShow.AddDateTime(Convert.ToInt32(cmbLEDId.SelectedValue), programInx, chkYear.Checked, chkWeek.Checked, chkTime.Checked, fontName, fontSize, fontColor))
+                    if (LEDShow.AddDateTime(Convert.ToInt32(cmbLEDId.SelectedValue), programInx, chkYear.Checked, chkWeek.Checked, chkTime.Checked, fontName, fontSize, fontColor,chkLines.Checked))
                     {
                         MessageBox.Show("添加时间成功！");
                     }
@@ -154,91 +150,31 @@ namespace UI
         /// <param name="e"></param>
         private void btnSendData_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTIme.Text) || string.IsNullOrEmpty(txtContent.Text))
-            {
-                MessageBox.Show("请完善设置信息!");
-                return;
-            }
-            if (dtpEnd.Value.Minute-dtpBegin.Value.Minute < 1 && chkDate.Checked)
-            {
-                if (MessageBox.Show("设置的显示时间少于1分钟，是否需要重新设置！","提示", MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    return;
-                }
-            }
             try
             {
-                if (chkDate.Checked) //保存发送记录表定时发送
+                if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
                 {
-                    LEDShowInfo ShowInfo = new LEDShowInfo();
-                    ShowInfo.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
-                    ShowInfo.ScreenId = cmbLEDId.Text;
-                    ShowInfo.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
-                    ShowInfo.BeginTime = dtpBegin.Value;
-                    ShowInfo.EndTime = dtpEnd.Value;
-                    ShowInfo.FontName = fontName;
-                    ShowInfo.FontSize = fontSize;
-                    ShowInfo.FontColor = colorDialogLed.Color.Name;
-                    ShowInfo.Content = txtContent.Text.Trim();
-                    ShowInfo.Tag = 1;
-                    ShowInfo.Duration = Convert.ToInt32(txtTIme.Text);
-                    ShowInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 0;
-                    ShowInfo.FontBold = chkFoild.Checked;
-                    if (ledShowInfo.InsertLedShowInfo(ShowInfo))
-                    {
-                        MessageBox.Show("保存成功！");
-                    }
-                    else
-                    {
-                        MessageBox.Show("保存失败！");
-                    }
+                    MessageBox.Show("发送成功！");
                 }
-                else //实时发送，不定时
+                else
                 {
-                    if (chkDelete.Checked)
-                    {
-                        LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));//删除指定控制卡所有节目
-                    }
-                    int programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), Convert.ToInt32(txtTIme.Text));
-                    if (LEDShow.LedOpen(Convert.ToInt32(cmbLEDId.SelectedValue)))
-                    {
-                        int postion = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1; //左对齐 1居中 2右对齐  -1不选
-                        if (string.IsNullOrEmpty(cmbPosition.Text)) //单行文本不存在位置显示 （左对齐 1居中 2右对齐）
-                        {
-                            LEDShow.AddSingleText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text.Trim(), programInx,Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, 0x00FF, chkFoild.Checked, postion);
-                        }
-                        else //区域显示
-                        {
-                            LEDShow.AddText(Convert.ToInt32(cmbLEDId.SelectedValue), sWidth, sHeight, txtContent.Text.Trim(), programInx, Convert.ToInt32(cmbShowType.SelectedValue), fontName, fontSize, 0x00FF, chkFoild.Checked, postion);
-                        }
-                        if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
-                        {
-                            MessageBox.Show("发送成功！");
-                        }
-                        else
-                        {
-                            MessageBox.Show("发送失败！");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("屏幕连接失败！");
-                        return;
-                    }
+                    MessageBox.Show("发送失败！");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            catch { }
         }
         private void AddProgram()
         {
+            if (string.IsNullOrEmpty(txtTIme.Text))
+            {
+                MessageBox.Show("输入循环时长!");
+                return;
+            }
             if (chkDelete.Checked)
             {
                 LEDShow.DeleteProgram(Convert.ToInt32(cmbLEDId.SelectedValue));//删除指定控制卡所有节目
             }
-            programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), Convert.ToInt32(ConfigurationManager.AppSettings["KeepTime"]));
+            programInx = LEDShow.AddProgram(Convert.ToInt32(cmbLEDId.SelectedValue), Convert.ToInt32(txtTIme.Text));
         }
 
         private void btndefault_Click(object sender, EventArgs e)
@@ -264,11 +200,6 @@ namespace UI
                 }
             }
             catch (Exception) { }
-        }
-
-        private void chkDate_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpBegin.Enabled = dtpEnd.Enabled = chkDate.Checked;
         }
     }
 }
