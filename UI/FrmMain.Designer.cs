@@ -40,7 +40,6 @@
             this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmByOrderSet = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmResetOrderShow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmTepletSet = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTempletSearch = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +141,7 @@
             // 
             this.tsmLEDSetingSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmLEDSetingSearch.Name = "tsmLEDSetingSearch";
-            this.tsmLEDSetingSearch.Size = new System.Drawing.Size(180, 24);
+            this.tsmLEDSetingSearch.Size = new System.Drawing.Size(156, 24);
             this.tsmLEDSetingSearch.Text = "LED参数查询";
             this.tsmLEDSetingSearch.Click += new System.EventHandler(this.tsmLEDSetingSearch_Click);
             // 
@@ -165,8 +164,7 @@
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmByOrderSet,
-            this.tsmResetOrderShow});
+            this.tsmByOrderSet});
             this.toolStripDropDownButton2.Image = global::UI.Properties.Resources.clock_alt;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -177,17 +175,9 @@
             // 
             this.tsmByOrderSet.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmByOrderSet.Name = "tsmByOrderSet";
-            this.tsmByOrderSet.Size = new System.Drawing.Size(143, 24);
+            this.tsmByOrderSet.Size = new System.Drawing.Size(180, 24);
             this.tsmByOrderSet.Text = "排序设置";
             this.tsmByOrderSet.Click += new System.EventHandler(this.排序设置ToolStripMenuItem_Click);
-            // 
-            // tsmResetOrderShow
-            // 
-            this.tsmResetOrderShow.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.tsmResetOrderShow.Name = "tsmResetOrderShow";
-            this.tsmResetOrderShow.Size = new System.Drawing.Size(143, 24);
-            this.tsmResetOrderShow.Text = "重置预显示";
-            this.tsmResetOrderShow.Click += new System.EventHandler(this.tsmResetOrderShow_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -441,7 +431,6 @@
         private System.Windows.Forms.ToolStripButton tsmReadyShow;
         private System.Windows.Forms.ToolStripMenuItem tsmScreenSetting;
         private System.Windows.Forms.Timer ShowTimer;
-        private System.Windows.Forms.ToolStripMenuItem tsmResetOrderShow;
         private System.Windows.Forms.ToolStripMenuItem tsmLEDSetingSearch;
         private System.Windows.Forms.TabControl tbMainShow;
         private System.Windows.Forms.ToolStripButton tsmPreShow;

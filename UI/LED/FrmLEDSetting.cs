@@ -77,7 +77,7 @@ namespace UI
                 screenSetting.ColorStyle = cmbColor.Text;
                 screenSetting.IpAddress = IpAddress0.Text + "." + IpAddress1.Text + "." + IpAddress2.Text + "." + IpAddress3.Text;
                 screenSetting.FontSize = Convert.ToInt32(txtFontSize.Text);
-                if (id == -1)//判断是修改还是新增
+                if (id == -1)//判断是  其他为修改   新增-1
                 {
                     bllScreeenSetting.InsertScreenSetting(screenSetting);
                 }
@@ -129,7 +129,7 @@ namespace UI
 
         private void txtLEDid_MouseLeave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtLEDid.Text.Trim()))
+            if (!string.IsNullOrEmpty(txtLEDid.Text.Trim()) && id==-1)
             {
                 BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
                 DataTable dtScreen = bllScreeenSetting.GetScreenSetting($" and ScreenID= '{txtLEDid.Text.Trim()}'");
