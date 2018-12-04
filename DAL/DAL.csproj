@@ -49,7 +49,7 @@
     <Compile Include="DalConfiguration.cs" />
     <Compile Include="DalEmployee.cs" />
     <Compile Include="DalLedShowInfo.cs" />
-    <Compile Include="DalScreen.cs" />
+    <Compile Include="DalScreenToArea.cs" />
     <Compile Include="DalShowInfo.cs" />
     <Compile Include="DalEmpPowers.cs" />
     <Compile Include="DalSreenSetting.cs" />

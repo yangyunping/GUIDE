@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DalScreen
+    public class DalScreenToArea
     {
         Server server = new Server();
         /// <summary>
@@ -18,11 +18,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable GetScreenInfo(string key)
         {
-            string sSql = $@"Select * from View_Sreens where 1=1";
-            if (!string.IsNullOrEmpty(key))
-            {
-                sSql += $@"  and  AreaId ='{key}' order by OrderNum";
-            }
+            string sSql = $@"Select * from View_SreensToArea where 1=1 {key} order by OrderNum";
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>

@@ -59,6 +59,7 @@
             this.ShowTimer = new System.Windows.Forms.Timer(this.components);
             this.tbMainShow = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.lblEmpInfo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
@@ -84,7 +85,7 @@
             this.tsbConfig});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1062, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1050, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -141,8 +142,8 @@
             // 
             this.tsmLEDSetingSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmLEDSetingSearch.Name = "tsmLEDSetingSearch";
-            this.tsmLEDSetingSearch.Size = new System.Drawing.Size(156, 24);
-            this.tsmLEDSetingSearch.Text = "LED查询";
+            this.tsmLEDSetingSearch.Size = new System.Drawing.Size(180, 24);
+            this.tsmLEDSetingSearch.Text = "LED参数查询";
             this.tsmLEDSetingSearch.Click += new System.EventHandler(this.tsmLEDSetingSearch_Click);
             // 
             // 皮肤更换ToolStripMenuItem
@@ -203,7 +204,7 @@
             // 
             this.tsmTepletSet.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmTepletSet.Name = "tsmTepletSet";
-            this.tsmTepletSet.Size = new System.Drawing.Size(180, 24);
+            this.tsmTepletSet.Size = new System.Drawing.Size(130, 24);
             this.tsmTepletSet.Text = "模板设置";
             this.tsmTepletSet.Click += new System.EventHandler(this.模板设置ToolStripMenuItem_Click);
             // 
@@ -211,7 +212,7 @@
             // 
             this.tsmTempletSearch.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmTempletSearch.Name = "tsmTempletSearch";
-            this.tsmTempletSearch.Size = new System.Drawing.Size(180, 24);
+            this.tsmTempletSearch.Size = new System.Drawing.Size(130, 24);
             this.tsmTempletSearch.Text = "模板查询";
             this.tsmTempletSearch.Click += new System.EventHandler(this.tsmTempletSearch_Click);
             // 
@@ -240,6 +241,7 @@
             this.tsmReadyShow.Name = "tsmReadyShow";
             this.tsmReadyShow.Size = new System.Drawing.Size(108, 39);
             this.tsmReadyShow.Text = "实时显示";
+            this.tsmReadyShow.Visible = false;
             this.tsmReadyShow.Click += new System.EventHandler(this.tsmReadyShow_Click);
             // 
             // tsmOperateLED
@@ -344,18 +346,27 @@
             this.tbMainShow.Location = new System.Drawing.Point(0, 0);
             this.tbMainShow.Name = "tbMainShow";
             this.tbMainShow.SelectedIndex = 0;
-            this.tbMainShow.Size = new System.Drawing.Size(1062, 376);
+            this.tbMainShow.Size = new System.Drawing.Size(1050, 376);
             this.tbMainShow.TabIndex = 1;
             this.tbMainShow.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tbContent_MouseDoubleClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.lblEmpInfo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 418);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 24);
+            this.panel1.Size = new System.Drawing.Size(1050, 24);
             this.panel1.TabIndex = 2;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(199, 6);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 12);
+            this.lblError.TabIndex = 1;
             // 
             // lblEmpInfo
             // 
@@ -375,7 +386,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1062, 376);
+            this.panel2.Size = new System.Drawing.Size(1050, 376);
             this.panel2.TabIndex = 3;
             // 
             // FrmMain
@@ -383,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 442);
+            this.ClientSize = new System.Drawing.Size(1050, 442);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
@@ -438,6 +449,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblEmpInfo;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblError;
     }
 }
 

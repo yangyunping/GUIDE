@@ -294,7 +294,7 @@ namespace UI
             DataTable dtALLShow = ledShowInfo.GetLEDShowInfos($@" and  Tag = 2 ");
             for (int i = 0; i < dtALLShow.Rows.Count; i++)
             {
-                ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtALLShow.Rows[i]["ID"]), 0);
+                ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtALLShow.Rows[i]["ID"]), 0);
             }
         }
         /// <summary>
@@ -356,12 +356,13 @@ namespace UI
                         LEDShow.DeleteProgram(addressNum);//删除指定控制卡所有节目
                     }
                     int programInx = LEDShow.AddProgram(addressNum, Convert.ToInt32(dtShow.Rows[i]["Duration"]));//添加节目
+                    int fontsize = Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]) == 0 ? Convert.ToInt32(dtShow.Rows[i]["FontSize"]) : Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]);
                     if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
                     {
                         //添加显示内容
                         LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),
                             dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(),
-                            Convert.ToInt32(dtShow.Rows[i]["FontSize"]), 0x00FF, Convert.ToBoolean(dtShow.Rows[i]["FontBold"]),
+                            fontsize, 0x00FF, Convert.ToBoolean(dtShow.Rows[i]["FontBold"]),
                             Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
                     }
                     else
@@ -370,7 +371,7 @@ namespace UI
                     }
                     if (LEDShow.SendData(addressNum))//发送数据
                     {
-                        ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtShow.Rows[i]["ID"]), 2);//更新状态
+                        ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtShow.Rows[i]["ID"]), 2);//更新状态
                     }
                     else
                     {
@@ -384,8 +385,9 @@ namespace UI
                     int addressNum = Convert.ToInt32(dtOutShow.Rows[i]["AddressNum"]);
                     LEDShow.DeleteProgram(addressNum);//删除现有显示
                     LEDShow.User_CloseScreen(addressNum);//关屏
-                    ledShowInfo.UpdateLEDShowInfo(Convert.ToInt32(dtOutShow.Rows[i]["ID"]), 0);//更新状态
+                    ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtOutShow.Rows[i]["ID"]), 0);//更新状态
                 }
+                lblError.Text ="显示失败："+ CurrentInfo.DataSendErro;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }

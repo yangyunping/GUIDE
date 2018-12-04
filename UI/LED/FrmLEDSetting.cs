@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using BLL;
+using System.Data;
 
 namespace UI
 {
@@ -123,6 +124,20 @@ namespace UI
             else
             {
                 btnFontColor.Enabled = false;
+            }
+        }
+
+        private void txtLEDid_MouseLeave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtLEDid.Text.Trim()))
+            {
+                BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
+                DataTable dtScreen = bllScreeenSetting.GetScreenSetting($" and ScreenID= '{txtLEDid.Text.Trim()}'");
+                if (dtScreen.Rows.Count > 0)
+                {
+                    MessageBox.Show("屏幕编号已存在!");
+                }
+                dtScreen.Dispose();
             }
         }
     }

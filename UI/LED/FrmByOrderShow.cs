@@ -81,8 +81,8 @@ namespace UI.LED
                                 lEDShowInfo.ScreenId = ledInfo.Keys.ToArray()[cmbScreens.SelectedIndex + i];
                                 lEDShowInfo.AddressNum = Convert.ToInt32(ledInfo.Values.ToArray()[cmbScreens.SelectedIndex + i]);
                                 lEDShowInfo.Content = i.ToString()+"←"+(i + 1).ToString()+"→"+(i + 2).ToString();
-                                lEDShowInfo.BeginTime = dtpBegin.Value;
-                                lEDShowInfo.EndTime = dtpEnd.Value;
+                                lEDShowInfo.BeginTime = dtpBegin.Value.ToShortTimeString();
+                                lEDShowInfo.EndTime = dtpEnd.Value.ToShortTimeString();
                                 lEDShowInfo.FontColor = fontColor;
                                 lEDShowInfo.FontName = fontName;
                                 //lEDShowInfo.FontSize = fontSize;
@@ -111,8 +111,8 @@ namespace UI.LED
                                 lEDShowInfo.ScreenId = ledInfo.Keys.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i];
                                 lEDShowInfo.AddressNum = Convert.ToInt32(ledInfo.Values.ToArray()[cmbScreens.SelectedIndex - Convert.ToInt32(GroupNum.Value) + i]);
                                 lEDShowInfo.Content =(i + 1).ToString()+ "←" + i.ToString()+ "→" + (i - 1).ToString();
-                                lEDShowInfo.BeginTime = dtpBegin.Value;
-                                lEDShowInfo.EndTime = dtpEnd.Value;
+                                lEDShowInfo.BeginTime = dtpBegin.Value.ToShortTimeString();
+                                lEDShowInfo.EndTime = dtpEnd.Value.ToShortTimeString();
                                 lEDShowInfo.FontColor = fontColor;
                                 lEDShowInfo.FontName = fontName;
                                 //lEDShowInfo.FontSize = fontSize;
@@ -143,7 +143,7 @@ namespace UI.LED
         {
             if (cmbAreaId.SelectedValue != null && !string.IsNullOrEmpty(cmbAreaId.Text) && cmbAreaId.SelectedIndex != -1)
             {
-                DataTable dtLED = bllScreen.GetScreenInfo(cmbAreaId.SelectedValue.ToString());
+                DataTable dtLED = bllScreen.GetScreenInfo($"and  AreaId ='{cmbAreaId.SelectedValue}'");
                 ledInfo = new Dictionary<string, int>();
                 for (int i = 0; i < dtLED.Rows.Count; i++)
                 {

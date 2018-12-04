@@ -18,7 +18,7 @@ namespace DAL
         public bool InsertLedShowInfo(LEDShowInfo ledShowInfo)
         {
             string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Tag,Duration,DeleteUpProgram) 
-values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime.ToShortTimeString()}','{ledShowInfo.EndTime.ToShortTimeString()}',
+values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime}','{ledShowInfo.EndTime}',
 '{ledShowInfo.Content}','{ledShowInfo.FontColor}','{ledShowInfo.FontName}','{ledShowInfo.FontSize}','{ledShowInfo.ShowStyle}','{ledShowInfo.FontBold}',
 '{ledShowInfo.Position}','{ledShowInfo.Tag}','{ledShowInfo.Duration}','{ledShowInfo.DeleteUpProgram}')";
             return server.ExecuteNonQuery(sSql) > 0;
@@ -55,13 +55,23 @@ values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTi
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>
-        /// 修改
+        /// 修改状态
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public bool UpdateLEDShowInfo(int id, int stateCnt)
+        public bool UpdateLEDShowInfoState(int id, int stateCnt)
         {
             string sSql = $@"Update LEDShowInfo set Tag = {stateCnt},CreateDate = Getdate()  where ID = '{id}'";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
+        /// <summary>
+        /// 修改显示信息
+        /// </summary>
+        /// <returns></returns>
+        public bool UpdateLEDShowInfo(LEDShowInfo lEDShowInfo)
+        {
+            string sSql = $@"Update LEDShowInfo set BeginTime='{lEDShowInfo.BeginTime}',EndTime ='{lEDShowInfo.EndTime}',Content = '{lEDShowInfo.Content}',
+FontColor = '{lEDShowInfo.FontColor}',FontName = '{lEDShowInfo.FontName}',FontSize='{lEDShowInfo.FontSize}',Duration='{lEDShowInfo.Duration}'  where ID = '{lEDShowInfo.ID}'";
             return server.ExecuteNonQuery(sSql) > 0;
         }
     }

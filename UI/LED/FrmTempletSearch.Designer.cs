@@ -31,13 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLEDShow = new System.Windows.Forms.Button();
             this.bntDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.dgvTemShow = new System.Windows.Forms.DataGridView();
-            this.btnLEDShow = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +58,19 @@
             this.panel1.Size = new System.Drawing.Size(1010, 70);
             this.panel1.TabIndex = 0;
             // 
+            // btnLEDShow
+            // 
+            this.btnLEDShow.Location = new System.Drawing.Point(506, 15);
+            this.btnLEDShow.Name = "btnLEDShow";
+            this.btnLEDShow.Size = new System.Drawing.Size(79, 38);
+            this.btnLEDShow.TabIndex = 5;
+            this.btnLEDShow.Text = "模板发送";
+            this.btnLEDShow.UseVisualStyleBackColor = true;
+            this.btnLEDShow.Click += new System.EventHandler(this.btnLEDShow_Click);
+            // 
             // bntDelete
             // 
-            this.bntDelete.Location = new System.Drawing.Point(504, 15);
+            this.bntDelete.Location = new System.Drawing.Point(608, 15);
             this.bntDelete.Name = "bntDelete";
             this.bntDelete.Size = new System.Drawing.Size(79, 38);
             this.bntDelete.TabIndex = 4;
@@ -70,7 +80,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(403, 15);
+            this.btnModify.Location = new System.Drawing.Point(404, 15);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(79, 38);
             this.btnModify.TabIndex = 3;
@@ -126,16 +136,6 @@
             this.dgvTemShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTemShow.Size = new System.Drawing.Size(1010, 400);
             this.dgvTemShow.TabIndex = 1;
-            // 
-            // btnLEDShow
-            // 
-            this.btnLEDShow.Location = new System.Drawing.Point(605, 15);
-            this.btnLEDShow.Name = "btnLEDShow";
-            this.btnLEDShow.Size = new System.Drawing.Size(79, 38);
-            this.btnLEDShow.TabIndex = 5;
-            this.btnLEDShow.Text = "模板显示";
-            this.btnLEDShow.UseVisualStyleBackColor = true;
-            this.btnLEDShow.Click += new System.EventHandler(this.btnLEDShow_Click);
             // 
             // FrmTempletSearch
             // 

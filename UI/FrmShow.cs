@@ -163,7 +163,7 @@ namespace UI
                 BllScreen bllScreen = new BllScreen();
                 for (int i = 0; i < showContents.Count; i++)
                 {
-                    DataTable dtScreen = bllScreen.GetScreenInfo(showContents[i].AreaId.ToString());//查询区域对应的屏幕数量
+                    DataTable dtScreen = bllScreen.GetScreenInfo($"and  AreaId ='{showContents[i].AreaId}'");//查询区域对应的屏幕数量
                     //偶数画框
                     if (i % 2 == 0)
                     {

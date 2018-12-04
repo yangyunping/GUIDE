@@ -51,9 +51,18 @@ namespace BLL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool UpdateLEDShowInfo(int id,int stateCnt)
+        public bool UpdateLEDShowInfoState(int id,int stateCnt)
         {
-            return dalLedShowInfo.UpdateLEDShowInfo(id, stateCnt);
+            return dalLedShowInfo.UpdateLEDShowInfoState(id, stateCnt);
+        }
+        /// <summary>
+        /// 修改信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool UpdateLEDShowInfo(LEDShowInfo lEDShowInfo)
+        {
+            return dalLedShowInfo.UpdateLEDShowInfo(lEDShowInfo);
         }
     }
 }

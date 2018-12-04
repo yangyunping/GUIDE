@@ -38,6 +38,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
+            this.chkAll = new System.Windows.Forms.CheckBox();
+            this.btnReSetShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,12 +62,15 @@
             this.dgvTemShow.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTemShow.RowTemplate.Height = 23;
             this.dgvTemShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTemShow.Size = new System.Drawing.Size(793, 429);
+            this.dgvTemShow.Size = new System.Drawing.Size(934, 429);
             this.dgvTemShow.TabIndex = 3;
+            this.dgvTemShow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTemShow_CellClick);
             this.dgvTemShow.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTemShow_CellFormatting);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReSetShow);
+            this.panel1.Controls.Add(this.chkAll);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.cmbShowState);
             this.panel1.Controls.Add(this.bntDelete);
@@ -77,7 +82,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 70);
+            this.panel1.Size = new System.Drawing.Size(934, 70);
             this.panel1.TabIndex = 2;
             // 
             // label2
@@ -104,7 +109,7 @@
             // 
             // bntDelete
             // 
-            this.bntDelete.Location = new System.Drawing.Point(533, 18);
+            this.bntDelete.Location = new System.Drawing.Point(690, 17);
             this.bntDelete.Name = "bntDelete";
             this.bntDelete.Size = new System.Drawing.Size(79, 38);
             this.bntDelete.TabIndex = 4;
@@ -114,7 +119,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(432, 18);
+            this.btnSearch.Location = new System.Drawing.Point(496, 17);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(79, 38);
             this.btnSearch.TabIndex = 2;
@@ -139,6 +144,27 @@
             this.txtKey.Size = new System.Drawing.Size(129, 24);
             this.txtKey.TabIndex = 0;
             // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(427, 27);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(54, 23);
+            this.chkAll.TabIndex = 7;
+            this.chkAll.Text = "全选";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
+            // btnReSetShow
+            // 
+            this.btnReSetShow.Location = new System.Drawing.Point(593, 17);
+            this.btnReSetShow.Name = "btnReSetShow";
+            this.btnReSetShow.Size = new System.Drawing.Size(79, 38);
+            this.btnReSetShow.TabIndex = 8;
+            this.btnReSetShow.Text = "重置显示";
+            this.btnReSetShow.UseVisualStyleBackColor = true;
+            this.btnReSetShow.Click += new System.EventHandler(this.btnReSetShow_Click);
+            // 
             // FrmLedShowInfoSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -146,7 +172,7 @@
             this.Controls.Add(this.dgvTemShow);
             this.Controls.Add(this.panel1);
             this.Name = "FrmLedShowInfoSearch";
-            this.Size = new System.Drawing.Size(793, 499);
+            this.Size = new System.Drawing.Size(934, 499);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -164,5 +190,7 @@
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbShowState;
+        private System.Windows.Forms.CheckBox chkAll;
+        private System.Windows.Forms.Button btnReSetShow;
     }
 }

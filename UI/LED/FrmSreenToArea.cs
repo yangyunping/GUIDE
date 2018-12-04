@@ -37,6 +37,12 @@ namespace UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            DataTable dt = bllScreen.GetScreenInfo($" and ScreenID = '{cmbLEDId.Text}'");
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("该屏幕已匹配区域!");
+                return;
+            }
             if (!string.IsNullOrEmpty(cmbArea.Text) && !string.IsNullOrEmpty(cmbLEDId.Text))
             {
                 try

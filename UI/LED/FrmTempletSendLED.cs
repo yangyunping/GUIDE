@@ -84,11 +84,6 @@ namespace UI.LED
                     MessageBox.Show("请录入需要显示的屏幕编号!");
                     return;
                 }
-                if (dtpEnd.Value.Hour <= dtpBegin.Value.Hour && dtpEnd.Value.Minute - dtpBegin.Value.Minute < 1)//显示时长提示
-                {
-                    MessageBox.Show("设置的显示时间少于1分钟,请重新设置！");
-                    return;
-                }
                 if (string.IsNullOrEmpty(txtTIme.Text))
                 {
                     MessageBox.Show("请录入显示时长!");
@@ -118,9 +113,14 @@ namespace UI.LED
                     lEDShowInfo.DeleteUpProgram = chkDelete.Checked;
                     if (chkDate.Checked) //保存发送记录表定时发送
                     {
+                        if (dtpEnd.Value.Hour <= dtpBegin.Value.Hour && dtpEnd.Value.Minute - dtpBegin.Value.Minute < 1)//显示时长提示
+                        {
+                            MessageBox.Show("设置的显示时间少于1分钟,请重新设置！");
+                            return;
+                        }
                         lEDShowInfo.Tag = 0;
-                        lEDShowInfo.BeginTime = dtpBegin.Value;
-                        lEDShowInfo.EndTime = dtpEnd.Value;
+                        lEDShowInfo.BeginTime = dtpBegin.Value.ToShortTimeString();
+                        lEDShowInfo.EndTime = dtpEnd.Value.ToShortTimeString();
                         if (!bllLedShowInfo.InsertLedShowInfo(lEDShowInfo))
                         {
                             CurrentInfo.DataSendErro += item.Value + ",  ";

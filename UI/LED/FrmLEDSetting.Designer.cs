@@ -47,11 +47,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtLEDid = new System.Windows.Forms.TextBox();
-            this.btnFontColor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFontSize = new System.Windows.Forms.TextBox();
+            this.btnFontColor = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtLEDid = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -274,6 +274,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "控制卡参数配置";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(78, 450);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 19);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "最大字体大小";
+            // 
+            // txtFontSize
+            // 
+            this.txtFontSize.Location = new System.Drawing.Point(176, 447);
+            this.txtFontSize.Name = "txtFontSize";
+            this.txtFontSize.Size = new System.Drawing.Size(124, 24);
+            this.txtFontSize.TabIndex = 26;
+            // 
+            // btnFontColor
+            // 
+            this.btnFontColor.Enabled = false;
+            this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
+            this.btnFontColor.Location = new System.Drawing.Point(325, 372);
+            this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnFontColor.Name = "btnFontColor";
+            this.btnFontColor.Size = new System.Drawing.Size(71, 42);
+            this.btnFontColor.TabIndex = 24;
+            this.btnFontColor.Text = "字体颜色";
+            this.btnFontColor.UseVisualStyleBackColor = true;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -290,34 +318,7 @@
             this.txtLEDid.Name = "txtLEDid";
             this.txtLEDid.Size = new System.Drawing.Size(157, 24);
             this.txtLEDid.TabIndex = 5;
-            // 
-            // btnFontColor
-            // 
-            this.btnFontColor.Enabled = false;
-            this.btnFontColor.Font = new System.Drawing.Font("微软雅黑", 9.5F);
-            this.btnFontColor.Location = new System.Drawing.Point(325, 372);
-            this.btnFontColor.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnFontColor.Name = "btnFontColor";
-            this.btnFontColor.Size = new System.Drawing.Size(71, 42);
-            this.btnFontColor.TabIndex = 24;
-            this.btnFontColor.Text = "字体颜色";
-            this.btnFontColor.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 450);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 19);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "字体大小";
-            // 
-            // txtFontSize
-            // 
-            this.txtFontSize.Location = new System.Drawing.Point(176, 447);
-            this.txtFontSize.Name = "txtFontSize";
-            this.txtFontSize.Size = new System.Drawing.Size(124, 24);
-            this.txtFontSize.TabIndex = 26;
+            this.txtLEDid.MouseLeave += new System.EventHandler(this.txtLEDid_MouseLeave);
             // 
             // FrmLEDSetting
             // 

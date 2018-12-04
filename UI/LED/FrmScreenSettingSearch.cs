@@ -26,7 +26,7 @@ namespace UI.LED
             new DataGridViewTextBoxColumn { Name = @"ScreenHeight", DataPropertyName = @"ScreenHeight", HeaderText = @"屏高", Width = 100 },
             new DataGridViewTextBoxColumn { Name = @"IpAddress", DataPropertyName = @"IpAddress", HeaderText = @"IP地址", Width = 150 },
             new DataGridViewTextBoxColumn { Name = @"ColorStyle", DataPropertyName = @"ColorStyle", HeaderText = @"屏幕颜色", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = @"FontSize", DataPropertyName = @"FontSize", HeaderText = @"字体大小", Width = 120 }
+            new DataGridViewTextBoxColumn { Name = @"FontSize", DataPropertyName = @"FontSize", HeaderText = @"最大字体大小", Width = 140 }
              );
         }
 

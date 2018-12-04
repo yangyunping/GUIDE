@@ -74,7 +74,7 @@ namespace UI
                         string key = string.Empty;
                         if (!cmbArea.Text.Equals("全部"))
                         {
-                            key = cmbArea.SelectedValue.ToString();
+                            key = $"and  AreaId ='{cmbArea.SelectedValue}'";
                         }
                         DataTable dtScreen = bllScreen.GetScreenInfo(key);
                         dgvContent.AutoGenerateColumns = false;

@@ -23,11 +23,11 @@ namespace MODEL
         /// <summary>
         /// 开始时间
         /// </summary>
-        public DateTime BeginTime { set; get; }
+        public string BeginTime { set; get; }
         /// <summary>
         /// 结束时间
         /// </summary>
-        public DateTime EndTime { set; get; }
+        public string EndTime { set; get; }
         /// <summary>
         /// 显示内容
         /// </summary>

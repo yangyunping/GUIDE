@@ -41,6 +41,7 @@ namespace UI
                 templetShow.ShowContent = dgvTemShow.CurrentRow.Cells["ShowContent"].Value.ToString();
                 FrmTempletLED frmTempletLED = new FrmTempletLED(templetShow);
                 frmTempletLED.ShowDialog();
+                btnSearch_Click(null,null);
             } 
         }
 

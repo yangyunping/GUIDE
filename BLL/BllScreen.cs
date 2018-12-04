@@ -14,7 +14,7 @@ namespace BLL
         /// <summary>
         /// 屏幕信息
         /// </summary>
-        DalScreen dalScreen = new DalScreen();
+        DalScreenToArea dalScreen = new DalScreenToArea();
         public DataTable GetScreenInfo(string key)
         {
             return dalScreen.GetScreenInfo(key);
