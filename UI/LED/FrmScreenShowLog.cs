@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace UI.LED
 {
-    public partial class FrmScreenShowLogSearch : UserControl
+    public partial class FrmLedShowInfoSearch : UserControl
     {
         BllLedShowInfo bllLedShowInfo = new BllLedShowInfo();
-        public FrmScreenShowLogSearch()
+        public FrmLedShowInfoSearch()
         {
             InitializeComponent();
             DgvColumns();

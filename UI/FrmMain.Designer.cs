@@ -45,7 +45,7 @@
             this.tsmTempletSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDefinedShow = new System.Windows.Forms.ToolStripButton();
             this.tsmPreShow = new System.Windows.Forms.ToolStripButton();
-            this.tsmReadyShow = new System.Windows.Forms.ToolStripButton();
+            this.tsmShowLog = new System.Windows.Forms.ToolStripButton();
             this.tsmOperateLED = new System.Windows.Forms.ToolStripButton();
             this.tsbEmployee = new System.Windows.Forms.ToolStripButton();
             this.tsbConfig = new System.Windows.Forms.ToolStripButton();
@@ -78,7 +78,7 @@
             this.toolStripDropDownButton1,
             this.tsmDefinedShow,
             this.tsmPreShow,
-            this.tsmReadyShow,
+            this.tsmShowLog,
             this.tsmOperateLED,
             this.tsbEmployee,
             this.tsbConfig});
@@ -175,7 +175,7 @@
             // 
             this.tsmByOrderSet.Font = new System.Drawing.Font("微软雅黑", 9.5F);
             this.tsmByOrderSet.Name = "tsmByOrderSet";
-            this.tsmByOrderSet.Size = new System.Drawing.Size(180, 24);
+            this.tsmByOrderSet.Size = new System.Drawing.Size(130, 24);
             this.tsmByOrderSet.Text = "排序设置";
             this.tsmByOrderSet.Click += new System.EventHandler(this.排序设置ToolStripMenuItem_Click);
             // 
@@ -224,15 +224,14 @@
             this.tsmPreShow.Text = "显示查询";
             this.tsmPreShow.Click += new System.EventHandler(this.tsmPreShow_Click);
             // 
-            // tsmReadyShow
+            // tsmShowLog
             // 
-            this.tsmReadyShow.Image = global::UI.Properties.Resources.universalsearch;
-            this.tsmReadyShow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsmReadyShow.Name = "tsmReadyShow";
-            this.tsmReadyShow.Size = new System.Drawing.Size(108, 39);
-            this.tsmReadyShow.Text = "实时显示";
-            this.tsmReadyShow.Visible = false;
-            this.tsmReadyShow.Click += new System.EventHandler(this.tsmReadyShow_Click);
+            this.tsmShowLog.Image = global::UI.Properties.Resources.universalsearch;
+            this.tsmShowLog.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsmShowLog.Name = "tsmShowLog";
+            this.tsmShowLog.Size = new System.Drawing.Size(108, 39);
+            this.tsmShowLog.Text = "记录查询";
+            this.tsmShowLog.Click += new System.EventHandler(this.tsmShowLog_Click);
             // 
             // tsmOperateLED
             // 
@@ -428,7 +427,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmTepletSet;
         private System.Windows.Forms.ToolStripMenuItem tsmTempletSearch;
         private System.Windows.Forms.ToolStripButton tsmDefinedShow;
-        private System.Windows.Forms.ToolStripButton tsmReadyShow;
+        private System.Windows.Forms.ToolStripButton tsmShowLog;
         private System.Windows.Forms.ToolStripMenuItem tsmScreenSetting;
         private System.Windows.Forms.Timer ShowTimer;
         private System.Windows.Forms.ToolStripMenuItem tsmLEDSetingSearch;

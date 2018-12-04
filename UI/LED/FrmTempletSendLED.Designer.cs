@@ -173,6 +173,7 @@
             this.txtTIme.Name = "txtTIme";
             this.txtTIme.Size = new System.Drawing.Size(99, 24);
             this.txtTIme.TabIndex = 65;
+            this.txtTIme.Text = "10";
             // 
             // label4
             // 
@@ -260,9 +261,9 @@
             // 
             this.pnlScreenIds.Controls.Add(this.btnlstClose);
             this.pnlScreenIds.Controls.Add(this.lstScreenIds);
-            this.pnlScreenIds.Location = new System.Drawing.Point(106, 1);
+            this.pnlScreenIds.Location = new System.Drawing.Point(106, 3);
             this.pnlScreenIds.Name = "pnlScreenIds";
-            this.pnlScreenIds.Size = new System.Drawing.Size(218, 372);
+            this.pnlScreenIds.Size = new System.Drawing.Size(218, 349);
             this.pnlScreenIds.TabIndex = 74;
             this.pnlScreenIds.Visible = false;
             // 
@@ -273,7 +274,7 @@
             this.lstScreenIds.FormattingEnabled = true;
             this.lstScreenIds.Location = new System.Drawing.Point(0, 0);
             this.lstScreenIds.Name = "lstScreenIds";
-            this.lstScreenIds.Size = new System.Drawing.Size(218, 372);
+            this.lstScreenIds.Size = new System.Drawing.Size(218, 349);
             this.lstScreenIds.TabIndex = 74;
             this.lstScreenIds.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstScreenIds_ItemCheck);
             // 
@@ -281,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 381);
+            this.ClientSize = new System.Drawing.Size(480, 365);
             this.Controls.Add(this.pnlScreenIds);
             this.Controls.Add(this.txtScreenId);
             this.Controls.Add(this.cmbShowType);

@@ -11,20 +11,33 @@ namespace DAL
     {
         Server server = new Server();
         /// <summary>
-        /// 新增
+        /// 新增预设显示信息
         /// </summary>
         /// <param name="ledShowInfo"></param>
         /// <returns></returns>
         public bool InsertLedShowInfo(LEDShowInfo ledShowInfo)
         {
-            string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Tag,Duration,DeleteUpProgram) 
+            string sSql = $@"Insert into LedShowInfo(ScreenId,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Tag,Duration,DeleteUpProgram,GroupName) 
 values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime}','{ledShowInfo.EndTime}',
 '{ledShowInfo.Content}','{ledShowInfo.FontColor}','{ledShowInfo.FontName}','{ledShowInfo.FontSize}','{ledShowInfo.ShowStyle}','{ledShowInfo.FontBold}',
-'{ledShowInfo.Position}','{ledShowInfo.Tag}','{ledShowInfo.Duration}','{ledShowInfo.DeleteUpProgram}')";
+'{ledShowInfo.Position}','{ledShowInfo.Tag}','{ledShowInfo.Duration}','{ledShowInfo.DeleteUpProgram}','{ledShowInfo.GroupName}')";
             return server.ExecuteNonQuery(sSql) > 0;
         }
         /// <summary>
-        /// 删除
+        /// 添加显示发送记录
+        /// </summary>
+        /// <param name="ledShowInfo"></param>
+        /// <returns></returns>
+        public bool InserScreenLog(LEDShowInfo ledShowInfo)
+        {
+            string sSql = $@"Insert into ScreenShowLog(ScreenId,SendState,AddressNum,BeginTime,EndTime,Content,FontColor,FontName,FontSize,ShowStyle,FontBold,Position,Duration) 
+values('{ledShowInfo.ScreenId}','{ledShowInfo.SendState}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTime}','{ledShowInfo.EndTime}',
+'{ledShowInfo.Content}','{ledShowInfo.FontColor}','{ledShowInfo.FontName}','{ledShowInfo.FontSize}','{ledShowInfo.ShowStyle}','{ledShowInfo.FontBold}',
+'{ledShowInfo.Position}','{ledShowInfo.Duration}')";
+            return server.ExecuteNonQuery(sSql) > 0;
+        }
+        /// <summary>
+        /// 删除预设发送
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -45,13 +58,23 @@ values('{ledShowInfo.ScreenId}','{ledShowInfo.AddressNum}','{ledShowInfo.BeginTi
             return server.ExecuteLayQuery(spName, tag, key).Tables[0];
         }
         /// <summary>
-        /// 查询显示
+        /// 查询预设显示
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public DataTable GeLEDShowInfos(string key)
         {
             string sSql = $@"select * from  View_LEDOnTimeShow where 1=1 {key}";
+            return server.ExecuteQuery(sSql).Tables[0]; 
+        }
+        /// <summary>
+        /// 查询显示记录
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public DataTable GetShowLog(string key)
+        {
+            string sSql = $@"select * from  View_ShowLog where 1=1 {key}  order by CreateDate desc";
             return server.ExecuteQuery(sSql).Tables[0];
         }
         /// <summary>

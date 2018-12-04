@@ -75,7 +75,7 @@ namespace UI
                 {
                     string name = colorDialogLed.Color.Name;
                     string color = ColorTranslator.ToHtml(Color.FromArgb(colorDialogLed.Color.R, colorDialogLed.Color.G, colorDialogLed.Color.B));
-                    //fontColor = colorDialogLed.Color.ToArgb();
+                    fontColor = colorDialogLed.Color.ToArgb();
                 }
             }
             catch (Exception) { }
@@ -154,6 +154,20 @@ namespace UI
             {
                 if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
                 {
+                    //开始显示日志记录
+                    LEDShowInfo showInfo = new LEDShowInfo();
+                    showInfo.SendState = "自定义实时发送";
+                    showInfo.ScreenId = cmbLEDId.Text;
+                    showInfo.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
+                    showInfo.Content =string.IsNullOrEmpty(txtContent.Text)? "日期星期时间显示":txtContent.Text;
+                    showInfo.FontColor = fontColor.ToString();
+                    showInfo.FontName = fontName;
+                    showInfo.FontSize = fontSize;
+                    showInfo.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
+                    showInfo.FontBold = chkFoild.Checked;
+                    showInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1;
+                    showInfo.Duration = Convert.ToInt32(txtTIme.Text);
+                    ledShowInfo.InserScreenLog(showInfo);
                     MessageBox.Show("发送成功！");
                 }
                 else

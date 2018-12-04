@@ -178,6 +178,12 @@
     <Compile Include="FrmSkinEngine.Designer.cs">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </Compile>
+    <Compile Include="LED\FrmShowLogSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LED\FrmShowLogSearch.Designer.cs">
+      <DependentUpon>FrmShowLogSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="LED\FrmSreenToArea.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSkinEngine.resx">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LED\FrmShowLogSearch.resx">
+      <DependentUpon>FrmShowLogSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LED\FrmSreenToArea.resx">
       <DependentUpon>FrmSreenToArea.cs</DependentUpon>

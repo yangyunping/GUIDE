@@ -1,6 +1,6 @@
 ﻿namespace UI.LED
 {
-    partial class FrmScreenShowLogSearch
+    partial class FrmLedShowInfoSearch
     {
         /// <summary> 
         /// 必需的设计器变量。

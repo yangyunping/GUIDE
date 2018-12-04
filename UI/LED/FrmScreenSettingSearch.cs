@@ -14,6 +14,7 @@ namespace UI.LED
             InitializeComponent();
             DgvColumns();
             bntDelete.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.LED参数删除);
+            btnModify.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.LED参数配置);
         }
         private void DgvColumns()
         {

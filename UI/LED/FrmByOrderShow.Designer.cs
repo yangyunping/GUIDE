@@ -274,7 +274,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 19);
             this.label8.TabIndex = 68;
-            this.label8.Text = "显示时长";
+            this.label8.Text = "循环时长";
             // 
             // txtTIme
             // 
@@ -283,6 +283,7 @@
             this.txtTIme.Name = "txtTIme";
             this.txtTIme.Size = new System.Drawing.Size(81, 26);
             this.txtTIme.TabIndex = 67;
+            this.txtTIme.Text = "10";
             // 
             // label9
             // 

@@ -268,6 +268,7 @@
             this.txtTIme.Name = "txtTIme";
             this.txtTIme.Size = new System.Drawing.Size(67, 26);
             this.txtTIme.TabIndex = 67;
+            this.txtTIme.Text = "10";
             // 
             // btnFontSetting
             // 

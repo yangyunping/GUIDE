@@ -49,7 +49,7 @@ namespace MODEL
         /// </summary>
         public int ShowStyle { set; get; }
         /// <summary>
-        /// 区分
+        /// 区分状态 
         /// </summary>
         public int Tag { set; get; }
         /// <summary>
@@ -77,5 +77,10 @@ namespace MODEL
         /// 删除已显示所有节目
         /// </summary>
         public bool DeleteUpProgram { set; get; }
+        /// <summary>
+        /// 发送状态日志记录字段
+        /// </summary>
+        public string SendState { set; get; }
+        
     }
 }

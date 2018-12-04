@@ -87,7 +87,6 @@ namespace UI
             tsmSreenToArea.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.区域LED匹配);
             tsmScreenSetting.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.LED参数配置);
             tsmByOrderSet.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.排序设置);
-            tsmResetOrderShow.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.重置预显示);
             tsmTepletSet.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.模板设置);
             tsmDefinedShow.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.自定义LED显示);
             tsbConfig.Enabled = CurrentInfo.currentPowers.ContainsKey(CommonInfo.配置信息);
@@ -312,10 +311,10 @@ namespace UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tsmReadyShow_Click(object sender, EventArgs e)
+        private void tsmShowLog_Click(object sender, EventArgs e)
         {
-            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
-            CreateNewPage(tsmReadyShow.Text, frmAreaSearch);
+            FrmShowLogSearch frmShowLog = new FrmShowLogSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            CreateNewPage(tsmShowLog.Text, frmShowLog);
         }
         /// <summary>
         /// 参数配置
@@ -350,32 +349,56 @@ namespace UI
                 DataTable dtShow = ledShowInfo.GetLEDShowInfos($@" and  Tag in(0,1)  and  BeginTime <= CONVERT (CHAR(10), GETDATE(), 108) and EndTime >= CONVERT (CHAR(10), GETDATE(), 108) order by BeginTime");
                 for (int i = 0; i < dtShow.Rows.Count; i++)
                 {
-                    int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
-                    if (Convert.ToInt32(dtShow.Rows[i]["DeleteUpProgram"]) == 1)
+                    try
                     {
-                        LEDShow.DeleteProgram(addressNum);//删除指定控制卡所有节目
+                        int addressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                        if (Convert.ToInt32(dtShow.Rows[i]["DeleteUpProgram"]) == 1)
+                        {
+                            LEDShow.DeleteProgram(addressNum);//删除指定控制卡所有节目
+                        }
+                        int programInx = LEDShow.AddProgram(addressNum, Convert.ToInt32(dtShow.Rows[i]["Duration"]));//添加节目
+                        int fontsize = Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]) == 0 ? Convert.ToInt32(dtShow.Rows[i]["FontSize"]) : Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]);
+                        if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
+                        {
+                            //添加显示内容
+                            LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),
+                                dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(),
+                                fontsize, 0x00FF, Convert.ToBoolean(dtShow.Rows[i]["FontBold"]),
+                                Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
+
+                            //开始显示日志记录
+                            LEDShowInfo showInfo = new LEDShowInfo();
+                            showInfo.SendState = "开始";
+                            showInfo.ScreenId = dtShow.Rows[i]["ScreenId"].ToString();
+                            showInfo.AddressNum = Convert.ToInt32(dtShow.Rows[i]["AddressNum"]);
+                            showInfo.BeginTime = dtShow.Rows[i]["BeginTime"].ToString();
+                            showInfo.EndTime = dtShow.Rows[i]["EndTime"].ToString();
+                            showInfo.Content = dtShow.Rows[i]["Content"].ToString();
+                            showInfo.FontColor = dtShow.Rows[i]["FontColor"].ToString();
+                            showInfo.FontName = dtShow.Rows[i]["FontName"].ToString();
+                            showInfo.FontSize = Convert.ToInt32(dtShow.Rows[i]["FontSize"]);
+                            showInfo.ShowStyle = Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]);
+                            showInfo.FontBold = Convert.ToBoolean(dtShow.Rows[i]["FontBold"]);
+                            showInfo.Position = Convert.ToInt32(dtShow.Rows[i]["Position"]);
+                            showInfo.Duration = Convert.ToInt32(dtShow.Rows[i]["Duration"]);
+                            ledShowInfo.InserScreenLog(showInfo);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        if (LEDShow.SendData(addressNum))//发送数据
+                        {
+                            ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtShow.Rows[i]["ID"]), 2);//更新状态
+                        }
+                        else
+                        {
+                            CurrentInfo.DataSendErro += dtShow.Rows[i]["ScreenId"].ToString() + ",";
+                        }
                     }
-                    int programInx = LEDShow.AddProgram(addressNum, Convert.ToInt32(dtShow.Rows[i]["Duration"]));//添加节目
-                    int fontsize = Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]) == 0 ? Convert.ToInt32(dtShow.Rows[i]["FontSize"]) : Convert.ToInt32(dtShow.Rows[i]["SonFontSize"]);
-                    if (LEDShow.LedOpen(Convert.ToInt32(addressNum)))
-                    {
-                        //添加显示内容
-                        LEDShow.AddText(addressNum, Convert.ToInt32(dtShow.Rows[i]["ScreenWidth"]), Convert.ToInt32(dtShow.Rows[i]["ScreenHeight"]),
-                            dtShow.Rows[i]["Content"].ToString(), programInx, Convert.ToInt32(dtShow.Rows[i]["ShowStyle"]), dtShow.Rows[i]["FontName"].ToString(),
-                            fontsize, 0x00FF, Convert.ToBoolean(dtShow.Rows[i]["FontBold"]),
-                            Convert.ToInt32(dtShow.Rows[i]["Position"]));//最后0  左对齐 1居中 2右对齐
-                    }
-                    else
-                    {
+                    catch {
+                        CurrentInfo.DataSendErro += dtShow.Rows[i]["ScreenId"].ToString()+",";
                         continue;
-                    }
-                    if (LEDShow.SendData(addressNum))//发送数据
-                    {
-                        ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtShow.Rows[i]["ID"]), 2);//更新状态
-                    }
-                    else
-                    {
-                        MessageBox.Show(dtShow.Rows[i]["ScreenId"].ToString() + "发送失败！");
                     }
                 }
                 //到结束时间，停止显示
@@ -386,6 +409,22 @@ namespace UI
                     LEDShow.DeleteProgram(addressNum);//删除现有显示
                     LEDShow.User_CloseScreen(addressNum);//关屏
                     ledShowInfo.UpdateLEDShowInfoState(Convert.ToInt32(dtOutShow.Rows[i]["ID"]), 0);//更新状态
+                    //暂停显示日志记录
+                    LEDShowInfo showEndInfo = new LEDShowInfo();
+                    showEndInfo.SendState = "暂停";
+                    showEndInfo.ScreenId = dtOutShow.Rows[i]["ScreenId"].ToString();
+                    showEndInfo.AddressNum = Convert.ToInt32(dtOutShow.Rows[i]["AddressNum"]);
+                    showEndInfo.BeginTime = dtOutShow.Rows[i]["BeginTime"].ToString();
+                    showEndInfo.EndTime = dtOutShow.Rows[i]["EndTime"].ToString();
+                    showEndInfo.Content = dtOutShow.Rows[i]["Content"].ToString();
+                    showEndInfo.FontColor = dtOutShow.Rows[i]["FontColor"].ToString();
+                    showEndInfo.FontName = dtOutShow.Rows[i]["FontName"].ToString();
+                    showEndInfo.FontSize = Convert.ToInt32(dtOutShow.Rows[i]["FontSize"]);
+                    showEndInfo.ShowStyle = Convert.ToInt32(dtOutShow.Rows[i]["ShowStyle"]);
+                    showEndInfo.FontBold = Convert.ToBoolean(dtOutShow.Rows[i]["FontBold"]);
+                    showEndInfo.Position = Convert.ToInt32(dtOutShow.Rows[i]["Position"]);
+                    showEndInfo.Duration = Convert.ToInt32(dtOutShow.Rows[i]["Duration"]);
+                    ledShowInfo.InserScreenLog(showEndInfo);
                 }
                 lblError.Text ="显示失败："+ CurrentInfo.DataSendErro;
             }
@@ -408,7 +447,7 @@ namespace UI
         /// <param name="e"></param>
         private void tsmPreShow_Click(object sender, EventArgs e)
         {
-            FrmLedShowInfoSearch frmAreaSearch = new FrmLedShowInfoSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
+            FrmScreenShowLogSearch frmAreaSearch = new FrmScreenShowLogSearch() { Dock = DockStyle.Fill, AutoSize = false, AutoScaleMode = AutoScaleMode.None };
             CreateNewPage(tsmPreShow.Text, frmAreaSearch);
         }
 

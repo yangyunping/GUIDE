@@ -148,8 +148,9 @@ namespace UI.LED
                             }
                             if (LEDShow.SendData(item.Key))
                             {
-                                lEDShowInfo.Tag = 1;
-                                bllLedShowInfo.InsertLedShowInfo(lEDShowInfo);
+                                lEDShowInfo.SendState = "模板实时发送";
+                                //bllLedShowInfo.InsertLedShowInfo(lEDShowInfo);
+                                bllLedShowInfo.InserScreenLog(lEDShowInfo);
                             }
                             else
                             {

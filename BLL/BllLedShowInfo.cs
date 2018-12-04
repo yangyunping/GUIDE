@@ -11,7 +11,7 @@ namespace BLL
         /// </summary>
         DalLedShowInfo dalLedShowInfo = new DalLedShowInfo();
         /// <summary>
-        /// 新增
+        /// 新增预设显示
         /// </summary>
         /// <param name="lEDShowInfo"></param>
         /// <returns></returns>
@@ -19,6 +19,16 @@ namespace BLL
         {
             return dalLedShowInfo.InsertLedShowInfo(lEDShowInfo);
         }
+        /// <summary>
+        /// 添加显示记录
+        /// </summary>
+        /// <param name="lEDShowInfo"></param>
+        /// <returns></returns>
+        public bool InserScreenLog(LEDShowInfo lEDShowInfo)
+        {
+            return dalLedShowInfo.InserScreenLog(lEDShowInfo);
+        }
+        
         /// <summary>
         /// 删除
         /// </summary>
@@ -44,7 +54,16 @@ namespace BLL
         /// <returns></returns>
         public DataTable GetLEDShowInfos(string key)
         {
-            return dalLedShowInfo.GeLEDShowInfos(key);
+            return dalLedShowInfo.GeLEDShowInfos(key); 
+        }
+        /// <summary>
+        /// 查询显示记录
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public DataTable GetShowLog(string key)
+        {
+            return dalLedShowInfo.GetShowLog(key); 
         }
         /// <summary>
         /// 修改状态
