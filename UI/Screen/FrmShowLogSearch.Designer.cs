@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbShowState = new System.Windows.Forms.ComboBox();
@@ -67,10 +67,14 @@
             this.cmbShowState.FormattingEnabled = true;
             this.cmbShowState.Items.AddRange(new object[] {
             "全部",
-            "开始",
-            "暂停",
-            "模板实时显示",
-            "自定义实时显示"});
+            "开始显示成功",
+            "开始显示失败",
+            "结束显示成功",
+            "结束显示成功",
+            "模板实时发送成功",
+            "模板实时发送失败",
+            "自定义实时发送成功",
+            "自定义实时发送失败"});
             this.cmbShowState.Location = new System.Drawing.Point(112, 23);
             this.cmbShowState.Name = "cmbShowState";
             this.cmbShowState.Size = new System.Drawing.Size(121, 27);
@@ -90,8 +94,8 @@
             // 
             this.dgvTemShow.AllowUserToAddRows = false;
             this.dgvTemShow.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTemShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvTemShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTemShow.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvTemShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTemShow.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -100,8 +104,8 @@
             this.dgvTemShow.Name = "dgvTemShow";
             this.dgvTemShow.ReadOnly = true;
             this.dgvTemShow.RowHeadersWidth = 11;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTemShow.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvTemShow.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTemShow.RowTemplate.Height = 23;
             this.dgvTemShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTemShow.Size = new System.Drawing.Size(793, 415);

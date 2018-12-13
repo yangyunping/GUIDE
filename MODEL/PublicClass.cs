@@ -416,5 +416,23 @@ namespace MODEL
             }
             return colorName;
         }
+
+        public static string ConvertToState(int dex)
+        {
+            string stateName = string.Empty;
+            if (dex == 0)
+            {
+                stateName= "准备显示";
+            }
+            if (dex == 1)
+            {
+                stateName = "显示失败";
+            }
+            if (dex == 2)
+            {
+                stateName = "显示成功";
+            }
+            return stateName;
+        }
     }
 }

@@ -101,12 +101,13 @@ namespace MODEL
         /// 删除所有节目
         /// </summary>
         /// <param name="cardNum"></param>
-        public static void DeleteProgram(int cardNum)
+        public static bool DeleteProgram(int cardNum)
         {
-            if (User_DelAllProgram(cardNum) == false)
-            {
-                MessageBox.Show("删除节目失败！");
-            }
+            return User_DelAllProgram(cardNum);
+            //if (User_DelAllProgram(cardNum) == false)
+            //{
+            //    MessageBox.Show("删除节目失败！");
+            //}
         }
         /// <summary>
         /// 发送数据

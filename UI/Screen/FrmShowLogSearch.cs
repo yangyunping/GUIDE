@@ -19,7 +19,7 @@ namespace UI.LED
             dgvTemShow.Columns.AddRange(
             new DataGridViewTextBoxColumn { Name = @"ID", DataPropertyName = @"ID", HeaderText = @"序号", Width = 60,},
             new DataGridViewTextBoxColumn { Name = @"ScreenId", DataPropertyName = @"ScreenId", HeaderText = @"屏幕编号", Width = 100},
-            new DataGridViewTextBoxColumn { Name = @"SendState", DataPropertyName = @"SendState", HeaderText = @"状态", Width = 80},
+            new DataGridViewTextBoxColumn { Name = @"SendState", DataPropertyName = @"SendState", HeaderText = @"状态", Width = 120},
             new DataGridViewTextBoxColumn { Name = @"AddressNum", DataPropertyName = @"AddressNum", HeaderText = @"地址码", Width = 100 },
             new DataGridViewTextBoxColumn { Name = @"BeginTime", DataPropertyName = @"BeginTime", HeaderText = @"开始时间", Width = 100 },
             new DataGridViewTextBoxColumn { Name = @"EndTime", DataPropertyName = @"EndTime", HeaderText = @"结束时间", Width = 100 },

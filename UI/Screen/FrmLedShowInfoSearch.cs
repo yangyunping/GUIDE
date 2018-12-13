@@ -46,13 +46,17 @@ namespace UI.LED
             {
                 sKey += $"%{txtKey.Text}%";
             }
-            if (cmbShowState.Text.Equals("正在显示"))
+            if (cmbShowState.Text.Equals("显示成功"))
             {
                 tag = "2";
             }
             else if (cmbShowState.Text.Equals("准备显示"))
             {
                 tag = "0";
+            }
+            else if (cmbShowState.Text.Equals("显示失败"))
+            {
+                tag = "1";
             }
             dtShow = bllLedShowInfo.GetLayLEDShowInfos(tag, sKey);
             dgvTemShow.AutoGenerateColumns = false;
@@ -97,18 +101,7 @@ namespace UI.LED
             }
             else if (dgvTemShow.Columns[e.ColumnIndex].Name == "Tag")
             {
-                if (Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["Tag"].Value) == 0)
-                {
-                    e.Value = "等待显示";
-                }
-                if (Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["Tag"].Value) == 1)
-                {
-                    e.Value = "等待显示";
-                }
-                if (Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["Tag"].Value) == 2)
-                {
-                    e.Value = "正显示";
-                }
+                e.Value = PublicClass.ConvertToState(Convert.ToInt32(dgvTemShow.Rows[e.RowIndex].Cells["Tag"].Value));
             }
             else if (dgvTemShow.Columns[e.ColumnIndex].Name == "修改")
             {

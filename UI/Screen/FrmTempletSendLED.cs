@@ -148,13 +148,16 @@ namespace UI.LED
                             }
                             if (LEDShow.SendData(item.Key))
                             {
-                                lEDShowInfo.SendState = "模板实时发送";
+                                lEDShowInfo.SendState = "模板实时发送成功";
                                 //bllLedShowInfo.InsertLedShowInfo(lEDShowInfo);
                                 bllLedShowInfo.InserScreenLog(lEDShowInfo);
                             }
                             else
                             {
+                                lEDShowInfo.SendState = "模板实时发送失败";
                                 CurrentInfo.DataSendErro += item.Value + ", ";
+                                bllLedShowInfo.InserScreenLog(lEDShowInfo);
+                                return;
                             }
                         }
                         else

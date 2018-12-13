@@ -32,14 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTemShow = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReSetShow = new System.Windows.Forms.Button();
+            this.chkAll = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbShowState = new System.Windows.Forms.ComboBox();
             this.bntDelete = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.chkAll = new System.Windows.Forms.CheckBox();
-            this.btnReSetShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,27 @@
             this.panel1.Size = new System.Drawing.Size(934, 70);
             this.panel1.TabIndex = 2;
             // 
+            // btnReSetShow
+            // 
+            this.btnReSetShow.Location = new System.Drawing.Point(593, 17);
+            this.btnReSetShow.Name = "btnReSetShow";
+            this.btnReSetShow.Size = new System.Drawing.Size(79, 38);
+            this.btnReSetShow.TabIndex = 8;
+            this.btnReSetShow.Text = "重置显示";
+            this.btnReSetShow.UseVisualStyleBackColor = true;
+            this.btnReSetShow.Click += new System.EventHandler(this.btnReSetShow_Click);
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Location = new System.Drawing.Point(427, 27);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(54, 23);
+            this.chkAll.TabIndex = 7;
+            this.chkAll.Text = "全选";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -100,8 +121,9 @@
             this.cmbShowState.FormattingEnabled = true;
             this.cmbShowState.Items.AddRange(new object[] {
             "全部",
-            "正在显示",
-            "准备显示"});
+            "准备显示",
+            "显示成功",
+            "显示失败"});
             this.cmbShowState.Location = new System.Drawing.Point(87, 24);
             this.cmbShowState.Name = "cmbShowState";
             this.cmbShowState.Size = new System.Drawing.Size(121, 27);
@@ -144,34 +166,13 @@
             this.txtKey.Size = new System.Drawing.Size(129, 24);
             this.txtKey.TabIndex = 0;
             // 
-            // chkAll
-            // 
-            this.chkAll.AutoSize = true;
-            this.chkAll.Location = new System.Drawing.Point(427, 27);
-            this.chkAll.Name = "chkAll";
-            this.chkAll.Size = new System.Drawing.Size(54, 23);
-            this.chkAll.TabIndex = 7;
-            this.chkAll.Text = "全选";
-            this.chkAll.UseVisualStyleBackColor = true;
-            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
-            // 
-            // btnReSetShow
-            // 
-            this.btnReSetShow.Location = new System.Drawing.Point(593, 17);
-            this.btnReSetShow.Name = "btnReSetShow";
-            this.btnReSetShow.Size = new System.Drawing.Size(79, 38);
-            this.btnReSetShow.TabIndex = 8;
-            this.btnReSetShow.Text = "重置显示";
-            this.btnReSetShow.UseVisualStyleBackColor = true;
-            this.btnReSetShow.Click += new System.EventHandler(this.btnReSetShow_Click);
-            // 
-            // FrmLedShowInfoSearch
+            // FrmScreenShowLogSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvTemShow);
             this.Controls.Add(this.panel1);
-            this.Name = "FrmLedShowInfoSearch";
+            this.Name = "FrmScreenShowLogSearch";
             this.Size = new System.Drawing.Size(934, 499);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemShow)).EndInit();
             this.panel1.ResumeLayout(false);

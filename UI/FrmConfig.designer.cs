@@ -94,7 +94,6 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(628, 26);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(70, 40);
@@ -126,7 +125,6 @@
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnModify.Enabled = false;
             this.btnModify.Location = new System.Drawing.Point(552, 26);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(70, 40);

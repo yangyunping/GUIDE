@@ -40,6 +40,7 @@
             this.cmbLEDId = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClearProgram = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,6 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "播放方式";
-            this.groupBox2.Visible = false;
             // 
             // label9
             // 
@@ -167,11 +167,22 @@
             this.btnClearProgram.UseVisualStyleBackColor = true;
             this.btnClearProgram.Click += new System.EventHandler(this.btnClearProgram_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
+            this.label2.Location = new System.Drawing.Point(44, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(219, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "播放方式由第三方动态库提供数据";
+            // 
             // FrmOperateLED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 482);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("微软雅黑", 10.5F);
@@ -184,6 +195,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -200,5 +212,6 @@
         private System.Windows.Forms.ComboBox cmbLEDId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Label label2;
     }
 }

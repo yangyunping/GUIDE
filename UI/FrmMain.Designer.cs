@@ -220,8 +220,8 @@
             this.tsmPreShow.Image = global::UI.Properties.Resources.Console;
             this.tsmPreShow.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmPreShow.Name = "tsmPreShow";
-            this.tsmPreShow.Size = new System.Drawing.Size(108, 39);
-            this.tsmPreShow.Text = "显示查询";
+            this.tsmPreShow.Size = new System.Drawing.Size(93, 39);
+            this.tsmPreShow.Text = "预显示";
             this.tsmPreShow.Click += new System.EventHandler(this.tsmPreShow_Click);
             // 
             // tsmShowLog
@@ -238,8 +238,8 @@
             this.tsmOperateLED.Image = global::UI.Properties.Resources.System;
             this.tsmOperateLED.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsmOperateLED.Name = "tsmOperateLED";
-            this.tsmOperateLED.Size = new System.Drawing.Size(120, 39);
-            this.tsmOperateLED.Text = "LED屏操作";
+            this.tsmOperateLED.Size = new System.Drawing.Size(108, 39);
+            this.tsmOperateLED.Text = "屏幕开关";
             this.tsmOperateLED.Click += new System.EventHandler(this.tsmOperateLED_Click);
             // 
             // tsbEmployee

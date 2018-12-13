@@ -31,7 +31,11 @@ namespace UI.LED
             cmbAreaId.DataSource = dtInfo;
             cmbByOrder.SelectedIndex = cmbPosition.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// 设置字体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
             if (fontDialogled.ShowDialog() == DialogResult.OK)
@@ -40,7 +44,11 @@ namespace UI.LED
                 fontName = fontDialogled.Font.Name;
             }
         }
-
+        /// <summary>
+        /// 设置字体颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFontColor_Click(object sender, EventArgs e)
         {
             if (colorDialogLed.ShowDialog() == DialogResult.OK)
@@ -48,7 +56,11 @@ namespace UI.LED
                 fontColor = colorDialogLed.Color.Name;
             }
         }
-
+        /// <summary>
+        /// 保存定时显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -92,7 +104,7 @@ namespace UI.LED
                                 lEDShowInfo.Duration = Convert.ToInt32(txtTIme.Text);
                                 lEDShowInfo.GroupName = txtGoupName.Text.Trim();
                                 lEDShowInfo.DeleteUpProgram = chkDeleteProgram.Checked;
-                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);
+                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);//保存到显示记录表中
                             }
                         }
                     }
@@ -122,7 +134,7 @@ namespace UI.LED
                                 lEDShowInfo.Duration = Convert.ToInt32(txtTIme.Text);
                                 lEDShowInfo.GroupName = txtGoupName.Text.Trim();
                                 lEDShowInfo.DeleteUpProgram = chkDeleteProgram.Checked;
-                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);
+                                ledShowInfo.InsertLedShowInfo(lEDShowInfo);//保存到显示记录表中
                             }
                         }
                     }
@@ -138,7 +150,11 @@ namespace UI.LED
                 MessageBox.Show("保存错误！"+ex.ToString());
             }
         }
-
+        /// <summary>
+        /// 根据选择的区域，筛选对应的屏幕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbAreaId_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbAreaId.SelectedValue != null && !string.IsNullOrEmpty(cmbAreaId.Text) && cmbAreaId.SelectedIndex != -1)

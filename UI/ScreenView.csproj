@@ -94,16 +94,16 @@
     <Compile Include="FrmConfig.designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmByOrderShow.cs">
+    <Compile Include="Screen\FrmByOrderShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmByOrderShow.Designer.cs">
+    <Compile Include="Screen\FrmByOrderShow.Designer.cs">
       <DependentUpon>FrmByOrderShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmDefinedShow.cs">
+    <Compile Include="Screen\FrmDefinedShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmDefinedShow.Designer.cs">
+    <Compile Include="Screen\FrmDefinedShow.Designer.cs">
       <DependentUpon>FrmDefinedShow.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmployee.cs">
@@ -124,10 +124,10 @@
     <Compile Include="FrmExample.Designer.cs">
       <DependentUpon>FrmExample.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmLEDSetting.cs">
+    <Compile Include="Screen\FrmLEDSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmLEDSetting.Designer.cs">
+    <Compile Include="Screen\FrmLEDSetting.Designer.cs">
       <DependentUpon>FrmLEDSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
@@ -142,16 +142,16 @@
     <Compile Include="FrmPassword.Designer.cs">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmSearchTemplet.cs">
+    <Compile Include="Screen\FrmSearchTemplet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmSearchTemplet.Designer.cs">
+    <Compile Include="Screen\FrmSearchTemplet.Designer.cs">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmLedShowInfoSearch.cs">
+    <Compile Include="Screen\FrmLedShowInfoSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmLedShowInfoSearch.Designer.cs">
+    <Compile Include="Screen\FrmLedShowInfoSearch.Designer.cs">
       <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmShow.cs">
@@ -160,10 +160,10 @@
     <Compile Include="FrmShow.Designer.cs">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmOperateLED.cs">
+    <Compile Include="Screen\FrmOperateLED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmOperateLED.Designer.cs">
+    <Compile Include="Screen\FrmOperateLED.Designer.cs">
       <DependentUpon>FrmOperateLED.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
@@ -178,16 +178,16 @@
     <Compile Include="FrmSkinEngine.Designer.cs">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmShowLogSearch.cs">
+    <Compile Include="Screen\FrmShowLogSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmShowLogSearch.Designer.cs">
+    <Compile Include="Screen\FrmShowLogSearch.Designer.cs">
       <DependentUpon>FrmShowLogSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmSreenToArea.cs">
+    <Compile Include="Screen\FrmSreenToArea.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmSreenToArea.Designer.cs">
+    <Compile Include="Screen\FrmSreenToArea.Designer.cs">
       <DependentUpon>FrmSreenToArea.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEncrypt.cs">
@@ -196,28 +196,28 @@
     <Compile Include="FrmEncrypt.designer.cs">
       <DependentUpon>FrmEncrypt.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmScreenSettingSearch.cs">
+    <Compile Include="Screen\FrmScreenSettingSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmScreenSettingSearch.Designer.cs">
+    <Compile Include="Screen\FrmScreenSettingSearch.Designer.cs">
       <DependentUpon>FrmScreenSettingSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmTempletLED.cs">
+    <Compile Include="Screen\FrmTempletLED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmTempletLED.Designer.cs">
+    <Compile Include="Screen\FrmTempletLED.Designer.cs">
       <DependentUpon>FrmTempletLED.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmTempletSearch.cs">
+    <Compile Include="Screen\FrmTempletSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LED\FrmTempletSearch.Designer.cs">
+    <Compile Include="Screen\FrmTempletSearch.Designer.cs">
       <DependentUpon>FrmTempletSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="LED\FrmTempletSendLED.cs">
+    <Compile Include="Screen\FrmTempletSendLED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LED\FrmTempletSendLED.Designer.cs">
+    <Compile Include="Screen\FrmTempletSendLED.Designer.cs">
       <DependentUpon>FrmTempletSendLED.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -228,10 +228,10 @@
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmByOrderShow.resx">
+    <EmbeddedResource Include="Screen\FrmByOrderShow.resx">
       <DependentUpon>FrmByOrderShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmDefinedShow.resx">
+    <EmbeddedResource Include="Screen\FrmDefinedShow.resx">
       <DependentUpon>FrmDefinedShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployee.resx">
@@ -243,7 +243,7 @@
     <EmbeddedResource Include="FrmExample.resx">
       <DependentUpon>FrmExample.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmLEDSetting.resx">
+    <EmbeddedResource Include="Screen\FrmLEDSetting.resx">
       <DependentUpon>FrmLEDSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
@@ -252,16 +252,16 @@
     <EmbeddedResource Include="FrmPassWord.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmSearchTemplet.resx">
+    <EmbeddedResource Include="Screen\FrmSearchTemplet.resx">
       <DependentUpon>FrmSearchTemplet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmLedShowInfoSearch.resx">
+    <EmbeddedResource Include="Screen\FrmLedShowInfoSearch.resx">
       <DependentUpon>FrmLedShowInfoSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmShow.resx">
       <DependentUpon>FrmShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmOperateLED.resx">
+    <EmbeddedResource Include="Screen\FrmOperateLED.resx">
       <DependentUpon>FrmOperateLED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
@@ -270,25 +270,25 @@
     <EmbeddedResource Include="FrmSkinEngine.resx">
       <DependentUpon>FrmSkinEngine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmShowLogSearch.resx">
+    <EmbeddedResource Include="Screen\FrmShowLogSearch.resx">
       <DependentUpon>FrmShowLogSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmSreenToArea.resx">
+    <EmbeddedResource Include="Screen\FrmSreenToArea.resx">
       <DependentUpon>FrmSreenToArea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEncrypt.resx">
       <DependentUpon>FrmEncrypt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmScreenSettingSearch.resx">
+    <EmbeddedResource Include="Screen\FrmScreenSettingSearch.resx">
       <DependentUpon>FrmScreenSettingSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmTempletLED.resx">
+    <EmbeddedResource Include="Screen\FrmTempletLED.resx">
       <DependentUpon>FrmTempletLED.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmTempletSearch.resx">
+    <EmbeddedResource Include="Screen\FrmTempletSearch.resx">
       <DependentUpon>FrmTempletSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LED\FrmTempletSendLED.resx">
+    <EmbeddedResource Include="Screen\FrmTempletSendLED.resx">
       <DependentUpon>FrmTempletSendLED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

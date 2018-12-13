@@ -22,9 +22,9 @@ namespace UI
         private string fontName = "宋体";//字体名称
         BllScreeenSetting bllScreeenSetting = new BllScreeenSetting();
         BllLedShowInfo ledShowInfo = new BllLedShowInfo();
-        private DataTable dtScreen = null;
-        private int sWidth = 0;
-        private int sHeight = 0;
+        private DataTable dtScreen = null;//屏幕信息
+        private int sWidth = 0;//屏幕宽
+        private int sHeight = 0;//屏幕高
         public FrmDefinedShow()
         {
             InitializeComponent();
@@ -56,6 +56,11 @@ namespace UI
             cmbLEDId.DataSource = dtScreen;
             cmbLEDId.SelectedIndex = 0;
         }
+        /// <summary>
+        /// 添加字体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFontSetting_Click(object sender, EventArgs e)
         {
             if (fontDialogLed.ShowDialog() == DialogResult.OK)
@@ -65,7 +70,11 @@ namespace UI
                 fontSize = Convert.ToInt32(fontDialogLed.Font.Size);
             }
         }
-
+        /// <summary>
+        /// 添加字体颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFontColor_Click(object sender, EventArgs e)
         {
             try
@@ -80,7 +89,11 @@ namespace UI
             }
             catch (Exception) { }
         }
-
+        /// <summary>
+        /// 添加文本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddTxt_Click(object sender, EventArgs e)
         {
             try
@@ -152,31 +165,36 @@ namespace UI
         {
             try
             {
+                LEDShowInfo showInfo = new LEDShowInfo();
+             
+                showInfo.ScreenId = cmbLEDId.Text;
+                showInfo.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
+                showInfo.Content = string.IsNullOrEmpty(txtContent.Text) ? "日期星期时间显示" : txtContent.Text;
+                showInfo.FontColor = fontColor.ToString();
+                showInfo.FontName = fontName;
+                showInfo.FontSize = fontSize;
+                showInfo.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
+                showInfo.FontBold = chkFoild.Checked;
+                showInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1;
+                showInfo.Duration = Convert.ToInt32(txtTIme.Text);
                 if (LEDShow.SendData(Convert.ToInt32(cmbLEDId.SelectedValue)))
                 {
-                    //开始显示日志记录
-                    LEDShowInfo showInfo = new LEDShowInfo();
-                    showInfo.SendState = "自定义实时发送";
-                    showInfo.ScreenId = cmbLEDId.Text;
-                    showInfo.AddressNum = Convert.ToInt32(cmbLEDId.SelectedValue);
-                    showInfo.Content =string.IsNullOrEmpty(txtContent.Text)? "日期星期时间显示":txtContent.Text;
-                    showInfo.FontColor = fontColor.ToString();
-                    showInfo.FontName = fontName;
-                    showInfo.FontSize = fontSize;
-                    showInfo.ShowStyle = Convert.ToInt32(cmbShowType.SelectedValue);
-                    showInfo.FontBold = chkFoild.Checked;
-                    showInfo.Position = cmbPosition.Text.Equals("居中") ? 1 : cmbPosition.Text.Equals("左对齐") ? 0 : cmbPosition.Text.Equals("右对齐") ? 2 : 1;
-                    showInfo.Duration = Convert.ToInt32(txtTIme.Text);
+                    showInfo.SendState = "自定义实时发送成功";
                     ledShowInfo.InserScreenLog(showInfo);
-                    MessageBox.Show("发送成功！");
+                    MessageBox.Show("发送成功！");//显示日志记录
                 }
                 else
                 {
-                    MessageBox.Show("发送失败！");
+                    showInfo.SendState = "自定义实时发送失败";
+                    ledShowInfo.InserScreenLog(showInfo);
+                    MessageBox.Show("发送失败！");//显示日志记录
                 }
             }
             catch { }
         }
+        /// <summary>
+        /// 添加节目
+        /// </summary>
         private void AddProgram()
         {
             if (string.IsNullOrEmpty(txtTIme.Text))
@@ -197,7 +215,11 @@ namespace UI
             fontColor = 0x00FF;
             fontName = "宋体";
         }
-
+        /// <summary>
+        /// 根据屏幕编号获取参数值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbLEDId_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
